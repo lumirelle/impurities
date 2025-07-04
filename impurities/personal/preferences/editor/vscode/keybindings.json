@@ -6,5 +6,10 @@
   {
     "key": "ctrl+i",
     "command": "composerMode.agent"
+  },
+  {
+    "key": "ctrl+alt+oem_3",
+    "command": "workbench.action.terminal.relaunch",
+    "when": "terminalProcessSupported"
   }
 ]
