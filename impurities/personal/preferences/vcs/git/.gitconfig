@@ -1,0 +1,272 @@
+[user]
+# Please replace the following with your own information.
+name = Lumirelle
+email = shabbyacc@outlook.com
+
+[credential "https://gitee.com"]
+provider = generic
+
+[core]
+ignorecase = false
+symlinks = true
+
+[log]
+date = short
+decoration = short
+
+[init]
+defaultBranch = main
+
+[stash]
+includeUntracked = true
+
+[branch]
+sort = -committerdate
+
+[fetch]
+prune = true
+output = compact
+# !! Do not set `pruneTags` as `true`, it's not compatible with some tag tools, like `bumpp` !!
+# Because `bumpp` will create a local tag and fetch from remote, then push the local tag to remote.
+# If we set `pruneTags` as `true`, it will delete the local tag when fetching from remote, which is not what we want.
+# So, it's recommended to set `pruneTags` as `false`, and set a alias to sync tags instead.
+pruneTags = false
+
+[pull]
+rebase = true
+
+[merge]
+conflictstyle = zdiff3
+ff = no
+
+[diff]
+algorithm = histogram
+
+[rerere]
+enabled = true
+
+[alias]
+# ENHANCEMENTS ALIASES
+# aliases
+# WHY USING `!`?
+# 1: `!` means execute the command in the shell, not in the git command line.
+aliases = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
+# log
+log = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+log-last = log -1 HEAD --stat
+# config
+config-list = config --list
+config-global = config --global
+# discard
+# If the file is tracked, then restore the file to the working directory.
+# If the file is untracked, then delete the file.
+# WHY USING FUNCTION?
+# 1: Support special characters in parameters.
+# 2: Support variables.
+# 3: Refuse unexpected parameters provided by user.
+discard = "!f() { \
+  if git ls-files --error-unmatch -- \"$1\" >/dev/null 2>&1; then \
+    git restore --staged --worktree -- \"$1\"; \
+  else \
+    if [ -e \"$1\" ]; then \
+      git clean -fd -- \"$1\" >/dev/null 2>&1; \
+    fi; \
+  fi; \
+}; f"
+discard-all = "!git restore --staged --worktree && git clean -df"
+# add
+add-all = add .
+add-undo = reset HEAD --       # Move staged changes back to the working directory
+add-undo-all = reset HEAD -- . # Move all staged changes back to the working directory
+# commit
+commit-with-message = commit --message
+commit-undo = reset --soft HEAD^ # Move commit back to the staging area
+# add & commit
+add-then-commit = "!f() { \
+  git add \"$1\"; \
+  git commit; \
+}; f"
+add-then-commit-with-message = "!f() { \
+  git add \"$1\"; \
+  git commit-with-message \"$2\"; \
+}; f"
+add-all-then-commit = "!f() { \
+  git add-all; \
+  git commit; \
+}; f"
+add-all-then-commit-with-message = "!f() { \
+  git add-all; \
+  git commit-with-message \"$1\"; \
+}; f"
+# amend commit
+amend-commit = commit --amend --no-edit
+amend-commit-with-edit = commit --amend
+# wip
+wip = "!git add-all && git commit-with-message 'wip: temporary commit'"
+wip-undo = "!git log -n 1 | grep -q -c 'wip' && git reset HEAD~1"
+# stash
+stash-push = stash push
+stash-list = stash list
+stash-undo = stash pop
+stash-drop = stash drop
+# branch
+branch-list-local = branch
+branch-list-remote = branch --remote
+branch-list-all = branch --all
+branch-delete-local = branch --delete
+branch-force-delete-local = branch --delete --force
+branch-delete-origin = push --delete origin
+branch-rename = "!f() { \
+  git branch --move \"$1\" \"$2\"; \
+  git push-origin-delete \"$1\"; \
+  git push-origin-upstream-current-branch \"$2\"; \
+}; f"
+# branch & switch
+branch-then-switch = switch --create
+# merge
+merge-with-default-message = "!f() { \
+  current_branch=$(git branch --show-current); \
+  git merge \"$1\" --no-ff --message \"merge: merge $1 into $current_branch\"; \
+}; f"
+merge-abort = merge --abort
+# rebase
+rebase-abort = rebase --abort
+# cherry-pick
+cherry-pick-abort = cherry-pick --abort
+# tag
+tag-list = tag --list
+tag-list-remote = ls-remote --tags
+tag-delete = tag --delete
+tag-delete-multiple = "!f() { \
+  git tag --list \"$1\" | xargs git tag --delete; \
+}; f"
+tag-sync-remote = "!f() { \
+  git push-origin :refs/tags/$1; \
+  git fetch-prune-tags; \
+}; f"
+tag-sync-remote-multiple = "!f() { \
+  git tag-list \"$1\" | xargs -I {} git push-origin :refs/tags/{}; \
+  git fetch-prune-tags; \
+}; f"
+# remote
+remote-add = remote add
+remote-remove = remote remove
+# fetch
+fetch-prune-tags = fetch --prune-tags # We will clean up unused tags when specify command `*-prune-tags`
+# pull
+pull-prune-tags = "!git fetch --prune-tags && git pull"
+# push
+push-origin = push origin
+push-origin-delete = push --delete origin
+push-origin-upstream-current-branch = "!f() { \
+  current_branch=$(git branch --show-current); \
+  git push --set-upstream origin \"$current_branch\"; \
+}; f"
+# pull & push
+pull-then-push = "!git pull-prune-tags && git push"
+
+# SHORTCUTS ALIASES
+#
+# -- SUFFIX INTRODUCTION
+# <TO SPECIFY ADDITIONAL BEHAVIOR>
+# `l`: `list`
+# `u`: `undo`, which means recover the status **after an operation is completed**
+# `x`: `discard | delete | drop`, which means **drop things** we don't need any more
+# `r`: `rename`
+# `z`: `abort`, which means **interrupt an operation**, we will not complete the operation
+# `s`: `sync`, which means **sync the changes** with the remote repository after we complete an operation locally
+# <TO SPECIFY TARGET>
+# `g`: `global`
+# `a`: `all`
+# `o`: `remote` (by default, it's standing for `origin`)
+# `m`: `multiple`
+# <TO SPECIFY PARAMETERS>
+# `m`: with `--message` parameter
+# `e`: with `--edit` parameter
+# `f`: with `--force` parameter
+#
+# -- ALIAS LIST
+# config: cf
+cf = config
+cfg = config-global
+cfl = config-list
+# init: i
+i = init
+# clone: cl
+cl = clone
+# discard: x
+x = discard
+xa = discard-all
+# add: a
+a = add
+aa = add-all
+au = add-undo
+aua = add-undo-all
+# commit: c
+c = commit
+cm = commit-with-message
+cu = commit-undo
+# add & commit: a*c*
+ac = add-then-commit
+acm = add-then-commit-with-message
+aac = add-all-then-commit
+aacm = add-all-then-commit-with-message
+# amend commit: amc
+amc = amend-commit
+amce = amend-commit-with-edit
+# wip: wip
+wipu = wip-undo
+# stash: s
+s = stash-push
+sl = stash-list
+su = stash-undo
+sx = stash-drop
+# branch: b
+b = branch
+bl = branch-list-local
+blo = branch-list-remote
+bla = branch-list-all
+bx = branch-delete-local
+bxf = branch-delete-local-force
+bxo = branch-delete-origin # Remote branch has no force delete operation
+br = branch-rename
+# switch: w
+w = switch
+# branch & switch: b*w*
+bw = branch-then-switch
+# merge: m
+m = merge-with-default-message
+mz = merge-abort
+# rebase: r
+r = rebase
+rz = rebase-abort
+# reset: rs
+rs = reset
+# revert: rv
+rv = revert
+# cherry-pick: cp
+cp = cherry-pick
+cpz = cherry-pick-abort
+# tag: t
+t = tag
+tl = tag-list
+tlo = tag-list-remote
+tx = tag-delete
+txm = tag-delete-multiple
+tso = tag-sync-remote
+tsom = tag-sync-remote-multiple
+# remote: o
+o = remote-add
+ol = remote
+ox = remote-remove
+# fetch: f
+f = fetch-prune-tags
+# pull: l
+l = pull-prune-tags
+# push: p
+p = push
+po = push-origin
+pox = push-origin-delete
+pou = push-origin-upstream-current-branch
+# pull & push: l*p*
+lp = pull-then-push

@@ -1,0 +1,63 @@
+/// The functions for generating CSS variables & `var()` function
+
+@use "../variables/config/selector" as selector-config;
+@use "sass:list";
+@use "sass:meta";
+
+/// Generate CSS variable name from specific string list with predefined namespace
+/// @access public
+/// @param {String | String... | List[String]} $args - A string, or strings in rest argument form or list form
+/// @return {String} CSS variable name
+/// @example
+///   getVarName('button-text-color') => '--cs-button-text-color'
+/// @example
+///   getVarName('button', 'text-color') => '--cs-button-text-color'
+/// @example
+///   getVarName(('button', 'text-color')) => '--cs-button-text-color'
+@function get-var-name($args...) {
+  $name: "--" + selector-config.$namespace;
+  $list: $args;
+
+  @if list.length($args) == 1 {
+    @if meta.type-of(list.nth($args, 1)) == "list" or meta.type-of(list.nth($args, 1)) == "arglist" {
+      $list: list.nth($args, 1);
+    }
+  }
+
+  @each $item in $list {
+    @if $item != "" {
+      $name: $name + "-" + $item;
+    }
+  }
+
+  @return $name;
+}
+
+/// Generate CSS variable name with `var()` function
+/// @access public
+/// @param {String | String... | List[String]} $args - A string, or strings in rest argument form or list form
+/// @return {Var()} `var()` function with CSS variable name
+/// @example
+///   getVar('button-text-color') => var(--cs-button-text-color)
+/// @example
+///   getVar('button', 'text-color') => var(--cs-button-text-color)
+/// @example
+///   getVar(('button', 'text-color')) => var(--cs-button-text-color)
+@function get-var($args...) {
+  @return var(#{get-var-name($args)});
+}
+
+/// Generate CSS variable name with `var()` function and default value
+/// @access public
+/// @param {String | List[String]} $args - A string, or strings in list form
+/// @param {Any} $default - Default value
+/// @return {Var()} `var()` function with CSS variable name and default value
+/// @example
+///   getVarDefault(red, 'button-text-color') => var(--cs-button-text-color, red)
+/// @example
+///   getVarDefault(red, 'button', 'text-color') => var(--cs-button-text-color, red)
+/// @example
+///   getVarDefault(red, ('button', 'text-color')) => var(--cs-button-text-color, red)
+@function get-var-default($default, $args...) {
+  @return var(#{get-var-name($args)}, #{$default});
+}

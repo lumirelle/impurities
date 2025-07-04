@@ -1,0 +1,64 @@
+/// The mixins for setting CSS Variables
+
+@use "sass:map";
+@use "sass:color";
+@use "../functions/css-var" as *;
+
+/// Generate CSS variable name, and set it in current scope with a certain value
+/// @access public
+/// @param {String | List[String]} $name - A string, or strings in list form
+/// @param {Any} $value - Value
+/// @example
+///   @include set-var('color-primary', red);
+///   --cs-color-primary: red;
+/// @example
+///   @include set-var(('color', 'primary'), red);
+///   --cs-color-primary: red;
+@mixin set-var($name, $value) {
+  #{get-var-name($name)}: #{$value};
+}
+
+/// Process all keys in the SCSS map, and set all CSS variables from them
+/// @access public
+/// @param {String} $name - A string
+/// @param {Map} $map - SCSS map contains multiple keys and values
+/// @example
+///   @include set-vars('bg-color', $bg-color);
+///   --cs-bg-color: $bg-color.'';
+///   --cs-bg-color-light: $bg-color.light;
+///   --cs-bg-color-dark: $bg-color.dark;
+///   --cs-bg-color-primary: $bg-color.primary;
+///   --cs-bg-color-overlay: $bg-color.overlay;
+/// @example
+///   @include set-vars('text-color', $text-color);
+///   --cs-text-color: $text-color.default;
+///   --cs-text-color-light: $text-color.light;
+///   --cs-text-color-dark: $text-color.dark;
+///   --cs-text-color-primary: $text-color.primary;
+///   --cs-text-color-overlay: $text-color.overlay;
+@mixin set-vars($name, $map) {
+  @each $key, $value in $map {
+    @if $key == "default" {
+      #{get-var-name($name)}: #{$value};
+    } @else {
+      #{get-var-name($name, $key)}: #{$value};
+    }
+  }
+}
+
+/// Generate CSS variable name, and set it in current scope with a certain value from existing CSS variable
+/// @access public
+/// @param {String | List[String]} $name - A string, or strings in list form
+/// @param {String | List[String]} $existing-name - A string, or strings in list form
+/// @example
+///   @include set-var-existing('button-text-color', 'color-primary');
+///   --cs-button-text-color: var(--cs-color-primary);
+/// @example
+///   @include set-var-existing(('button', 'text-color'), ('color', 'primary'));
+///   --cs-button-text-color: var(--cs-color-primary);
+@mixin set-var-existing($name, $existing-name) {
+  $name: get-var-name($name);
+  $existing-name: get-var-name($existing-name);
+
+  #{$name}: var(#{$existing-name});
+}

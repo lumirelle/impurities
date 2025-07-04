@@ -1,0 +1,35 @@
+{
+  // -- ui --
+  "material-icon-theme.folders.associations": {
+    "impurities": "Resource",
+    "impurities/personal": "Public",
+    "impurities/work": "Private"
+  },
+  // -- files
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  // -- format & lint --
+  "prettier.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll.markdownlint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml"
+  ],
+  "stylelint.validate": ["css", "postcss", "scss", "html", "vue"]
+}

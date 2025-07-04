@@ -1,0 +1,28 @@
+{
+  // cspell:disable
+  // PROFILE_JS VSCODE EXTENSIONS, BASED ON PROFILE_DEFAULT
+  "recommendations": [
+    // ↓↓ package manager & version control
+    "antfu.pnpm-catalog-lens",
+    "jasonnutter.search-node-modules",
+
+    // ↓↓ language & file support, formatter, linter, snippets
+    // -- language & file support
+    "dotenv.dotenv-vscode",
+    // -- linter
+    "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx
+    "stylelint.vscode-stylelint", // also the formatter for styles
+
+    // ↓↓ coding helper
+    // -- behavior
+    "fractalbrew.backticks",
+    "ecmel.vscode-html-css",
+    "antfu.goto-alias",
+    "chakrounanas.turbo-console-log",
+    "ritwickdey.liveserver"
+
+    // ↓↓ extension count
+    // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 47} = 57}
+    // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 45} = 55}
+  ]
+}

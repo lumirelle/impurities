@@ -1,0 +1,56 @@
+/**
+ * Based on https://www.totaltypescript.com/tsconfig-cheat-sheet
+ */
+{
+  // ↓↓ Compiler Options
+  "compilerOptions": {
+    // ↓↓ Base Options
+    // -- Target & Library
+    "target": "es2022",
+    "module": "preserve",
+    "lib": [
+      "es2022",
+      "webworker",
+      "dom",
+      "dom.iterable"
+    ],
+    // -- Compatibility
+    "allowJs": true,
+    "esModuleInterop": true,
+    // -- Performance
+    "skipLibCheck": true,
+    // -- Modules
+    "moduleDetection": "force",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    // ↓↓ Strictness
+    // -- General
+    "noUncheckedSideEffectImports": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    // -- TS Only
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    // ↓↓ Emit
+    "noEmit": true,
+
+    // ↓↓ Paths
+    "paths": {
+      "@/*": ["./*"],
+      "~/*": ["./*"]
+      /* Add your custom paths here */
+    }
+  },
+
+  // ↓↓ Excluded files
+  "exclude": [
+    "**/.nuxt/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/node_modules/**"
+    /* Add your custom excluded files here */
+  ]
+}

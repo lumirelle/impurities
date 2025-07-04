@@ -1,0 +1,104 @@
+{
+  "name": "impurities",
+  "type": "module",
+  "version": "0.0.0-dev.1",
+  "packageManager": "pnpm@10.12.4",
+  "description": "It includes all kinds of impurities, preferences, docs, resources, templates, etc.",
+  "author": "Lumirelle <shabbyacc@outlook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/Lumirelle",
+  "homepage": "https://github.com/Lumirelle/impurities",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lumirelle/impurities.git"
+  },
+  "bugs": "https://github.com/Lumirelle/impurities/issues",
+  "keywords": [
+    "impurities",
+    "preferences",
+    "docs",
+    "resources",
+    "templates"
+  ],
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./iip": "./dist/iip.mjs",
+    "./iup": "./dist/iup.mjs",
+    "./icp": "./dist/icp.mjs",
+    "./ict": "./dist/ict.mjs"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "bin": {
+    "iip": "./bin/iip.mjs",
+    "iup": "./bin/iup.mjs",
+    "icp": "./bin/icp.mjs",
+    "ict": "./bin/ict.mjs"
+  },
+  "files": [
+    "CATALOGS.json",
+    "bin",
+    "dist",
+    "impurities/personal/preferences",
+    "impurities/personal/preferences/package-manager/npm/.npmrc",
+    "impurities/personal/templates"
+  ],
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "prepublishOnly": "pnpm build && pnpm catalogs",
+    "preuninstall": "pnpm iup",
+    "catalogs": "tsx scripts/catalogs.ts",
+    "dev": "npm link && pnpm stub",
+    "iip": "node ./bin/iip.mjs",
+    "iup": "node ./bin/iup.mjs",
+    "icp": "node ./bin/icp.mjs",
+    "ict": "node ./bin/ict.mjs",
+    "typecheck": "tsc",
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "release": "bumpp && pnpm publish",
+    "lint": "run-s lint:*",
+    "lint:js": "eslint --cache .",
+    "lint:style": "stylelint --cache **/*.{css,postcss,scss,html,vue}",
+    "fix": "run-s fix:*",
+    "fix:js": "eslint --cache --fix .",
+    "fix:style": "stylelint --cache --fix **/*.{css,postcss,scss,html,vue}"
+  },
+  "dependencies": {
+    "ansis": "catalog:prod",
+    "tinyglobby": "catalog:prod"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:dev",
+    "@commitlint/cli": "catalog:dev",
+    "@commitlint/config-conventional": "catalog:dev",
+    "@posva/prompts": "catalog:prod-inlined",
+    "@prettier/plugin-xml": "catalog:dev",
+    "@stylistic/stylelint-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "bumpp": "catalog:dev",
+    "eslint": "catalog:dev",
+    "eslint-plugin-format": "catalog:dev",
+    "lint-staged": "catalog:dev",
+    "simple-git-hooks": "catalog:dev",
+    "stylelint": "catalog:dev",
+    "stylelint-config-html": "catalog:dev",
+    "stylelint-config-recess-order": "catalog:dev",
+    "stylelint-config-standard-scss": "catalog:dev",
+    "stylelint-config-standard-vue": "catalog:dev",
+    "taze": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "unbuild": "catalog:dev",
+    "vitest": "catalog:dev"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm catalogs && git add CATALOGS.json && pnpm lint-staged",
+    "commit-msg": "npx commitlint --edit $1"
+  },
+  "lint-staged": {
+    "*": "eslint --cache --fix",
+    "*.{css,postcss,scss,html,vue}": "stylelint --cache --fix"
+  }
+}

@@ -1,0 +1,73 @@
+-- me --
+Lumirelle
+
+-- other people --
+antfu
+JanDeDobbeleer
+Schniz
+Meiryo
+
+-- animals --
+Loong
+Merlion
+
+-- fonts --
+lxgw
+monaspace
+SJlurong
+
+-- os --
+LOCALAPPDATA
+winget
+
+-- software --
+Ventoy
+DISM++
+OhMyPosh
+gsudo
+fnm
+Navicat
+
+-- terminal --
+pwsh
+
+-- git --
+amde
+
+-- editor --
+nvim
+
+-- java --
+graalvm
+javax
+projectlombok
+mybatis
+baomidou
+jsqlparser
+webapps
+springframework
+thymeleaf
+pagehelper
+fastjson
+
+-- js --
+jquery
+nuxt
+taze
+commitlint
+lintstagedrc
+changelogithub
+adduser
+preprod
+
+-- third party platform --
+iconfont
+aliyun
+opencollective
+ITELLYOU
+taobao
+cnpm
+
+-- others --
+nologo
+Qrcode

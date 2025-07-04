@@ -1,0 +1,43 @@
+/**
+ * Based on https://www.totaltypescript.com/tsconfig-cheat-sheet
+ */
+{
+  // ↓↓ Compiler Options
+  "compilerOptions": {
+    // ↓↓ Base Options
+    // -- Target & Library
+    "target": "es2022",
+    "module": "preserve",
+    "lib": [
+      "es2022"
+    ],
+    // -- Compatibility
+    "allowJs": true,
+    "esModuleInterop": true,
+    // -- Performance
+    "skipLibCheck": true,
+    // -- Modules
+    "moduleDetection": "force",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    // ↓↓ Strictness
+    // -- General
+    "noUncheckedSideEffectImports": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    // -- TS Only
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    // ↓↓ Emit
+    "noEmit": true
+  },
+
+  // ↓↓ Excluded files
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**"
+  ]
+}
