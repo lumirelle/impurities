@@ -18,7 +18,7 @@ Main dependencies:
 shell
 
 ```shell
-ni useless-analyzer-webpack-plugin@latest -D
+ni unimported-analyzer-webpack-plugin@latest -D
 ```
 
 ### 手动配置
