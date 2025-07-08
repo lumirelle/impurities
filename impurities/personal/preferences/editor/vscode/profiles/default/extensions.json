@@ -68,11 +68,12 @@
     "christian-kohler.path-intellisense",
     "john681611.relativepath",
     "tombonnike.vscode-status-bar-format-toggle",
+    "helixquar.randomeverything",
     "github.copilot", // NOTE: VSCODE
     "github.copilot-chat" // NOTE: VSCODE
 
     // ↓↓ extension count
-    // vscode: {PROFILE_DEFAULT: 50 - 3 = 47}
-    // cursor: {PROFILE_DEFAULT: 50 - 5 = 45}
+    // vscode: {PROFILE_DEFAULT: 51 - 3 = 48}
+    // cursor: {PROFILE_DEFAULT: 51 - 5 = 46}
   ]
 }
