@@ -64,6 +64,7 @@
     "antfu.smart-clicks",
     "albert.tabout",
     "yatki.vscode-surround",
+    "britesnow.vscode-toggle-quotes",
     "cardinal90.multi-cursor-case-preserve",
     "christian-kohler.path-intellisense",
     "john681611.relativepath",
@@ -73,7 +74,7 @@
     "github.copilot-chat" // NOTE: VSCODE
 
     // ↓↓ extension count
-    // vscode: {PROFILE_DEFAULT: 51 - 3 = 48}
-    // cursor: {PROFILE_DEFAULT: 51 - 5 = 46}
+    // vscode: {PROFILE_DEFAULT: 52 - 3 = 49}
+    // cursor: {PROFILE_DEFAULT: 52 - 5 = 47}
   ]
 }

@@ -17,14 +17,13 @@
     // -- editor views
     "wallabyjs.console-ninja",
     // -- behavior
-    "fractalbrew.backticks",
     "ecmel.vscode-html-css",
     "antfu.goto-alias",
     "chakrounanas.turbo-console-log",
     "ritwickdey.liveserver"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 48} = 59}
-    // cursor: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 46} = 57}
+    // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 49} = 59}
+    // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 47} = 57}
   ]
 }
