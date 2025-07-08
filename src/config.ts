@@ -73,7 +73,7 @@ export const PREFERENCE_COLLECTIONS: PreferenceCollection[] = [
         folder: join(env.LOCALAPPDATA || '', 'nvim'),
       },
       {
-        pattern: 'editor/vscode/{settings,keybindings}.json',
+        pattern: 'editor/vscode/{settings,keybindings,mcp}.json',
         folder: [
           join(env.APPDATA || '', 'Code', 'User'),
           join(env.APPDATA || '', 'Cursor', 'User'),

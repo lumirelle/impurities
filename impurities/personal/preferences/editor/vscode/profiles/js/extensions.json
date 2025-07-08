@@ -14,6 +14,8 @@
     "stylelint.vscode-stylelint", // also the formatter for styles
 
     // ↓↓ coding helper
+    // -- editor views
+    "wallabyjs.console-ninja",
     // -- behavior
     "fractalbrew.backticks",
     "ecmel.vscode-html-css",
@@ -22,7 +24,7 @@
     "ritwickdey.liveserver"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 47} = 57}
-    // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 45} = 55}
+    // vscode: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 47} = 58}
+    // cursor: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 45} = 56}
   ]
 }
