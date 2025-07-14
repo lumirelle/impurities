@@ -111,7 +111,7 @@ export function extractString(parameters: Parameter[], extractOptions: ExtractOp
   // Throw if the parameter is not null and not a string
   if (result !== null && typeof result !== 'string')
     throw new InvalidParameterValueTypeError(`${keys.join(', ')} expected string, but got ${typeof result}: ${result}`)
-  return String(result)
+  return result === null ? null : String(result)
 }
 
 export function extractBoolean(parameters: Parameter[], extractOptions: ExtractOptions): boolean {

@@ -7,7 +7,8 @@
             "prefabricated-dish-manual.md": ""
           },
           "log": {
-            "2025-06-30.md": ""
+            "2025-06-30.md": "",
+            "YYYY-MM-DD.md": ""
           }
         },
         "technique": {
@@ -310,9 +311,6 @@
                 "tsserver.CMD": "",
                 "tsserver.ps1": ""
               },
-              ".vue-global-types": {
-                "vue_2.7_0_0_0.d.ts": ""
-              },
               "typescript": {
                 "bin": {
                   "tsc": "",
@@ -470,16 +468,6 @@
                   "_typingsInstaller.js": ""
                 },
                 "LICENSE.txt": "",
-                "node_modules": {
-                  ".bin": {
-                    "tsc": "",
-                    "tsc.CMD": "",
-                    "tsc.ps1": "",
-                    "tsserver": "",
-                    "tsserver.CMD": "",
-                    "tsserver.ps1": ""
-                  }
-                },
                 "package.json": "",
                 "README.md": "",
                 "SECURITY.md": "",
@@ -855,9 +843,6 @@
                 "tsserver.CMD": "",
                 "tsserver.ps1": ""
               },
-              ".vue-global-types": {
-                "vue_2.7_0_0_0.d.ts": ""
-              },
               "typescript": {
                 "bin": {
                   "tsc": "",
@@ -1015,16 +1000,6 @@
                   "_typingsInstaller.js": ""
                 },
                 "LICENSE.txt": "",
-                "node_modules": {
-                  ".bin": {
-                    "tsc": "",
-                    "tsc.CMD": "",
-                    "tsc.ps1": "",
-                    "tsserver": "",
-                    "tsserver.CMD": "",
-                    "tsserver.ps1": ""
-                  }
-                },
                 "package.json": "",
                 "README.md": "",
                 "SECURITY.md": "",
@@ -1098,7 +1073,7 @@
         },
         "readme": {
           "log": {
-            "YYYY-MM-DD.md": ""
+            "yyyy-mm-dd.md": ""
           },
           "minimal": {
             "README.md": ""

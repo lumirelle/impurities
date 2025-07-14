@@ -13,17 +13,17 @@ import { isAdmin } from './permission'
 /**
  * Install preferences in all preference collections to the target path.
  * @param root - The root path of this package
- * @param override - Whether to override the existing preference
+ * @param force - Whether to force the existing preference
  * @returns A promise that resolves when the preference collections are installed, or rejects with an error
  */
 export async function installPreferences(
   root: string,
-  override = false,
+  force = false,
 ): Promise<void> {
   // Check if require administrator permission
-  if (override) {
+  if (force) {
     if (!isAdmin()) {
-      return Promise.reject(new Error('Override mode requires administrator permission'))
+      return Promise.reject(new Error('Force mode requires administrator permission'))
     }
   }
 
@@ -65,7 +65,7 @@ export async function installPreferences(
           // Copy mode
           if (matcher.mode === 'copy') {
             try {
-              if (copyFile(preferencePath, installPreferencePath, override)) {
+              if (copyFile(preferencePath, installPreferencePath, force)) {
                 log.success(`Copied file: ${format.path(relative(root, preferencePath))} >> ${format.path(installPreferencePath)}`)
               }
             }
@@ -76,7 +76,7 @@ export async function installPreferences(
           // Symlink mode
           else {
             try {
-              if (await createSymlink(preferencePath, installPreferencePath, override)) {
+              if (await createSymlink(preferencePath, installPreferencePath, force)) {
                 log.success(`Created symlink: ${format.path(installPreferencePath)} -> ${format.path(relative(root, preferencePath))}`)
               }
             }
@@ -221,10 +221,10 @@ export async function findPreference(root: string, sourceName: string): Promise<
  * @param cwd - The current working directory
  * @param sourceName - The name of the preference to copy
  * @param targetPath - The target path to copy the preference to
- * @param override - Whether to override the existing preference
+ * @param force - Whether to force the existing preference
  * @returns A promise that resolves when the preference is copied, or rejects with an error
  */
-export async function copyPastePreference(root: string, cwd: string, sourceName: string | null, targetPath: string | null, override: boolean): Promise<void> {
+export async function copyPastePreference(root: string, cwd: string, sourceName: string | null, targetPath: string | null, force: boolean): Promise<void> {
   if (!sourceName) {
     const { source } = await prompts({
       type: 'text',
@@ -250,7 +250,7 @@ export async function copyPastePreference(root: string, cwd: string, sourceName:
   }
   ensureDir(dirname(targetPath))
 
-  if (copyFile(sourcePath, targetPath, override)) {
+  if (copyFile(sourcePath, targetPath, force)) {
     log.success(`Copied file: ${format.path(relative(root, sourcePath))} >> ${format.path(targetPath)}`)
   }
 
@@ -317,10 +317,10 @@ export async function findTemplate(root: string, sourceName: string): Promise<st
  * @param cwd - The current working directory
  * @param sourceName - The name of the template to copy
  * @param targetPath - The target path to copy the template to
- * @param override - Whether to override the existing template
+ * @param force - Whether to force the existing template
  * @returns A promise that resolves when the template is copied, or rejects with an error
  */
-export async function copyPasteTemplate(root: string, cwd: string, sourceName: string | null, targetPath: string | null, override: boolean): Promise<void> {
+export async function copyPasteTemplate(root: string, cwd: string, sourceName: string | null, targetPath: string | null, force: boolean): Promise<void> {
   if (!sourceName) {
     const { source } = await prompts({
       type: 'text',
@@ -346,7 +346,7 @@ export async function copyPasteTemplate(root: string, cwd: string, sourceName: s
   }
   ensureDir(dirname(targetPath))
 
-  if (copyFile(sourcePath, targetPath, override)) {
+  if (copyFile(sourcePath, targetPath, force)) {
     log.success(`Copied file: ${format.path(relative(root, sourcePath))} >> ${format.path(targetPath)}`)
   }
 
