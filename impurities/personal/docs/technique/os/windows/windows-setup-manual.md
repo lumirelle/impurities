@@ -106,23 +106,23 @@ BypassNRO.cmd
 
 - 按顺序安装并配置剩余的基建软件：
 
-  | 软件名称                        | 来源/安装命令                                                              | 备注                                               |
-  | ------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------- |
-  | Brave                           | <https://brave.com/download/>                                              |                                                    |
-  | uTools                          | <https://www.u-tools.cn/download/>                                         | 插件：npm包实时搜索、编码小助手、聚合翻译          |
-  | Auto Dark Mode                  | <https://apps.microsoft.com/detail/xp8jk4hzbvf435>                         |                                                    |
-  | NanaZip                         | <https://www.microsoft.com/store/apps/9N8G7TSCL18R>                        |                                                    |
-  | KeePass 2                       | <https://keepass.info/download.html>                                       | 插件：ColoredPassword、HaveIBeenPwned、KeePassHttp |
-  | Visual Studio Code              | <https://code.visualstudio.com/Download>                                   |                                                    |
-  | Cursor                          | <https://www.cursor.com/cn/downloads>                                      |                                                    |
-  | IDM                             | <https://www.internetdownloadmanager.com/download.html>                    |                                                    |
-  | Git                             | <https://git-scm.com/download/win>                                         |                                                    |
-  | Visual C++ Redistributable      | <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist> |                                                    |
-  | Context Menu Manager            | <https://github.com/BluePointLilac/ContextMenuManager/releases>            |                                                    |
-  | Windows 11 Context Menu Manager | <https://github.com/branhill/windows-11-context-menu-manager/releases>     |                                                    |
-  | DISM++                          | <https://github.com/Chuyu-Team/Dism-Multi-language/releases>               |                                                    |
-  | Driver Store Explorer           | <https://github.com/lostindark/DriverStoreExplorer/releases>               |                                                    |
-  | Revo Uninstaller                | <https://www.revouninstaller.com/zh/revo-uninstaller-free-download/>       |                                                    |
+  | 软件名称                        | 来源/安装命令                                                              | 备注                                                |
+  | ------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------- |
+  | Brave                           | <https://brave.com/download/>                                              |                                                     |
+  | uTools                          | <https://www.u-tools.cn/download/>                                         | 插件：npm包实时搜索、编码小助手、聚合翻译、Any Rule |
+  | Auto Dark Mode                  | <https://apps.microsoft.com/detail/xp8jk4hzbvf435>                         |                                                     |
+  | NanaZip                         | <https://www.microsoft.com/store/apps/9N8G7TSCL18R>                        |                                                     |
+  | KeePass 2                       | <https://keepass.info/download.html>                                       | 插件：ColoredPassword、HaveIBeenPwned、KeePassHttp  |
+  | Visual Studio Code              | <https://code.visualstudio.com/Download>                                   |                                                     |
+  | Cursor                          | <https://www.cursor.com/cn/downloads>                                      |                                                     |
+  | IDM                             | <https://www.internetdownloadmanager.com/download.html>                    |                                                     |
+  | Git                             | <https://git-scm.com/download/win>                                         |                                                     |
+  | Visual C++ Redistributable      | <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist> |                                                     |
+  | Context Menu Manager            | <https://github.com/BluePointLilac/ContextMenuManager/releases>            |                                                     |
+  | Windows 11 Context Menu Manager | <https://github.com/branhill/windows-11-context-menu-manager/releases>     |                                                     |
+  | DISM++                          | <https://github.com/Chuyu-Team/Dism-Multi-language/releases>               |                                                     |
+  | Driver Store Explorer           | <https://github.com/lostindark/DriverStoreExplorer/releases>               |                                                     |
+  | Revo Uninstaller                | <https://www.revouninstaller.com/zh/revo-uninstaller-free-download/>       |                                                     |
 
 - 按顺序安装如下工具软件：
 

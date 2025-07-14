@@ -359,7 +359,6 @@
   "css.styleSheets": ["**/*.css", "**/*.postcss", "**/*.scss"],
   "dotenv.enableAutocloaking": false,
   "turboConsoleLog.quote": "'",
-  "turboConsoleLog.logMessagePrefix": "⏳",
-  "turboConsoleLog.includeFilename": true,
-  "terminal.integrated.env.windows": {}
+  "turboConsoleLog.logMessagePrefix": "😎",
+  "turboConsoleLog.includeFilename": true
 }
