@@ -35,6 +35,7 @@
     "somewhatstationery.some-sass",
     "glenn2223.live-sass",
     "ms-vscode.powershell", // also the formatter & linter & snippets for powershell
+    "pomdtr.excalidraw-editor",
     "brandonfowler.exe-runner",
     "sandcastle.vscode-open",
     "ms-vscode.hexeditor",
@@ -58,6 +59,7 @@
     // -- editor views
     "antfu.file-nesting",
     "antfu.array-index-inlay",
+    "yoavbls.pretty-ts-errors",
     "usernamehw.errorlens",
     "moalamri.inline-fold",
     // -- behavior
@@ -70,11 +72,14 @@
     "john681611.relativepath",
     "tombonnike.vscode-status-bar-format-toggle",
     "helixquar.randomeverything",
+    "JannisX11.batch-rename-extension",
+    "rhalaly.scope-to-this",
+    "zjffun.snippetsmanager",
     "github.copilot", // NOTE: VSCODE
     "github.copilot-chat" // NOTE: VSCODE
 
     // ↓↓ extension count
-    // vscode: {PROFILE_DEFAULT: 52 - 3 = 49}
-    // cursor: {PROFILE_DEFAULT: 52 - 5 = 47}
+    // vscode: {PROFILE_DEFAULT: 57 - 3 = 54}
+    // cursor: {PROFILE_DEFAULT: 57 - 5 = 52}
   ]
 }

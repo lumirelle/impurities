@@ -14,7 +14,7 @@
     "elemefe.vscode-element-helper" // also the snippets for element-ui
 
     // ↓↓ extension count
-    // vscode: {PROFILE_VUE2: 4 + {PROFILE_JS: 59} = 63}
-    // cursor: {PROFILE_VUE2: 4 + {PROFILE_JS: 57} = 61}
+    // vscode: {PROFILE_VUE2: 4 + {PROFILE_JS: 64} = 68}
+    // cursor: {PROFILE_VUE2: 4 + {PROFILE_JS: 62} = 66}
   ]
 }

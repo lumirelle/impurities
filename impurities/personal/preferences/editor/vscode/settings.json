@@ -36,7 +36,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 2025/7/15 13:16:33",
+    "//": "Last update at 7/15/2025, 5:53:24 PM",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .lfsconfig, .mailmap, .git-blame*",
@@ -141,8 +141,8 @@
     "*.layout-template": "vue",
     "*.vue": "vue",
     ".env*": "dotenv",
-    "LICENSE": "plaintext",
-    "*.json": "jsonc"
+    "*.json": "jsonc",
+    "LICENSE": "plaintext"
   },
 
   // ↓↓ vscode: behavior
@@ -187,6 +187,7 @@
   "explorer.confirmDragAndDrop": false,
   "security.workspace.trust.enabled": false,
   "terminal.integrated.persistentSessionReviveProcess": "never",
+  "window.newWindowProfile": "Default",
   "workbench.startupEditor": "none",
 
   // ↓↓ vscode: format & formatter
@@ -277,6 +278,7 @@
   "powershell.integratedConsole.showOnStartup": false,
   "powershell.promptToUpdatePowerShell": false,
   "redhat.telemetry.enabled": false,
+  "excalidraw.theme": "auto",
   // -- formatter
   "editorconfig.showMenuEntry": false,
   "formattingToggle.affects": ["editor.formatOnSave"],
