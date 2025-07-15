@@ -19,21 +19,105 @@
   }
 }
 
-/// Ellipsis
+/// Text Ellipsis
 /// @access public
 /// @param {Number} $line-clamp - Line clamp, default is 1
 /// @example
-///   @include ellipsis(2);
-@mixin ellipsis($line-clamp: 1) {
-  @if $line-clamp > 1 {
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: $line-clamp;
-    -webkit-box-orient: vertical;
-  } @else {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+///   @include text-ellipsis(2);
+@mixin text-ellipsis($line-clamp: 1) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $line-clamp;
+  line-clamp: $line-clamp;
+  -webkit-box-orient: vertical;
+}
+
+/// Image By Size
+/// @access public
+/// @param {Number} $width - Width
+/// @param {Number} $height - Height
+/// @example
+///   @include image-size(100px, 100px);
+///   @include image-size(100px);
+@mixin image-size($width, $height: null) {
+  width: $width;
+  height: if($height == null, $width, $height);
+  object-fit: contain;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/// Gradient Border
+/// Limitation: Based on the `after` & `before` pseudo elements, so it's not suitable for all cases.
+/// @access public
+/// @param {String} $border-color - Border color
+/// @param {String} $border-margin - Border margin
+/// @param {String} $hover-border-color - Hover border color
+/// @param {String} $hover-border-margin - Hover border margin
+/// @param {String} $bg-color - Background color
+/// @param {String} $transition - Transition
+/// @param {Boolean} $isolation - Isolation
+/// @example
+///   @include gradient-border(#000, 2px, #fff, 2px);
+@mixin gradient-border(
+  $border-color,
+  $border-margin,
+  $hover-border-color: null,
+  $hover-border-margin: null,
+  $bg-color: #fff,
+  $transition: "all 0.3s ease",
+  $isolation: false,
+) {
+  $selector: &;
+
+  position: relative;
+  background: $bg-color !important;
+  background-clip: padding-box;
+  border-color: transparent !important;
+
+  &::before,
+  &::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    border-radius: inherit;
+    transition: $transition;
+  }
+
+  &::before {
+    margin: $border-margin !important;
+    background: $border-color !important;
+    opacity: 1;
+  }
+
+  &::after {
+    margin: if($hover-border-margin == null, $border-margin, $hover-border-margin) !important;
+    background: if($hover-border-color == null, $border-color, $hover-border-color) !important;
+    opacity: 0;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  @at-root {
+    @if $isolation {
+      *:has(> #{$selector}) {
+        isolation: isolate;
+      }
+    }
   }
 }

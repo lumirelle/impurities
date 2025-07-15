@@ -36,7 +36,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 7/4/2025, 9:29:29 AM",
+    "//": "Last update at 2025/7/15 13:16:33",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .lfsconfig, .mailmap, .git-blame*",
@@ -150,6 +150,7 @@
   "editor.mouseWheelScrollSensitivity": 2,
   "editor.fastScrollSensitivity": 3,
   "terminal.integrated.mouseWheelScrollSensitivity": 2,
+  "terminal.integrated.env.windows": {},
   "terminal.integrated.fastScrollSensitivity": 3,
   "workbench.list.mouseWheelScrollSensitivity": 2,
   "workbench.list.fastScrollSensitivity": 3,
@@ -168,6 +169,15 @@
     "**/bun.lock": true
   },
   "search.showLineNumbers": true,
+  // -- emmet
+  "emmet.preferences": {
+    "bem.modifierSeparator": "--"
+  },
+  "emmet.syntaxProfiles": {
+    "html": {
+      "filters": "bem"
+    }
+  },
   // -- others
   "editor.mouseWheelZoom": true,
   "editor.gotoLocation.multipleDefinitions": "goto",
@@ -177,7 +187,6 @@
   "explorer.confirmDragAndDrop": false,
   "security.workspace.trust.enabled": false,
   "terminal.integrated.persistentSessionReviveProcess": "never",
-  "window.newWindowProfile": "Default",
   "workbench.startupEditor": "none",
 
   // ↓↓ vscode: format & formatter
@@ -360,6 +369,5 @@
   "dotenv.enableAutocloaking": false,
   "turboConsoleLog.quote": "'",
   "turboConsoleLog.logMessagePrefix": "😎",
-  "turboConsoleLog.includeFilename": true,
-  "terminal.integrated.env.windows": {}
+  "turboConsoleLog.includeFilename": true
 }
