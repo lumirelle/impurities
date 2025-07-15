@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "vue": "catalog:project-templates/vue2"
+    "vue": "catalog:example/vue2"
   },
   "devDependencies": {
     "typescript": "catalog:dev"
