@@ -360,5 +360,6 @@
   "dotenv.enableAutocloaking": false,
   "turboConsoleLog.quote": "'",
   "turboConsoleLog.logMessagePrefix": "😎",
-  "turboConsoleLog.includeFilename": true
+  "turboConsoleLog.includeFilename": true,
+  "terminal.integrated.env.windows": {}
 }

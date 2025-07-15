@@ -197,7 +197,7 @@ export const TEMPLATE_COLLECTIONS: TemplateCollection[] = [
     source: `${IMPURITIES_PATH}/personal/templates`,
     copyPasteIgnoreMatchers: [
       {
-        pattern: '**/project/**/*',
+        pattern: '**/example/**/*',
       },
     ],
   },

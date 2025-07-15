@@ -251,18 +251,52 @@
       },
       "templates": {
         "code": {
+          "scss": {
+            "abstracts": {
+              "functions": {
+                "_color.scss": "",
+                "_css-var.scss": "",
+                "_index.scss": "",
+                "_selector.scss": ""
+              },
+              "mixins": {
+                "_base-color.scss": "",
+                "_css-var.scss": "",
+                "_index.scss": "",
+                "_placeholder.scss": "",
+                "_res.scss": "",
+                "_selector.scss": "",
+                "_utils.scss": ""
+              },
+              "variables": {
+                "config": {
+                  "_base-color.scss": "",
+                  "_res.scss": "",
+                  "_selector.scss": ""
+                },
+                "_common.scss": "",
+                "_index.scss": ""
+              },
+              "_index.scss": ""
+            },
+            "public.scss": ""
+          },
           "vue2": {
-            "GradientBorder.vue": ""
+            "components": {
+              "GradientBorder.vue": ""
+            },
+            "hooks": {
+              "use-i18n.js": "",
+              "use-namespace.js": ""
+            }
+          },
+          "vue3": {
+            "hooks": {
+              "use-namespace.ts": ""
+            }
           }
         },
-        "license": {
-          "LICENSE": ""
-        },
-        "marks": {
-          "outdated": "",
-          "placeholder": ""
-        },
-        "project": {
+        "example": {
           "vue2-scss-bem": {
             "assets": {
               "styles": {
@@ -297,9 +331,7 @@
               }
             },
             "hooks": {
-              "use-namespace": {
-                "index.js": ""
-              }
+              "use-namespace.js": ""
             },
             "jsconfig.json": "",
             "node_modules": {
@@ -310,6 +342,9 @@
                 "tsserver": "",
                 "tsserver.CMD": "",
                 "tsserver.ps1": ""
+              },
+              ".vue-global-types": {
+                "vue_2.7_0_0_0.d.ts": ""
               },
               "typescript": {
                 "bin": {
@@ -468,6 +503,16 @@
                   "_typingsInstaller.js": ""
                 },
                 "LICENSE.txt": "",
+                "node_modules": {
+                  ".bin": {
+                    "tsc": "",
+                    "tsc.CMD": "",
+                    "tsc.ps1": "",
+                    "tsserver": "",
+                    "tsserver.CMD": "",
+                    "tsserver.ps1": ""
+                  }
+                },
                 "package.json": "",
                 "README.md": "",
                 "SECURITY.md": "",
@@ -830,9 +875,7 @@
               }
             },
             "hooks": {
-              "use-namespace": {
-                "index.ts": ""
-              }
+              "use-namespace.ts": ""
             },
             "node_modules": {
               ".bin": {
@@ -842,6 +885,10 @@
                 "tsserver": "",
                 "tsserver.CMD": "",
                 "tsserver.ps1": ""
+              },
+              ".vue-global-types": {
+                "vue_2.7_0_0_0.d.ts": "",
+                "vue_3.5_0_0_0.d.ts": ""
               },
               "typescript": {
                 "bin": {
@@ -1000,6 +1047,16 @@
                   "_typingsInstaller.js": ""
                 },
                 "LICENSE.txt": "",
+                "node_modules": {
+                  ".bin": {
+                    "tsc": "",
+                    "tsc.CMD": "",
+                    "tsc.ps1": "",
+                    "tsserver": "",
+                    "tsserver.CMD": "",
+                    "tsserver.ps1": ""
+                  }
+                },
                 "package.json": "",
                 "README.md": "",
                 "SECURITY.md": "",
@@ -1070,6 +1127,13 @@
             "README.md": "",
             "tsconfig.json": ""
           }
+        },
+        "license": {
+          "LICENSE": ""
+        },
+        "marks": {
+          "outdated": "",
+          "placeholder": ""
         },
         "readme": {
           "log": {

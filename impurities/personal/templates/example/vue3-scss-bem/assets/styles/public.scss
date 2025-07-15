@@ -1,0 +1,117 @@
+@use "abstracts";
+@use "sass:map";
+
+// -----------------------------------------------------------------------------
+// This file contains public styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+
+  // For mobile devices, set cursor to default
+  @include abstracts.res("md-") {
+    cursor: default !important;
+  }
+}
+
+// for better performance do not dynamically change the root variable if you really
+// do not need that, since this could introduce recalculation overhead for rendering.
+// https://lisilinhart.info/posts/css-variables-performance/
+
+/**
+ * Common CSS variables
+ */
+:root {
+  // Colors
+  @include abstracts.set-colors;
+
+  // Border
+  @include abstracts.set-vars("border-radius", abstracts.$border-radius);
+
+  // Overlay & Mask
+  @include abstracts.set-vars("overlay-color", abstracts.$overlay-color);
+  @include abstracts.set-vars("mask-color", abstracts.$mask-color);
+
+  // ZIndex
+  @include abstracts.set-vars("index", abstracts.$z-index);
+
+  // Typography
+  @include abstracts.set-vars("font-size", abstracts.$font-size);
+  @include abstracts.set-vars("font-family", abstracts.$font-family);
+  @include abstracts.set-vars("font-weight", abstracts.$font-weight);
+  @include abstracts.set-vars("line-height", abstracts.$line-height);
+
+  // Transition
+  // refer to this website to get the bezier motion function detail
+  // https://cubic-bezier.com/#p1,p2,p3,p4 (change px as your function parameter)
+  @include abstracts.set-vars("transition-duration", abstracts.$transition-duration);
+  @include abstracts.set-vars("transition-function", abstracts.$transition-function);
+  @include abstracts.set-vars("transition", abstracts.$transition);
+
+  // Content max width
+  @include abstracts.set-vars("content-max-width", abstracts.$content-max-width);
+}
+
+/**
+ * CSS variables for light scheme
+ */
+/* stylelint-disable-next-line no-duplicate-selectors */
+:root {
+  color-scheme: light;
+
+  // Colors
+  @include abstracts.set-colors-schema("light");
+
+  // Background
+  @include abstracts.set-vars("bg-color", abstracts.$bg-color);
+
+  // Text
+  @include abstracts.set-vars("text-color", abstracts.$text-color);
+
+  // Border
+  @include abstracts.set-vars("border-color", abstracts.$border-color);
+
+  // Border but based on border-color, so they should put after border-color
+  @include abstracts.set-var("border-width", abstracts.$border-width);
+  @include abstracts.set-var("border-style", abstracts.$border-style);
+  @include abstracts.set-var(
+    "border",
+    abstracts.get-var("border-width") abstracts.get-var("border-style") abstracts.get-var("border-color")
+  );
+}
+
+/**
+ * CSS variables for dark scheme
+ */
+html.dark {
+  color-scheme: dark;
+
+  // Colors
+  @include abstracts.set-colors-schema("dark");
+
+  // Background
+  @include abstracts.set-vars("bg-color", abstracts.$bg-color-dark);
+
+  // Text
+  @include abstracts.set-vars("text-color", abstracts.$text-color-dark);
+
+  // Border
+  @include abstracts.set-vars("border-color", abstracts.$border-color-dark);
+}

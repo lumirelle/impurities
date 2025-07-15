@@ -1,0 +1,126 @@
+/// The mixins for operating selector (BEM style & state check)
+
+@use "../variables/config/selector" as config;
+@use "../functions/selector" as *;
+
+/// Block name
+$--b: null;
+
+/// Element name
+$--e: null;
+
+/// Generate BEM selector for block
+/// @access public
+/// @param {String} $block - Block name
+/// @example
+///   @include b('button') {
+///     @content;
+///   }
+///   .button {
+///     @content;
+///   }
+@mixin b($block) {
+  $--b: config.$namespace + config.$common-separator + $block !global;
+
+  .#{$--b} {
+    @content;
+  }
+}
+
+/// Generate BEM selector for element
+/// @access public
+/// @param {String} $element - Element name
+/// @example
+///   @include e('button') {
+///     @content;
+///   }
+///   .#{$--b}__input {
+///     @content;
+///   }
+@mixin e($element) {
+  $--e: $element !global;
+  $selector: &;
+  $current-selector: "";
+
+  @each $unit in $element {
+    $current-selector: #{$current-selector + "." + $--b + config.$element-separator + $unit + ","};
+  }
+
+  @if has-special-nesting-rule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$current-selector} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      #{$current-selector} {
+        @content;
+      }
+    }
+  }
+}
+
+/// Generate BEM selector for modifier
+/// @access public
+/// @param {String} $modifier - Modifier name
+/// @example
+///   @include m('large', 'small) {
+///     @content;
+///   }
+///   .#{$--b}__#{$--e}--large,
+///   .#{$--b}__#{$--e}--small {
+///     @content;
+///   }
+@mixin m($modifier) {
+  $selector: &;
+  $current-selector: "";
+
+  @each $unit in $modifier {
+    $current-selector: #{$current-selector + $selector + config.$modifier-separator + $unit + ","};
+  }
+
+  @at-root {
+    #{$current-selector} {
+      @content;
+    }
+  }
+}
+
+/// Generate BEM selector for state
+/// @access public
+/// @param {String} $state - State name
+/// @example
+///   @include when('active') {
+///     @content;
+///   }
+///   .#{$--b}__#{$--e}--#{$--m}.is-active {
+///     @content;
+///   }
+@mixin when($state) {
+  @at-root {
+    &.#{config.$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+/// Generate BEM selector for state not
+/// @access public
+/// @param {String} $state - State name
+/// @example
+///   @include when-not('active') {
+///     @content;
+///   }
+///   .#{$--b}__#{$--e}--#{$--m}:not(.is-active) {
+///     @content;
+///   }
+@mixin when-not($state) {
+  @at-root {
+    &.#{':not(' + config.$state-prefix + $state + ')'} {
+      @content;
+    }
+  }
+}

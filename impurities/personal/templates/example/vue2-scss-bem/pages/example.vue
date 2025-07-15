@@ -1,5 +1,5 @@
 <script>
-import { useNamespace } from '@/hooks/use-namespace'
+import { useNamespace } from '@/hooks/use-namespace.js'
 
 export default {
   name: 'ExamplePage',

@@ -1,9 +1,11 @@
-import { computed, getCurrentInstance, inject, ref, unref } from '@vue/composition-api'
+import type { InjectionKey, Ref } from 'vue'
+
+import { computed, getCurrentInstance, inject, ref, unref } from 'vue'
 
 export const defaultNamespace = 'cs'
 const statePrefix = 'is-'
 
-function _bem(namespace, block, blockSuffix, element, modifier) {
+function _bem(namespace: string, block: string, blockSuffix: string, element: string, modifier: string) {
   let cls = `${namespace}-${block}`
   if (blockSuffix) {
     cls += `-${blockSuffix}`
@@ -17,9 +19,10 @@ function _bem(namespace, block, blockSuffix, element, modifier) {
   return cls
 }
 
-export const namespaceContextKey = Symbol('namespaceContextKey')
+export const namespaceContextKey: InjectionKey<Ref<string | undefined>>
+  = Symbol('namespaceContextKey')
 
-export function useGetDerivedNamespace(namespaceOverrides) {
+export function useGetDerivedNamespace(namespaceOverrides?: Ref<string | undefined>) {
   const derivedNamespace
     = namespaceOverrides
       || (getCurrentInstance()
@@ -31,39 +34,42 @@ export function useGetDerivedNamespace(namespaceOverrides) {
   return namespace
 }
 
-export function useNamespace(block, namespaceOverrides) {
+export function useNamespace(block: string, namespaceOverrides?: Ref<string | undefined>) {
   const namespace = useGetDerivedNamespace(namespaceOverrides)
   const b = (blockSuffix = '') =>
     _bem(namespace.value, block, blockSuffix, '', '')
-  const e = element =>
+  const e = (element?: string) =>
     element ? _bem(namespace.value, block, '', element, '') : ''
-  const m = modifier =>
+  const m = (modifier?: string) =>
     modifier ? _bem(namespace.value, block, '', '', modifier) : ''
-  const be = (blockSuffix, element) =>
+  const be = (blockSuffix?: string, element?: string) =>
     blockSuffix && element
       ? _bem(namespace.value, block, blockSuffix, element, '')
       : ''
-  const em = (element, modifier) =>
+  const em = (element?: string, modifier?: string) =>
     element && modifier
       ? _bem(namespace.value, block, '', element, modifier)
       : ''
-  const bm = (blockSuffix, modifier) =>
+  const bm = (blockSuffix?: string, modifier?: string) =>
     blockSuffix && modifier
       ? _bem(namespace.value, block, blockSuffix, '', modifier)
       : ''
-  const bem = (blockSuffix, element, modifier) =>
+  const bem = (blockSuffix?: string, element?: string, modifier?: string) =>
     blockSuffix && element && modifier
       ? _bem(namespace.value, block, blockSuffix, element, modifier)
       : ''
-  const is = (name, ...args) => {
-    const state = args.length >= 1 ? args[0] : true
+  const is: {
+    (name: string, state: boolean | undefined): string
+    (name: string): string
+  } = (name: string, ...args: [boolean | undefined] | []) => {
+    const state = args.length >= 1 ? args[0]! : true
     return name && state ? `${statePrefix}${name}` : ''
   }
 
   // for css var
   // --cs-xxx: value;
-  const cssVar = (object) => {
-    const styles = {}
+  const cssVar = (object: Record<string, string>) => {
+    const styles: Record<string, string> = {}
     for (const key in object) {
       if (object[key]) {
         styles[`--${namespace.value}-${key}`] = object[key]
@@ -72,8 +78,8 @@ export function useNamespace(block, namespaceOverrides) {
     return styles
   }
   // with block
-  const cssVarBlock = (object) => {
-    const styles = {}
+  const cssVarBlock = (object: Record<string, string>) => {
+    const styles: Record<string, string> = {}
     for (const key in object) {
       if (object[key]) {
         styles[`--${namespace.value}-${block}-${key}`] = object[key]
@@ -82,8 +88,8 @@ export function useNamespace(block, namespaceOverrides) {
     return styles
   }
 
-  const cssVarName = name => `--${namespace.value}-${name}`
-  const cssVarBlockName = name =>
+  const cssVarName = (name: string) => `--${namespace.value}-${name}`
+  const cssVarBlockName = (name: string) =>
     `--${namespace.value}-${block}-${name}`
 
   return {
@@ -102,3 +108,5 @@ export function useNamespace(block, namespaceOverrides) {
     cssVarBlockName,
   }
 }
+
+export type UseNamespaceReturn = ReturnType<typeof useNamespace>

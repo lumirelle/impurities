@@ -1,7 +1,6 @@
 # eslint-disable pnpm/yaml-no-duplicate-catalog-item
 packages:
-  - impurities/personal/templates/project/vue2-scss-bem
-  - impurities/personal/templates/project/vue3-scss-bem
+  - impurities/personal/templates/example/*
 
 catalogs:
   dev:

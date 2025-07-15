@@ -1,0 +1,73 @@
+/// The functions for operating the selector
+
+@use "../variables/config/selector" as config;
+@use "sass:meta";
+@use "sass:string";
+
+@function selector-to-string($selector) {
+  $selector: meta.inspect($selector);
+  $selector: string.slice($selector, 2, -2);
+
+  @return $selector;
+}
+
+@function has-modifier($selector) {
+  $selector: selector-to-string($selector);
+
+  @if string.index($selector, config.$modifier-separator) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// That's means the selector contains the state flag like `.is-disabled`
+@function has-when-flag($selector) {
+  $selector: selector-to-string($selector);
+
+  @if string.index($selector, "." + config.$state-prefix) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function has-pseudo-class($selector) {
+  $selector: selector-to-string($selector);
+
+  @if string.index($selector, ":") {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function has-special-nesting-rule($selector) {
+  @return has-modifier($selector) or has-when-flag($selector) or has-pseudo-class($selector);
+}
+
+/// Generate a BEM selector, commonly used in the case of setting the same style to multiple selectors
+/// @access public
+/// @param {String} $block - Block name
+/// @param {String} $element - Element name
+/// @param {String} $modifier - Modifier name
+/// @return {String} BEM selector
+/// @example
+///   .#{bem('color-picker')},
+///   .#{bem('color-picker', 'panel')} {
+///     @include css-var(('color-picker', 'alpha-bg-a'), '#ccc');
+///     @include css-var(('color-picker', 'alpha-bg-b'), 'transparent');
+///   }
+@function bem($block, $element: "", $modifier: "") {
+  $name: config.$namespace + config.$common-separator + $block;
+
+  @if $element != "" {
+    $name: $name + config.$element-separator + $element;
+  }
+
+  @if $modifier != "" {
+    $name: $name + config.$modifier-separator + $modifier;
+  }
+
+  @return $name;
+}
