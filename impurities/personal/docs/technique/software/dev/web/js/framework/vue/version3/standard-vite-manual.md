@@ -1,10 +1,10 @@
-# Vue.js 3 (Vite) 规范手册 / Vue.js 3 (Vite) Specification Manual
+# Vue 3 规范手册（Vite） / Vue 3 Standard Manual (Vite)
 
-Minimal requires: node@'^16.13.0 || ^18.12.0 || ^20.9.0 || >=22.0.0', npm@>=8, pnpm@>=7, yarn@>=1.
+Project Running requires (for docker image): node@'^20.19.0 || >=22.12.0', npm@>=10.
 
-Recommend requires: node@'^18.20.0 || ^20.10.0 || >=22.0.0', npm@>=9, pnpm@>=7, yarn@>=1.
+Project Developing requires (for us): node@'^20.19.0 || >=22.12.0', npm@>=10, pnpm@>=7, yarn@>=1.
 
-This article is based on node@18.20.8, npm@10.9.2, corepack@0.32.0, pnpm@10.12.3.
+This article is based on node@20.19.0, npm@10.9.2, corepack@0.33.0, pnpm@10.13.1.
 
 Main dependencies:
 
@@ -12,7 +12,7 @@ Main dependencies:
 - eslint@latest, stylelint@latest
 - simple-git-hooks@latest, lint-staged@latest, commitlint@latest
 
-## 🔧 更新 vscode 配置 和 git 配置
+## 🔧 更新 vscode 配置和 git 配置
 
 ### 快速配置
 
@@ -25,8 +25,8 @@ icp vue/extensions.json .vscode/ -f
 # -- 工作区设置
 icp vue/settings.json .vscode/ -f
 # -- js 编译器设置
-icp vue/jsconfig.json -f
-# -- 通用代码格式设置
+icp vue3/jsconfig.json -f
+# -- editor config
 icp .editorconfig -f
 
 # git 配置
@@ -40,15 +40,15 @@ icp nodejs.gitignore .gitignore -f
 
 .vscode/extensions.json
 
-See [here](/impurities/personal/preferences/editor/vscode-workspace/vue/extensions.json).
+See [here](/impurities/personal/preferences/editor/vscode/workspace/vue/extensions.json).
 
 .vscode/settings.json
 
-See [here](/impurities/personal/preferences/editor/vscode-workspace/vue/settings.json).
+See [here](/impurities/personal/preferences/editor/vscode/workspace/vue/settings.json).
 
 jsconfig.json
 
-See [here](/impurities/personal/preferences/editor/vscode-workspace/vue/jsconfig.json).
+See [here](/impurities/personal/preferences/project/vue3/jsconfig.json).
 
 .editorconfig
 
@@ -80,12 +80,8 @@ shell（This syntax of command `npm pkg set` requires npm@>=10.9.2）
 ```shell
 corepack use pnpm@latest-10
 
-# 运行本项目的“最小”要求:
-# node 版本符合 ^16.13.0 || ^18.12.0 || ^20.9.0 || >=22.0.0，
-# npm 版本符合 >=8
-# pnpm 版本符合 >=7
-# yarn 版本符合 >=1
-npm pkg set 'engines.node=^16.13.0 || ^18.12.0 || ^20.9.0 || >=22.0.0' 'engines.npm=>=9' 'engines.pnpm=>=7' 'engines.yarn=>=1'
+# Project running requires
+npm pkg set 'engines.node=^^20.19.0 || >=22.12.0' 'engines.npm=>=10'
 
 icp npm/.npmrc -f
 ```
@@ -99,12 +95,10 @@ package.json
   // ...
 
   // Used by corepack
-  "packageManager": "pnpm@10.12.3+sha512.467df2c586056165580ad6dfb54ceaad94c5a30f80893ebdec5a44c5aa73c205ae4a5bb9d5ed6bb84ea7c249ece786642bbb49d06a307df218d03da41c317417",
+  "packageManager": "pnpm@10.13.1",
   "engines": {
-    "node": "^16.13.0 || ^18.12.0 || ^20.9.0 || >=22.0.0",
-    "npm": ">=8",
-    "pnpm": ">=7",
-    "yarn": ">=1"
+    "node": "^20.19.0 || >=22.12.0",
+    "npm": ">=10"
   }
 
   // ...
@@ -115,15 +109,24 @@ package.json
 
 See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 
-## 🥡 基础依赖升级
+## 🥡 基础依赖
 
 shell
 
 ```shell
+# vue
 # vue, vue-router, pinia
 ni vue@latest vue-router@latest pinia@latest
-# vite
-ni vite@latest @vitejs/plugin-vue@latest -D
+# @vitejs/plugin-vue2 provide the ability to compiler vue template
+# We don't need vue-template-compiler anymore
+
+# builder & it's plugins
+# vite, @vitejs/plugin-vue
+ni vite@latest @vitejs/plugin-vue@latest -d
+
+# Others
+# vite-plugin-vue-devtools
+ni vite-plugin-vue-devtools@latest -d
 ```
 
 ## 🌟 设置代码检查与格式化
@@ -136,12 +139,13 @@ shell
 
 ```shell
 # eslint
-ni eslint@latest -D
+ni eslint@latest -d
+
 # eslint config
-# Since the version of 4.15.0, `@antfu/eslint-config` requires node@>=20
-ni @antfu/eslint-config@~4.14.1 -D
+ni @antfu/eslint-config@latest -d
+
 # eslint & prettier plugin
-ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
+ni eslint-plugin-format@latest @prettier/plugin-xml@latest -d
 ```
 
 ### 快速配置
@@ -168,17 +172,16 @@ shell
 
 ```shell
 # stylelint
-ni stylelint@latest -D
+ni stylelint@latest -d
+
 # stylelint config for html
-ni stylelint-config-html@latest -D
+ni stylelint-config-html@latest -d
 # stylelint config for scss
-# Since the version of 15.0.0, `stylelint-config-standard-scss` requires node@>=20
-ni stylelint-config-standard-scss@^14.0.0 -D
+ni stylelint-config-standard-scss@latest -d
 # stylelint config for vue
-ni stylelint-config-standard-vue@latest -D
+ni stylelint-config-standard-vue@latest -d
 # stylelint config for stylistic
-# Since the version of 7.0.0, `stylelint-config-recess-order` requires node@>=20
-ni @stylistic/stylelint-config@latest stylelint-config-recess-order@^6.1.0 -D
+ni @stylistic/stylelint-config@latest stylelint-config-recess-order@latest -d
 ```
 
 ### 快速配置
@@ -202,8 +205,7 @@ See [here](/impurities/personal/preferences/linter/stylelint/vue/stylelint.confi
 shell
 
 ```shell
-# Since the version of 8.0.0, `npm-run-all2` requires node@>=20
-ni npm-run-all2@^7.0.2 -D
+ni npm-run-all2@latest -d
 ```
 
 ### 快速配置
@@ -212,11 +214,11 @@ shell
 
 ```shell
 npm pkg set 'scripts.lint=run-s lint:*'
-npm pkg set 'scripts.lint:js=eslint --cache .'
-npm pkg set 'scripts.lint:style=stylelint --cache **/*.{css,postcss,scss,html,vue}'
+npm pkg set 'scripts.lint:js=eslint --cache --quiet .'
+npm pkg set 'scripts.lint:style=stylelint --cache --quiet **/*.{css,postcss,scss,html,vue}'
 npm pkg set 'scripts.fix=run-s fix:*'
-npm pkg set 'scripts.fix:js=eslint --cache --fix .'
-npm pkg set 'scripts.fix:style=stylelint --cache --fix **/*.{css,postcss,scss,html,vue}'
+npm pkg set 'scripts.fix:js=eslint --cache --fix --quiet .'
+npm pkg set 'scripts.fix:style=stylelint --cache --fix --quiet **/*.{css,postcss,scss,html,vue}'
 ```
 
 ### 手动配置
@@ -230,11 +232,11 @@ package.json
     // ...
 
     "lint": "run-s lint:*",
-    "lint:js": "eslint --cache .",
-    "lint:style": "stylelint --cache **/*.{css,postcss,scss,html,vue}",
+    "lint:js": "eslint --cache --quiet .",
+    "lint:style": "stylelint --cache --quiet **/*.{css,postcss,scss,html,vue}",
     "fix": "run-s fix:*",
-    "fix:js": "eslint --cache --fix .",
-    "fix:style": "stylelint --cache --fix **/*.{css,postcss,scss,html,vue}"
+    "fix:js": "eslint --cache --fix --quiet .",
+    "fix:style": "stylelint --cache --fix --quiet **/*.{css,postcss,scss,html,vue}"
 
     // ...
   }
@@ -249,9 +251,10 @@ shell
 
 ```shell
 # The performance of `simple-git-hooks` is much better than `husky`
-ni simple-git-hooks@latest -D
+ni simple-git-hooks@latest -d
+
 # lint-staged & commitlint
-ni lint-staged@latest @commitlint/cli@latest @commitlint/config-conventional@latest -D
+ni lint-staged@latest @commitlint/cli@latest @commitlint/config-conventional@latest -d
 ```
 
 ### 快速配置
@@ -262,7 +265,7 @@ shell
 npm pkg set 'scripts.prepare=simple-git-hooks'
 npm pkg set 'simple-git-hooks.pre-commit=npx lint-staged'
 npm pkg set 'simple-git-hooks.commit-msg=npx commitlint --edit $1'
-npm pkg set 'lint-staged.*=eslint --fix'
+npm pkg set 'lint-staged.*=eslint --cache --fix'
 npm pkg set 'lint-staged[*.{css,postcss,scss,html,vue}]=stylelint --cache --fix'
 
 icp commitlint/commitlint.config.mjs -f
@@ -310,22 +313,20 @@ shell
 # 限制 node 版本的罪魁祸首！
 nun node-sass
 
-# sass
-ni sass@latest -D
+# sass 和 sass-loader
+ni sass@latest sass-loader@version-10 -d
 ```
 
-### TODO: 手动配置
+### 手动配置
 
 vue.config.js
 
 ```js
-// TEST NEEDED
-
 module.exports = {
   // ...
 
   css: {
-    preprocessorOptions: {
+    loaderOptions: {
       scss: {
         sassOptions: {
           // scss 支持本身不需要任何配置
@@ -341,6 +342,8 @@ module.exports = {
         },
       },
     },
+
+    // ...
   },
 
   // ...
@@ -355,5 +358,5 @@ module.exports = {
 
 ```shell
 # taze：帮你轻松完成依赖升级
-npx taze minor -Iw
+nlx taze minor -rIw
 ```

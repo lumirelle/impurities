@@ -1,25 +1,14 @@
-# Nuxt.js 2 优化手册 / Nuxt.js 2 Optimization Manual
+# Nuxt 2 优化手册 / Nuxt 2 Optimization Manual
 
-Minimal requires: node@'^16.13.0 || ^18.12.0 || ^20.9.0 || >=22.0.0', npm@>=8, pnpm@>=7, yarn@>=1.
+## 1. 添加 unimported-analyzer-webpack-plugin，移除无用代码和资源文件
 
-Recommend requires: node@'^18.20.0 || ^20.10.0 || >=22.0.0', npm@>=9, pnpm@>=7, yarn@>=1.
-
-This article is based on node@18.20.8, npm@10.9.2, corepack@0.32.0, pnpm@10.12.3.
-
-Main dependencies:
-
-- nuxt@^2.18.1 (vue@^2, webpack@^4, babel@^7, core-js@^3)
-- eslint@latest, stylelint@latest
-
-## 1. 设置 webpack 打包优化和未导入文件检测插件
-
-### 依赖安装
+### 前置任务
 
 shell
 
 ```shell
 ni nuxt-precompress@latest
-ni unimported-analyzer-webpack-plugin@latest -D
+ni unimported-analyzer-webpack-plugin@latest -d
 ```
 
 ### 手动配置

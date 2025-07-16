@@ -17,30 +17,32 @@
               "placeholder": ""
             },
             "windows": {
-              "windows-setup-manual.md": ""
+              "setup-manual.md": ""
             }
           },
           "software": {
             "dev": {
               "editor": {
                 "vscode": {
-                  "vscode-manual.md": ""
+                  "basic-manual.md": ""
                 }
               },
               "vcs": {
                 "git": {
-                  "git-manual.md": ""
+                  "basic-manual.md": ""
                 }
               },
               "web": {
+                "frontend-manual.md": "",
                 "js": {
+                  "basic-manual.md": "",
                   "framework": {
                     "nuxt": {
                       "project-create-manual.md": "",
                       "version2": {
                         "basic-manual.md": "",
-                        "nuxt2-optimization-manual.md": "",
-                        "nuxt2-specification-manual.md": ""
+                        "optimization-manual.md": "",
+                        "standard-manual.md": ""
                       }
                     },
                     "vue": {
@@ -57,24 +59,22 @@
                       }
                     }
                   },
-                  "js-basic-manual.md": "",
                   "runtime": {
                     "browser": {
                       "placeholder": ""
                     },
                     "nodejs": {
-                      "nodejs-manual.md": "",
-                      "nodejs-pm-npm-manual.md": "",
-                      "nodejs-pm-pnpm-manual.md": "",
-                      "nodejs-pm-yarn-manual.md": ""
+                      "basic-manual.md": "",
+                      "pm-npm-manual.md": "",
+                      "pm-pnpm-manual.md": "",
+                      "pm-yarn-manual.md": ""
                     }
                   }
                 },
                 "ts": {
-                  "ts-basic-manual.md": "",
-                  "ts-config-files-manual.md": ""
-                },
-                "web-frontend-manual.md": ""
+                  "basic-manual.md": "",
+                  "config-files-manual.md": ""
+                }
               }
             }
           }
