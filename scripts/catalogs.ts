@@ -138,7 +138,7 @@ const paths = globSync(`${IMPURITIES_PATH}/**/*`, {
   cwd: process.cwd(),
   dot: true,
   absolute: false,
-  ignore: [`${IMPURITIES_PATH}/work/**/*`],
+  ignore: [`${IMPURITIES_PATH}/work/**/*`, '**/node_modules/**/*'],
 })
 
 const catalogs = transformPaths2Catalogs(paths)
