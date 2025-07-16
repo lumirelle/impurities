@@ -12,9 +12,7 @@ Loong
 Merlion
 
 -- fonts --
-lxgw
 monaspace
-SJlurong
 
 -- os --
 LOCALAPPDATA
@@ -59,6 +57,7 @@ lintstagedrc
 changelogithub
 adduser
 preprod
+unplugin
 
 -- third party platform --
 iconfont
