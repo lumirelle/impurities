@@ -8,28 +8,32 @@
  * ```
  */
 
-import { writeFileSync } from 'node:fs'
+// ------------------------------------------------------------
+// Imports
+// ------------------------------------------------------------
+
+import { execSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
+import { readFileSync, writeFileSync } from 'node:fs'
 import process from 'node:process'
 import { globSync } from 'tinyglobby'
 import { IMPURITIES_PATH } from '../src/config'
 import { log } from '../src/logger'
 
+// ------------------------------------------------------------
+// Types
+// ------------------------------------------------------------
+
 interface CatalogItem {
   [key: string]: CatalogItem | ''
 }
 
-/**
- * This will ignore the empty directories
- */
-const paths = globSync(`${IMPURITIES_PATH}/**/*`, {
-  cwd: process.cwd(),
-  dot: true,
-  absolute: false,
-  ignore: [`${IMPURITIES_PATH}/work/**/*`],
-})
+// ------------------------------------------------------------
+// Functions
+// ------------------------------------------------------------
 
 /**
- * Transform path list to nested catalog format
+ * Transform paths to nested catalogs
  *
  * @example
  *
@@ -64,7 +68,7 @@ const paths = globSync(`${IMPURITIES_PATH}/**/*`, {
  *   }
  * }
  */
-function transformPathList2Catalog(paths: string[]) {
+function transformPaths2Catalogs(paths: string[]): CatalogItem {
   const catalogs: CatalogItem = paths.reduce((acc, path) => {
     const pathParts = path.split('/')
 
@@ -89,9 +93,31 @@ function transformPathList2Catalog(paths: string[]) {
     return acc
   }, {})
 
+  return catalogs
+}
+
+/**
+ * Write catalogs to `CATALOGS.json`
+ */
+function writeCatalogsIfChanged(catalogs: CatalogItem) {
   try {
-    writeFileSync('CATALOGS.json', `${JSON.stringify(catalogs, null, 2)}\n`)
-    log.success('Catalogs generated successfully')
+    const currentCatalogs = readFileSync('CATALOGS.json', 'utf-8')
+    const currentCatalogsHash = createHash('md5').update(currentCatalogs).digest('hex')
+
+    const newCatalogs = `${JSON.stringify(catalogs, null, 2)}\n`
+    const newCatalogsHash = createHash('md5').update(newCatalogs).digest('hex')
+
+    if (currentCatalogsHash === newCatalogsHash) {
+      log.success('Catalogs are up to date')
+      return
+    }
+
+    writeFileSync('CATALOGS.json', newCatalogs)
+    // run git add CATALOGS.json
+    if (execSync('git status --porcelain CATALOGS.json').toString().trim().length > 0) {
+      execSync('git add CATALOGS.json', { stdio: 'inherit' })
+    }
+    log.success('Catalogs generated / updated successfully')
   }
   catch (error) {
     if (error instanceof Error) {
@@ -101,4 +127,20 @@ function transformPathList2Catalog(paths: string[]) {
   }
 }
 
-transformPathList2Catalog(paths)
+// ------------------------------------------------------------
+// Main
+// ------------------------------------------------------------
+
+/**
+ * This will ignore the empty directories
+ */
+const paths = globSync(`${IMPURITIES_PATH}/**/*`, {
+  cwd: process.cwd(),
+  dot: true,
+  absolute: false,
+  ignore: [`${IMPURITIES_PATH}/work/**/*`],
+})
+
+const catalogs = transformPaths2Catalogs(paths)
+
+writeCatalogsIfChanged(catalogs)
