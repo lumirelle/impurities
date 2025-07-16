@@ -19,6 +19,7 @@ winget install Schniz.fnm
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 # 启用 fnm 环境
+# NOTE: 不是所有版本的 node 都支持 corepack
 fnm env --use-on-cd --corepack-enabled --shell powershell | Out-String | Invoke-Expression
 
 # 安装 node 18 （将被设为默认版本）

@@ -1,4 +1,4 @@
-# VSCode 手册 / VS Code Manual
+# VSCode 基础手册 / VS Code Basic Manual
 
 ## 🕸️ JS/TS 项目 / For JS/TS Project
 

@@ -1,6 +1,6 @@
-# Git 手册 Git Manual
+# Git 基础手册 / Git Basic Manual
 
-## 什么是 Git？ What is Git?
+## 什么是 Git？ / What is Git?
 
 分布式版本控制系统。
 
@@ -16,7 +16,7 @@
 
 HEAD：指向当前分支的最新提交。
 
-## 怎么使用？ How to use?
+## 怎么使用？ / How to use?
 
 NOTE：本文中的命令缩写基于 [`.gitconfig`](/impurities/personal/preferences/vcs/git/.gitconfig) 中设置的 aliases。
 
