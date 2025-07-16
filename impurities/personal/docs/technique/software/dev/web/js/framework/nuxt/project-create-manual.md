@@ -13,6 +13,10 @@ npm create nuxt-app@^5 project-name
 
 ## 🚀 Nuxt 3
 
-### nuxi (vite)
+### create-nuxt (vite)
 
-TODO
+```shell
+# This will install and running the `create-nuxt-app` scaffold
+cd <FOLDER_TO_HOLDER_YOUR_PROJECT>
+npm create nuxt project-name
+```

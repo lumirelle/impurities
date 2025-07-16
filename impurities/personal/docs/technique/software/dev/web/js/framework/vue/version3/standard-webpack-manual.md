@@ -26,6 +26,8 @@ icp vue/extensions.json .vscode/ -f
 icp vue/settings.json .vscode/ -f
 # -- js 编译器设置
 icp vue3/jsconfig.json -f
+# -- ts 编译器设置
+icp vue3/jsconfig.json -f
 # -- editor config
 icp .editorconfig -f
 
@@ -49,6 +51,10 @@ See [here](/impurities/personal/preferences/editor/vscode/workspace/vue/settings
 jsconfig.json
 
 See [here](/impurities/personal/preferences/project/vue3/jsconfig.json).
+
+tsconfig.json
+
+See [here](/impurities/personal/preferences/project/vue3/tsconfig.json).
 
 .editorconfig
 

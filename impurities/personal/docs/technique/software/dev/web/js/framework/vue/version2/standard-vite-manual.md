@@ -8,7 +8,7 @@ This article is based on node@18.20.8, npm@10.9.2, corepack@0.33.0, pnpm@10.13.1
 
 Main dependencies:
 
-- vue@^2.7.16, vite@^4 (@vitejs/plugin-legacy@^4, @vitejs/plugin-vue2@latest)
+- vue@^2.7.16, vite@^4 (@vitejs/plugin-legacy@^4)
 - eslint@latest, stylelint@latest
 - simple-git-hooks@latest, lint-staged@latest, commitlint@latest
 

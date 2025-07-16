@@ -43,6 +43,9 @@
                         "basic-manual.md": "",
                         "optimization-manual.md": "",
                         "standard-manual.md": ""
+                      },
+                      "version3+": {
+                        "standard-manual.md": ""
                       }
                     },
                     "vue": {

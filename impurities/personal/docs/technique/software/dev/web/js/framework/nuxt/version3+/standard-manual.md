@@ -1,4 +1,4 @@
-# Vue 3 规范手册（Vite） / Vue 3 Standard Manual (Vite)
+# Nuxt 3+ 规范手册（Vite） / Nuxt 3+ Standard Manual (Vite)
 
 Project Running requires (for docker image): node@'^20.19.0 || >=22.12.0', npm@>=10.
 
@@ -8,7 +8,7 @@ This article is based on node@20.19.0, npm@10.9.2, corepack@0.33.0, pnpm@10.13.1
 
 Main dependencies:
 
-- vue@latest, vite@latest
+- nuxt@latest (vue@^latest, vite@^latest)
 - eslint@latest, stylelint@latest
 - simple-git-hooks@latest, lint-staged@latest, commitlint@latest
 
@@ -24,10 +24,7 @@ shell（For command `icp`, please see [README.md#command_setup](/README.md#comma
 icp vue/extensions.json .vscode/ -f
 # -- 工作区设置
 icp vue/settings.json .vscode/ -f
-# -- js 编译器设置
-icp vue3/jsconfig.json -f
-# -- ts 编译器设置
-icp vue3/tsconfig.json -f
+# NOTE: Nuxt 3+ is fully typed & has integrated `tsconfig.json`
 # -- editor config
 icp .editorconfig -f
 
@@ -47,14 +44,6 @@ See [here](/impurities/personal/preferences/editor/vscode/workspace/vue/extensio
 .vscode/settings.json
 
 See [here](/impurities/personal/preferences/editor/vscode/workspace/vue/settings.json).
-
-jsconfig.json
-
-See [here](/impurities/personal/preferences/project/vue3/jsconfig.json).
-
-tsconfig.json
-
-See [here](/impurities/personal/preferences/project/vue3/tsconfig.json).
 
 .editorconfig
 
@@ -120,19 +109,17 @@ See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 shell
 
 ```shell
+# nuxt
+ni nuxt@latest
+
 # vue
 # vue, vue-router, pinia
 ni vue@latest vue-router@latest pinia@latest
 # @vitejs/plugin-vue provide the ability to compiler vue template
-# We don't need vue-template-compiler anymore
+# nuxt@>=3 provide the ability of vue-server-renderer
+# We don't need vue-template-compiler & vue-server-renderer anymore
 
-# builder & it's plugins
-# vite, @vitejs/plugin-vue
-ni vite@latest @vitejs/plugin-vue@latest -d
-
-# Others
-# vite-plugin-vue-devtools
-ni vite-plugin-vue-devtools@latest -d
+# builder & it's plugins are bundled by nuxt
 ```
 
 ## 🌟 设置代码检查与格式化
@@ -325,14 +312,16 @@ ni sass@latest sass-loader@version-10 -d
 
 ### 手动配置
 
-vue.config.js
+nuxt.config.js
 
 ```js
-module.exports = {
+export default defineNuxtConfig({
   // ...
 
-  css: {
-    loaderOptions: {
+  webpack: {
+    // ...
+
+    loaders: {
       scss: {
         sassOptions: {
           // scss 支持本身不需要任何配置
@@ -353,10 +342,53 @@ module.exports = {
   },
 
   // ...
-}
+})
 ```
 
 ## 🧹 项目兼容性 & 可维护性
+
+### [cross-env](https://www.npmjs.com/package/cross-env)
+
+#### 前置任务
+
+shell
+
+```shell
+# cross-env：为运行 NPM 脚本时设置环境变量提供跨平台兼容性，目前仅在基于 webpack 4 的项目见到过使用案例（不包括封装了 webpack 4 的 vue-cli）
+ni cross-env@latest -d
+```
+
+#### 手动配置
+
+NOTE：需要使用 cross-env 代理的 npm 脚本应手动配置。设置了环境变量，才需要改为通过 cross-env 来执行。
+
+package.json
+
+```json
+{
+  // ...
+
+  "scripts": {
+    // ...
+
+    // 设置了环境变量，改为通过 cross-env 来执行
+    "dev": "cross-env BUILD_ENV=develop nuxt dev",
+    "dev:test": "cross-env BUILD_ENV=test nuxt dev",
+    "dev:preprod": "cross-env BUILD_ENV=preprod nuxt dev",
+    "dev:prod": "cross-env BUILD_ENV=production nuxt dev",
+    "build:dev": "cross-env BUILD_ENV=develop nuxt build",
+    "build:test": "cross-env BUILD_ENV=test  nuxt build",
+    "build:preprod": "cross-env BUILD_ENV=preprod  nuxt build",
+    "build:prod": "cross-env BUILD_ENV=production  nuxt build",
+    // 没设置环境变量，无需改变
+    "start": "nuxt preview"
+
+    // ...
+  }
+
+  // ...
+}
+```
 
 ### [taze](https://www.npmjs.com/package/taze)
 

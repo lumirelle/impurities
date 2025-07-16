@@ -6,10 +6,10 @@
   "compilerOptions": {
     // ↓↓ Base Options
     // -- Target & Library
-    "target": "es2022",
+    "target": "ESNext",
     "module": "preserve",
     "lib": [
-      "es2022",
+      "ESNext",
       "webworker",
       "dom",
       "dom.iterable"
