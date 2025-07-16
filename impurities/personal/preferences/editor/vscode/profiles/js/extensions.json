@@ -4,7 +4,6 @@
   "recommendations": [
     // ↓↓ package manager & version control
     "antfu.pnpm-catalog-lens",
-    "jasonnutter.search-node-modules",
 
     // ↓↓ language & file support, formatter, linter, snippets
     // -- language & file support
@@ -23,7 +22,7 @@
     "ritwickdey.liveserver"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 54} = 64}
-    // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 52} = 62}
+    // vscode: {PROFILE_JS: 9 + {PROFILE_DEFAULT: 54} = 63}
+    // cursor: {PROFILE_JS: 9 + {PROFILE_DEFAULT: 52} = 61}
   ]
 }

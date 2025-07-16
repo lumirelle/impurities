@@ -36,7 +36,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 7/15/2025, 5:53:24 PM",
+    "//": "Last update at 7/16/2025, 9:55:41 AM",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .lfsconfig, .mailmap, .git-blame*",
@@ -350,7 +350,7 @@
   ],
   "todohighlight.include": [
     "**/*.htm{,l}",
-    "**/*.{c,sc,sa,postc}ss",
+    "**/*.{c,sc,sa,le,postc}ss",
     "**/*.{,m}js{,x}",
     "**/*.{,m}ts{,x}",
     "**/*.vue",
@@ -368,7 +368,7 @@
   "inlineFold.regexFlags": "gs",
   // -- PROFILE_JS behavior
   "css.enabledLanguages": ["html", "vue"],
-  "css.styleSheets": ["**/*.css", "**/*.postcss", "**/*.scss"],
+  "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],
   "dotenv.enableAutocloaking": false,
   "turboConsoleLog.quote": "'",
   "turboConsoleLog.logMessagePrefix": "😎",

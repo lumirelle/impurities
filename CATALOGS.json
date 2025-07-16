@@ -115,12 +115,6 @@
               "js": {
                 "extensions.json": ""
               },
-              "uniapp-vue2": {
-                "extensions.json": ""
-              },
-              "uniapp-vue3": {
-                "extensions.json": ""
-              },
               "vue2": {
                 "extensions.json": ""
               },
