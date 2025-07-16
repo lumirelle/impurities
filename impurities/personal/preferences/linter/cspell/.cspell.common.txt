@@ -11,14 +11,24 @@ Meiryo
 Loong
 Merlion
 
+-- objects --
+Qrcode
+
 -- fonts --
 monaspace
+wisper
 
--- os --
+-- env vars --
 LOCALAPPDATA
-winget
 
--- software --
+-- terminals --
+pwsh
+
+-- editors --
+nvim
+
+-- other softwares --
+winget
 Ventoy
 DISM++
 OhMyPosh
@@ -26,39 +36,43 @@ gsudo
 fnm
 Navicat
 
--- terminal --
-pwsh
+-- dev --
+nologo
 
--- git --
-amde
-
--- editor --
-nvim
-
--- java --
+-- java dev --
 graalvm
 javax
 projectlombok
 mybatis
 baomidou
 jsqlparser
-webapps
 springframework
 thymeleaf
 pagehelper
 fastjson
+webapps
 
--- js --
+-- js dev --
 jquery
+vueuse
 nuxt
 nuxi
 taze
 commitlint
 lintstagedrc
 changelogithub
+unplugin
+Shiki
+shikijs
+vitesse
+Twoslash
+unocss
+Slidev
+Attributify
 adduser
 preprod
-unplugin
+noopener
+onwarn
 
 -- third party platform --
 iconfont
@@ -69,5 +83,4 @@ taobao
 cnpm
 
 -- others --
-nologo
-Qrcode
+breakline
