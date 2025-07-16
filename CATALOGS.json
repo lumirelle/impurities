@@ -36,19 +36,24 @@
                 "js": {
                   "framework": {
                     "nuxt": {
-                      "nuxt2-manual.md": "",
-                      "nuxt2-optimization-manual.md": "",
-                      "nuxt2-specification-manual.md": ""
+                      "project-create-manual.md": "",
+                      "version2": {
+                        "basic-manual.md": "",
+                        "nuxt2-optimization-manual.md": "",
+                        "nuxt2-specification-manual.md": ""
+                      }
                     },
                     "vue": {
                       "project-create-manual.md": "",
                       "version2": {
                         "composition-api-manual.md": "",
-                        "optimization-manual.md": "",
-                        "specification-manual.md": ""
+                        "optimization-webpack-manual.md": "",
+                        "standard-vite-manual.md": "",
+                        "standard-webpack-manual.md": ""
                       },
                       "version3": {
-                        "vue3-vite-specification-manual.md": ""
+                        "standard-vite-manual.md": "",
+                        "standard-webpack-manual.md": ""
                       }
                     }
                   },
