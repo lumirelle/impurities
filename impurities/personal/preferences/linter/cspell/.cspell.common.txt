@@ -51,6 +51,7 @@ fastjson
 -- js --
 jquery
 nuxt
+nuxi
 taze
 commitlint
 lintstagedrc
