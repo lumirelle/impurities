@@ -10,15 +10,13 @@
     "nicholashsiang.vscode-vue3-snippets",
 
     // ↓↓ framework support
-    // -- element-plus
-    "noxussj.element-plus", // also the snippets for element-plus
     // -- slidev
     "antfu.slidev",
     // -- unocss
     "antfu.unocss"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_VUE3: 6 + {PROFILE_JS: 63} = 69}
-    // cursor: {PROFILE_VUE3: 6 + {PROFILE_JS: 61} = 67}
+    // vscode: {PROFILE_VUE3: 5 + {PROFILE_JS: 63} = 68}
+    // cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 61} = 66}
   ]
 }

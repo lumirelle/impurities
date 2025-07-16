@@ -7,14 +7,10 @@
     "vue.volar",
     "lokalise.i18n-ally",
     // -- snippets
-    "nicholashsiang.vscode-vue2-snippets",
-
-    // ↓↓ framework support
-    // -- element-ui
-    "elemefe.vscode-element-helper" // also the snippets for element-ui
+    "nicholashsiang.vscode-vue2-snippets"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_VUE2: 4 + {PROFILE_JS: 63} = 67}
-    // cursor: {PROFILE_VUE2: 4 + {PROFILE_JS: 61} = 65}
+    // vscode: {PROFILE_VUE2: 3 + {PROFILE_JS: 63} = 66}
+    // cursor: {PROFILE_VUE2: 3 + {PROFILE_JS: 61} = 64}
   ]
 }
