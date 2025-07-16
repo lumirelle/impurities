@@ -7,12 +7,12 @@
 
 ## 👫 Your Best Coding Friends <a name='coding'></a>
 
-It's a pity that I haven't found a Chinese font that can adapt well to `Comic Mono` yet.
+It's a pity that I haven't found a Chinese font that can adapt well to `Rec Mono Casual` yet.
 
-Now, let's using `猫啃忘形圆` instead first.
+Now, let's using `Source Han Sans TC` instead first.
 
 ```json
-"'Comic Mono', '猫啃忘形圆', 'Symbols Nerd Font', monospace"
+"'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace"
 ```
 
 ## 📦 Other Nice Ones <a name="other"></a>

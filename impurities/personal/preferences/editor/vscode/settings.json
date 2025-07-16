@@ -4,8 +4,8 @@
   // ↓↓ vscode: ui
   // -- general
   "window.zoomLevel": 1.1,
-  "editor.fontFamily": "'Comic Mono', '猫啃忘形圆', 'Symbols Nerd Font', monospace",
-  "editor.fontSize": 18,
+  "editor.fontFamily": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
+  "editor.fontSize": 16,
   "editor.rulers": [80, 120],
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
@@ -203,9 +203,9 @@
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
 
   // ↓↓ extensions: ui
-  "custom-ui-style.font.sansSerif": "'Comic Mono', '猫啃忘形圆', 'Symbols Nerd Font', sans-serif",
-  "custom-ui-style.font.monospace": "'Comic Mono', '猫啃忘形圆', 'Symbols Nerd Font', monaspace",
-  "markdown.preview.fontFamily": "'Comic Mono', '猫啃忘形圆', 'Symbols Nerd Font', monospace",
+  "custom-ui-style.font.sansSerif": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
+  "custom-ui-style.font.monospace": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
+  "markdown.preview.fontFamily": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
   "markdown.preview.fontSize": 16,
   "fileNestingUpdater.promptOnAutoUpdate": false,
   "material-icon-theme.files.associations": {
@@ -372,5 +372,6 @@
   "dotenv.enableAutocloaking": false,
   "turboConsoleLog.quote": "'",
   "turboConsoleLog.logMessagePrefix": "😎",
-  "turboConsoleLog.includeFilename": true
+  "turboConsoleLog.includeFilename": true,
+  "console-ninja.featureSet": "Community"
 }

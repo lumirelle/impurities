@@ -41,9 +41,15 @@
                       "nuxt2-specification-manual.md": ""
                     },
                     "vue": {
-                      "vue2-optimization-manual.md": "",
-                      "vue2-specification-manual.md": "",
-                      "vue3-vite-specification-manual.md": ""
+                      "project-create-manual.md": "",
+                      "version2": {
+                        "composition-api-manual.md": "",
+                        "optimization-manual.md": "",
+                        "specification-manual.md": ""
+                      },
+                      "version3": {
+                        "vue3-vite-specification-manual.md": ""
+                      }
                     }
                   },
                   "js-basic-manual.md": "",
@@ -237,10 +243,10 @@
       },
       "resources": {
         "fonts": {
-          "Comic Mono.zip": "",
           "NerdFontsSymbolsOnly.zip": "",
           "README.md": "",
-          "猫啃忘形圆.zip": ""
+          "RecMonoCasual.zip": "",
+          "Source Han Sans.url": ""
         }
       },
       "templates": {

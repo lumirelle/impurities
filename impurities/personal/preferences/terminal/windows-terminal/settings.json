@@ -68,7 +68,7 @@
           "font":
             {
               "builtinGlyphs": false,
-              "face": "'Comic Mono', '\u732B\u5543\u5FD8\u5F62\u5706', 'Symbols Nerd Font'",
+              "face": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font'",
               "size": 16
             },
           "opacity": 80,
