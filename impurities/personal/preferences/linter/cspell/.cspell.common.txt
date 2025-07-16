@@ -1,5 +1,6 @@
 -- me --
 Lumirelle
+shabbyacc
 
 -- other people --
 antfu
@@ -73,6 +74,9 @@ adduser
 preprod
 noopener
 onwarn
+linkify
+exifreader
+exif
 
 -- third party platform --
 iconfont
@@ -81,6 +85,7 @@ opencollective
 ITELLYOU
 taobao
 cnpm
+Gitee
 
 -- others --
 breakline
