@@ -142,7 +142,8 @@
     "*.vue": "vue",
     ".env*": "dotenv",
     "*.json": "jsonc",
-    "LICENSE": "plaintext"
+    "LICENSE": "plaintext",
+    "*.euv": "html"
   },
 
   // ↓↓ vscode: behavior

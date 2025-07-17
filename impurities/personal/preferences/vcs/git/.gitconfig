@@ -156,6 +156,10 @@ remote-remove = remote remove
 fetch-prune-tags = fetch --prune-tags # We will clean up unused tags when specify command `*-prune-tags`
 # pull
 pull-prune-tags = "!git fetch --prune-tags && git pull"
+pull-origin-upstream-current-branch = "!f() { \
+  current_branch=$(git branch --show-current); \
+  git pull --set-upstream origin \"$current_branch\"; \
+}; f"
 # push
 push-origin = push origin
 push-origin-delete = push --delete origin
@@ -264,6 +268,7 @@ ox = remote-remove
 f = fetch-prune-tags
 # pull: l
 l = pull-prune-tags
+lou = pull-origin-upstream-current-branch
 # push: p
 p = push
 po = push-origin
