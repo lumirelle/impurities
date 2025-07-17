@@ -11,6 +11,8 @@
     // -- linter
     "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx
     "stylelint.vscode-stylelint", // also the formatter for styles
+    // -- snippets
+    "antfu.iconify",
 
     // ↓↓ coding helper
     // -- editor views
@@ -22,7 +24,7 @@
     "ritwickdey.liveserver"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_JS: 9 + {PROFILE_DEFAULT: 55} = 64}
-    // cursor: {PROFILE_JS: 9 + {PROFILE_DEFAULT: 53} = 62}
+    // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 54} = 64}
+    // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 52} = 62}
   ]
 }

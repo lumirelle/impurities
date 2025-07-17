@@ -150,6 +150,8 @@ tag-sync-remote-multiple = "!f() { \
 }; f"
 # remote
 remote-add = remote add
+remote-add-origin = remote add origin
+remote-add-upstream = remote add upstream
 remote-list = remote --verbose
 remote-remove = remote remove
 # fetch
@@ -174,6 +176,7 @@ pull-then-push = "!git pull-prune-tags && git push"
 #
 # -- SUFFIX INTRODUCTION
 # <TO SPECIFY ADDITIONAL BEHAVIOR>
+# `n`: `new | add`
 # `l`: `list`
 # `u`: `undo`, which means recover the status **after an operation is completed**
 # `x`: `discard | delete | drop`, which means **drop things** we don't need any more
@@ -262,6 +265,8 @@ tso = tag-sync-remote
 tsom = tag-sync-remote-multiple
 # remote: o
 o = remote-add
+oo = remote-add-origin
+ou = remote-add-upstream
 ol = remote-list
 ox = remote-remove
 # fetch: f
