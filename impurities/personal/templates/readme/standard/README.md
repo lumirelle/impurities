@@ -1,4 +1,4 @@
-<!-- NOTE: Don't forget to replace `Lumirelle/Lumirelle` with your repository url -->
+<!-- NOTE: Don't forget to replace `lumirelle/lumirelle` with your repository url -->
 
 <p align="center">
   <a href="" rel="noopener">
@@ -10,8 +10,8 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)](.)
-[![GitHub Issues](https://img.shields.io/github/issues/Lumirelle/Lumirelle.svg)](https://github.com/Lumirelle/Lumirelle/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Lumirelle/Lumirelle.svg)](https://github.com/Lumirelle/Lumirelle/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/lumirelle/lumirelle.svg)](https://github.com/lumirelle/lumirelle/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/lumirelle/lumirelle.svg)](https://github.com/lumirelle/lumirelle/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
@@ -70,6 +70,6 @@ How to use.
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@Lumirelle](https://github.com/Lumirelle) - Idea & Initial work
+- [@Lumirelle](https://github.com/lumirelle) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/Lumirelle/Lumirelle/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/lumirelle/lumirelle/contributors) who participated in this project.
