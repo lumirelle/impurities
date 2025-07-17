@@ -150,6 +150,7 @@ tag-sync-remote-multiple = "!f() { \
 }; f"
 # remote
 remote-add = remote add
+remote-list = remote --verbose
 remote-remove = remote remove
 # fetch
 fetch-prune-tags = fetch --prune-tags # We will clean up unused tags when specify command `*-prune-tags`
@@ -257,7 +258,7 @@ tso = tag-sync-remote
 tsom = tag-sync-remote-multiple
 # remote: o
 o = remote-add
-ol = remote
+ol = remote-list
 ox = remote-remove
 # fetch: f
 f = fetch-prune-tags
