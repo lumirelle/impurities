@@ -38,8 +38,6 @@ export default {
     },
   },
 
-  emits: ['close', 'prev', 'next'],
-
   data() {
     return {
       imageLoading: false,
@@ -157,9 +155,15 @@ export default {
         const image = this.$refs.imageRef
         const imageWidth = image.clientWidth
         const imageHeight = image.clientHeight
+
         const targetWidth = this.targetWidth
         const targetHeight = this.targetHeight
-        const scale = Math.min(targetWidth / imageWidth, targetHeight / imageHeight)
+
+        const maxWidth = window.innerWidth * 0.8
+        const maxHeight = window.innerHeight * 0.8
+
+        const scale = Math.min(targetWidth / imageWidth, targetHeight / imageHeight, maxWidth / imageWidth, maxHeight / imageHeight)
+
         this.scale = scale
       }
       else {
@@ -462,6 +466,10 @@ export default {
       height: 24px;
       margin: 0 9px;
       background-color: rgb(255 255 255 / 50%);
+
+      @media screen and (width <= 768px) {
+        margin: 0 4px;
+      }
     }
 
     &-info {
@@ -469,6 +477,12 @@ export default {
       font-weight: 400;
       line-height: 22px;
       color: #fff;
+      white-space: nowrap;
+
+      @media screen and (width <= 768px) {
+        font-size: 12px;
+        line-height: 18px;
+      }
     }
 
     &-btn {
@@ -498,6 +512,11 @@ export default {
       &:disabled {
         cursor: not-allowed;
         opacity: 0.5;
+      }
+
+      @media screen and (width <= 768px) {
+        width: 20px;
+        height: 20px;
       }
     }
   }
