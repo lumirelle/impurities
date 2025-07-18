@@ -143,8 +143,7 @@
     ".env*": "dotenv",
     "*.json": "jsonc",
     "LICENSE": "plaintext",
-    "*.euv": "html",
-    "*.md": "mdx"
+    "*.euv": "html"
   },
 
   // ↓↓ vscode: behavior
