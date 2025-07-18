@@ -280,8 +280,9 @@
             "Conda PowerShell 7.lnk": "",
             "Conda PowerShell.lnk": ""
           },
-          "npm": {
-            ".npmrc": ""
+          "pnpm": {
+            ".npmrc": "",
+            "pnpm-workspace.yaml": ""
           }
         },
         "project": {
