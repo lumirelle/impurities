@@ -1,4 +1,8 @@
 # eslint-disable pnpm/yaml-no-duplicate-catalog-item
+shamefullyHoist: true
+ignoreWorkspaceRootCheck: true
+verifyDepsBeforeRun: install
+
 packages:
   - impurities/personal/demos/*
 
