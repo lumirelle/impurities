@@ -58,6 +58,7 @@ It includes all kinds of impurities, preferences, docs, resources, templates, et
       - `/vpn`: **&lt;type&gt;** Preferences used by vpn
     - `/resources`: **&lt;resources&gt;** Collection of resources, such as fonts
       - `/fonts`: **&lt;type&gt;** Font resources
+      - `/images`: **&lt;type&gt;** Image resources
     - `/templates`: **&lt;templates&gt;** Collection of template, such as `README.md`, `LICENSE`
       - `/license`: **&lt;type&gt;** License template
       - `/marks`: **&lt;type&gt;** Marks template
