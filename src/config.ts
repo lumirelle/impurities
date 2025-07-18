@@ -80,7 +80,7 @@ export const PREFERENCE_COLLECTIONS: PreferenceCollection[] = [
         ],
       },
       {
-        pattern: 'editor/vscode/snippets/**/*.json',
+        pattern: 'editor/vscode/snippets/**/*.{json,code-snippets}',
         folder: [
           join(env.APPDATA || '', 'Code', 'User', 'snippets'),
           join(env.APPDATA || '', 'Cursor', 'User', 'snippets'),

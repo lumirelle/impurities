@@ -226,7 +226,7 @@
             },
             "settings.json": "",
             "snippets": {
-              "vue.json": ""
+              "global.code-snippets": ""
             },
             "trusted-domains.json": "",
             "workspace": {
