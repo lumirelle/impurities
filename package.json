@@ -57,7 +57,7 @@
     "typecheck": "tsc",
     "build": "unbuild",
     "stub": "unbuild --stub",
-    "release": "bumpp && pnpm publish",
+    "release": "bumpp && pnpm publish --tag latest",
     "lint": "run-s lint:*",
     "lint:js": "eslint --cache .",
     "lint:style": "stylelint --cache **/*.{css,postcss,scss,html,vue}",
