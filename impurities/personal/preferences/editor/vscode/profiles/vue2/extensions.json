@@ -1,16 +1,16 @@
 {
   // cspell:disable
-  // PROFILE_VUE2 VSCODE EXTENSIONS, BASED ON PROFILE_VUE
+  // VSCODE PROFILE_VUE2 <= PROFILE_JS
   "recommendations": [
-    // ↓↓ language & file support, formatter, linter, snippets
-    // -- language & file support
+    // ↓↓ lsp (syntax, formatter, linter, snippets)
+    // -- lsp
     "vue.volar",
     "lokalise.i18n-ally",
     // -- snippets
     "nicholashsiang.vscode-vue2-snippets"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_VUE2: 3 + {PROFILE_JS: 65} = 68}
-    // cursor: {PROFILE_VUE2: 3 + {PROFILE_JS: 63} = 66}
+    // vscode: {PROFILE_VUE2: 3 + {PROFILE_JS: 58} = 61}
+    // cursor: {PROFILE_VUE2: 3 + {PROFILE_JS: 56} = 59}
   ]
 }

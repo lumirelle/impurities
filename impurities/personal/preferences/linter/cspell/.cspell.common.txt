@@ -78,6 +78,7 @@ linkify
 exifreader
 exif
 excalidraw
+keystyle
 
 -- third party platform --
 iconfont

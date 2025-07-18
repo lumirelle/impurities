@@ -1,9 +1,9 @@
 {
   // cspell:disable
-  // PROFILE_VUE3 VSCODE EXTENSIONS, BASED ON PROFILE_VUE
+  // VSCODE PROFILE_VUE3 <= PROFILE_VUE
   "recommendations": [
-    // ↓↓ language & file support, formatter, linter, snippets
-    // -- language & file support
+    // ↓↓ lsp (syntax, formatter, linter, snippets)
+    // -- lsp
     "vue.volar",
     "lokalise.i18n-ally",
     // -- snippets
@@ -16,7 +16,7 @@
     "antfu.unocss"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_VUE3: 5 + {PROFILE_JS: 65} = 70}
-    // cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 63} = 68}
+    // vscode: {PROFILE_VUE3: 5 + {PROFILE_JS: 47} = 52}
+    // cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 45} = 50}
   ]
 }

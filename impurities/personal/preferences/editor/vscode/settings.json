@@ -142,8 +142,7 @@
     "*.vue": "vue",
     ".env*": "dotenv",
     "*.json": "jsonc",
-    "LICENSE": "plaintext",
-    "*.euv": "html"
+    "LICENSE": "plaintext"
   },
 
   // ↓↓ vscode: behavior
@@ -215,9 +214,6 @@
   // ↓↓ extensions: project
   // -- general
   "projectManager.git.baseFolders": ["D:/Projects"],
-  // -- PROFILE_VUE_UNIAPP general
-  "uniapp-run.HBuilderX": "C:\\Program Files Portable\\HBuilderX",
-  "uniapp-run.wxDevtool": "C:\\Program Files (x86)\\Tencent\\微信web开发者工具",
   // -- remote
   "git.autofetch": true,
   "git.confirmSync": true,
@@ -269,9 +265,8 @@
   "gitlens.views.branches.showRemoteBranches": true,
   "gitlens.views.commitDetails.files.layout": "tree",
 
-  // ↓↓ extensions: language & file support, formatter, linter, snippets
-  // -- language & file support
-  "docker.extension.dockerEngineAvailabilityPrompt": false,
+  // ↓↓ extensions: lsp(syntax, formatter, linter, snippets)
+  // -- lsp
   "json.schemaDownload.enable": true,
   "liveSassCompile.settings.showOutputWindowOn": "Debug",
   "liveSassCompile.settings.useNewCompiler": true,
@@ -291,9 +286,9 @@
       "addWords": false
     },
     "wrk": {
-      "name": "wrk",
-      "path": "~/.cspell.wrk.txt",
-      "description": "Words used in wroking.",
+      "name": "work",
+      "path": "~/.cspell.work.txt",
+      "description": "Words used in wrok.",
       "addWords": false
     }
   },
@@ -316,36 +311,50 @@
   "highlight-matching-tag.styles": {
     "opening": { "name": { "highlight": "rgb(143 188 143 / 40%)" } }
   },
+  "todohighlight.defaultStyle": {
+    "color": "#fff",
+    "borderRadius": "4px"
+  },
   "todohighlight.keywords": [
     {
       "text": "BUG",
-      "backgroundColor": "#ed4845",
-      "overviewRulerColor": "rgb(237 72 69 / 80%)"
+      "backgroundColor": "#ab372f",
+      "overviewRulerColor": "rgb(171 55 47 / 80%)"
     },
     {
       "text": "FIXME",
-      "backgroundColor": "#F06292",
-      "overviewRulerColor": "rgb(240 98 146 / 80%)"
+      "backgroundColor": "#ee7959",
+      "overviewRulerColor": "rgb(238 121 89 / 80%)"
     },
     {
       "text": "TODO",
-      "backgroundColor": "#FCA104",
-      "overviewRulerColor": "rgb(252 161 4 / 80%)"
+      "backgroundColor": "#3271ae",
+      "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
     {
       "text": "[ ]",
-      "backgroundColor": "#FCA104",
-      "overviewRulerColor": "rgb(252 161 4 / 80%)"
-    },
-    {
-      "text": "NOTE",
-      "backgroundColor": "#8a2be2",
-      "overviewRulerColor": "rgb(138 43 226 / 80%)"
+      "backgroundColor": "#3271ae",
+      "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
     {
       "text": "[x]",
-      "backgroundColor": "#00c063",
-      "overviewRulerColor": "rgb(0 192 99 / 80%)"
+      "backgroundColor": "#68945c",
+      "overviewRulerColor": "rgb(104 148 92 / 80%)"
+    },
+    {
+      "text": "NOTE",
+      "backgroundColor": "#e18a3b",
+      "overviewRulerColor": "rgb(225 138 59 / 80%)"
+    },
+    {
+      "text": "VSCODE ONLY",
+      "backgroundColor": "#3271ae",
+      "overviewRulerColor": "rgb(50 113 174 / 80%)"
+    },
+    {
+      "text": "CURSOR ONLY",
+      "backgroundColor": "#ab372f",
+      "overviewRulerColor": "rgb(171 55 47 / 80%)"
     }
   ],
   "todohighlight.include": [
@@ -358,14 +367,8 @@
     "**/*.json{,c}",
     "**/*.{y,ya,to}ml"
   ],
-  "todohighlight.defaultStyle": {
-    "color": "#ffffff",
-    "borderRadius": "4px"
-  },
   // -- editor view
   "arrayIndexInlay.minLength": 5,
-  "inlineFold.regex": "<svg(\\\\s*.*?\\\\s*)<\\/svg>",
-  "inlineFold.regexFlags": "gs",
   // -- PROFILE_JS behavior
   "css.enabledLanguages": ["html", "vue"],
   "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],

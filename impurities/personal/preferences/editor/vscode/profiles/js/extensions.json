@@ -1,30 +1,27 @@
 {
   // cspell:disable
-  // PROFILE_JS VSCODE EXTENSIONS, BASED ON PROFILE_DEFAULT
+  // VSCODE PROFILE_JS <= PROFILE_DEFAULT
   "recommendations": [
-    // ↓↓ package manager & version control
-    "antfu.pnpm-catalog-lens",
-
-    // ↓↓ language & file support, formatter, linter, snippets
-    // -- language & file support
+    // ↓↓ lsp (syntax, formatter, linter, snippets)
+    // -- lsp
     "dotenv.dotenv-vscode",
     // -- linter
     "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx
     "stylelint.vscode-stylelint", // also the formatter for styles
-    // -- snippets
-    "antfu.iconify",
 
-    // ↓↓ coding helper
+    // ↓↓ life savers
     // -- editor views
     "wallabyjs.console-ninja",
-    // -- behavior
+    "antfu.iconify",
+    "antfu.pnpm-catalog-lens",
+    "johnsoncodehk.vscode-tsconfig-helper",
+    // -- editor behavior
     "ecmel.vscode-html-css",
-    "antfu.goto-alias",
-    "chakrounanas.turbo-console-log",
-    "ritwickdey.liveserver"
-
-    // ↓↓ extension count
-    // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 55} = 65}
-    // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 53} = 63}
+    "antfu.goto-alias", // F12
+    "chakrounanas.turbo-console-log", // CTRL+ALT+L
+    "ritwickdey.liveserver" // ALT+L ALT+O, ALT+L CTRL+C
   ]
+  // ↓↓ extension count
+  // vscode: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 47} = 58}
+  // cursor: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 45} = 56}
 }

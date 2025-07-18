@@ -1,6 +1,6 @@
 {
   // cspell:disable
-  // BASIC VSCODE PROFILE_DEFAULT
+  // VSCODE PROFILE_DEFAULT
   "recommendations": [
     // ↓↓ ui
     "antfu.theme-vitesse",
@@ -8,36 +8,20 @@
     "pkief.material-icon-theme",
     "subframe7536.custom-ui-style",
 
-    // ↓↓ package manager & version control
+    // ↓↓ project mananger
     "alefragnani.project-manager",
     "antfu.where-am-i",
     "eamodio.gitlens",
 
-    // ↓↓ remote dev
-    // -- remote repositories
-    "ms-vscode.remote-repositories",
-    "github.remotehub",
-    "ms-vscode.azure-repos",
-    // -- remote development
-    "ms-azuretools.vscode-containers",
-    "ms-vscode-remote.remote-containers", // NOTE: VSCODE
-    "ms-vscode-remote.remote-wsl", // NOTE: VSCODE
-    "ms-vscode-remote.remote-ssh", // NOTE: VSCODE
-    "anysphere.remote-containers", // NOTE: CURSOR
-    "anysphere.remote-wsl", // NOTE: CURSOR
-    "anysphere.remote-ssh", // NOTE: CURSOR
-
-    // ↓↓ language & file support, formatter, linter, snippets
-    // -- language & file support
+    // ↓↓ lsp (syntax, formatter, linter, snippets)
+    // -- lsp
     "remcohaszing.schemastore",
     "redhat.vscode-yaml",
-    "bungcip.better-toml",
-    "somewhatstationery.some-sass",
+    "bungcip.better-toml", // TODO: IN TRAIL
+    "somewhatstationery.some-sass", // TODO: IN TRAIL
     "glenn2223.live-sass",
     "ms-vscode.powershell", // also the formatter & linter & snippets for powershell
     "pomdtr.excalidraw-editor",
-    "brandonfowler.exe-runner",
-    "sandcastle.vscode-open",
     "ms-vscode.hexeditor",
     // -- formatter
     "editorconfig.editorconfig",
@@ -50,37 +34,42 @@
     // -- snippets
     "bierner.emojisense",
 
-    // ↓↓ coding helper
+    // ↓↓ life savers
     // -- highlight
-    "oderwat.indent-rainbow",
     "vincaslt.highlight-matching-tag",
     "naumovs.color-highlight",
     "jgclark.vscode-todo-highlight",
     "ibm.output-colorizer",
-    // -- editor views
+    // -- explorer views
     "antfu.file-nesting",
+    // -- editor views
     "antfu.array-index-inlay",
     "yoavbls.pretty-ts-errors",
     "usernamehw.errorlens",
-    "moalamri.inline-fold",
-    // -- behavior
-    "antfu.smart-clicks",
-    "albert.tabout",
-    "yatki.vscode-surround",
-    "britesnow.vscode-toggle-quotes",
-    "cardinal90.multi-cursor-case-preserve",
-    "christian-kohler.path-intellisense",
+    // -- explorer behavior
     "john681611.relativepath",
-    "tombonnike.vscode-status-bar-format-toggle",
-    "helixquar.randomeverything",
     "JannisX11.batch-rename-extension",
     "rhalaly.scope-to-this",
+    "brandonfowler.exe-runner",
+    "sandcastle.vscode-open",
+    // -- editor behavior
+    "antfu.smart-clicks",
+    "albert.tabout",
+    "mpontus.tab-cycle", // CTRL+PGUP, CTRL+PGDN, ALT+<NUMBER>
+    "yatki.vscode-surround", // CTRL+SHIFT+T
+    "britesnow.vscode-toggle-quotes", // CTRL+'
+    "cardinal90.multi-cursor-case-preserve",
+    "christian-kohler.path-intellisense",
+    "github.copilot", // VSCODE ONLY
+    "github.copilot-chat", // VSCODE ONLY
+    // -- main bar behavior
     "zjffun.snippetsmanager",
-    "github.copilot", // NOTE: VSCODE
-    "github.copilot-chat" // NOTE: VSCODE
-
-    // ↓↓ extension count
-    // vscode: {PROFILE_DEFAULT: 58 - 3 = 55}
-    // cursor: {PROFILE_DEFAULT: 58 - 5 = 53}
+    // -- status bar behavior
+    "tombonnike.vscode-status-bar-format-toggle",
+    // -- commands
+    "helixquar.randomeverything"
   ]
+  // ↓↓ extension count
+  // vscode: {PROFILE_DEFAULT: 47 - 0 = 47}
+  // cursor: {PROFILE_DEFAULT: 47 - 2 = 45}
 }
