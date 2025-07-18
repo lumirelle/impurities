@@ -31,10 +31,10 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "iip": "./bin/iip.mjs",
-    "iup": "./bin/iup.mjs",
-    "icp": "./bin/icp.mjs",
-    "ict": "./bin/ict.mjs"
+    "iip": "bin/iip.mjs",
+    "iup": "bin/iup.mjs",
+    "icp": "bin/icp.mjs",
+    "ict": "bin/ict.mjs"
   },
   "files": [
     "CATALOGS.json",
