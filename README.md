@@ -59,10 +59,12 @@ It includes all kinds of impurities, preferences, docs, resources, templates, et
     - `/resources`: **&lt;resources&gt;** Collection of resources, such as fonts
       - `/fonts`: **&lt;type&gt;** Font resources
     - `/templates`: **&lt;templates&gt;** Collection of template, such as `README.md`, `LICENSE`
-      - `/code`: **&lt;type&gt;** Code template
       - `/license`: **&lt;type&gt;** License template
-      - `/project`: **&lt;type&gt;** Project template
+      - `/marks`: **&lt;type&gt;** Marks template
       - `/readme`: **&lt;type&gt;** Readme template
+      - `/scss`: **&lt;type&gt;** Scss template
+      - `/vue`: **&lt;type&gt;** Vue template
+    - `/demos`: **&lt;demos&gt;** Collection of demos, such as `vue2-scss-bem`
   - `/work`: **&lt;use-case&gt;** Work-only (Of course, it should be ignored by git)
     - **THE SAME TO THE FOLDERS UNDER `/personal`**
 

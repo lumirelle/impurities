@@ -1,6 +1,6 @@
 # eslint-disable pnpm/yaml-no-duplicate-catalog-item
 packages:
-  - impurities/personal/templates/example/*
+  - impurities/personal/demos/*
 
 catalogs:
   dev:

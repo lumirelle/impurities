@@ -1,0 +1,12 @@
+{
+  "close": "Close",
+  "prev": "Previous",
+  "next": "Next",
+  "zoomIn": "Zoom In",
+  "zoomOut": "Zoom Out",
+  "fit": "Fit Page",
+  "original": "Original Size",
+  "rotate": "Rotate",
+  "download": "Download",
+  "imageLoadFailed": "Image Load Failed"
+}

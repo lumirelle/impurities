@@ -1,6 +1,94 @@
 {
   "impurities": {
     "personal": {
+      "demos": {
+        "vue2-scss-bem": {
+          "assets": {
+            "styles": {
+              "abstracts": {
+                "functions": {
+                  "_color.scss": "",
+                  "_css-var.scss": "",
+                  "_index.scss": "",
+                  "_selector.scss": ""
+                },
+                "mixins": {
+                  "_base-color.scss": "",
+                  "_css-var.scss": "",
+                  "_index.scss": "",
+                  "_placeholder.scss": "",
+                  "_res.scss": "",
+                  "_selector.scss": "",
+                  "_utils.scss": ""
+                },
+                "variables": {
+                  "config": {
+                    "_base-color.scss": "",
+                    "_res.scss": "",
+                    "_selector.scss": ""
+                  },
+                  "_common.scss": "",
+                  "_index.scss": ""
+                },
+                "_index.scss": ""
+              },
+              "public.scss": ""
+            }
+          },
+          "hooks": {
+            "use-namespace.js": ""
+          },
+          "jsconfig.json": "",
+          "package.json": "",
+          "pages": {
+            "example.vue": ""
+          },
+          "README.md": ""
+        },
+        "vue3-scss-bem": {
+          "assets": {
+            "styles": {
+              "abstracts": {
+                "functions": {
+                  "_color.scss": "",
+                  "_css-var.scss": "",
+                  "_index.scss": "",
+                  "_selector.scss": ""
+                },
+                "mixins": {
+                  "_base-color.scss": "",
+                  "_css-var.scss": "",
+                  "_index.scss": "",
+                  "_placeholder.scss": "",
+                  "_res.scss": "",
+                  "_selector.scss": "",
+                  "_utils.scss": ""
+                },
+                "variables": {
+                  "config": {
+                    "_base-color.scss": "",
+                    "_res.scss": "",
+                    "_selector.scss": ""
+                  },
+                  "_common.scss": "",
+                  "_index.scss": ""
+                },
+                "_index.scss": ""
+              },
+              "public.scss": ""
+            }
+          },
+          "hooks": {
+            "use-namespace.ts": ""
+          },
+          "package.json": "",
+          "pages": {
+            "example.vue": ""
+          },
+          "README.md": "",
+          "tsconfig.json": ""
+        }
+      },
       "docs": {
         "life": {
           "eating": {
@@ -258,140 +346,6 @@
         }
       },
       "templates": {
-        "code": {
-          "scss": {
-            "abstracts": {
-              "functions": {
-                "_color.scss": "",
-                "_css-var.scss": "",
-                "_index.scss": "",
-                "_selector.scss": ""
-              },
-              "mixins": {
-                "_base-color.scss": "",
-                "_css-var.scss": "",
-                "_index.scss": "",
-                "_placeholder.scss": "",
-                "_res.scss": "",
-                "_selector.scss": "",
-                "_utils.scss": ""
-              },
-              "variables": {
-                "config": {
-                  "_base-color.scss": "",
-                  "_res.scss": "",
-                  "_selector.scss": ""
-                },
-                "_common.scss": "",
-                "_index.scss": ""
-              },
-              "_index.scss": ""
-            },
-            "public.scss": ""
-          },
-          "vue2": {
-            "components": {
-              "GradientBorder.vue": ""
-            },
-            "hooks": {
-              "use-i18n.js": "",
-              "use-namespace.js": ""
-            }
-          },
-          "vue3": {
-            "hooks": {
-              "use-namespace.ts": ""
-            }
-          }
-        },
-        "example": {
-          "vue2-scss-bem": {
-            "assets": {
-              "styles": {
-                "abstracts": {
-                  "functions": {
-                    "_color.scss": "",
-                    "_css-var.scss": "",
-                    "_index.scss": "",
-                    "_selector.scss": ""
-                  },
-                  "mixins": {
-                    "_base-color.scss": "",
-                    "_css-var.scss": "",
-                    "_index.scss": "",
-                    "_placeholder.scss": "",
-                    "_res.scss": "",
-                    "_selector.scss": "",
-                    "_utils.scss": ""
-                  },
-                  "variables": {
-                    "config": {
-                      "_base-color.scss": "",
-                      "_res.scss": "",
-                      "_selector.scss": ""
-                    },
-                    "_common.scss": "",
-                    "_index.scss": ""
-                  },
-                  "_index.scss": ""
-                },
-                "public.scss": ""
-              }
-            },
-            "hooks": {
-              "use-namespace.js": ""
-            },
-            "jsconfig.json": "",
-            "package.json": "",
-            "pages": {
-              "example.vue": ""
-            },
-            "README.md": ""
-          },
-          "vue3-scss-bem": {
-            "assets": {
-              "styles": {
-                "abstracts": {
-                  "functions": {
-                    "_color.scss": "",
-                    "_css-var.scss": "",
-                    "_index.scss": "",
-                    "_selector.scss": ""
-                  },
-                  "mixins": {
-                    "_base-color.scss": "",
-                    "_css-var.scss": "",
-                    "_index.scss": "",
-                    "_placeholder.scss": "",
-                    "_res.scss": "",
-                    "_selector.scss": "",
-                    "_utils.scss": ""
-                  },
-                  "variables": {
-                    "config": {
-                      "_base-color.scss": "",
-                      "_res.scss": "",
-                      "_selector.scss": ""
-                    },
-                    "_common.scss": "",
-                    "_index.scss": ""
-                  },
-                  "_index.scss": ""
-                },
-                "public.scss": ""
-              }
-            },
-            "hooks": {
-              "use-namespace.ts": ""
-            },
-            "package.json": "",
-            "pages": {
-              "example.vue": ""
-            },
-            "README.md": "",
-            "tsconfig.json": ""
-          }
-        },
         "license": {
           "LICENSE": ""
         },
@@ -408,6 +362,89 @@
           },
           "standard": {
             "README.md": ""
+          }
+        },
+        "scss": {
+          "abstracts": {
+            "functions": {
+              "_color.scss": "",
+              "_css-var.scss": "",
+              "_index.scss": "",
+              "_selector.scss": ""
+            },
+            "mixins": {
+              "_base-color.scss": "",
+              "_css-var.scss": "",
+              "_index.scss": "",
+              "_placeholder.scss": "",
+              "_res.scss": "",
+              "_selector.scss": "",
+              "_utils.scss": ""
+            },
+            "variables": {
+              "config": {
+                "_base-color.scss": "",
+                "_res.scss": "",
+                "_selector.scss": ""
+              },
+              "_common.scss": "",
+              "_index.scss": ""
+            },
+            "_index.scss": ""
+          },
+          "public.scss": ""
+        },
+        "vue": {
+          "version2": {
+            "components": {
+              "gradient-border": {
+                "GradientBorder.vue": ""
+              },
+              "image-viewer": {
+                "assets": {
+                  "images": {
+                    "image-viewer": {
+                      "close.svg": "",
+                      "download.svg": "",
+                      "next.svg": "",
+                      "prev.svg": "",
+                      "rotate-left.svg": "",
+                      "scale-type-fit.svg": "",
+                      "scale-type-original.svg": "",
+                      "zoom-in.svg": "",
+                      "zoom-out.svg": ""
+                    }
+                  }
+                },
+                "components": {
+                  "global": {
+                    "ImageViewer": {
+                      "ImageViewer.vue": "",
+                      "ImageViewerPanel.vue": ""
+                    }
+                  }
+                },
+                "locales": {
+                  "modules": {
+                    "image-viewer": {
+                      "en.json": "",
+                      "zh-CN.json": ""
+                    }
+                  }
+                }
+              }
+            },
+            "hooks": {
+              "use-i18n.js": "",
+              "use-namespace.js": ""
+            }
+          },
+          "version3": {
+            "hooks": {
+              "use-namespace": {
+                "use-namespace.ts": ""
+              }
+            }
           }
         }
       }
