@@ -122,7 +122,7 @@ shell
 ```shell
 # Vite & It's plugins
 # vite, @vitejs/plugin-vue
-ni vite@latest @vitejs/plugin-vue@latest -d
+ni vite@latest @vitejs/plugin-vue@latest -D
 
 # Vue 3
 # vue, vue-router, pinia, vueuse
@@ -131,7 +131,7 @@ ni vue@latest vue-router@latest pinia@latest @vueuse/core@latest
 
 # Others
 # vite-plugin-vue-devtools
-ni vite-plugin-vue-devtools@latest -d
+ni vite-plugin-vue-devtools@latest -D
 ```
 
 ## 🌟 设置代码检查与格式化
@@ -144,13 +144,13 @@ shell
 
 ```shell
 # eslint
-ni eslint@latest -d
+ni eslint@latest -D
 
 # eslint config
-ni @antfu/eslint-config@latest -d
+ni @antfu/eslint-config@latest -D
 
 # eslint & prettier plugin
-ni eslint-plugin-format@latest @prettier/plugin-xml@latest -d
+ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
 ```
 
 ### 快速配置
@@ -177,16 +177,16 @@ shell
 
 ```shell
 # stylelint
-ni stylelint@latest -d
+ni stylelint@latest -D
 
 # stylelint config for html
-ni stylelint-config-html@latest -d
+ni stylelint-config-html@latest -D
 # stylelint config for scss
-ni stylelint-config-standard-scss@latest -d
+ni stylelint-config-standard-scss@latest -D
 # stylelint config for vue
-ni stylelint-config-standard-vue@latest -d
+ni stylelint-config-standard-vue@latest -D
 # stylelint config for stylistic
-ni @stylistic/stylelint-config@latest stylelint-config-recess-order@latest -d
+ni @stylistic/stylelint-config@latest stylelint-config-recess-order@latest -D
 ```
 
 ### 快速配置
@@ -210,7 +210,7 @@ See [here](/impurities/personal/preferences/linter/stylelint/vue/stylelint.confi
 shell
 
 ```shell
-ni npm-run-all2@latest -d
+ni npm-run-all2@latest -D
 ```
 
 ### 快速配置
@@ -256,10 +256,10 @@ shell
 
 ```shell
 # The performance of `simple-git-hooks` is much better than `husky`
-ni simple-git-hooks@latest -d
+ni simple-git-hooks@latest -D
 
 # lint-staged & commitlint
-ni lint-staged@latest @commitlint/cli@latest @commitlint/config-conventional@latest -d
+ni lint-staged@latest @commitlint/cli@latest @commitlint/config-conventional@latest -D
 ```
 
 ### 快速配置
@@ -319,7 +319,7 @@ shell
 nun node-sass
 
 # sass 和 sass-loader
-ni sass@latest sass-loader@version-10 -d
+ni sass@latest sass-loader@version-10 -D
 ```
 
 ### 手动配置

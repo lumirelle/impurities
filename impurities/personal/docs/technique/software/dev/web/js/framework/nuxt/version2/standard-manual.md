@@ -118,7 +118,7 @@ shell
 
 # Nuxt 2
 ni nuxt@2.17.3
-ni @nuxt/types@2.17.3 -d
+ni @nuxt/types@2.17.3 -D
 # Build modules for vueuse auto importing
 ni @vueuse/nuxt@latest
 
@@ -143,14 +143,14 @@ shell
 
 ```shell
 # eslint
-ni eslint@latest -d
+ni eslint@latest -D
 
 # eslint config
 # Since the version of 4.15.0, `@antfu/eslint-config` requires node@>=20
-ni @antfu/eslint-config@~4.14.1 -d
+ni @antfu/eslint-config@~4.14.1 -D
 
 # eslint & prettier plugin
-ni eslint-plugin-format@latest @prettier/plugin-xml@latest -d
+ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
 ```
 
 ### 快速配置
@@ -177,18 +177,18 @@ shell
 
 ```shell
 # stylelint
-ni stylelint@latest -d
+ni stylelint@latest -D
 
 # stylelint config for html
-ni stylelint-config-html@latest -d
+ni stylelint-config-html@latest -D
 # stylelint config for scss
 # Since the version of 15.0.0, `stylelint-config-standard-scss` requires node@>=20
-ni stylelint-config-standard-scss@^14.0.0 -d
+ni stylelint-config-standard-scss@^14.0.0 -D
 # stylelint config for vue
-ni stylelint-config-standard-vue@latest -d
+ni stylelint-config-standard-vue@latest -D
 # stylelint config for stylistic
 # Since the version of 7.0.0, `stylelint-config-recess-order` requires node@>=20
-ni @stylistic/stylelint-config@latest stylelint-config-recess-order@^6.1.0 -d
+ni @stylistic/stylelint-config@latest stylelint-config-recess-order@^6.1.0 -D
 ```
 
 ### 快速配置
@@ -213,7 +213,7 @@ shell
 
 ```shell
 # Since the version of 8.0.0, `npm-run-all2` requires node@>=20
-ni npm-run-all2@^7.0.2 -d
+ni npm-run-all2@^7.0.2 -D
 ```
 
 ### 快速配置
@@ -259,10 +259,10 @@ shell
 
 ```shell
 # The performance of `simple-git-hooks` is much better than `husky`
-ni simple-git-hooks@latest -d
+ni simple-git-hooks@latest -D
 
 # lint-staged & commitlint
-ni lint-staged@latest @commitlint/cli@latest @commitlint/config-conventional@latest -d
+ni lint-staged@latest @commitlint/cli@latest @commitlint/config-conventional@latest -D
 ```
 
 ### 快速配置
@@ -322,7 +322,7 @@ shell
 nun node-sass
 
 # sass 和 sass-loader
-ni sass@latest sass-loader@version-10 -d
+ni sass@latest sass-loader@version-10 -D
 ```
 
 ### 手动配置
@@ -370,7 +370,7 @@ shell
 
 ```shell
 # cross-env：为运行 NPM 脚本时设置环境变量提供跨平台兼容性，目前仅在基于 webpack 4 的项目见到过使用案例（不包括封装了 webpack 4 的 vue-cli）
-ni cross-env@latest -d
+ni cross-env@latest -D
 ```
 
 #### 手动配置

@@ -7,7 +7,7 @@
 shell
 
 ```shell
-ni unimported-analyzer-webpack-plugin@latest -d
+ni unimported-analyzer-webpack-plugin@latest -D
 ```
 
 ### 快速配置

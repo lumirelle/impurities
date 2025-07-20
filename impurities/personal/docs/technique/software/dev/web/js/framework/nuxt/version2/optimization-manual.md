@@ -8,7 +8,7 @@ shell
 
 ```shell
 ni nuxt-precompress@latest
-ni unimported-analyzer-webpack-plugin@latest -d
+ni unimported-analyzer-webpack-plugin@latest -D
 ```
 
 ### 手动配置
