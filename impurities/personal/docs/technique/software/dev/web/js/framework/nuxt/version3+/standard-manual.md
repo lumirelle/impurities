@@ -109,17 +109,19 @@ See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 shell
 
 ```shell
-# nuxt
-ni nuxt@latest
+# Vite & It's plugins are bundled by nuxt
 
-# vue
-# vue, vue-router, pinia
-ni vue@latest vue-router@latest pinia@latest
+# Nuxt 3
+ni nuxt@latest
+# Build modules for vueuse auto importing
+ni @vueuse/nuxt@latest
+
+# Vue 3
+# vue, vue-router, pinia, vueuse
+ni vue@latest vue-router@latest pinia@latest @vueuse/core@latest
 # @vitejs/plugin-vue provide the ability to compiler vue template
 # nuxt@>=3 provide the ability of vue-server-renderer
 # We don't need vue-template-compiler & vue-server-renderer anymore
-
-# builder & it's plugins are bundled by nuxt
 ```
 
 ## 🌟 设置代码检查与格式化

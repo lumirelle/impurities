@@ -114,17 +114,19 @@ See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 shell
 
 ```shell
-# nuxt
+# Webpack & It's plugins are bundled by nuxt
+
+# Nuxt 2
 ni nuxt@2.17.3
 ni @nuxt/types@2.17.3 -d
+# Build modules for vueuse auto importing
+ni @vueuse/nuxt@latest
 
-# vue
-# vue, vue-router, vuex
-ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2
+# Vue 2
+# vue, vue-router, vuex, vueuse
+ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2 @vueuse/core@^11.3.0
 # vue-template-compiler, vue-server-renderer
 ni vue-template-compiler@latest vue-server-renderer@latest
-
-# builder & it's plugins are bundled by nuxt
 
 # Others
 # core-js

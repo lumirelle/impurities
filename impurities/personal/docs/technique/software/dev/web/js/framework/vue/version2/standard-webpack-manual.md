@@ -114,17 +114,17 @@ See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 shell
 
 ```shell
-# vue
-# vue, vue-router, vuex
-ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2
-# vue-template-compiler
-ni vue-template-compiler@latest -d
-
-# builder & it's plugins
+# Vue-Cli & It's plugins
 # vue-cli, vue-cli-plugin
 ni @vue/cli-service@latest @vue/cli-plugin-babel@latest -d
 # @vue/cli-plugin-eslint does not support eslint@^9, please remove it
 nun @vue/cli-plugin-eslint
+
+# Vue 2
+# vue, vue-router, vuex, vueuse
+ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2 @vueuse/core@^11.3.0
+# vue-template-compiler
+ni vue-template-compiler@latest -d
 
 # Others
 # core-js

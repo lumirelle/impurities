@@ -120,17 +120,17 @@ See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 shell
 
 ```shell
-# vue
-# vue, vue-router, pinia
-ni vue@latest vue-router@latest pinia@latest
-# vue-template-compiler
-ni vue-template-compiler@latest -d
-
-# builder & it's plugins
+# Vue-Cli & It's plugins
 # vue-cli, vue-cli-plugin
 ni @vue/cli-service@latest @vue/cli-plugin-babel@latest -d
 # @vue/cli-plugin-eslint does not support eslint@^9, please remove it
 nun @vue/cli-plugin-eslint
+
+# Vue 3
+# vue, vue-router, pinia, vueuse
+ni vue@latest vue-router@latest pinia@latest @vueuse/core@latest
+# vue-template-compiler
+ni vue-template-compiler@latest -d
 
 # Others
 # core-js

@@ -120,15 +120,14 @@ See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 shell
 
 ```shell
-# vue
-# vue, vue-router, pinia
-ni vue@latest vue-router@latest pinia@latest
-# @vitejs/plugin-vue provide the ability to compiler vue template
-# We don't need vue-template-compiler anymore
-
-# builder & it's plugins
+# Vite & It's plugins
 # vite, @vitejs/plugin-vue
 ni vite@latest @vitejs/plugin-vue@latest -d
+
+# Vue 3
+# vue, vue-router, pinia, vueuse
+ni vue@latest vue-router@latest pinia@latest @vueuse/core@latest
+# `@vitejs/plugin-vue` provide the ability to compiler vue template, we don't need vue-template-compiler anymore
 
 # Others
 # vite-plugin-vue-devtools

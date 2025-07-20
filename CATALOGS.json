@@ -160,11 +160,11 @@
                       "pm-pnpm-manual.md": "",
                       "pm-yarn-manual.md": ""
                     }
+                  },
+                  "ts": {
+                    "basic-manual.md": "",
+                    "config-files-manual.md": ""
                   }
-                },
-                "ts": {
-                  "basic-manual.md": "",
-                  "config-files-manual.md": ""
                 }
               }
             }

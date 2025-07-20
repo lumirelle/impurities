@@ -114,15 +114,14 @@ See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 shell
 
 ```shell
-# vue
-# vue, vue-router, vuex
-ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2
-# @vitejs/plugin-vue2 provide the ability to compiler vue template
-# We don't need vue-template-compiler anymore
-
-# builder & it's plugins
+# Vite & It's plugins
 # vite, @vitejs/plugin-legacy, @vitejs/plugin-vue2
 ni vite@^4 @vitejs/plugin-legacy@^4 @vitejs/plugin-vue2@latest
+
+# Vue 2
+# vue, vue-router, vuex, vueuse
+ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2 @vueuse/core@^11.3.0
+# `@vitejs/plugin-vue2` provide the ability to compiler vue template, we don't need vue-template-compiler anymore
 
 # Others
 # terser
