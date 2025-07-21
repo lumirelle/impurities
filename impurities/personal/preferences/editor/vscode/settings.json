@@ -7,7 +7,7 @@
   "window.title": "${rootPath}", // this make tabs more readable
   "window.titleBarStyle": "custom",
   // -- workbench
-  "workbench.activityBar.orientation": "vertical",
+  "workbench.activityBar.orientation": "horizontal",
   "workbench.tree.indent": 10,
   "workbench.tree.renderIndentGuides": "always",
   // -- explorer
@@ -113,7 +113,7 @@
   "editor.rulers": [80, 120],
   "editor.fontFamily": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
   "editor.fontSize": 16,
-  "editor.wordWrap": "bounded",
+  "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "editor.renderWhitespace": "boundary",
   "editor.guides.bracketPairs": "active",
@@ -228,14 +228,11 @@
   // ↓↓ extensions: ui
   // -- explorer
   "fileNestingUpdater.promptOnAutoUpdate": false,
-  "material-icon-theme.files.associations": {
-    ".env.preprod": "Tune"
-  },
   // -- editor
   "scm.diffDecorationsGutterWidth": 2,
-  "svg.preview.mode": "svg",
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
-  "errorLens.excludeBySource": ["cSpell", "Grammarly", "eslint"],
+  // TODO: I'd like to show all errors, let's have a try
+  // "errorLens.excludeBySource": ["cSpell", "Grammarly", "eslint"],
   // -- font
   "custom-ui-style.font.sansSerif": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
   "custom-ui-style.font.monospace": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
@@ -252,23 +249,17 @@
   "git.untrackedChanges": "separate",
   "git.enableSmartCommit": true,
   // -- git lens
+  "gitlens.defaultGravatarsStyle": "monsterid",
   "gitlens.plusFeatures.enabled": false,
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.enabled": false,
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.fileAnnotations.command": "blame",
   "gitlens.menus": {
     "editor": {
-      "blame": false,
-      "clipboard": false,
-      "compare": false,
+      "blame": true,
+      "clipboard": true,
+      "compare": true,
       "history": true,
       "remote": true
     },
-    "editorGroup": {
-      "blame": true,
-      "compare": true
-    },
+    "editorGroup": false,
     "editorGutter": false,
     "editorTab": false,
     "explorer": {
@@ -295,9 +286,14 @@
     "scmItemInline": false,
     "scmItem": false
   },
-  "gitlens.graph.dimMergeCommits": true,
   "gitlens.views.branches.showRemoteBranches": true,
   "gitlens.views.commitDetails.files.layout": "tree",
+  "gitlens.graph.dimMergeCommits": true,
+  "gitlens.fileAnnotations.command": "blame",
+  "gitlens.codeLens.scopes": [
+    "document",
+    "containers"
+  ],
 
   // ↓↓ extensions: lsp(syntax, formatter, linter, snippets)
   // -- lsp
@@ -420,6 +416,11 @@
       "text": "VSCODE ONLY",
       "backgroundColor": "#3271ae",
       "overviewRulerColor": "rgb(50 113 174 / 80%)"
+    },
+    {
+      "text": "NOT OPENVSIX",
+      "backgroundColor": "#7e527f",
+      "overviewRulerColor": "rgb(126 82 127 / 80%)"
     },
     {
       "text": "CURSOR ONLY",

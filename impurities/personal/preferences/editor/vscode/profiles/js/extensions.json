@@ -22,6 +22,6 @@
     "ritwickdey.liveserver" // ALT+L ALT+O, ALT+L CTRL+C
   ]
   // ↓↓ extension count
-  // vscode: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 50} = 61}
-  // cursor: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 48} = 59}
+  // vscode: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 47} = 58}
+  // cursor: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 45} = 56}
 }
