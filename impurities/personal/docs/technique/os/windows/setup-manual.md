@@ -93,7 +93,7 @@ BypassNRO.cmd
   fnm i 22
 
   # 安装必备全局依赖
-  npm i nrm @antfu/ni @antfu/nip -g
+  npm i nrm @antfu/ni @antfu/nip @sxzz/create -g
   # 如果你使用 node 18，推荐升级 npm 至 >= 10.9.2
   npm i npm@^10.9.2 -g
 
