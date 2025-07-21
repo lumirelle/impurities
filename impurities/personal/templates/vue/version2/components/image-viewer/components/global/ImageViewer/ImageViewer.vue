@@ -22,10 +22,27 @@ export default {
   },
 
   props: {
+    /**
+     * Scale mode
+     * - multiply: Multiply/divide the scale by the "scale ratio" when zooming in/out
+     * - addition: Add/subtract the "scale step" to the scale when zooming in/out
+     */
+    scaleMode: {
+      type: String,
+      default: 'addition',
+      validator: (value) => {
+        return ['multiply', 'addition'].includes(value)
+      },
+    },
     scaleRatio: {
       type: Number,
       default: 1.15,
     },
+    scaleStep: {
+      type: Number,
+      default: 0.1,
+    },
+
     maxScale: {
       type: Number,
       default: 5,
@@ -34,10 +51,17 @@ export default {
       type: Number,
       default: 0.1,
     },
+
+    /**
+     * Target image width when the scale type is "fit" (Fit to screen)
+     */
     targetWidth: {
       type: Number,
       default: 600,
     },
+    /**
+     * Target image height when the scale type is "fit" (Fit to screen)
+     */
     targetHeight: {
       type: Number,
       default: 400,
@@ -129,7 +153,9 @@ export default {
       :visible="panelVisible"
       :images="images"
       :current-index="currentImageIndex"
+      :scale-mode="scaleMode"
       :scale-ratio="scaleRatio"
+      :scale-step="scaleStep"
       :max-scale="maxScale"
       :min-scale="minScale"
       :target-width="targetWidth"

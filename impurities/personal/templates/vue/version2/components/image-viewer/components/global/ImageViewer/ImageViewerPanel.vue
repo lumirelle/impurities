@@ -16,9 +16,20 @@ export default {
       default: 0,
     },
 
+    scaleMode: {
+      type: String,
+      default: 'addition',
+      validator: (value) => {
+        return ['multiply', 'addition'].includes(value)
+      },
+    },
     scaleRatio: {
       type: Number,
       default: 1.15,
+    },
+    scaleStep: {
+      type: Number,
+      default: 0.1,
     },
     maxScale: {
       type: Number,
@@ -50,6 +61,8 @@ export default {
 
       showToolbar: true,
       hideTimer: null,
+
+      isCtrlPressed: false,
     }
   },
 
@@ -199,11 +212,21 @@ export default {
     },
 
     zoomIn() {
-      this.scale = Math.min(this.scale * this.scaleRatio, this.maxScale)
+      if (this.scaleMode === 'multiply') {
+        this.scale = Math.min(this.scale * this.scaleRatio, this.maxScale)
+      }
+      else {
+        this.scale = Math.min(this.scale + this.scaleStep, this.maxScale)
+      }
     },
 
     zoomOut() {
-      this.scale = Math.max(this.scale / this.scaleRatio, this.minScale)
+      if (this.scaleMode === 'multiply') {
+        this.scale = Math.max(this.scale / this.scaleRatio, this.minScale)
+      }
+      else {
+        this.scale = Math.max(this.scale - this.scaleStep, this.minScale)
+      }
     },
 
     handleScaleTypeChange(type) {
@@ -255,6 +278,10 @@ export default {
     // 鼠标滚轮缩放
     handleWheel(event) {
       event.preventDefault()
+
+      if (!event.ctrlKey) {
+        return
+      }
 
       if (event.deltaY < 0) {
         this.zoomIn()
