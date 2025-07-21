@@ -8,7 +8,9 @@ This article is based on node@18.20.8, npm@10.9.2, corepack@0.33.0, pnpm@10.13.1
 
 Main dependencies:
 
-- vue@^2.7.16, vue-cli@latest (webpack@^5, babel@^7, core-js@^3)
+- babel@^7, core-js@^3
+- @vue/cli-service@latest (@vue/cli-plugin-babel@latest)
+- vue@^2.7.16 (vue-router@legacy, vuex@^3.6.2, @vueuse/core@^11.3.0)
 - eslint@latest, stylelint@latest
 - simple-git-hooks@latest, lint-staged@latest, commitlint@latest
 
