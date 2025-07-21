@@ -4,7 +4,7 @@
   "recommendations": [
     // ↓↓ lsp (syntax, formatter, linter, snippets)
     // -- lsp
-    "dotenv.dotenv-vscode",
+    "dotenv.dotenv-vscode", // NOT OPENVSIX
     // -- linter
     "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx
     "stylelint.vscode-stylelint", // also the formatter for styles
@@ -12,12 +12,12 @@
     // ↓↓ life savers
     // -- editor views
     "wallabyjs.console-ninja",
-    "antfu.iconify",
-    "antfu.pnpm-catalog-lens",
-    "johnsoncodehk.vscode-tsconfig-helper",
+    "antfu.iconify", // NOT OPENVSIX
+    "antfu.pnpm-catalog-lens", // NOT OPENVSIX
+    "johnsoncodehk.vscode-tsconfig-helper", // NOT OPENVSIX
     // -- editor behavior
     "ecmel.vscode-html-css",
-    "antfu.goto-alias", // F12
+    "antfu.goto-alias", // NOT OPENVSIX, F12
     "chakrounanas.turbo-console-log", // CTRL+ALT+L
     "ritwickdey.liveserver" // ALT+L ALT+O, ALT+L CTRL+C
   ]
