@@ -1,10 +1,4 @@
 {
-  // -- ui --
-  "material-icon-theme.folders.associations": {
-    "impurities": "Resource",
-    "impurities/personal": "Public",
-    "impurities/work": "Private"
-  },
   // -- files
   "files.associations": {
     "*.json": "jsonc"
