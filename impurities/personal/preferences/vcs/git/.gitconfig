@@ -73,7 +73,7 @@ discard = "!f() { \
     fi; \
   fi; \
 }; f"
-discard-all = "!git restore --staged --worktree && git clean -df"
+discard-all = "!git restore --staged --worktree . && git clean -df"
 # add
 add-all = add .
 add-undo = reset HEAD --       # Move staged changes back to the working directory
