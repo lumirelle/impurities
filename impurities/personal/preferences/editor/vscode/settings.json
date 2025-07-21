@@ -129,7 +129,7 @@
   "workbench.preferredDarkColorTheme": "Vitesse Dark",
   "workbench.preferredLightColorTheme": "Vitesse Light",
   "workbench.productIconTheme": "icons-carbon",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "catppuccin-mocha",
   // -- cursor
   "editor.cursorStyle": "line",
   "editor.cursorBlinking": "smooth",
@@ -452,6 +452,10 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
+  // -- status bar view
+  "selectline.alignment": "right",
+  "selectline.statusbarPriority": 101,
+  "selectline.displayFormat": "%d Lines Selected",
   // -- PROFILE_JS editor behavior
   "css.enabledLanguages": ["html", "vue"],
   "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],

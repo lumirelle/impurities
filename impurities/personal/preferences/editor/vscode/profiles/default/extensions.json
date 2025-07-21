@@ -5,13 +5,17 @@
     // ↓↓ ui
     "antfu.theme-vitesse",
     "antfu.icons-carbon",
-    "pkief.material-icon-theme",
+    "catppuccin.catppuccin-vsc-icons",
     "subframe7536.custom-ui-style",
 
     // ↓↓ project mananger
     "alefragnani.project-manager",
     "antfu.where-am-i",
     "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+
+    // ↓↓ container
+    "ms-azuretools.vscode-containers",
 
     // ↓↓ lsp (syntax, formatter, linter, snippets)
     // -- lsp
@@ -46,6 +50,8 @@
     "antfu.array-index-inlay",
     "yoavbls.pretty-ts-errors",
     "usernamehw.errorlens",
+    // -- status bar views
+    "tomoki1207.selectline-statusbar",
     // -- explorer behavior
     "john681611.relativepath",
     "JannisX11.batch-rename-extension",
@@ -70,6 +76,6 @@
     "helixquar.randomeverything"
   ]
   // ↓↓ extension count
-  // vscode: {PROFILE_DEFAULT: 47 - 0 = 47}
-  // cursor: {PROFILE_DEFAULT: 47 - 2 = 45}
+  // vscode: {PROFILE_DEFAULT: 50 - 0 = 50}
+  // cursor: {PROFILE_DEFAULT: 50 - 2 = 48}
 }
