@@ -12,4 +12,4 @@ NOTE: PNPM 支持 .npmrc 作为配置文件，因此参考 [NPM](nodejs-pm-npm-m
 
 ## 💪🏼 如何使用？ / How to use?
 
-TODO
+TODO:

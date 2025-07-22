@@ -18,7 +18,7 @@ HEAD：指向当前分支的最新提交。
 
 ## 怎么使用？ / How to use?
 
-NOTE：本文中的命令缩写基于 [`.gitconfig`](/impurities/personal/preferences/vcs/git/.gitconfig) 中设置的 aliases。
+NOTE: 本文中的命令缩写基于 [`.gitconfig`](/impurities/personal/preferences/vcs/git/.gitconfig) 中设置的 aliases。
 
 ### 1. 创建版本库并完成初始化提交（init commit）
 
@@ -60,7 +60,7 @@ git p
 
 当远程有来自他人的更新，应及时从远程拉取，避免基于过时的代码开发。拉取操作默认行为是拉取并合并，如果存在冲突，则会产生合并记录。这样的合并记录是冗余的，因此推荐使用 `--rebase` 参数改为变基操作。
 
-NOTE：在刚完成本地与远程的冲突合并后，请不要拉取远程代码，应直接推送到远程。否则会再次执行冲突合并流程，导致文件混乱。
+NOTE: 在刚完成本地与远程的冲突合并后，请不要拉取远程代码，应直接推送到远程。否则会再次执行冲突合并流程，导致文件混乱。
 
 ```shell
 # 以下基于默认远程 origin

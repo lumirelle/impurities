@@ -375,7 +375,7 @@ ni cross-env@latest -D
 
 #### 手动配置
 
-NOTE：需要使用 cross-env 代理的 npm 脚本应手动配置。设置了环境变量，才需要改为通过 cross-env 来执行。
+NOTE: 需要使用 cross-env 代理的 npm 脚本应手动配置。设置了环境变量，才需要改为通过 cross-env 来执行。
 
 package.json
 

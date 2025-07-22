@@ -99,7 +99,7 @@ React.js、Vue.js 随之诞生，带来了 MVP、MVVM 等前端项目架构，�
 SEO 不友好、网页白屏时间长、界面渲染慢等问题得到缓解，基于 Vue.js、React.js 生态的应用框架 Nuxt.js、Next.js
 诞生，提供了服务端侧渲染（SSR）的解决方案。也因此，衍生出了基于前端技术的全栈开发、跨平台原生开发。
 
-NOTE：现代前端技术的核心可以说是 JS & JS Runtime（浏览器 | node.js 等）。
+NOTE: 现代前端技术的核心可以说是 JS & JS Runtime（浏览器 | node.js 等）。
 
 ## 🎭 HTML & CSS & JS <a name="html-css-js"></a>
 
