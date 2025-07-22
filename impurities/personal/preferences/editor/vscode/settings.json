@@ -210,6 +210,10 @@
   "workbench.list.fastScrollSensitivity": 3,
   // -- security
   "security.workspace.trust.enabled": false,
+  // -- cpp
+  "cursor.cpp.disabledLanguages": [
+    "plaintext"
+  ],
 
   // ↓↓ vscode: format & formatter
   "files.eol": "\n",
