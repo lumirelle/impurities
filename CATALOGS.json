@@ -403,7 +403,7 @@
           "public.scss": ""
         },
         "vue": {
-          "version2": {
+          "common": {
             "components": {
               "gradient-border": {
                 "GradientBorder.vue": ""
@@ -425,33 +425,34 @@
                   }
                 },
                 "components": {
-                  "global": {
-                    "ImageViewer": {
-                      "ImageViewer.vue": "",
-                      "ImageViewerPanel.vue": ""
-                    }
+                  "ImageViewer": {
+                    "ImageViewer.vue": "",
+                    "ImageViewerPanel.vue": ""
                   }
                 },
                 "locales": {
                   "modules": {
                     "image-viewer": {
                       "en.json": "",
-                      "zh-CN.json": ""
+                      "zh-CN.json": "",
+                      "zh-TW.json": ""
                     }
                   }
                 }
               }
             },
-            "hooks": {
-              "use-i18n.js": "",
-              "use-namespace.js": ""
+            "composable": {
+              "use-namespace.js": "",
+              "use-namespace.ts": ""
             }
           },
-          "version3": {
-            "hooks": {
-              "use-namespace": {
-                "use-namespace.ts": ""
-              }
+          "version2": {
+            "components": {
+              "placeholder": ""
+            },
+            "composable": {
+              "use-i18n.js": "",
+              "use-i18n.ts": ""
             }
           }
         }
