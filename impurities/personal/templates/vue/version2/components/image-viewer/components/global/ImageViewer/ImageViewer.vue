@@ -53,18 +53,18 @@ export default {
     },
 
     /**
-     * Target image width when the scale type is "fit" (Fit to screen)
+     * Ratio to the window width when the scale type is "fit" (Fit to screen)
      */
-    targetWidth: {
+    fitWidthRatio: {
       type: Number,
-      default: 600,
+      default: 0.6,
     },
     /**
-     * Target image height when the scale type is "fit" (Fit to screen)
+     * Ratio to the window height when the scale type is "fit" (Fit to screen)
      */
-    targetHeight: {
+    fitHeightRatio: {
       type: Number,
-      default: 400,
+      default: 0.6,
     },
   },
 
@@ -158,8 +158,6 @@ export default {
       :scale-step="scaleStep"
       :max-scale="maxScale"
       :min-scale="minScale"
-      :target-width="targetWidth"
-      :target-height="targetHeight"
       @close="closeImageViewer"
       @prev="prevImage"
       @next="nextImage"

@@ -39,13 +39,14 @@ export default {
       type: Number,
       default: 0.1,
     },
-    targetWidth: {
+
+    fitWidthRatio: {
       type: Number,
-      default: 600,
+      default: 0.6,
     },
-    targetHeight: {
+    fitHeightRatio: {
       type: Number,
-      default: 400,
+      default: 0.6,
     },
   },
 
@@ -169,8 +170,8 @@ export default {
         const imageWidth = image.clientWidth
         const imageHeight = image.clientHeight
 
-        const targetWidth = this.targetWidth
-        const targetHeight = this.targetHeight
+        const targetWidth = window.innerWidth * this.fitWidthRatio
+        const targetHeight = window.innerHeight * this.fitHeightRatio
 
         const maxWidth = window.innerWidth * 0.8
         const maxHeight = window.innerHeight * 0.8
@@ -235,7 +236,7 @@ export default {
     },
 
     rotate() {
-      this.rotation += 90
+      this.rotation -= 90
     },
 
     // 键盘事件处理
