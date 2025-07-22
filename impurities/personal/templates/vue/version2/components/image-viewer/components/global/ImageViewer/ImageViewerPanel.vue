@@ -79,6 +79,7 @@ export default {
     },
     imageStyle() {
       return {
+        opacity: this.imageLoading ? 0 : 1,
         transform: `scale(${this.scale}) rotate(${this.rotation}deg)`,
       }
     },
@@ -151,10 +152,10 @@ export default {
     // Events
 
     handleImageLoad() {
-      this.imageLoading = false
-      this.imageError = false
       // Reset the scale after the image is loaded
       this.resetScale()
+      this.imageLoading = false
+      this.imageError = false
     },
 
     handleImageError() {
@@ -440,8 +441,6 @@ export default {
 
   &__image {
     user-select: none;
-    transition: transform 0.2s ease-in-out;
-    animation: opacity 0.3s ease-in-out;
   }
 
   &__loading {
@@ -548,11 +547,6 @@ export default {
       }
     }
   }
-}
-
-@keyframes opacity {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
 }
 
 @keyframes spin {

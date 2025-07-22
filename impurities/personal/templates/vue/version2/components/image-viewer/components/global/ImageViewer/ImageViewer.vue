@@ -1,3 +1,24 @@
+<template>
+  <div class="image-viewer-wrapper">
+    <div ref="content" class="image-viewer-wrapper__content">
+      <slot />
+    </div>
+    <ImageViewerPanel
+      :visible="panelVisible"
+      :images="images"
+      :current-index="currentImageIndex"
+      :scale-mode="scaleMode"
+      :scale-ratio="scaleRatio"
+      :scale-step="scaleStep"
+      :max-scale="maxScale"
+      :min-scale="minScale"
+      @close="closeImageViewer"
+      @prev="prevImage"
+      @next="nextImage"
+    />
+  </div>
+</template>
+
 <script>
 import ImageViewerPanel from './ImageViewerPanel.vue'
 
@@ -79,7 +100,7 @@ export default {
   mounted() {
     this.init()
   },
-  beforeUnmount() {
+  beforeDestroy() {
     this.cleanup()
   },
 
@@ -143,27 +164,6 @@ export default {
   },
 }
 </script>
-
-<template>
-  <div class="image-viewer-wrapper">
-    <div ref="content" class="image-viewer-wrapper__content">
-      <slot />
-    </div>
-    <ImageViewerPanel
-      :visible="panelVisible"
-      :images="images"
-      :current-index="currentImageIndex"
-      :scale-mode="scaleMode"
-      :scale-ratio="scaleRatio"
-      :scale-step="scaleStep"
-      :max-scale="maxScale"
-      :min-scale="minScale"
-      @close="closeImageViewer"
-      @prev="prevImage"
-      @next="nextImage"
-    />
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .image-viewer-wrapper {
