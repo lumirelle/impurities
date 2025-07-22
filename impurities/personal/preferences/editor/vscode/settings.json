@@ -211,16 +211,14 @@
   // -- security
   "security.workspace.trust.enabled": false,
   // -- cpp
-  "cursor.cpp.disabledLanguages": [
-    "plaintext"
-  ],
+  "cursor.cpp.disabledLanguages": ["plaintext"],
 
   // ↓↓ vscode: format & formatter
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[powershell]": { "editor.defaultFormatter": "ms-vscode.powershell" },
   "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
@@ -294,10 +292,7 @@
   "gitlens.views.commitDetails.files.layout": "tree",
   "gitlens.graph.dimMergeCommits": true,
   "gitlens.fileAnnotations.command": "blame",
-  "gitlens.codeLens.scopes": [
-    "document",
-    "containers"
-  ],
+  "gitlens.codeLens.scopes": ["document", "containers"],
 
   // ↓↓ extensions: lsp(syntax, formatter, linter, snippets)
   // -- lsp
@@ -387,17 +382,17 @@
   },
   "todohighlight.keywords": [
     {
-      "text": "BUG",
+      "text": "BUG:",
       "backgroundColor": "#ab372f",
       "overviewRulerColor": "rgb(171 55 47 / 80%)"
     },
     {
-      "text": "FIXME",
+      "text": "FIXME:",
       "backgroundColor": "#ee7959",
       "overviewRulerColor": "rgb(238 121 89 / 80%)"
     },
     {
-      "text": "TODO",
+      "text": "TODO:",
       "backgroundColor": "#3271ae",
       "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
@@ -407,27 +402,42 @@
       "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
     {
+      "text": "ONPROGRESS:",
+      "backgroundColor": "#6ca8af",
+      "overviewRulerColor": "rgb(108 168 175 / 80%)"
+    },
+    {
+      "text": "[-]",
+      "backgroundColor": "#6ca8af",
+      "overviewRulerColor": "rgb(108 168 175 / 80%)"
+    },
+    {
+      "text": "DONE:",
+      "backgroundColor": "#68945c",
+      "overviewRulerColor": "rgb(104 148 92 / 80%)"
+    },
+    {
       "text": "[x]",
       "backgroundColor": "#68945c",
       "overviewRulerColor": "rgb(104 148 92 / 80%)"
     },
     {
-      "text": "NOTE",
+      "text": "NOTE:",
       "backgroundColor": "#e18a3b",
       "overviewRulerColor": "rgb(225 138 59 / 80%)"
     },
     {
-      "text": "VSCODE ONLY",
+      "text": "<VSCODE ONLY>",
       "backgroundColor": "#3271ae",
       "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
     {
-      "text": "NOT OPENVSIX",
+      "text": "<NOT OPENVSIX>",
       "backgroundColor": "#7e527f",
       "overviewRulerColor": "rgb(126 82 127 / 80%)"
     },
     {
-      "text": "CURSOR ONLY",
+      "text": "<CURSOR ONLY>",
       "backgroundColor": "#ab372f",
       "overviewRulerColor": "rgb(171 55 47 / 80%)"
     }

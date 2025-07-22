@@ -3,7 +3,7 @@
   // VSCODE PROFILE_DEFAULT
   "recommendations": [
     // ↓↓ ui
-    "antfu.theme-vitesse", // NOT OPENVSIX
+    "antfu.theme-vitesse", // <NOT OPENVSIX>
     "antfu.icons-carbon",
     "catppuccin.catppuccin-vsc-icons",
     "subframe7536.custom-ui-style",
@@ -46,31 +46,31 @@
     // -- explorer views
     "antfu.file-nesting",
     // -- editor views
-    "antfu.array-index-inlay", // NOT OPENVSIX
+    "antfu.array-index-inlay", // <NOT OPENVSIX>
     "yoavbls.pretty-ts-errors",
     "usernamehw.errorlens",
     // -- status bar views
-    "tomoki1207.selectline-statusbar", // NOT OPENVSIX
+    "tomoki1207.selectline-statusbar", // <NOT OPENVSIX>
     // -- explorer behavior
-    "JannisX11.batch-rename-extension", // NOT OPENVSIX
+    "JannisX11.batch-rename-extension", // <NOT OPENVSIX>
     "rhalaly.scope-to-this",
-    "sandcastle.vscode-open", // NOT OPENVSIX
+    "sandcastle.vscode-open", // <NOT OPENVSIX>
     // -- editor behavior
-    "antfu.smart-clicks", // NOT OPENVSIX
+    "antfu.smart-clicks", // <NOT OPENVSIX>
     "albert.tabout",
-    "mpontus.tab-cycle", // NOT OPENVSIX. CTRL+PGUP, CTRL+PGDN, ALT+<NUMBER>
+    "mpontus.tab-cycle", // <NOT OPENVSIX>. CTRL+PGUP, CTRL+PGDN, ALT+<NUMBER>
     "yatki.vscode-surround", // CTRL+SHIFT+T
     "britesnow.vscode-toggle-quotes", // CTRL+'
     "cardinal90.multi-cursor-case-preserve",
     "christian-kohler.path-intellisense",
-    "github.copilot", // VSCODE ONLY
-    "github.copilot-chat", // VSCODE ONLY
+    "github.copilot", // <VSCODE ONLY>
+    "github.copilot-chat", // <VSCODE ONLY>
     // -- main bar behavior
     "zjffun.snippetsmanager",
     // -- status bar behavior
     "tombonnike.vscode-status-bar-format-toggle",
     // -- commands
-    "helixquar.randomeverything" // NOT OPENVSIX
+    "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // ↓↓ extension count
   // vscode: {PROFILE_DEFAULT: 47 - 0 = 47}
