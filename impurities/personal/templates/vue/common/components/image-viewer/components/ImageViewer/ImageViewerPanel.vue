@@ -1,317 +1,301 @@
-<script>
-export default {
-  name: 'ImageViewerPanel',
+<script setup>
+import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 
-  props: {
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-    images: {
-      type: Array,
-      default: () => [],
-    },
-    currentIndex: {
-      type: Number,
-      default: 0,
-    },
-
-    scaleMode: {
-      type: String,
-      default: 'addition',
-      validator: (value) => {
-        return ['multiply', 'addition'].includes(value)
-      },
-    },
-    scaleRatio: {
-      type: Number,
-      default: 1.15,
-    },
-    scaleStep: {
-      type: Number,
-      default: 0.1,
-    },
-    maxScale: {
-      type: Number,
-      default: 5,
-    },
-    minScale: {
-      type: Number,
-      default: 0.1,
-    },
-
-    fitWidthRatio: {
-      type: Number,
-      default: 0.6,
-    },
-    fitHeightRatio: {
-      type: Number,
-      default: 0.6,
-    },
+defineProps({
+  visible: {
+    type: Boolean,
+    default: false,
+  },
+  images: {
+    type: Array,
+    default: () => [],
+  },
+  currentIndex: {
+    type: Number,
+    default: 0,
   },
 
-  data() {
-    return {
-      imageLoading: false,
-      imageError: false,
-
-      scale: 1,
-      scaleType: 'fit',
-
-      rotation: 0,
-
-      showToolbar: true,
-      hideTimer: null,
-
-      isCtrlPressed: false,
-    }
-  },
-
-  computed: {
-    currentImage() {
-      return this.images[this.currentIndex] || { src: '', alt: '', title: '' }
-    },
-
-    imageContainerStyle() {
-      return {
-        transform: `scale(${this.scale})`,
-      }
-    },
-    imageStyle() {
-      return {
-        opacity: this.imageLoading ? 0 : 1,
-        transform: `scale(${this.scale}) rotate(${this.rotation}deg)`,
-      }
+  scaleMode: {
+    type: String,
+    default: 'addition',
+    validator: (value) => {
+      return ['multiply', 'addition'].includes(value)
     },
   },
-
-  watch: {
-    /**
-     * Listen to the visible property, control the image viewer's display and initial behavior
-     */
-    visible(newVal) {
-      if (newVal) {
-        this.resetData()
-        this.showToolbarAndRestartHideTimer()
-        this.$nextTick(() => {
-          this.addKeydownListeners()
-        })
-      }
-      else {
-        this.removeKeydownListeners()
-      }
-    },
-
-    currentIndex() {
-      this.resetData()
-    },
+  scaleRatio: {
+    type: Number,
+    default: 1.15,
+  },
+  scaleStep: {
+    type: Number,
+    default: 0.1,
+  },
+  maxScale: {
+    type: Number,
+    default: 5,
+  },
+  minScale: {
+    type: Number,
+    default: 0.1,
   },
 
-  beforeUnmount() {
-    this.removeKeydownListeners()
-    this.clearHideTimer()
+  fitWidthRatio: {
+    type: Number,
+    default: 0.6,
   },
-
-  methods: {
-    // Init
-
-    resetData() {
-      this.imageLoading = true
-      this.imageError = false
-      this.scale = 1
-      this.scaleType = 'fit'
-      this.rotation = 0
-    },
-
-    addKeydownListeners() {
-      document.addEventListener('keydown', this.handleKeydown)
-      document.addEventListener('mousemove', this.handleMouseMove)
-      const imageContainer = this.$refs.contentRef
-      if (imageContainer) {
-        imageContainer.addEventListener('mousedown', this.handleMouseDown)
-        imageContainer.addEventListener('wheel', this.handleWheel)
-      }
-      else {
-        console.error('😎 ~ ImageViewer.vue ~ addKeydownListeners ~ imageContainer:', imageContainer)
-      }
-    },
-
-    removeKeydownListeners() {
-      document.removeEventListener('keydown', this.handleKeydown)
-      document.removeEventListener('mousemove', this.handleMouseMove)
-      const imageContainer = this.$refs.contentRef
-      if (imageContainer) {
-        imageContainer.removeEventListener('mousedown', this.handleMouseDown)
-        imageContainer.removeEventListener('wheel', this.handleWheel)
-      }
-      else {
-        console.error('😎 ~ ImageViewer.vue ~ removeKeydownListeners ~ imageContainer:', imageContainer)
-      }
-    },
-
-    // Events
-
-    handleImageLoad() {
-      // Reset the scale after the image is loaded
-      this.resetScale()
-      this.imageLoading = false
-      this.imageError = false
-    },
-
-    handleImageError() {
-      this.imageLoading = false
-      this.imageError = true
-    },
-
-    // Scale
-
-    resetScale() {
-      if (this.scaleType === 'fit') {
-        const image = this.$refs.imageRef
-        const imageWidth = image.clientWidth
-        const imageHeight = image.clientHeight
-
-        const targetWidth = window.innerWidth * this.fitWidthRatio
-        const targetHeight = window.innerHeight * this.fitHeightRatio
-
-        const maxWidth = window.innerWidth * 0.8
-        const maxHeight = window.innerHeight * 0.8
-
-        const scale = Math.min(targetWidth / imageWidth, targetHeight / imageHeight, maxWidth / imageWidth, maxHeight / imageHeight)
-
-        this.scale = scale
-      }
-      else {
-        this.scale = 1
-      }
-    },
-
-    // Toolbar auto hide management
-
-    showToolbarAndRestartHideTimer() {
-      this.showToolbar = true
-      this.startHideTimer()
-    },
-
-    startHideTimer() {
-      this.clearHideTimer()
-      this.hideTimer = setTimeout(() => {
-        // this.showToolbar = false
-      }, 2000) // 2秒后隐藏
-    },
-
-    clearHideTimer() {
-      if (this.hideTimer) {
-        clearTimeout(this.hideTimer)
-        this.hideTimer = null
-      }
-    },
-
-    // Functions
-
-    handleContentClick() {
-      this.$emit('close')
-    },
-
-    zoomIn() {
-      if (this.scaleMode === 'multiply') {
-        this.scale = Math.min(this.scale * this.scaleRatio, this.maxScale)
-      }
-      else {
-        this.scale = Math.min(this.scale + this.scaleStep, this.maxScale)
-      }
-    },
-
-    zoomOut() {
-      if (this.scaleMode === 'multiply') {
-        this.scale = Math.max(this.scale / this.scaleRatio, this.minScale)
-      }
-      else {
-        this.scale = Math.max(this.scale - this.scaleStep, this.minScale)
-      }
-    },
-
-    handleScaleTypeChange(type) {
-      this.scaleType = type
-      this.resetScale()
-    },
-
-    rotate() {
-      this.rotation -= 90
-    },
-
-    // 键盘事件处理
-    handleKeydown(event) {
-      if (!this.visible)
-        return
-
-      switch (event.key) {
-        case 'Escape':
-          this.$emit('close')
-          break
-        case 'ArrowLeft':
-          if (this.currentIndex > 0) {
-            this.$emit('prev')
-          }
-          break
-        case 'ArrowRight':
-          if (this.currentIndex < this.images.length - 1) {
-            this.$emit('next')
-          }
-          break
-        case 'ArrowUp':
-          this.zoomIn()
-          break
-        case 'ArrowDown':
-          this.zoomOut()
-          break
-        case 'r':
-        case 'R':
-          this.rotate()
-          break
-      }
-    },
-
-    handleMouseMove() {
-      // 显示工具栏并重新开始隐藏计时器
-      this.showToolbarAndRestartHideTimer()
-    },
-
-    // 鼠标滚轮缩放
-    handleWheel(event) {
-      event.preventDefault()
-
-      if (!event.ctrlKey) {
-        return
-      }
-
-      if (event.deltaY < 0) {
-        this.zoomIn()
-      }
-      else {
-        this.zoomOut()
-      }
-    },
-
-    downloadImage() {
-      const currentImage = this.images[this.currentIndex]
-      if (currentImage) {
-        fetch(currentImage.src)
-          .then(res => res.blob())
-          .then((blob) => {
-            const url = window.URL.createObjectURL(blob)
-            const link = document.createElement('a')
-            link.style.display = 'none'
-            link.href = url
-            link.download = currentImage.title || 'image'
-            document.body.appendChild(link)
-            link.click()
-            document.body.removeChild(link)
-          })
-      }
-    },
+  fitHeightRatio: {
+    type: Number,
+    default: 0.6,
   },
+})
+
+const emit = defineEmits(['close', 'prev', 'next'])
+
+const contentRef = ref(null)
+const imageRef = ref(null)
+
+const imageLoading = ref(false)
+const imageError = ref(false)
+
+const scale = ref(1)
+const scaleType = ref('fit')
+
+const rotation = ref(0)
+
+const showToolbar = ref(true)
+const hideTimer = ref(null)
+
+const currentImage = computed(() => {
+  return props.images[props.currentIndex] || { src: '', alt: '', title: '' }
+})
+
+const imageStyle = computed(() => {
+  return {
+    opacity: imageLoading.value ? 0 : 1,
+    transform: `scale(${scale.value}) rotate(${rotation.value}deg)`,
+  }
+})
+
+/**
+ * Listen to the visible property, control the image viewer's display and initial behavior
+ */
+watch(visible, (newVal) => {
+  if (newVal) {
+    resetData()
+    showToolbarAndRestartHideTimer()
+    nextTick(() => {
+      addKeydownListeners()
+    })
+  }
+  else {
+    removeKeydownListeners()
+  }
+})
+
+watch(currentIndex, () => {
+  resetData()
+})
+
+// Init
+
+function resetData() {
+  imageLoading.value = true
+  imageError.value = false
+  scale.value = 1
+  scaleType.value = 'fit'
+  rotation.value = 0
 }
+
+function addKeydownListeners() {
+  document.addEventListener('keydown', handleKeydown)
+  document.addEventListener('mousemove', handleMouseMove)
+  const imageContainer = contentRef.value
+  if (imageContainer) {
+    imageContainer.addEventListener('mousedown', handleMouseDown)
+    imageContainer.addEventListener('wheel', handleWheel)
+  }
+  else {
+    console.error('😎 ~ ImageViewer.vue ~ addKeydownListeners ~ imageContainer:', imageContainer)
+  }
+}
+
+function removeKeydownListeners() {
+  document.removeEventListener('keydown', handleKeydown)
+  document.removeEventListener('mousemove', handleMouseMove)
+  const imageContainer = contentRef.value
+  if (imageContainer) {
+    imageContainer.removeEventListener('mousedown', handleMouseDown)
+    imageContainer.removeEventListener('wheel', handleWheel)
+  }
+  else {
+    console.error('😎 ~ ImageViewer.vue ~ removeKeydownListeners ~ imageContainer:', imageContainer)
+  }
+}
+
+// Events
+
+function handleImageLoad() {
+  // Reset the scale after the image is loaded
+  resetScale()
+  imageLoading.value = false
+  imageError.value = false
+}
+
+function handleImageError() {
+  imageLoading.value = false
+  imageError.value = true
+}
+
+// Scale
+
+function resetScale() {
+  if (scaleType.value === 'fit') {
+    const image = imageRef.value
+    const imageWidth = image.clientWidth
+    const imageHeight = image.clientHeight
+
+    const targetWidth = window.innerWidth * fitWidthRatio.value
+    const targetHeight = window.innerHeight * fitHeightRatio.value
+
+    const maxWidth = window.innerWidth * 0.8
+    const maxHeight = window.innerHeight * 0.8
+
+    scale.value = Math.min(targetWidth / imageWidth, targetHeight / imageHeight, maxWidth / imageWidth, maxHeight / imageHeight)
+  }
+  else {
+    scale.value = 1
+  }
+}
+
+// Toolbar auto hide management
+
+function showToolbarAndRestartHideTimer() {
+  showToolbar.value = true
+  startHideTimer()
+}
+
+function startHideTimer() {
+  clearHideTimer()
+  hideTimer.value = setTimeout(() => {
+    // showToolbar.value = false
+  }, 2000) // 2秒后隐藏
+}
+
+function clearHideTimer() {
+  if (hideTimer.value) {
+    clearTimeout(hideTimer.value)
+    hideTimer.value = null
+  }
+}
+
+// Functions
+
+function handleContentClick() {
+  emit('close')
+}
+
+function zoomIn() {
+  if (scaleMode.value === 'multiply') {
+    scale.value = Math.min(scale.value * scaleRatio.value, maxScale.value)
+  }
+  else {
+    scale.value = Math.min(scale.value + scaleStep.value, maxScale.value)
+  }
+}
+
+function zoomOut() {
+  if (scaleMode.value === 'multiply') {
+    scale.value = Math.max(scale.value / scaleRatio.value, minScale.value)
+  }
+  else {
+    scale.value = Math.max(scale.value - scaleStep.value, minScale.value)
+  }
+}
+
+function handleScaleTypeChange(type) {
+  scaleType.value = type
+  resetScale()
+}
+
+function rotate() {
+  rotation.value -= 90
+}
+
+// 键盘事件处理
+function handleKeydown(event) {
+  if (!visible.value)
+    return
+
+  switch (event.key) {
+    case 'Escape':
+      emit('close')
+      break
+    case 'ArrowLeft':
+      if (currentIndex.value > 0) {
+        emit('prev')
+      }
+      break
+    case 'ArrowRight':
+      if (currentIndex.value < images.value.length - 1) {
+        emit('next')
+      }
+      break
+    case 'ArrowUp':
+      zoomIn()
+      break
+    case 'ArrowDown':
+      zoomOut()
+      break
+    case 'r':
+    case 'R':
+      rotate()
+      break
+  }
+}
+
+function handleMouseMove() {
+  // 显示工具栏并重新开始隐藏计时器
+  showToolbarAndRestartHideTimer()
+}
+
+// 鼠标滚轮缩放
+function handleWheel(event) {
+  event.preventDefault()
+
+  if (!event.ctrlKey) {
+    return
+  }
+
+  if (event.deltaY < 0) {
+    zoomIn()
+  }
+  else {
+    zoomOut()
+  }
+}
+
+function downloadImage() {
+  const currentImage = images[currentIndex.value]
+  if (currentImage) {
+    fetch(currentImage.src)
+      .then(res => res.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.style.display = 'none'
+        link.href = url
+        link.download = currentImage.title || 'image'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      })
+  }
+}
+
+onBeforeUnmount(() => {
+  removeKeydownListeners()
+  clearHideTimer()
+})
 </script>
 
 <template>
