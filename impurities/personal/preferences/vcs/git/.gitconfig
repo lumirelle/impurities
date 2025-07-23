@@ -47,9 +47,8 @@ enabled = true
 
 [alias]
 # ENHANCEMENTS ALIASES
-# aliases
 # WHY USING `!`?
-# 1: `!` means execute the command in the shell, not in the git command line.
+#   1: `!` means execute the command in the shell, not in the git command line. (e.g. `!f() { ... }`)
 aliases = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
 # log
 log = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -58,12 +57,12 @@ log-last = log -1 HEAD --stat
 config-list = config --list
 config-global = config --global
 # discard
-# If the file is tracked, then restore the file to the working directory.
-# If the file is untracked, then delete the file.
+#   If the file is tracked, then restore the file to the working directory.
+#   If the file is untracked, then delete the file.
 # WHY USING FUNCTION?
-# 1: Support special characters in parameters.
-# 2: Support variables.
-# 3: Refuse unexpected parameters provided by user.
+#   1: Support special characters in parameters.
+#   2: Support variables.
+#   3: Refuse unexpected parameters provided by user.
 discard = "!f() { \
   if git ls-files --error-unmatch -- \"$1\" >/dev/null 2>&1; then \
     git restore --staged --worktree -- \"$1\"; \
@@ -76,8 +75,7 @@ discard = "!f() { \
 discard-all = "!git restore --staged --worktree . && git clean -df"
 # add
 add-all = add .
-add-undo = reset HEAD --       # Move staged changes back to the working directory
-add-undo-all = reset HEAD -- . # Move all staged changes back to the working directory
+add-all-undo = reset HEAD -- . # Move all staged changes back to the working directory
 # commit
 commit-with-message = commit --message
 commit-undo = reset --soft HEAD^ # Move commit back to the staging area
@@ -123,10 +121,16 @@ branch-list-remote = branch --remote
 branch-list-all = branch --all
 branch-delete-local = branch --delete
 branch-force-delete-local = branch --delete --force
+branch-delete-remote = push --delete
 branch-delete-origin = push --delete origin
-branch-rename = "!f() { \
+branch-delete-both-local-and-origin = "!f() { \
+  git branch-delete-local \"$1\"; \
+  git branch-delete-origin \"$1\"; \
+}; f"
+branch-rename = branch --move
+branch-rename-origin = "!f() { \
+  git branch-delete-origin \"$1\"; \
   git branch --move \"$1\" \"$2\"; \
-  git push-origin-delete \"$1\"; \
   git push-origin-upstream-current-branch \"$2\"; \
 }; f"
 # branch & switch
@@ -137,10 +141,13 @@ merge-with-default-message = "!f() { \
   git merge \"$1\" --no-ff --message \"merge: merge $1 into $current_branch\"; \
 }; f"
 merge-abort = merge --abort
+merge-continue = merge --continue
 # rebase
 rebase-abort = rebase --abort
+rebase-continue = rebase --continue
 # cherry-pick
 cherry-pick-abort = cherry-pick --abort
+cherry-pick-continue = cherry-pick --continue
 # tag
 tag-list = tag --list
 tag-list-remote = ls-remote --tags
@@ -149,11 +156,19 @@ tag-delete-multiple = "!f() { \
   git tag --list \"$1\" | xargs git tag --delete; \
 }; f"
 tag-sync-remote = "!f() { \
+  git push \"$1\":refs/tags/$2; \
+  git fetch-prune-tags; \
+}; f"
+tag-sync-origin = "!f() { \
   git push-origin :refs/tags/$1; \
   git fetch-prune-tags; \
 }; f"
-tag-sync-remote-multiple = "!f() { \
+tag-sync-origin-multiple = "!f() { \
   git tag-list \"$1\" | xargs -I {} git push-origin :refs/tags/{}; \
+  git fetch-prune-tags; \
+}; f"
+tag-sync-remote-multiple = "!f() { \
+  git tag-list \"$2\" | xargs -I {} git push \"$1\":refs/tags/{}; \
   git fetch-prune-tags; \
 }; f"
 # remote
@@ -171,6 +186,7 @@ pull-origin-upstream-current-branch = "!f() { \
   git pull --set-upstream origin \"$current_branch\"; \
 }; f"
 # push
+push-force = push --force
 push-origin = push origin
 push-origin-delete = push --delete origin
 push-origin-upstream-current-branch = "!f() { \
@@ -181,27 +197,25 @@ push-origin-upstream-current-branch = "!f() { \
 pull-then-push = "!git pull-prune-tags && git push"
 
 # SHORTCUTS ALIASES
-#
-# -- SUFFIX INTRODUCTION
-# <TO SPECIFY ADDITIONAL BEHAVIOR>
-# `n`: `new | add`
-# `l`: `list`
-# `u`: `undo`, which means recover the status **after an operation is completed**
-# `x`: `discard | delete | drop`, which means **drop things** we don't need any more
-# `r`: `rename`
-# `z`: `abort`, which means **interrupt an operation**, we will not complete the operation
-# `s`: `sync`, which means **sync the changes** with the remote repository after we complete an operation locally
-# <TO SPECIFY TARGET>
-# `g`: `global`
-# `a`: `all`
-# `o`: `remote` (by default, it's standing for `origin`)
-# `m`: `multiple`
-# <TO SPECIFY PARAMETERS>
-# `m`: with `--message` parameter
-# `e`: with `--edit` parameter
-# `f`: with `--force` parameter
-#
-# -- ALIAS LIST
+# SUFFIX INTRODUCTION
+#   <TO SPECIFY ADDITIONAL BEHAVIOR>
+#   `l`: `list`
+#   `u`: `undo`, which means recover the status **after an operation is completed**
+#   `x`: `discard | delete | drop`, which means **drop things** we don't need any more
+#   `n`: `rename`
+#   `s`: `sync`, which means **sync the changes** with the remote repository after we complete an operation locally
+#   <TO SPECIFY TARGET>
+#   `g`: `global`
+#   `a`: `all`
+#   `e`: `remote`
+#   `o`: `origin`, the specific remote name "origin"
+#   `m`: `multiple`
+#   <TO SPECIFY PARAMETERS>
+#   `m`: with `--message` parameter
+#   `e`: with `--edit` parameter
+#   `f`: with `--force` parameter
+#   `z`: with `--abort` parameter
+#   `c`: with `--continue` parameter
 # config: cf
 cf = config
 cfg = config-global
@@ -213,25 +227,21 @@ cl = clone
 # discard: x
 x = discard
 xa = discard-all
-# add: a
-a = add
-aa = add-all
-au = add-undo
-aua = add-undo-all
+# add (all): a
+a = add-all # Add all by command line as default, add specific files by using GUI
+au = add-all-undo
 # commit: c
 c = commit
 cm = commit-with-message
 cu = commit-undo
 # add & commit: a*c*
-ac = add-then-commit
-acm = add-then-commit-with-message
-aac = add-all-then-commit
-aacm = add-all-then-commit-with-message
-# amend commit: amc
-amc = amend-commit
-amce = amend-commit-with-edit
-aamc = add-all-then-amend-commit
-aamce = add-all-then-amend-commit-with-edit
+ac = add-all-then-commit # `ac` instead of `aac` because `aac` is too long to type
+acm = add-all-then-commit-with-message # `acm` instead of `aacm` because `aacm` is too long to type
+# amend commit: mc
+mc = amend-commit
+mce = amend-commit-with-edit
+amc = add-all-then-amend-commit
+amce = add-all-then-amend-commit-with-edit
 # wip: wip
 wipu = wip-undo
 # stash: s
@@ -242,12 +252,15 @@ sx = stash-drop
 # branch: b
 b = branch
 bl = branch-list-local
-blo = branch-list-remote
+ble = branch-list-remote
 bla = branch-list-all
 bx = branch-delete-local
 bxf = branch-delete-local-force
+bxe = branch-delete-remote
 bxo = branch-delete-origin # Remote branch has no force delete operation
-br = branch-rename
+bxa = branch-delete-both-local-and-origin
+bn = branch-rename
+bno = branch-rename-origin
 # switch: w
 w = switch
 # branch & switch: b*w*
@@ -255,9 +268,11 @@ bw = branch-then-switch
 # merge: m
 m = merge-with-default-message
 mz = merge-abort
+mc = merge-continue
 # rebase: r
 r = rebase
 rz = rebase-abort
+rc = rebase-continue
 # reset: rs
 rs = reset
 # revert: rv
@@ -265,20 +280,23 @@ rv = revert
 # cherry-pick: cp
 cp = cherry-pick
 cpz = cherry-pick-abort
+cpc = cherry-pick-continue
 # tag: t
 t = tag
 tl = tag-list
-tlo = tag-list-remote
+tle = tag-list-remote
 tx = tag-delete
 txm = tag-delete-multiple
-tso = tag-sync-remote
-tsom = tag-sync-remote-multiple
-# remote: o
-o = remote-add
-oo = remote-add-origin
-ou = remote-add-upstream
-ol = remote-list
-ox = remote-remove
+tse = tag-sync-remote
+tso = tag-sync-origin
+tsem = tag-sync-remote-multiple
+tsom = tag-sync-origin-multiple
+# remote: e
+e = remote-add
+eo = remote-add-origin
+eu = remote-add-upstream
+el = remote-list
+ex = remote-remove
 # fetch: f
 f = fetch-prune-tags
 # pull: l
@@ -286,6 +304,7 @@ l = pull-prune-tags
 lou = pull-origin-upstream-current-branch
 # push: p
 p = push
+pf = push-force
 po = push-origin
 pox = push-origin-delete
 pou = push-origin-upstream-current-branch
