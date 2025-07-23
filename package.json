@@ -3,57 +3,49 @@
   "type": "module",
   "version": "0.0.0-dev.8",
   "packageManager": "pnpm@10.13.1",
-  "description": "It includes all kinds of impurities, preferences, docs, resources, templates, etc.",
+  "description": "It includes all kinds of impurities, demos, docs, preferences, resources, templates, etc.",
   "author": "Lumirelle <shabbyacc@outlook.com>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/Lumirelle",
-  "homepage": "https://github.com/Lumirelle/impurities",
+  "funding": "https://github.com/sponsors/lumirelle",
+  "homepage": "https://github.com/lumirelle/impurities",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lumirelle/impurities.git"
+    "url": "git+https://github.com/lumirelle/impurities.git"
   },
-  "bugs": "https://github.com/Lumirelle/impurities/issues",
+  "bugs": "https://github.com/lumirelle/impurities/issues",
   "keywords": [
     "impurities",
-    "preferences",
+    "demos",
     "docs",
+    "preferences",
     "resources",
     "templates"
   ],
   "exports": {
-    ".": "./dist/index.mjs",
-    "./iip": "./dist/iip.mjs",
-    "./iup": "./dist/iup.mjs",
-    "./icp": "./dist/icp.mjs",
-    "./ict": "./dist/ict.mjs"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "iip": "bin/iip.mjs",
-    "iup": "bin/iup.mjs",
-    "icp": "bin/icp.mjs",
-    "ict": "bin/ict.mjs"
+    "we": "dist/index.mjs"
   },
   "files": [
     "CATALOGS.json",
-    "bin",
-    "dist",
-    "impurities/personal/preferences",
-    "impurities/personal/preferences/package-manager/npm/.npmrc",
-    "impurities/personal/templates"
+    "assets",
+    "dist"
   ],
   "scripts": {
     "prepare": "simple-git-hooks",
     "prepublishOnly": "pnpm build && pnpm catalogs",
-    "preuninstall": "pnpm iup",
+    "preuninstall": "sudo tsx src/cli.ts uninstall",
     "catalogs": "tsx scripts/catalogs.ts",
-    "dev": "npm link && pnpm stub",
-    "iip": "node ./bin/iip.mjs",
-    "iup": "node ./bin/iup.mjs",
-    "icp": "node ./bin/icp.mjs",
-    "ict": "node ./bin/ict.mjs",
+    "dev": "tsx src/cli.ts",
     "typecheck": "tsc",
     "build": "unbuild",
     "stub": "unbuild --stub",
@@ -67,6 +59,8 @@
   },
   "dependencies": {
     "ansis": "catalog:prod",
+    "cac": "catalog:prod",
+    "consola": "catalog:prod",
     "tinyglobby": "catalog:prod"
   },
   "devDependencies": {

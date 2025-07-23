@@ -1,27 +1,6 @@
 import { constants, copyFileSync, promises as fsPromises, lstatSync, mkdirSync, unlinkSync } from 'node:fs'
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { format, log } from './logger'
-
-/**
- * Get the root directory of the command `.ts` file.
- *
- * @param importMetaUrl - The `import.meta.url` of the command `.ts` file
- * @returns The root directory of the command `.ts` file
- */
-export function getRoot(importMetaUrl: string): string {
-  const parentDir = dirname(fileURLToPath(importMetaUrl))
-  let root = parentDir
-  // Compatible with build mode
-  if (parentDir.includes('bin') || parentDir.includes('dist')) {
-    root = resolve(parentDir, '..')
-  }
-  // Compatible with stubbed build mode
-  else if (parentDir.includes('src')) {
-    root = resolve(parentDir, '..', '..')
-  }
-  return root
-}
+import { dirname } from 'node:path'
+import consola from 'consola'
 
 /**
  * Check if a file or directory exists. Does not dereference symlinks.
@@ -43,13 +22,28 @@ export function existsSync(path: string): boolean {
   }
 }
 
+/**
+ * Check if a path is a directory. If path exists, we check the stats, if not, we check if the path ends with `/` or `\`.
+ * @param path - The path to check
+ * @returns `true` if the path is a directory, `false` otherwise
+ */
 export function isDirectory(path: string): boolean {
-  return (existsSync(path) && lstatSync(path).isDirectory()) || path.match(/\/|\\$/) !== null
+  return (existsSync(path) && lstatSync(path).isDirectory()) || path.match(/\/$|\\$/) !== null
 }
 
+/**
+ * Ensure a directory exists.
+ * If the path is not a directory, we will try to create it.
+ * If the path is a file, we will create the parent directory.
+ * @param dirPath - The path to ensure
+ */
 export function ensureDir(dirPath: string): void {
+  if (!isDirectory(dirPath)) {
+    dirPath = dirname(dirPath)
+  }
   if (!existsSync(dirPath)) {
     mkdirSync(dirPath, { recursive: true })
+    consola.success(`Created directory: ${dirPath}`)
   }
 }
 
@@ -59,7 +53,7 @@ export async function createSymlink(sourcePath: string, targetPath: string, forc
       unlinkSync(targetPath)
     }
     else {
-      log.warn(`File already exists: ${format.path(targetPath)}, skip`)
+      consola.warn(`File already exists: ${targetPath}, skip`)
       return false
     }
   }
@@ -70,13 +64,13 @@ export async function createSymlink(sourcePath: string, targetPath: string, forc
 
 export function removeSymlink(targetPath: string): boolean {
   if (!existsSync(targetPath)) {
-    log.warn(`Target file not found: ${format.path(targetPath)}, skip`)
+    consola.warn(`Target file not found: ${targetPath}, skip`)
     return false
   }
 
   const stats = lstatSync(targetPath)
   if (!stats.isSymbolicLink()) {
-    log.warn(`Target file is not a symlink: ${format.path(targetPath)}, skip`)
+    consola.warn(`Target file is not a symlink: ${targetPath}, skip`)
     return false
   }
 
@@ -86,7 +80,7 @@ export function removeSymlink(targetPath: string): boolean {
 
 export function copyFile(sourcePath: string, targetPath: string, force: boolean = false): boolean {
   if (existsSync(targetPath) && !force) {
-    log.warn(`File already exists: ${format.path(targetPath)}, skip`)
+    consola.warn(`File already exists: ${targetPath}, skip`)
     return false
   }
 
@@ -96,7 +90,7 @@ export function copyFile(sourcePath: string, targetPath: string, force: boolean 
 
 export function removeFile(targetPath: string): boolean {
   if (!existsSync(targetPath)) {
-    log.warn(`Target file not found: ${format.path(targetPath)}, skip`)
+    consola.warn(`Target file not found: ${targetPath}, skip`)
     return false
   }
 

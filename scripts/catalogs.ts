@@ -16,9 +16,9 @@ import { execSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { readFileSync, writeFileSync } from 'node:fs'
 import process from 'node:process'
+import consola from 'consola'
 import { globSync } from 'tinyglobby'
-import { IMPURITIES_PATH } from '../src/config'
-import { log } from '../src/logger'
+import { ASSETS_PATH } from '../src/config'
 
 // ------------------------------------------------------------
 // Types
@@ -108,7 +108,7 @@ function writeCatalogsIfChanged(catalogs: CatalogItem) {
     const newCatalogsHash = createHash('md5').update(newCatalogs).digest('hex')
 
     if (currentCatalogsHash === newCatalogsHash) {
-      log.success('Catalogs are up to date')
+      consola.success('Catalogs are up to date')
       return
     }
 
@@ -117,11 +117,11 @@ function writeCatalogsIfChanged(catalogs: CatalogItem) {
     if (execSync('git status --porcelain CATALOGS.json').toString().trim().length > 0) {
       execSync('git add CATALOGS.json', { stdio: 'inherit' })
     }
-    log.success('Catalogs generated / updated successfully')
+    consola.success('Catalogs generated / updated successfully')
   }
   catch (error) {
     if (error instanceof Error) {
-      log.error(`Failed to generate catalogs: ${error.message}`)
+      consola.error(`Failed to generate catalogs: ${error.message}`)
     }
     process.exit(1)
   }
@@ -134,11 +134,11 @@ function writeCatalogsIfChanged(catalogs: CatalogItem) {
 /**
  * This will ignore the empty directories
  */
-const paths = globSync(`${IMPURITIES_PATH}/**/*`, {
+const paths = globSync(`${ASSETS_PATH}/**/*`, {
   cwd: process.cwd(),
   dot: true,
   absolute: false,
-  ignore: [`${IMPURITIES_PATH}/work/**/*`, '**/node_modules/**/*'],
+  ignore: [`${ASSETS_PATH}/work/**/*`, '**/node_modules/**/*'],
 })
 
 const catalogs = transformPaths2Catalogs(paths)
