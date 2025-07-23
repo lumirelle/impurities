@@ -1,180 +1,279 @@
 {
-  "impurities": {
-    "personal": {
-      "demos": {
-        "vue2-scss-bem": {
-          "assets": {
-            "styles": {
-              "abstracts": {
-                "functions": {
-                  "_color.scss": "",
-                  "_css-var.scss": "",
-                  "_index.scss": "",
+  "assets": {
+    "demos": {
+      "vue2-scss-bem": {
+        "assets": {
+          "styles": {
+            "abstracts": {
+              "functions": {
+                "_color.scss": "",
+                "_css-var.scss": "",
+                "_index.scss": "",
+                "_selector.scss": ""
+              },
+              "mixins": {
+                "_base-color.scss": "",
+                "_css-var.scss": "",
+                "_index.scss": "",
+                "_placeholder.scss": "",
+                "_res.scss": "",
+                "_selector.scss": "",
+                "_utils.scss": ""
+              },
+              "variables": {
+                "config": {
+                  "_base-color.scss": "",
+                  "_res.scss": "",
                   "_selector.scss": ""
                 },
-                "mixins": {
-                  "_base-color.scss": "",
-                  "_css-var.scss": "",
-                  "_index.scss": "",
-                  "_placeholder.scss": "",
-                  "_res.scss": "",
-                  "_selector.scss": "",
-                  "_utils.scss": ""
-                },
-                "variables": {
-                  "config": {
-                    "_base-color.scss": "",
-                    "_res.scss": "",
-                    "_selector.scss": ""
-                  },
-                  "_common.scss": "",
-                  "_index.scss": ""
-                },
+                "_common.scss": "",
                 "_index.scss": ""
               },
-              "public.scss": ""
-            }
-          },
-          "hooks": {
-            "use-namespace.js": ""
-          },
-          "jsconfig.json": "",
-          "package.json": "",
-          "pages": {
-            "example.vue": ""
-          },
-          "README.md": ""
+              "_index.scss": ""
+            },
+            "public.scss": ""
+          }
         },
-        "vue3-scss-bem": {
-          "assets": {
-            "styles": {
-              "abstracts": {
-                "functions": {
-                  "_color.scss": "",
-                  "_css-var.scss": "",
-                  "_index.scss": "",
+        "hooks": {
+          "use-namespace.js": ""
+        },
+        "jsconfig.json": "",
+        "package.json": "",
+        "pages": {
+          "example.vue": ""
+        },
+        "README.md": ""
+      },
+      "vue3-scss-bem": {
+        "assets": {
+          "styles": {
+            "abstracts": {
+              "functions": {
+                "_color.scss": "",
+                "_css-var.scss": "",
+                "_index.scss": "",
+                "_selector.scss": ""
+              },
+              "mixins": {
+                "_base-color.scss": "",
+                "_css-var.scss": "",
+                "_index.scss": "",
+                "_placeholder.scss": "",
+                "_res.scss": "",
+                "_selector.scss": "",
+                "_utils.scss": ""
+              },
+              "variables": {
+                "config": {
+                  "_base-color.scss": "",
+                  "_res.scss": "",
                   "_selector.scss": ""
                 },
-                "mixins": {
-                  "_base-color.scss": "",
-                  "_css-var.scss": "",
-                  "_index.scss": "",
-                  "_placeholder.scss": "",
-                  "_res.scss": "",
-                  "_selector.scss": "",
-                  "_utils.scss": ""
-                },
-                "variables": {
-                  "config": {
-                    "_base-color.scss": "",
-                    "_res.scss": "",
-                    "_selector.scss": ""
-                  },
-                  "_common.scss": "",
-                  "_index.scss": ""
-                },
+                "_common.scss": "",
                 "_index.scss": ""
               },
-              "public.scss": ""
+              "_index.scss": ""
+            },
+            "public.scss": ""
+          }
+        },
+        "hooks": {
+          "use-namespace.ts": ""
+        },
+        "package.json": "",
+        "pages": {
+          "example.vue": ""
+        },
+        "README.md": "",
+        "tsconfig.json": ""
+      }
+    },
+    "docs": {
+      "life": {
+        "eating": {
+          "prefabricated-dish-manual.md": ""
+        },
+        "log": {
+          "2025-06-30.md": "",
+          "2025-07-14.md": ""
+        }
+      },
+      "technique": {
+        "os": {
+          "linux": {
+            "placeholder": ""
+          },
+          "windows": {
+            "setup-manual.md": ""
+          }
+        },
+        "software-dev": {
+          "editor": {
+            "vscode": {
+              "basic-manual.md": ""
             }
           },
-          "hooks": {
-            "use-namespace.ts": ""
+          "vcs": {
+            "git": {
+              "basic-manual.md": ""
+            }
           },
-          "package.json": "",
-          "pages": {
-            "example.vue": ""
+          "web": {
+            "frontend-manual.md": "",
+            "js": {
+              "basic-manual.md": ""
+            },
+            "js-framework": {
+              "nuxt": {
+                "common": {
+                  "project-create-manual.md": ""
+                },
+                "v2": {
+                  "basic-manual.md": "",
+                  "optimization-manual.md": "",
+                  "standard-manual.md": ""
+                },
+                "v3+": {
+                  "standard-manual.md": ""
+                }
+              },
+              "vue": {
+                "common": {
+                  "project-create-manual.md": ""
+                },
+                "v2": {
+                  "composition-api-manual.md": "",
+                  "optimization-webpack-manual.md": "",
+                  "standard-vite-manual.md": "",
+                  "standard-webpack-manual.md": ""
+                },
+                "v3": {
+                  "standard-vite-manual.md": "",
+                  "standard-webpack-manual.md": ""
+                }
+              }
+            },
+            "js-runtime": {
+              "browser": {
+                "placeholder": ""
+              },
+              "nodejs": {
+                "basic-manual.md": "",
+                "pm-npm-manual.md": "",
+                "pm-pnpm-manual.md": "",
+                "pm-yarn-manual.md": ""
+              }
+            },
+            "ts": {
+              "basic-manual.md": "",
+              "config-files-manual.md": ""
+            }
+          }
+        }
+      }
+    },
+    "preferences": {
+      "setup-env": {
+        "package-manager": {
+          "maven": {
+            "settings.xml": ""
           },
-          "README.md": "",
+          "miniconda": {
+            "Conda CMD.lnk": "",
+            "Conda PowerShell 7.lnk": "",
+            "Conda PowerShell.lnk": ""
+          }
+        },
+        "project-creator": {
+          "nodejs": {
+            "create.config.yml": ""
+          }
+        },
+        "README.md": ""
+      },
+      "setup-os": {
+        "README.md": "",
+        "shell-terminal": {
+          "bash": {
+            ".bash_profile": ""
+          },
+          "cmd": {
+            "autorun.cmd": "",
+            "autorun.reg": "",
+            "fixme": ""
+          },
+          "powershell": {
+            "Microsoft.PowerShell_profile.ps1": ""
+          },
+          "windows-terminal": {
+            "settings.json": ""
+          },
+          "zsh": {
+            ".zshrc": "",
+            "outdated": ""
+          }
+        },
+        "vcs": {
+          "git": {
+            ".gitconfig": ""
+          }
+        },
+        "vpn": {
+          "clash-for-windows": {
+            "cfw-settings.yaml": "",
+            "README.md": ""
+          }
+        }
+      },
+      "setup-project": {
+        "common": {
+          ".gitattributes": "",
+          ".github": {
+            "workflows": {
+              "publish-commit.yaml": "",
+              "release.yaml": ""
+            }
+          },
+          ".markdownlint.yaml": "",
+          ".prettierrc.yaml": "",
+          "commitlint.config.js": "",
+          "commitlint.config.ts": "",
+          "pnpm-workspace.yaml": "",
+          "pnpm.npmrc": ""
+        },
+        "js": {
+          ".vscode": {
+            "extensions.json": "",
+            "settings.json": ""
+          },
+          "eslint.config.js": "",
+          "eslint.config.ts": "",
+          "jsconfig.json": "",
+          "nodejs.gitignore": "",
+          "tsconfig.json": ""
+        },
+        "README.md": "",
+        "vue": {
+          ".vscode": {
+            "extensions.json": "",
+            "settings.json": ""
+          },
+          "stylelint.config.js": ""
+        },
+        "vue2": {
+          "eslint.config.js": "",
+          "eslint.config.ts": "",
+          "jsconfig.json": "",
+          "tsconfig.json": ""
+        },
+        "vue3": {
+          "eslint.config.js": "",
+          "eslint.config.ts": "",
+          "jsconfig.json": "",
           "tsconfig.json": ""
         }
       },
-      "docs": {
-        "life": {
-          "eating": {
-            "prefabricated-dish-manual.md": ""
-          },
-          "log": {
-            "2025-06-30.md": "",
-            "2025-07-14.md": ""
-          }
-        },
-        "technique": {
-          "os": {
-            "linux": {
-              "placeholder": ""
-            },
-            "windows": {
-              "setup-manual.md": ""
-            }
-          },
-          "software": {
-            "dev": {
-              "editor": {
-                "vscode": {
-                  "basic-manual.md": ""
-                }
-              },
-              "vcs": {
-                "git": {
-                  "basic-manual.md": ""
-                }
-              },
-              "web": {
-                "frontend-manual.md": "",
-                "js": {
-                  "basic-manual.md": "",
-                  "framework": {
-                    "nuxt": {
-                      "project-create-manual.md": "",
-                      "version2": {
-                        "basic-manual.md": "",
-                        "optimization-manual.md": "",
-                        "standard-manual.md": ""
-                      },
-                      "version3+": {
-                        "standard-manual.md": ""
-                      }
-                    },
-                    "vue": {
-                      "project-create-manual.md": "",
-                      "version2": {
-                        "composition-api-manual.md": "",
-                        "optimization-webpack-manual.md": "",
-                        "standard-vite-manual.md": "",
-                        "standard-webpack-manual.md": ""
-                      },
-                      "version3": {
-                        "standard-vite-manual.md": "",
-                        "standard-webpack-manual.md": ""
-                      }
-                    }
-                  },
-                  "runtime": {
-                    "browser": {
-                      "placeholder": ""
-                    },
-                    "nodejs": {
-                      "basic-manual.md": "",
-                      "pm-npm-manual.md": "",
-                      "pm-pnpm-manual.md": "",
-                      "pm-yarn-manual.md": ""
-                    }
-                  },
-                  "ts": {
-                    "basic-manual.md": "",
-                    "config-files-manual.md": ""
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "preferences": {
-        "creator": {
-          "create.config.yml": ""
-        },
+      "setup-tools": {
         "deployer": {
           "docker": {
             "docker-compose.yaml": "",
@@ -231,232 +330,128 @@
             "snippets": {
               "global.code-snippets": ""
             },
-            "trusted-domains.json": "",
-            "workspace": {
-              "js": {
-                "extensions.json": "",
-                "settings.json": ""
-              },
-              "vue": {
-                "extensions.json": "",
-                "settings.json": ""
-              }
-            }
-          }
-        },
-        "formatter": {
-          "prettier": {
-            ".prettierrc.yaml": ""
+            "trusted-domains.json": ""
           }
         },
         "linter": {
-          "commitlint": {
-            "commitlint.config.mjs": ""
-          },
           "cspell": {
             ".cspell.common.txt": ""
-          },
-          "eslint": {
-            "eslint.config.mjs": "",
-            "vue2": {
-              "eslint.config.mjs": ""
-            },
-            "vue3": {
-              "eslint.config.mjs": ""
-            }
-          },
-          "markdownlint": {
-            ".markdownlint.yaml": ""
-          },
-          "stylelint": {
-            "vue": {
-              "stylelint.config.mjs": ""
-            }
           }
         },
-        "package-manager": {
-          "maven": {
-            "settings.xml": ""
-          },
-          "miniconda": {
-            "Conda CMD.lnk": "",
-            "Conda PowerShell 7.lnk": "",
-            "Conda PowerShell.lnk": ""
-          },
-          "pnpm": {
-            ".npmrc": "",
-            "pnpm-workspace.yaml": ""
-          }
+        "README.md": ""
+      }
+    },
+    "resources": {
+      "fonts": {
+        "NerdFontsSymbolsOnly.zip": "",
+        "README.md": "",
+        "RecMonoCasual.zip": "",
+        "Source Han Sans.url": ""
+      },
+      "images": {
+        "avatar.jpg": "",
+        "avatar.png": "",
+        "favicon.png": "",
+        "my icon.svg": "",
+        "og-bg.png": ""
+      }
+    },
+    "templates": {
+      "license": {
+        "LICENSE": ""
+      },
+      "log": {
+        "LOG.md": ""
+      },
+      "readme": {
+        "minimal": {
+          "README.md": ""
         },
-        "project": {
-          "js": {
-            "jsconfig.json": "",
-            "tsconfig.json": ""
-          },
-          "vue2": {
-            "jsconfig.json": "",
-            "tsconfig.json": ""
-          },
-          "vue3": {
-            "jsconfig.json": "",
-            "tsconfig.json": ""
-          }
-        },
-        "terminal": {
-          "bash": {
-            ".bash_profile": ""
-          },
-          "cmd": {
-            "autorun.cmd": "",
-            "autorun.reg": ""
-          },
-          "powershell": {
-            "Microsoft.PowerShell_profile.ps1": ""
-          },
-          "windows-terminal": {
-            "settings.json": ""
-          },
-          "zsh": {
-            ".zshrc": "",
-            "outdated": ""
-          }
-        },
-        "vcs": {
-          "git": {
-            ".gitattributes": "",
-            ".gitconfig": "",
-            "nodejs.gitignore": ""
-          },
-          "github": {
-            "workflows": {
-              "publish-commit.yaml": "",
-              "release.yaml": ""
-            }
-          }
-        },
-        "vpn": {
-          "clash-for-windows": {
-            "cfw-settings.yaml": "",
-            "README.md": ""
-          }
+        "standard": {
+          "README.md": ""
         }
       },
-      "resources": {
-        "fonts": {
-          "NerdFontsSymbolsOnly.zip": "",
-          "README.md": "",
-          "RecMonoCasual.zip": "",
-          "Source Han Sans.url": ""
-        },
-        "images": {
-          "avatar.jpg": "",
-          "avatar.png": "",
-          "favicon.png": "",
-          "my icon.svg": "",
-          "og-bg.png": ""
-        }
-      },
-      "templates": {
-        "license": {
-          "LICENSE": ""
-        },
-        "marks": {
-          "outdated": "",
-          "placeholder": ""
-        },
-        "readme": {
-          "log": {
-            "yyyy-mm-dd.md": ""
+      "scss": {
+        "abstracts": {
+          "functions": {
+            "_color.scss": "",
+            "_css-var.scss": "",
+            "_index.scss": "",
+            "_selector.scss": ""
           },
-          "minimal": {
-            "README.md": ""
+          "mixins": {
+            "_base-color.scss": "",
+            "_css-var.scss": "",
+            "_index.scss": "",
+            "_placeholder.scss": "",
+            "_res.scss": "",
+            "_selector.scss": "",
+            "_utils.scss": ""
           },
-          "standard": {
-            "README.md": ""
-          }
-        },
-        "scss": {
-          "abstracts": {
-            "functions": {
-              "_color.scss": "",
-              "_css-var.scss": "",
-              "_index.scss": "",
+          "variables": {
+            "config": {
+              "_base-color.scss": "",
+              "_res.scss": "",
               "_selector.scss": ""
             },
-            "mixins": {
-              "_base-color.scss": "",
-              "_css-var.scss": "",
-              "_index.scss": "",
-              "_placeholder.scss": "",
-              "_res.scss": "",
-              "_selector.scss": "",
-              "_utils.scss": ""
-            },
-            "variables": {
-              "config": {
-                "_base-color.scss": "",
-                "_res.scss": "",
-                "_selector.scss": ""
-              },
-              "_common.scss": "",
-              "_index.scss": ""
-            },
+            "_common.scss": "",
             "_index.scss": ""
           },
-          "public.scss": ""
+          "_index.scss": ""
         },
-        "vue": {
-          "common": {
-            "components": {
-              "gradient-border": {
-                "GradientBorder.vue": ""
+        "public.scss": ""
+      },
+      "vue": {
+        "common": {
+          "components": {
+            "gradient-border": {
+              "GradientBorder.vue": ""
+            },
+            "image-viewer": {
+              "assets": {
+                "images": {
+                  "image-viewer": {
+                    "close.svg": "",
+                    "download.svg": "",
+                    "next.svg": "",
+                    "prev.svg": "",
+                    "rotate-left.svg": "",
+                    "scale-type-fit.svg": "",
+                    "scale-type-original.svg": "",
+                    "zoom-in.svg": "",
+                    "zoom-out.svg": ""
+                  }
+                }
               },
-              "image-viewer": {
-                "assets": {
-                  "images": {
-                    "image-viewer": {
-                      "close.svg": "",
-                      "download.svg": "",
-                      "next.svg": "",
-                      "prev.svg": "",
-                      "rotate-left.svg": "",
-                      "scale-type-fit.svg": "",
-                      "scale-type-original.svg": "",
-                      "zoom-in.svg": "",
-                      "zoom-out.svg": ""
-                    }
-                  }
-                },
-                "components": {
-                  "ImageViewer": {
-                    "ImageViewer.vue": "",
-                    "ImageViewerPanel.vue": ""
-                  }
-                },
-                "locales": {
-                  "modules": {
-                    "image-viewer": {
-                      "en.json": "",
-                      "zh-CN.json": "",
-                      "zh-TW.json": ""
-                    }
+              "components": {
+                "ImageViewer": {
+                  "ImageViewer.vue": "",
+                  "ImageViewerPanel.vue": ""
+                }
+              },
+              "locales": {
+                "modules": {
+                  "image-viewer": {
+                    "en.json": "",
+                    "zh-CN.json": "",
+                    "zh-TW.json": ""
                   }
                 }
               }
-            },
-            "composable": {
-              "use-namespace.js": "",
-              "use-namespace.ts": ""
             }
           },
-          "version2": {
-            "components": {
-              "placeholder": ""
-            },
-            "composable": {
-              "use-i18n.js": "",
-              "use-i18n.ts": ""
-            }
+          "composable": {
+            "use-namespace.js": "",
+            "use-namespace.ts": ""
+          }
+        },
+        "v2": {
+          "components": {
+            "placeholder": ""
+          },
+          "composable": {
+            "use-i18n.js": "",
+            "use-i18n.ts": ""
           }
         }
       }

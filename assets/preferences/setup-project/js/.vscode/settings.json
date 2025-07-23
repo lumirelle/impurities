@@ -1,14 +1,8 @@
 {
-  // -- files
-  "files.associations": {
-    "*.json": "jsonc"
-  },
   // -- format & lint --
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit",
-    "source.fixAll.markdownlint": "explicit",
     "source.organizeImports": "never"
   },
   "eslint.validate": [
@@ -23,11 +17,14 @@
     "jsonc",
     "yaml",
     "toml",
-    "xml"
+    "xml",
+    "css",
+    "postcss",
+    "scss"
   ],
+  // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
-    { "rule": "style/*", "severity": "off" },
-    { "rule": "format/*", "severity": "off" },
+    { "rule": "@stylistic/*", "severity": "off" },
     { "rule": "*-indent", "severity": "off" },
     { "rule": "*-spacing", "severity": "off" },
     { "rule": "*-spaces", "severity": "off" },
@@ -36,6 +33,5 @@
     { "rule": "*-newline", "severity": "off" },
     { "rule": "*quotes", "severity": "off" },
     { "rule": "*semi", "severity": "off" }
-  ],
-  "stylelint.validate": ["css", "postcss", "scss", "html", "vue"]
+  ]
 }

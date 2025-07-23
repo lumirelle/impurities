@@ -69,14 +69,6 @@ catalogs:
     vitest:
       specifier: ^3.2.4
       version: 3.2.4
-  example/vue2:
-    vue:
-      specifier: ^2.7.16
-      version: 2.7.16
-  example/vue3:
-    vue:
-      specifier: ^3.5.17
-      version: 3.5.17
   prod:
     ansis:
       specifier: ^4.1.0
@@ -166,26 +158,6 @@ importers:
       vitest:
         specifier: catalog:dev
         version: 3.2.4(@types/debug@4.1.12)(@types/node@22.14.0)(jiti@2.4.2)(tsx@4.20.3)(yaml@2.8.0)
-
-  impurities/personal/demos/vue2-scss-bem:
-    dependencies:
-      vue:
-        specifier: catalog:example/vue2
-        version: 2.7.16
-    devDependencies:
-      typescript:
-        specifier: catalog:dev
-        version: 5.8.3
-
-  impurities/personal/demos/vue3-scss-bem:
-    dependencies:
-      vue:
-        specifier: catalog:example/vue3
-        version: 3.5.17(typescript@5.8.3)
-    devDependencies:
-      typescript:
-        specifier: catalog:dev
-        version: 5.8.3
 
 packages:
 
@@ -1020,9 +992,6 @@ packages:
 
   '@vue/compiler-dom@3.5.17':
     resolution: {integrity: sha512-+2UgfLKoaNLhgfhV5Ihnk6wB4ljyW1/7wUIog2puUqajiC29Lp5R/IKDdkebh9jTbTogTbsgB+OY9cEWzG95JQ==}
-
-  '@vue/compiler-sfc@2.7.16':
-    resolution: {integrity: sha512-KWhJ9k5nXuNtygPU7+t1rX6baZeqOYLEforUPjgNDBnLicfHCoi48H87Q8XyLZOrNNsmhuwKqtpDQWjEFe6Ekg==}
 
   '@vue/compiler-sfc@3.5.17':
     resolution: {integrity: sha512-rQQxbRJMgTqwRugtjw0cnyQv9cP4/4BxWfTdRBkqsTfLOHWykLzbOc3C4GGzAmdMDxhzU/1Ija5bTjMVrddqww==}
@@ -2726,11 +2695,6 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
-  prettier@2.8.8:
-    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
-
   prettier@3.6.2:
     resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
@@ -2878,10 +2842,6 @@ packages:
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
-    engines: {node: '>=0.10.0'}
-
-  source-map@0.6.1:
-    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
   spdx-exceptions@2.5.0:
@@ -3255,10 +3215,6 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
-
-  vue@2.7.16:
-    resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
-    deprecated: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
 
   vue@3.5.17:
     resolution: {integrity: sha512-LbHV3xPN9BeljML+Xctq4lbz2lVHCR6DtbpTf5XIO6gugpXUN49j2QQPcMj086r9+AkJ0FfUT8xjulKKBkkr9g==}
@@ -4163,14 +4119,6 @@ snapshots:
       '@vue/compiler-core': 3.5.17
       '@vue/shared': 3.5.17
 
-  '@vue/compiler-sfc@2.7.16':
-    dependencies:
-      '@babel/parser': 7.28.0
-      postcss: 8.5.6
-      source-map: 0.6.1
-    optionalDependencies:
-      prettier: 2.8.8
-
   '@vue/compiler-sfc@3.5.17':
     dependencies:
       '@babel/parser': 7.28.0
@@ -4191,11 +4139,13 @@ snapshots:
   '@vue/reactivity@3.5.17':
     dependencies:
       '@vue/shared': 3.5.17
+    optional: true
 
   '@vue/runtime-core@3.5.17':
     dependencies:
       '@vue/reactivity': 3.5.17
       '@vue/shared': 3.5.17
+    optional: true
 
   '@vue/runtime-dom@3.5.17':
     dependencies:
@@ -4203,12 +4153,14 @@ snapshots:
       '@vue/runtime-core': 3.5.17
       '@vue/shared': 3.5.17
       csstype: 3.1.3
+    optional: true
 
   '@vue/server-renderer@3.5.17(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@vue/compiler-ssr': 3.5.17
       '@vue/shared': 3.5.17
       vue: 3.5.17(typescript@5.8.3)
+    optional: true
 
   '@vue/shared@3.5.17': {}
 
@@ -4572,7 +4524,8 @@ snapshots:
     dependencies:
       css-tree: 2.2.1
 
-  csstype@3.1.3: {}
+  csstype@3.1.3:
+    optional: true
 
   dargs@8.1.0: {}
 
@@ -6083,9 +6036,6 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier@2.8.8:
-    optional: true
-
   prettier@3.6.2: {}
 
   pretty-bytes@6.1.1: {}
@@ -6226,8 +6176,6 @@ snapshots:
       is-fullwidth-code-point: 5.0.0
 
   source-map-js@1.2.1: {}
-
-  source-map@0.6.1: {}
 
   spdx-exceptions@2.5.0: {}
 
@@ -6684,11 +6632,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue@2.7.16:
-    dependencies:
-      '@vue/compiler-sfc': 2.7.16
-      csstype: 3.1.3
-
   vue@3.5.17(typescript@5.8.3):
     dependencies:
       '@vue/compiler-dom': 3.5.17
@@ -6698,6 +6641,7 @@ snapshots:
       '@vue/shared': 3.5.17
     optionalDependencies:
       typescript: 5.8.3
+    optional: true
 
   which@1.3.1:
     dependencies:
