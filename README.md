@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/Lumirelle/impurities" rel="noopener">
+  <a href="https://github.com/lumirelle/impurities" rel="noopener">
 </h1>
 
 <h3 align="center">🥰 Impurities</h3>
@@ -8,8 +8,8 @@
 
 [![NPM Version](https://img.shields.io/npm/v/impurities)](https://www.npmjs.com/package/impurities)
 [![Status](https://img.shields.io/badge/status-active-success.svg)](.)
-[![GitHub Issues](https://img.shields.io/github/issues/Lumirelle/impurities.svg)](https://github.com/Lumirelle/impurities/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Lumirelle/impurities.svg)](https://github.com/Lumirelle/impurities/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/lumirelle/impurities.svg)](https://github.com/lumirelle/impurities/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/lumirelle/impurities.svg)](https://github.com/lumirelle/impurities/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
@@ -18,7 +18,7 @@
 
 > I swear, this is the last time I have an obsessive-compulsive disorder attack.
 
-<p align="center"> It includes all kinds of impurities, preferences, docs, resources, templates, etc.
+<p align="center"> It includes all kinds of impurities, demos, docs, preferences, resources, templates, etc.
     <br>
 </p>
 
@@ -27,12 +27,9 @@
 - [About](#about)
 - [Catalogs](#catalogs)
 - [Usage](#usage)
-  - [Preferences](#preferences)
-    - [Manually Setup](#manually_setup)
-    - [Command Setup](#command_setup)
-    - [Copy & Paste](#copy_paste_preferences)
-  - [Templates](#templates)
-    - [Copy & Paste](#copy_paste_templates)
+  - [Install Preferences](#install-preferences)
+  - [Uninstall Preferences](#uninstall-preferences)
+  - [Paste Anything](#paste-anything)
 - [Authors](#authors)
 
 ## 🧐 About <a name="about"></a>
@@ -41,45 +38,33 @@ It includes all kinds of impurities, preferences, docs, resources, templates, et
 
 ## 📑 Catalogs <a name="catalogs"></a>
 
-- `/impurities`
-  - `/personal`: **&lt;use-case&gt;** Personal usage
-    - `/docs`: **&lt;docs&gt;** Collection of documents, such as manuals and logs
-      - `/life`: **&lt;type&gt;** Documents about life
-      - `/technique`: **&lt;type&gt;** Documents about technique
-    - `/preferences`: **&lt;preferences&gt;** Collection of preferences, such as `.gitconfig`
-      - `/deployer`: **&lt;type&gt;** Preferences used by deployer
-      - `/editor`: **&lt;type&gt;** Preferences used by editor
-      - `/formatter`: **&lt;type&gt;** Preferences used by formatter
-      - `/linter`: **&lt;type&gt;** Preferences used by linter
-      - `/package-manager`: **&lt;type&gt;** Preferences used by package manager
-      - `/project`: **&lt;type&gt;** Preferences used by project
-      - `/terminal`: **&lt;type&gt;** Preferences used by terminal
-      - `/vcs`: **&lt;type&gt;** Preferences used by version control system
-      - `/vpn`: **&lt;type&gt;** Preferences used by vpn
-    - `/resources`: **&lt;resources&gt;** Collection of resources, such as fonts
-      - `/fonts`: **&lt;type&gt;** Font resources
-      - `/images`: **&lt;type&gt;** Image resources
-    - `/templates`: **&lt;templates&gt;** Collection of template, such as `README.md`, `LICENSE`
-      - `/license`: **&lt;type&gt;** License template
-      - `/marks`: **&lt;type&gt;** Marks template
-      - `/readme`: **&lt;type&gt;** Readme template
-      - `/scss`: **&lt;type&gt;** Scss template
-      - `/vue`: **&lt;type&gt;** Vue template
-    - `/demos`: **&lt;demos&gt;** Collection of demos, such as `vue2-scss-bem`
-  - `/work`: **&lt;use-case&gt;** Work-only (Of course, it should be ignored by git)
-    - **THE SAME TO THE FOLDERS UNDER `/personal`**
+- `/assets`
+  - `/demos`: **&lt;demos&gt;** Collection of demos, such as `vue2-scss-bem`
+  - `/docs`: **&lt;docs&gt;** Collection of documents, such as manuals and logs
+    - `/life`: **&lt;type&gt;** Documents about life
+    - `/technique`: **&lt;type&gt;** Documents about technique
+  - `/preferences`: **&lt;preferences&gt;** Collection of preferences, such as `.gitconfig`
+    - `/setup-env`: **&lt;type&gt;** Preferences used by setting up environment
+    - `/setup-os`: **&lt;type&gt;** Preferences used by setting up OS
+    - `/setup-project`: **&lt;type&gt;** Preferences used by setting up project
+    - `/setup-tools`: **&lt;type&gt;** Preferences used by setting up tools
+  - `/resources`: **&lt;resources&gt;** Collection of resources, such as fonts
+    - `/fonts`: **&lt;type&gt;** Font resources
+    - `/images`: **&lt;type&gt;** Image resources
+  - `/templates`: **&lt;templates&gt;** Collection of template, such as `README.md`, `LICENSE`
+    - `/license`: **&lt;type&gt;** License templates
+    - `/log`: **&lt;type&gt;** Log templates
+    - `/readme`: **&lt;type&gt;** Readme templates
+    - `/scss`: **&lt;type&gt;** SCSS templates
+    - `/vue`: **&lt;type&gt;** Vue templates
 
 See total catalogs [here](CATALOGS.json).
 
 ## 🎈 Usage <a name="usage"></a>
 
-### Preferences <a name="preferences"></a>
+### Install Preferences <a name="install-preferences"></a>
 
-#### Manually Setup <a name="manually_setup"></a>
-
-Just download the preferences you want under the folder marked as `preferences` introduced above and put them into the right place.
-
-#### Command Setup <a name="command_setup"></a>
+> NOTE: In high version of node.js, you may need to run this command as Administrator.
 
 Install this package globally by node.js package manager likes `npm`, `yarn`, `pnpm` and so on.
 
@@ -89,56 +74,60 @@ pnpm i impurities -g
 npm i impurities -g
 ```
 
-Then, use the command `iip` to <u>i</u>nstall all the <u>p</u>references
+Then, use the command `we install` to install all the preferences
 
 ```shell
-iip
+we install
 ```
 
 Now, please enjoy! See the help information by using the `--help` option:
 
 ```shell
-iip --help
+we install --help
 ```
 
-#### Copy & Paste <a name="copy_paste_preferences"></a>
+### Uninstall Preferences <a name="uninstall-preferences"></a>
 
-Follow the step above to install this package by node.js package manager, then, use the command `icp` to <u>c</u>opy and paste <u>p</u>references
+> NOTE: In high version of node.js, you may need to run this command as Administrator.
+
+Install this package globally by node.js package manager likes `npm`, `yarn`, `pnpm` and so on.
+
+```shell
+pnpm i impurities -g
+# or
+npm i impurities -g
+```
+
+Then, use the command `we uninstall` to uninstall all the preferences
+
+```shell
+we uninstall
+```
+
+Now, please enjoy! See the help information by using the `--help` option:
+
+```shell
+we uninstall --help
+```
+
+### Paste Anything <a name="paste-anything"></a>
+
+Follow the step above to install this package by node.js package manager, then, use the command `we paste` to paste anything
 
 ```shell
 # Copy into current dir
-icp eslint.config.mjs
+we paste eslint.config.mjs
 
 # Copy into `./src`, if `./src` is an existing folder
-icp eslint.config.mjs ./src
+we paste eslint.config.mjs ./src
 ```
 
 See the help information by using the `--help` option:
 
 ```shell
-icp --help
-```
-
-### Templates <a name="templates"></a>
-
-#### Copy & Paste <a name="copy_paste_templates"></a>
-
-Follow the step above to install this package by node.js package manager, then, use the command `ict` to <u>c</u>opy and paste <u>t</u>emplates
-
-```shell
-# Copy into current dir
-ict LICENSE
-
-# Copy into `./src`, if `./src` is an existing folder
-ict LICENSE ./src
-```
-
-See the help information by using the `--help` option:
-
-```shell
-ict --help
+we paste --help
 ```
 
 ## ✍️ Authors <a name="authors"></a>
 
-- [@Lumirelle](https://github.com/Lumirelle) - Anything
+- [@Lumirelle](https://github.com/lumirelle) - Anything
