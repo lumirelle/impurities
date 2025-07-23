@@ -16,51 +16,51 @@ Main dependencies:
 
 ### 快速配置
 
-shell（For command `icp`, please see [README.md#command_setup](/README.md#command_setup)）
+shell（For command `we paste`, please see [README.md#paste-anything](/README.md#paste-anything)）
 
 ```shell
 # vscode 配置
 # -- 推荐扩展
-icp vue/extensions.json .vscode/ -f
+we paste vue/.vscode/extensions.json .vscode/ -f
 # -- 工作区设置
-icp vue/settings.json .vscode/ -f
+we paste vue/.vscode/settings.json .vscode/ -f
 # -- js 编译器设置
-icp vue2/jsconfig.json -f
+we paste vue2/jsconfig.json -f
 # -- editor config
-icp .editorconfig -f
+we paste .editorconfig -f
 
 # git 配置
 # -- 文件属性
-icp .gitattributes -f
+we paste .gitattributes -f
 # -- 忽略文件
-icp nodejs.gitignore .gitignore -f
+we paste nodejs.gitignore .gitignore -f
 ```
 
 ### 手动配置
 
 .vscode/extensions.json
 
-See [here](/impurities/personal/preferences/editor/vscode/workspace/vue/extensions.json).
+See [here](/assets/preferences/setup-project/vue/.vscode/extensions.json).
 
 .vscode/settings.json
 
-See [here](/impurities/personal/preferences/editor/vscode/workspace/vue/settings.json).
+See [here](/assets/preferences/setup-project/vue/.vscode/settings.json).
 
 jsconfig.json
 
-See [here](/impurities/personal/preferences/project/vue2/jsconfig.json).
+See [here](/assets/preferences/setup-project/vue2/jsconfig.json).
 
 .editorconfig
 
-See [here](/impurities/personal/preferences/editor/.editorconfig).
+See [here](/assets/preferences/setup-tools/editor/.editorconfig).
 
 .gitattributes
 
-See [here](/impurities/personal/preferences/vcs/git/.gitattributes).
+See [here](/assets/preferences/setup-project/common/.gitattributes).
 
 .gitignore
 
-See [here](/impurities/personal/preferences/vcs/git/nodejs.gitignore).
+See [here](/assets/preferences/setup-project/js/nodejs.gitignore).
 
 ## 📦 配置包管理器和 .npmrc
 
@@ -78,15 +78,19 @@ npm i @antfu/ni@latest -g
 shell（This syntax of command `npm pkg set` requires npm@>=10.9.2）
 
 ```shell
+we paste pnpm.npmrc -f
+
 corepack use pnpm@latest-10
 
 # Project running requires
 npm pkg set 'engines.node=^14.21.3 || ^16.10.0 || >=18.0.0' 'engines.npm=>=6'
-
-icp npm/.npmrc -f
 ```
 
 ### 手动配置
+
+.npmrc
+
+See [here](/assets/preferences/setup-project/common/pnpm.npmrc).
 
 package.json
 
@@ -104,10 +108,6 @@ package.json
   // ...
 }
 ```
-
-.npmrc
-
-See [here](/impurities/personal/preferences/package-manager/npm/.npmrc).
 
 ## 🥡 基础依赖
 
@@ -158,14 +158,14 @@ ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
 shell
 
 ```shell
-icp vue2/eslint.config.mjs -f
+we paste vue2/eslint.config.js -f
 ```
 
 ### 手动配置
 
-eslint.config.mjs
+eslint.config.js
 
-See [here](/impurities/personal/preferences/linter/eslint/vue2/eslint.config.mjs).
+See [here](/assets/preferences/setup-project/vue2/eslint.config.js).
 
 ## ✨ 设置样式检查与格式化
 
@@ -196,14 +196,14 @@ ni @stylistic/stylelint-config@latest stylelint-config-recess-order@^6.1.0 -D
 shell
 
 ```shell
-icp vue/stylelint.config.mjs -f
+we paste vue/stylelint.config.js -f
 ```
 
 ### 手动配置
 
-stylelint.config.mjs
+stylelint.config.js
 
-See [here](/impurities/personal/preferences/linter/stylelint/vue/stylelint.config.mjs).
+See [here](/assets/preferences/setup-project/vue/stylelint.config.js).
 
 ## 📜 配置 npm 快速检查与格式化脚本
 
@@ -276,7 +276,7 @@ npm pkg set 'simple-git-hooks.commit-msg=npx commitlint --edit $1'
 npm pkg set 'lint-staged.*=eslint --cache --fix'
 npm pkg set 'lint-staged[*.{css,postcss,scss,html,vue}]=stylelint --cache --fix'
 
-icp commitlint/commitlint.config.mjs -f
+we paste common/commitlint.config.js -f
 ```
 
 ### 手动配置
@@ -307,9 +307,9 @@ package.json（配置 simple-git-hooks）
 }
 ```
 
-commitlint.config.mjs
+commitlint.config.js
 
-See [here](/impurities/personal/preferences/linter/commitlint/commitlint.config.mjs).
+See [here](/assets/preferences/setup-project/common/commitlint.config.js).
 
 ## 💪🏼 使用 Dart Sass 提供 Sass 支持，移除 Node Sass
 
