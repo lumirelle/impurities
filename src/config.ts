@@ -69,6 +69,10 @@ export const PREFERENCE_COLLECTIONS: PreferenceCollection[] = [
     source: `${IMPURITIES_PATH}/personal/preferences`,
     installMatchers: [
       {
+        pattern: 'creator/create.config.yml',
+        folder: join(homedir(), '.config'),
+      },
+      {
         pattern: 'editor/neovim/**/*',
         folder: join(env.LOCALAPPDATA || '', 'nvim'),
       },

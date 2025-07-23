@@ -172,6 +172,9 @@
         }
       },
       "preferences": {
+        "creator": {
+          "create.config.yml": ""
+        },
         "deployer": {
           "docker": {
             "docker-compose.yaml": "",
