@@ -1,3 +1,4 @@
+import type { UninstallOptions } from './types'
 import { join, normalize } from 'node:path'
 import consola from 'consola'
 import { globSync } from 'tinyglobby'
@@ -10,7 +11,9 @@ import { highlight } from './highlight'
  * @param options - The uninstall options
  * @returns A promise that resolves when the preference collections are uninstalled, or rejects with an error
  */
-export function uninstall() {
+export function uninstall(options: UninstallOptions) {
+  const { dryRun = false } = options
+
   for (const gallery of GALLERIES) {
     // Check if the gallery is a preference gallery and has install options
     if (gallery.type !== 'preference' || !gallery.installOptions) {
@@ -43,18 +46,17 @@ export function uninstall() {
           continue
         }
 
-        try {
-          // Remove file if mode = 'copy'
-          if (mode === 'copy' && removeFile(uninstallPath)) {
-            consola.success(`${highlight.red('REMOVE:')} ${uninstallPath}`)
-          }
-          // Remove symlink if mode = 'symlink' or else
-          else if (removeSymlink(uninstallPath)) {
-            consola.success(`${highlight.green('UNSIML:')} ${uninstallPath}`)
+        // Remove file if mode = 'copy'
+        if (mode === 'copy') {
+          if (dryRun || removeFile(uninstallPath)) {
+            consola.success(`${highlight.red(dryRun ? 'WILL REMOVE:' : 'REMOVE:')} ${uninstallPath}`)
           }
         }
-        catch (error) {
-          consola.error(error)
+        // Remove symlink if mode = 'symlink' or else
+        else if (mode === 'symlink' || !mode) {
+          if (dryRun || removeSymlink(uninstallPath)) {
+            consola.success(`${highlight.green(dryRun ? 'WILL UNSIML:' : 'UNSIML:')} ${uninstallPath}`)
+          }
         }
       }
     }

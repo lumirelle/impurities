@@ -3,12 +3,32 @@
 // -----------------------------------------------------------------------------
 
 export interface InstallOptions {
+  /**
+   * Whether to force the operation
+   */
   force?: boolean
+
+  /**
+   * Whether to show verbose output
+   */
   verbose?: boolean
+
+  /**
+   * Whether to show dry run this operation
+   */
+  dryRun?: boolean
 }
 
 export interface UninstallOptions {
+  /**
+   * Whether to show verbose output
+   */
   verbose?: boolean
+
+  /**
+   * Whether to show dry run this operation
+   */
+  dryRun?: boolean
 }
 
 export interface PasteOptions {
@@ -31,6 +51,11 @@ export interface PasteOptions {
    * Whether to show verbose output
    */
   verbose?: boolean
+
+  /**
+   * Whether to show dry run this operation
+   */
+  dryRun?: boolean
 }
 
 // -----------------------------------------------------------------------------

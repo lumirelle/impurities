@@ -36,15 +36,17 @@ export function isDirectory(path: string): boolean {
  * If the path is not a directory, we will try to create it.
  * If the path is a file, we will create the parent directory.
  * @param dirPath - The path to ensure
+ * @returns `true` if the directory is created, `false` otherwise
  */
-export function ensureDir(dirPath: string): void {
+export function ensureDir(dirPath: string): boolean {
   if (!isDirectory(dirPath)) {
     dirPath = dirname(dirPath)
   }
   if (!existsSync(dirPath)) {
     mkdirSync(dirPath, { recursive: true })
-    consola.success(`Created directory: ${dirPath}`)
+    return true
   }
+  return false
 }
 
 export async function createSymlink(sourcePath: string, targetPath: string, force = false): Promise<boolean> {

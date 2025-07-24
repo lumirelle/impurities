@@ -15,7 +15,7 @@ export async function install(
   root: string,
   options: InstallOptions,
 ) {
-  const { force = false, verbose = false } = options
+  const { force = false, verbose = false, dryRun = false } = options
 
   for (const gallery of GALLERIES) {
     // Check if the gallery is a preference gallery and has install options
@@ -47,22 +47,23 @@ export async function install(
         const installPath = join(folder, path)
 
         // Ensure the parent directory of install path exists
-        ensureDir(installPath)
+        if (!dryRun) {
+          ensureDir(installPath)
+        }
 
-        try {
-          // Copy if mode = 'copy'
-          if (mode === 'copy' && copyFile(absolutePath, installPath, force)) {
+        // Copy if mode = 'copy'
+        if (mode === 'copy') {
+          if (dryRun || copyFile(absolutePath, installPath, force)) {
             // Only show the absolute path when verbose mode is enabled
-            consola.success(`${highlight.red('COPY:')} ${verbose ? absolutePath : path} ${highlight.important('>>')} ${installPath}`)
-          }
-          // Create symlink if mode = 'symlink' or else
-          else if (await createSymlink(absolutePath, installPath, force)) {
-            // Only show the absolute path when verbose mode is enabled
-            consola.success(`${highlight.green('SYML:')} ${verbose ? absolutePath : path} ${highlight.important('<-')} ${installPath}`)
+            consola.success(`${highlight.red(dryRun ? 'WILL COPY:' : 'COPY:')} ${verbose ? absolutePath : path} ${highlight.important('>>')} ${installPath}`)
           }
         }
-        catch (error) {
-          consola.error(error)
+        // Create symlink if mode = 'symlink' or else
+        else if (mode === 'symlink' || !mode) {
+          if (dryRun || await createSymlink(absolutePath, installPath, force)) {
+            // Only show the absolute path when verbose mode is enabled
+            consola.success(`${highlight.green(dryRun ? 'WILL SYML:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important('<-')} ${installPath}`)
+          }
         }
       }
     }

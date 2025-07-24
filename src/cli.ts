@@ -17,6 +17,7 @@ cli
   .alias('i')
   .option('--force, -f', 'force install')
   .option('--verbose, -v', 'verbose output')
+  .option('--dry-run, -d', 'dry run')
   .action((options: InstallOptions) => {
     if (options.verbose) {
       consola.level = LogLevels.debug
@@ -32,6 +33,7 @@ cli
 cli.command('uninstall', 'Uninstall preferences from your system')
   .alias('u')
   .option('--verbose, -v', 'verbose output')
+  .option('--dry-run, -d', 'dry run')
   .action((options: UninstallOptions) => {
     if (options.verbose) {
       consola.level = LogLevels.debug
@@ -41,7 +43,7 @@ cli.command('uninstall', 'Uninstall preferences from your system')
       consola.error('Uninstall requires administrator permission!')
       return
     }
-    uninstall()
+    uninstall(options)
   })
 
 cli.command('paste [source] [target]', 'Paste everything to the target path')
@@ -50,6 +52,7 @@ cli.command('paste [source] [target]', 'Paste everything to the target path')
   .option('--target, -t <target>', 'the target path')
   .option('--force, -f', 'force overwrite')
   .option('--verbose, -v', 'verbose output')
+  .option('--dry-run, -d', 'dry run')
   .action(async (source: string, target: string, options: PasteOptions) => {
     if (options.verbose) {
       consola.level = LogLevels.debug

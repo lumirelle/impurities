@@ -21,7 +21,7 @@ export async function paste(
   root: string,
   options: PasteOptions,
 ) {
-  const { force } = options
+  const { force = false, dryRun = false } = options
   let { source: sourceName, target } = options
 
   if (!sourceName) {
@@ -55,15 +55,12 @@ export async function paste(
     target = join(target, basename(absoluteSource))
   }
 
-  ensureDir(target)
-
-  try {
-    if (copyFile(absoluteSource, target, force)) {
-      consola.success(`${highlight.green('COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`)
-    }
+  if (!dryRun) {
+    ensureDir(target)
   }
-  catch (error) {
-    consola.error(error)
+
+  if (dryRun || copyFile(absoluteSource, target, force)) {
+    consola.success(`${highlight.green(dryRun ? 'WILL COPY:' : 'COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`)
   }
 }
 
