@@ -336,7 +336,6 @@
     "bun.lockb",
     "bun.lock"
   ],
-  "eslint.quiet": true,
   "eslint.codeAction.showDocumentation": { "enable": true },
   "eslint.rules.customizations": [
     { "rule": "style/*", "severity": "off" },
@@ -361,7 +360,12 @@
     "json",
     "jsonc",
     "yaml",
-    "toml"
+    "toml",
+    "css",
+    "postcss",
+    "scss",
+    "sass",
+    "less"
   ],
 
   // ↓↓ extensions: life savers

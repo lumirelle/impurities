@@ -6,8 +6,7 @@
     // -- lsp
     "dotenv.dotenv-vscode", // <NOT OPENVSIX>
     // -- linter
-    "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx
-    "stylelint.vscode-stylelint", // also the formatter for styles
+    "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx, css, scss, postcss, sass, less, etc.
 
     // ↓↓ life savers
     // -- editor views
@@ -22,6 +21,6 @@
     "ritwickdey.liveserver" // ALT+L ALT+O, ALT+L CTRL+C
   ]
   // ↓↓ extension count
-  // vscode: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 47} = 58}
-  // cursor: {PROFILE_JS: 11 + {PROFILE_DEFAULT: 45} = 56}
+  // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 47} = 57}
+  // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 45} = 55}
 }

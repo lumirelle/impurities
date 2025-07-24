@@ -6,12 +6,9 @@ export default antfu(
     // Disable typescript support, if your project is not using typescript but including `typescript` packages because of the ghost dependency
     typescript: false,
 
-    // Enable formatters for html and markdown (requires `eslint-plugin-format`)
-    formatters: {
-      css: false, // Use stylelint instead
-      html: true,
-      markdown: true,
-    },
+    // Enable formatters for css, markdown and etc. (requires `eslint-plugin-format`)
+    // If you are using `stylelint`, you can set this property to a object with `css` property set to `false`
+    formatters: true,
 
     // `.eslintignore` is no longer supported in flat config, use `ignores` option instead
     // Build output, node_modules and other common ignored files are already included

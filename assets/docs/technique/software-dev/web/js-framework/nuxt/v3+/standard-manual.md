@@ -9,7 +9,7 @@ This article is based on node@20.19.0, npm@10.9.2, corepack@0.33.0, pnpm@10.13.1
 Main dependencies:
 
 - nuxt@latest (vue@^latest, vite@^latest)
-- eslint@latest, stylelint@latest
+- eslint@latest
 - simple-git-hooks@latest, lint-staged@latest, commitlint@latest
 
 ## 🔧 更新 vscode 配置和 git 配置
@@ -157,42 +157,6 @@ eslint.config.js
 
 See [here](/assets/preferences/setup-project/vue3/eslint.config.js).
 
-## ✨ 设置样式检查与格式化
-
-> 真心期待前端有一个大统一的、完整的生态工具链！！！
-
-### 前置任务
-
-shell
-
-```shell
-# stylelint
-ni stylelint@latest -D
-
-# stylelint config for html
-ni stylelint-config-html@latest -D
-# stylelint config for scss
-ni stylelint-config-standard-scss@latest -D
-# stylelint config for vue
-ni stylelint-config-standard-vue@latest -D
-# stylelint config for stylistic
-ni @stylistic/stylelint-config@latest stylelint-config-recess-order@latest -D
-```
-
-### 快速配置
-
-shell
-
-```shell
-we paste vue/stylelint.config.js -f
-```
-
-### 手动配置
-
-stylelint.config.js
-
-See [here](/assets/preferences/setup-project/vue/stylelint.config.js).
-
 ## 📜 配置 npm 快速检查与格式化脚本
 
 ### 前置任务
@@ -208,12 +172,7 @@ ni npm-run-all2@latest -D
 shell
 
 ```shell
-npm pkg set 'scripts.lint=run-s lint:*'
-npm pkg set 'scripts.lint:js=eslint --cache --quiet .'
-npm pkg set 'scripts.lint:style=stylelint --cache --quiet **/*.{css,postcss,scss,html,vue}'
-npm pkg set 'scripts.fix=run-s fix:*'
-npm pkg set 'scripts.fix:js=eslint --cache --fix --quiet .'
-npm pkg set 'scripts.fix:style=stylelint --cache --fix --quiet **/*.{css,postcss,scss,html,vue}'
+npm pkg set 'scripts.lint=eslint .'
 ```
 
 ### 手动配置
@@ -226,12 +185,7 @@ package.json
   "scripts": {
     // ...
 
-    "lint": "run-s lint:*",
-    "lint:js": "eslint --cache --quiet .",
-    "lint:style": "stylelint --cache --quiet **/*.{css,postcss,scss,html,vue}",
-    "fix": "run-s fix:*",
-    "fix:js": "eslint --cache --fix --quiet .",
-    "fix:style": "stylelint --cache --fix --quiet **/*.{css,postcss,scss,html,vue}"
+    "lint": "eslint ."
 
     // ...
   }
@@ -260,8 +214,7 @@ shell
 npm pkg set 'scripts.prepare=simple-git-hooks'
 npm pkg set 'simple-git-hooks.pre-commit=npx lint-staged'
 npm pkg set 'simple-git-hooks.commit-msg=npx commitlint --edit $1'
-npm pkg set 'lint-staged.*=eslint --cache --fix'
-npm pkg set 'lint-staged[*.{css,postcss,scss,html,vue}]=stylelint --cache --fix'
+npm pkg set 'lint-staged.*=eslint --fix'
 
 we paste common/commitlint.config.js -f
 ```
@@ -286,8 +239,7 @@ package.json（配置 simple-git-hooks）
     "commit-msg": "npx commitlint --edit $1"
   },
   "lint-staged": {
-    "*": "eslint --cache --fix",
-    "*.{css,postcss,scss,html,vue}": "stylelint --cache --fix"
+    "*": "eslint --fix"
   }
 
   // ...

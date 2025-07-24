@@ -256,8 +256,13 @@
           ".vscode": {
             "extensions.json": "",
             "settings.json": ""
-          },
-          "stylelint.config.js": ""
+          }
+        },
+        "vue-stylelint": {
+          ".vscode": {
+            "settings.json": "",
+            "stylelint.config.js": ""
+          }
         },
         "vue2": {
           "eslint.config.js": "",
