@@ -213,8 +213,11 @@ shell
 # The performance of `simple-git-hooks` is much better than `husky`
 ni simple-git-hooks@latest -D
 
-# lint-staged & commitlint
-ni lint-staged@latest @commitlint/cli@latest @commitlint/config-conventional@latest -D
+# lint-staged
+ni lint-staged@latest -D
+
+# commitlint
+ni @commitlint/cli@latest @commitlint/config-conventional@latest @commitlint/cz-commitlint@latest commitizen@latest inquirer@^9.3.7 -D
 ```
 
 ### 快速配置
