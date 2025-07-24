@@ -4,6 +4,11 @@ export default antfu({
   pnpm: true,
   formatters: true,
 })
+  .override('antfu/yaml/pnpm-workspace', {
+    rules: {
+      'pnpm/yaml-no-duplicate-catalog-item': 'off',
+    },
+  })
   .append({
     name: 'lumirelle/jsonc/rules',
     files: [

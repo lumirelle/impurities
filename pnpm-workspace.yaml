@@ -1,32 +1,32 @@
-# eslint-disable pnpm/yaml-no-duplicate-catalog-item
-shamefullyHoist: true
-ignoreWorkspaceRootCheck: true
-verifyDepsBeforeRun: install
-
 packages:
   - assets/demos/*
 
 catalogs:
   dev:
-    '@antfu/eslint-config': ^4.17.0
+    '@antfu/eslint-config': ^4.18.0
     '@commitlint/cli': ^19.8.1
     '@commitlint/config-conventional': ^19.8.1
+    '@commitlint/cz-commitlint': ^19.8.1
+    '@commitlint/prompt': ^19.8.1
+    '@commitlint/prompt-cli': ^19.8.1
     '@prettier/plugin-xml': ^3.4.2
     '@types/node': 22.14.0
     bumpp: ^10.2.0
+    commitizen: ^4.3.1
     eslint: ^9.31.0
     eslint-plugin-format: ^1.0.1
+    inquirer: ^9.3.7
     lint-staged: ^16.1.2
     simple-git-hooks: ^2.13.0
     taze: ^19.1.0
     tsx: ^4.20.3
     typescript: ^5.8.3
-    unbuild: ^3.5.0
+    unbuild: ^3.6.0
     vitest: ^3.2.4
   example/vue2:
     vue: ^2.7.16
   example/vue3:
-    vue: ^3.5.17
+    vue: ^3.5.18
   prod:
     ansis: ^4.1.0
     cac: ^6.7.14
@@ -34,3 +34,9 @@ catalogs:
     tinyglobby: ^0.2.14
   prod-inlined:
     '@posva/prompts': ^2.4.4
+
+ignoreWorkspaceRootCheck: true
+
+shamefullyHoist: true
+
+verifyDepsBeforeRun: install
