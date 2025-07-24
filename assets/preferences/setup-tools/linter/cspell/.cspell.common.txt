@@ -81,6 +81,7 @@ exifreader
 exif
 excalidraw
 keystyle
+czrc
 
 -- third party platform --
 iconfont

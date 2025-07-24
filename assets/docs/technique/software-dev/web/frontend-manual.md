@@ -70,9 +70,9 @@
 
 ## 👩🏼‍💻 规范开发 / Standardized Development <a name="standardized-dev"></a>
 
-- 代码规范：使用 editorconfig + eslint + stylelint
-- 提交规范：使用 simple-git-hook + commitizen + cz-git，遵循 [Conventional Commits](https://www.conventionalcommits.org/) 标准
-- 开发环境规范：使用 fnm + corepack + npm|pnpm|yarn + @antfu/ni|@antfu/nip
+- 代码规范：使用 `editorconfig` + `eslint` (intergrated with `prettier` by `eslint-plugin-formatter`)
+- 提交规范：使用 `simple-git-hook` + `commitizen` + `cz-git`，遵循 [Conventional Commits](https://www.conventionalcommits.org/) 标准
+- 开发环境规范：使用 `fnm` + `corepack` + `npm`|`pnpm`|`yarn` + `@antfu/ni`|`@antfu/nip`
 - 配置文件：<https://github.com/Lumirelle/impurities>
 
 ## 🚀 前端技术发展 / Development of Frontend Techniques <a name="dev-of-frontend"></a>

@@ -12,7 +12,7 @@ Main dependencies:
 - @vue/cli-service@latest (@vue/cli-plugin-babel@latest)
 - vue@^2.7.16 (vue-router@legacy, vuex@^3.6.2, @vueuse/core@^11.3.0)
 - eslint@latest
-- simple-git-hooks@latest, lint-staged@latest, commitizen@latest(cz-git@latest)
+- simple-git-hooks@latest, lint-staged@latest
 
 ## 🔧 更新 vscode 配置和 git 配置
 
@@ -215,9 +215,6 @@ ni simple-git-hooks@latest -D
 
 # lint-staged
 ni lint-staged@latest -D
-
-# commitizen
-ni commitizen@latest cz-git@latest -D
 ```
 
 ### 快速配置

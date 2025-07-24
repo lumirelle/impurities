@@ -10,7 +10,7 @@ Main dependencies:
 
 - nuxt@2.17.3 (vue@^2, webpack@^4, babel@^7, core-js@^3)
 - eslint@latest
-- simple-git-hooks@latest, lint-staged@latest, commitizen@latest(cz-git@latest)
+- simple-git-hooks@latest, lint-staged@latest
 
 ## 🔧 更新 vscode 配置和 git 配置
 
@@ -215,9 +215,6 @@ ni simple-git-hooks@latest -D
 
 # lint-staged
 ni lint-staged@latest -D
-
-# commitizen
-ni commitizen@latest cz-git@latest -D
 ```
 
 ### 快速配置

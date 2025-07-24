@@ -16,6 +16,14 @@ Preferences for setting up a new tool.
 - `vscode`: Visual Studio Code Like (Including Cursor)
 - ...
 
+## Git Tools
+
+Preferences for Git Tools.
+
+- `commitizen`: Commitizen
+- `simple-git-hooks`: Simple Git Hooks
+- ...
+
 ## Linter
 
 - `cspell`: CSpell

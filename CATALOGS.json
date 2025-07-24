@@ -337,7 +337,10 @@
             "trusted-domains.json": ""
           }
         },
-        "git-hooks-manager": {
+        "git-tools": {
+          "commitizen": {
+            ".czrc": ""
+          },
           "simple-git-hooks": {
             ".simple-git-hooks.rc": ""
           }

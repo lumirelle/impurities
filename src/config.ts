@@ -174,7 +174,17 @@ export const GALLERIES: Gallery[] = [
   {
     type: 'preference',
     matchOptions: {
-      cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-hooks-manager', 'simple-git-hooks'),
+      cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-tools', 'commitizen'),
+      pattern: '.czrc',
+    },
+    installOptions: {
+      folders: [homedir()],
+    },
+  },
+  {
+    type: 'preference',
+    matchOptions: {
+      cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-tools', 'simple-git-hooks'),
       pattern: '.simple-git-hooks.rc',
     },
     installOptions: {

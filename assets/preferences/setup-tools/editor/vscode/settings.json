@@ -149,7 +149,8 @@
     ".env*": "dotenv",
     "*.json": "jsonc",
     "LICENSE": "plaintext",
-    ".simple-git-hooks.rc": "shellscript"
+    ".simple-git-hooks.rc": "shellscript",
+    ".czrc": "json"
   },
 
   // ↓↓ vscode: behavior

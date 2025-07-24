@@ -29,7 +29,7 @@ Preferences for Vue.js project.
 - `.vscode/`: VSCode Settings & Extensions For Vue.js Project
 - ...
 
-## Vue Stylelint
+## Vue Stylelint (Deprecated)
 
 Preferences for Vue.js project with Stylelint.
 

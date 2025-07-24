@@ -59,8 +59,6 @@
     "@prettier/plugin-xml": "catalog:dev",
     "@types/node": "catalog:dev",
     "bumpp": "catalog:dev",
-    "commitizen": "catalog:dev",
-    "cz-git": "catalog:dev",
     "eslint": "catalog:dev",
     "eslint-plugin-format": "catalog:dev",
     "lint-staged": "catalog:dev",
@@ -76,10 +74,5 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
   }
 }
