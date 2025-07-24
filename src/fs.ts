@@ -86,7 +86,7 @@ export function copyFile(sourcePath: string, targetPath: string, force: boolean 
     return false
   }
 
-  copyFileSync(sourcePath, targetPath, force ? constants.COPYFILE_FICLONE : 0)
+  copyFileSync(sourcePath, targetPath, force ? constants.COPYFILE_FICLONE : constants.COPYFILE_EXCL)
   return true
 }
 

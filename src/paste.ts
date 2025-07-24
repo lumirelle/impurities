@@ -16,11 +16,14 @@ import { highlight } from './highlight'
  * If the target directory is not exists, it will be created.
  * @param root - The root path of this package
  * @param options - The paste options
+ * @returns A promise that returns whether the pasting succeeded
  */
 export async function paste(
   root: string,
   options: PasteOptions,
-) {
+): Promise<boolean> {
+  let hasError = false
+
   const { force = false, dryRun = false } = options
   let { source: sourceName, target } = options
 
@@ -37,11 +40,12 @@ export async function paste(
   const source = await find(root, sourceName)
   if (!source) {
     consola.warn(`Source file not found in any preference collection: ${source}`)
-    return
+    // This is not an error, so return true
+    return Promise.resolve(true)
   }
-  // true means user cancels the selection
+  // true means user cancels the selection, so the pasting is not failed
   if (source === true) {
-    return
+    return Promise.resolve(true)
   }
 
   const absoluteSource = join(root, source)
@@ -59,9 +63,21 @@ export async function paste(
     ensureDir(target)
   }
 
-  if (dryRun || copyFile(absoluteSource, target, force)) {
-    consola.success(`${highlight.green(dryRun ? 'WILL COPY:' : 'COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`)
+  try {
+    if (dryRun || copyFile(absoluteSource, target, force)) {
+      consola.success(`${highlight.green(dryRun ? 'WILL COPY:' : 'COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`)
+    }
   }
+  catch (error) {
+    hasError = true
+    if (error instanceof Error && error.message.includes('EPERM')) {
+      consola.error(
+        `${highlight.red('Requires administrator permission! Please rerun the command with \'sudo\'')}\n\n${highlight.red('COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`,
+      )
+    }
+  }
+
+  return Promise.resolve(!hasError)
 }
 
 /**

@@ -9,9 +9,11 @@ import { highlight } from './highlight'
 /**
  * Uninstall preferences in all preference collections from the target path.
  * @param options - The uninstall options
- * @returns A promise that resolves when the preference collections are uninstalled, or rejects with an error
+ * @returns Whether the uninstallation succeeded
  */
-export function uninstall(options: UninstallOptions) {
+export async function uninstall(options: UninstallOptions): Promise<boolean> {
+  let hasError = false
+
   const { dryRun = false } = options
 
   for (const gallery of GALLERIES) {
@@ -46,19 +48,31 @@ export function uninstall(options: UninstallOptions) {
           continue
         }
 
+        try {
         // Remove file if mode = 'copy'
-        if (mode === 'copy') {
-          if (dryRun || removeFile(uninstallPath)) {
-            consola.success(`${highlight.red(dryRun ? 'WILL REMOVE:' : 'REMOVE:')} ${uninstallPath}`)
+          if (mode === 'copy') {
+            if (dryRun || removeFile(uninstallPath)) {
+              consola.success(`${highlight.red(dryRun ? 'WILL REMOVE:' : 'REMOVE:')} ${uninstallPath}`)
+            }
+          }
+          // Remove symlink if mode = 'symlink' or else
+          else if (mode === 'symlink' || !mode) {
+            if (dryRun || removeSymlink(uninstallPath)) {
+              consola.success(`${highlight.green(dryRun ? 'WILL UNSIML:' : 'UNSIML:')} ${uninstallPath}`)
+            }
           }
         }
-        // Remove symlink if mode = 'symlink' or else
-        else if (mode === 'symlink' || !mode) {
-          if (dryRun || removeSymlink(uninstallPath)) {
-            consola.success(`${highlight.green(dryRun ? 'WILL UNSIML:' : 'UNSIML:')} ${uninstallPath}`)
+        catch (error) {
+          hasError = true
+          if (error instanceof Error && error.message.includes('EPERM')) {
+            consola.error(
+              `${highlight.red('Requires administrator permission! Please rerun the command with \'sudo\'')}\n\n${highlight.red(mode === 'copy' ? 'REMOVE:' : 'UNSIML:')} ${uninstallPath}`,
+            )
           }
         }
       }
     }
   }
+
+  return !hasError
 }

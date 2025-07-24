@@ -9,12 +9,14 @@ import { highlight } from './highlight'
 /**
  * Install preferences in all preference collections to the target path.
  * @param options - The install options
- * @returns A promise that resolves when the preference collections are installed, or rejects with an error
+ * @returns A promise that returns whether the installation succeeded
  */
 export async function install(
   root: string,
   options: InstallOptions,
-) {
+): Promise<boolean> {
+  let hasError = false
+
   const { force = false, verbose = false, dryRun = false } = options
 
   for (const gallery of GALLERIES) {
@@ -51,21 +53,33 @@ export async function install(
           ensureDir(installPath)
         }
 
+        try {
         // Copy if mode = 'copy'
-        if (mode === 'copy') {
-          if (dryRun || copyFile(absolutePath, installPath, force)) {
+          if (mode === 'copy') {
+            if (dryRun || copyFile(absolutePath, installPath, force)) {
             // Only show the absolute path when verbose mode is enabled
-            consola.success(`${highlight.red(dryRun ? 'WILL COPY:' : 'COPY:')} ${verbose ? absolutePath : path} ${highlight.important('>>')} ${installPath}`)
+              consola.success(`${highlight.red(dryRun ? 'WILL COPY:' : 'COPY:')} ${verbose ? absolutePath : path} ${highlight.important('>>')} ${installPath}`)
+            }
+          }
+          // Create symlink if mode = 'symlink' or else
+          else if (mode === 'symlink' || !mode) {
+            if (dryRun || await createSymlink(absolutePath, installPath, force)) {
+            // Only show the absolute path when verbose mode is enabled
+              consola.success(`${highlight.green(dryRun ? 'WILL SYML:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important('<-')} ${installPath}`)
+            }
           }
         }
-        // Create symlink if mode = 'symlink' or else
-        else if (mode === 'symlink' || !mode) {
-          if (dryRun || await createSymlink(absolutePath, installPath, force)) {
-            // Only show the absolute path when verbose mode is enabled
-            consola.success(`${highlight.green(dryRun ? 'WILL SYML:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important('<-')} ${installPath}`)
+        catch (error) {
+          hasError = true
+          if (error instanceof Error && error.message.includes('EPERM')) {
+            consola.error(
+              `${highlight.red('Requires administrator permission! Please rerun the command with \'sudo\'')}\n\n${highlight.red(mode === 'copy' ? 'COPY:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important(mode === 'copy' ? '>>' : '<-')} ${installPath}`,
+            )
           }
         }
       }
     }
   }
+
+  return Promise.resolve(!hasError)
 }
