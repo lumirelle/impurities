@@ -1,7 +1,7 @@
 /// The mixins for operating selector (BEM style & state check)
 
-@use "../variables/config/selector" as config;
-@use "../functions/selector" as *;
+@use '../variables/config/selector' as config;
+@use '../functions/selector' as *;
 
 /// Block name
 $--b: null;
@@ -40,10 +40,10 @@ $--e: null;
 @mixin e($element) {
   $--e: $element !global;
   $selector: &;
-  $current-selector: "";
+  $current-selector: '';
 
   @each $unit in $element {
-    $current-selector: #{$current-selector + "." + $--b + config.$element-separator + $unit + ","};
+    $current-selector: #{$current-selector + '.' + $--b + config.$element-separator + $unit + ','};
   }
 
   @if has-special-nesting-rule($selector) {
@@ -76,10 +76,10 @@ $--e: null;
 ///   }
 @mixin m($modifier) {
   $selector: &;
-  $current-selector: "";
+  $current-selector: '';
 
   @each $unit in $modifier {
-    $current-selector: #{$current-selector + $selector + config.$modifier-separator + $unit + ","};
+    $current-selector: #{$current-selector + $selector + config.$modifier-separator + $unit + ','};
   }
 
   @at-root {

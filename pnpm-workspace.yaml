@@ -12,18 +12,12 @@ catalogs:
     '@commitlint/cli': ^19.8.1
     '@commitlint/config-conventional': ^19.8.1
     '@prettier/plugin-xml': ^3.4.2
-    '@stylistic/stylelint-config': ^2.0.0
     '@types/node': 22.14.0
     bumpp: ^10.2.0
     eslint: ^9.31.0
     eslint-plugin-format: ^1.0.1
     lint-staged: ^16.1.2
     simple-git-hooks: ^2.13.0
-    stylelint: ^16.21.1
-    stylelint-config-html: ^1.1.0
-    stylelint-config-recess-order: ^7.1.0
-    stylelint-config-standard-scss: ^15.0.1
-    stylelint-config-standard-vue: ^1.0.0
     taze: ^19.1.0
     tsx: ^4.20.3
     typescript: ^5.8.3

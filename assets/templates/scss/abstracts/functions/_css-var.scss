@@ -1,8 +1,8 @@
 /// The functions for generating CSS variables & `var()` function
 
-@use "../variables/config/selector" as selector-config;
-@use "sass:list";
-@use "sass:meta";
+@use '../variables/config/selector' as selector-config;
+@use 'sass:list';
+@use 'sass:meta';
 
 /// Generate CSS variable name from specific string list with predefined namespace
 /// @access public
@@ -15,18 +15,18 @@
 /// @example
 ///   getVarName(('button', 'text-color')) => '--cs-button-text-color'
 @function get-var-name($args...) {
-  $name: "--" + selector-config.$namespace;
+  $name: '--' + selector-config.$namespace;
   $list: $args;
 
   @if list.length($args) == 1 {
-    @if meta.type-of(list.nth($args, 1)) == "list" or meta.type-of(list.nth($args, 1)) == "arglist" {
+    @if meta.type-of(list.nth($args, 1)) == 'list' or meta.type-of(list.nth($args, 1)) == 'arglist' {
       $list: list.nth($args, 1);
     }
   }
 
   @each $item in $list {
-    @if $item != "" {
-      $name: $name + "-" + $item;
+    @if $item != '' {
+      $name: $name + '-' + $item;
     }
   }
 

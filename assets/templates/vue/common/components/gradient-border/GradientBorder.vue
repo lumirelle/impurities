@@ -125,7 +125,7 @@ const hoverBorderColorOrDefault = computed(() => {
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    content: "";
+    content: '';
     border-radius: inherit;
     transition: all v-bind(transitionDuration) v-bind(transitionFunction);
   }

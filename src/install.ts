@@ -8,6 +8,7 @@ import { highlight } from './highlight'
 
 /**
  * Install preferences in all preference collections to the target path.
+ * @param root - The root path of the project
  * @param options - The install options
  * @returns A promise that returns whether the installation succeeded
  */
@@ -57,14 +58,14 @@ export async function install(
         // Copy if mode = 'copy'
           if (mode === 'copy') {
             if (dryRun || copyFile(absolutePath, installPath, force)) {
-            // Only show the absolute path when verbose mode is enabled
+              // Only show the absolute path when verbose mode is enabled
               consola.success(`${highlight.red(dryRun ? 'WILL COPY:' : 'COPY:')} ${verbose ? absolutePath : path} ${highlight.important('>>')} ${installPath}`)
             }
           }
           // Create symlink if mode = 'symlink' or else
           else if (mode === 'symlink' || !mode) {
             if (dryRun || await createSymlink(absolutePath, installPath, force)) {
-            // Only show the absolute path when verbose mode is enabled
+              // Only show the absolute path when verbose mode is enabled
               consola.success(`${highlight.green(dryRun ? 'WILL SYML:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important('<-')} ${installPath}`)
             }
           }

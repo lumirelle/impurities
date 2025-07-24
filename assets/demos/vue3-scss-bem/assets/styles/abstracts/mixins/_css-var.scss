@@ -1,8 +1,8 @@
 /// The mixins for setting CSS Variables
 
-@use "sass:map";
-@use "sass:color";
-@use "../functions/css-var" as *;
+@use 'sass:map';
+@use 'sass:color';
+@use '../functions/css-var' as *;
 
 /// Generate CSS variable name, and set it in current scope with a certain value
 /// @access public
@@ -38,7 +38,7 @@
 ///   --cs-text-color-overlay: $text-color.overlay;
 @mixin set-vars($name, $map) {
   @each $key, $value in $map {
-    @if $key == "default" {
+    @if $key == 'default' {
       #{get-var-name($name)}: #{$value};
     } @else {
       #{get-var-name($name, $key)}: #{$value};

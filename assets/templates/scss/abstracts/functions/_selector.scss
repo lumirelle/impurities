@@ -1,8 +1,8 @@
 /// The functions for operating the selector
 
-@use "../variables/config/selector" as config;
-@use "sass:meta";
-@use "sass:string";
+@use '../variables/config/selector' as config;
+@use 'sass:meta';
+@use 'sass:string';
 
 @function selector-to-string($selector) {
   $selector: meta.inspect($selector);
@@ -25,7 +25,7 @@
 @function has-when-flag($selector) {
   $selector: selector-to-string($selector);
 
-  @if string.index($selector, "." + config.$state-prefix) {
+  @if string.index($selector, '.' + config.$state-prefix) {
     @return true;
   } @else {
     @return false;
@@ -35,7 +35,7 @@
 @function has-pseudo-class($selector) {
   $selector: selector-to-string($selector);
 
-  @if string.index($selector, ":") {
+  @if string.index($selector, ':') {
     @return true;
   } @else {
     @return false;
@@ -58,14 +58,14 @@
 ///     @include css-var(('color-picker', 'alpha-bg-a'), '#ccc');
 ///     @include css-var(('color-picker', 'alpha-bg-b'), 'transparent');
 ///   }
-@function bem($block, $element: "", $modifier: "") {
+@function bem($block, $element: '', $modifier: '') {
   $name: config.$namespace + config.$common-separator + $block;
 
-  @if $element != "" {
+  @if $element != '' {
     $name: $name + config.$element-separator + $element;
   }
 
-  @if $modifier != "" {
+  @if $modifier != '' {
     $name: $name + config.$modifier-separator + $modifier;
   }
 

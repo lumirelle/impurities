@@ -1,7 +1,7 @@
 /// The functions for operating the color
 
-@use "sass:color";
-@use "sass:string";
+@use 'sass:color';
+@use 'sass:string';
 
 /// Slightly lighten a color
 /// @access public
@@ -26,7 +26,7 @@
 /// @param {Color} $color - rgb color
 /// @return {Color} A hex color
 @function rgb2hex($color) {
-  @return string.unquote("#" + #{string.slice(color.ie-hex-str($color), 4)});
+  @return string.unquote('#' + #{string.slice(color.ie-hex-str($color), 4)});
 }
 
 /// Mix a overlay rgba color above a base solid color
@@ -36,9 +36,9 @@
 /// @return {Color} A mixed color
 @function mix-overlay($upper, $lower) {
   $opacity: color.alpha($upper);
-  $red: color.channel($upper, "red") * $opacity + color.channel($lower, "red") * (1 - $opacity);
-  $green: color.channel($upper, "green") * $opacity + color.channel($lower, "green") * (1 - $opacity);
-  $blue: color.channel($upper, "blue") * $opacity + color.channel($lower, "blue") * (1 - $opacity);
+  $red: color.channel($upper, 'red') * $opacity + color.channel($lower, 'red') * (1 - $opacity);
+  $green: color.channel($upper, 'green') * $opacity + color.channel($lower, 'green') * (1 - $opacity);
+  $blue: color.channel($upper, 'blue') * $opacity + color.channel($lower, 'blue') * (1 - $opacity);
 
   @return rgb2hex(rgb($red, $green, $blue));
 }

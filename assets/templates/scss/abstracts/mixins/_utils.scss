@@ -11,7 +11,7 @@
     #{$selector}::before,
     #{$selector}::after {
       display: table;
-      content: "";
+      content: '';
     }
     #{$selector}::after {
       clear: both;
@@ -70,8 +70,8 @@
   $hover-border-color: null,
   $hover-border-margin: null,
   $bg-color: #fff,
-  $transition: "all 0.3s ease",
-  $isolation: false,
+  $transition: 'all 0.3s ease',
+  $isolation: false
 ) {
   $selector: &;
 
@@ -86,7 +86,7 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    content: "";
+    content: '';
     border-radius: inherit;
     transition: $transition;
   }
