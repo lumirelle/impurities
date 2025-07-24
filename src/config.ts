@@ -174,6 +174,16 @@ export const GALLERIES: Gallery[] = [
   {
     type: 'preference',
     matchOptions: {
+      cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-hooks-manager', 'simple-git-hooks'),
+      pattern: '.simple-git-hooks.rc',
+    },
+    installOptions: {
+      folders: [homedir()],
+    },
+  },
+  {
+    type: 'preference',
+    matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'linter', 'cspell'),
       pattern: '*.txt',
     },

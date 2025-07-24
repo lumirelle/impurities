@@ -337,6 +337,11 @@
             "trusted-domains.json": ""
           }
         },
+        "git-hooks-manager": {
+          "simple-git-hooks": {
+            ".simple-git-hooks.rc": ""
+          }
+        },
         "linter": {
           "cspell": {
             ".cspell.common.txt": ""

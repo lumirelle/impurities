@@ -148,7 +148,8 @@
     "*.vue": "vue",
     ".env*": "dotenv",
     "*.json": "jsonc",
-    "LICENSE": "plaintext"
+    "LICENSE": "plaintext",
+    ".simple-git-hooks.rc": "shellscript"
   },
 
   // ↓↓ vscode: behavior
