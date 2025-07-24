@@ -209,8 +209,7 @@
             "settings.json": ""
           },
           "zsh": {
-            ".zshrc": "",
-            "outdated": ""
+            ".zshrc": ""
           }
         },
         "vcs": {

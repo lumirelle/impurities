@@ -39,16 +39,37 @@ New-Alias -Name grep -Value Select-String
 # COMMAND SHORTCUTS
 # clh: Clear All History
 New-Alias -Name clh -Value Clear-AllHistory
-# dev, build, stub, start, release, lint, fix, typecheck:
+# dev, build, stub, start, release, lint, typecheck:
 # Run npm scripts quickly while we are in a directory that has a `package.json`
 if (Test-Path -Path "package.json") {
-  New-Alias -Name dev -Value 'nr dev'
-  New-Alias -Name build -Value 'nr build'
-  New-Alias -Name stub -Value 'nr stub'
-  New-Alias -Name start -Value 'nr start'
-  New-Alias -Name release -Value 'nr release'
-  New-Alias -Name lint -Value 'nr lint'
-  New-Alias -Name fix -Value 'nr fix'
-  New-Alias -Name typecheck -Value 'nr typecheck'
+  function Start-Dev {
+    nr dev @args
+  }
+  function Start-Build {
+    nr build @args
+  }
+  function Start-Stub {
+    nr stub @args
+  }
+  function Start-Start {
+    nr start @args
+  }
+  function Start-Release {
+    nr release @args
+  }
+  function Start-Lint {
+    nr lint @args
+  }
+  function Start-Typecheck {
+    nr typecheck @args
+  }
+  New-Alias -Name dev -Value Start-Dev
+  New-Alias -Name build -Value Start-Build
+  New-Alias -Name stub -Value Start-Stub
+  Remove-Item Alias:start -Force -ErrorAction Ignore
+  New-Alias -Name start -Value Start-Start
+  New-Alias -Name release -Value Start-Release
+  New-Alias -Name lint -Value Start-Lint
+  New-Alias -Name typecheck -Value Start-Typecheck
 }
 
