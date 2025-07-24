@@ -88,8 +88,8 @@ add-all-then-commit-with-message = "!f() { \
   git add-all; \
   git commit-with-message \"$1\"; \
 }; f"
-# only for a node package, which requires `cz-commitlint` to be installed
-add-all-then-commit-with-cz-commitlint = "!f() { \
+# only for a node package, which requires `commitizen` to be installed
+add-all-then-commit-with-commitizen = "!f() { \
   git add-all; \
   git cz;\
 }; f"
@@ -234,8 +234,8 @@ cu = commit-undo
 # add & commit: a*c*
 ac = add-all-then-commit # `ac` instead of `aac` because `aac` is too long to type
 acm = add-all-then-commit-with-message # `acm` instead of `aacm` because `aacm` is too long to type
-# add & commit (cz-commitlint): acz
-acz = add-all-then-commit-with-cz-commitlint
+# add & commit (commitizen): acz
+acz = add-all-then-commit-with-commitizen
 # amend commit: mc
 mc = amend-commit
 mce = amend-commit-with-edit

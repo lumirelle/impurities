@@ -55,19 +55,14 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:dev",
-    "@commitlint/cli": "catalog:dev",
-    "@commitlint/config-conventional": "catalog:dev",
-    "@commitlint/cz-commitlint": "catalog:dev",
-    "@commitlint/prompt": "catalog:dev",
-    "@commitlint/prompt-cli": "catalog:dev",
     "@posva/prompts": "catalog:prod-inlined",
     "@prettier/plugin-xml": "catalog:dev",
     "@types/node": "catalog:dev",
     "bumpp": "catalog:dev",
     "commitizen": "catalog:dev",
+    "cz-git": "catalog:dev",
     "eslint": "catalog:dev",
     "eslint-plugin-format": "catalog:dev",
-    "inquirer": "catalog:dev",
     "lint-staged": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
     "taze": "catalog:dev",
@@ -77,15 +72,14 @@
     "vitest": "catalog:dev"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm catalogs && pnpm lint-staged",
-    "commit-msg": "npx commitlint --edit $1"
+    "pre-commit": "pnpm catalogs && pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
   },
   "config": {
     "commitizen": {
-      "path": "@commitlint/cz-commitlint"
+      "path": "node_modules/cz-git"
     }
   }
 }

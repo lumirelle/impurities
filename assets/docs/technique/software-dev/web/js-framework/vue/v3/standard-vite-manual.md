@@ -11,7 +11,7 @@ Main dependencies:
 - vite@latest (@vitejs/plugin-legacy@latest, @vitejs/plugin-vue2@latest)
 - vue@latest (vue-router@latest, vuex@latest, @vueuse/core@latest)
 - eslint@latest
-- simple-git-hooks@latest, lint-staged@latest, commitlint@latest
+- simple-git-hooks@latest, lint-staged@latest, commitizen@latest(cz-git@latest)
 
 ## 🔧 更新 vscode 配置和 git 配置
 
@@ -216,8 +216,8 @@ ni simple-git-hooks@latest -D
 # lint-staged
 ni lint-staged@latest -D
 
-# commitlint
-ni @commitlint/cli@latest @commitlint/config-conventional@latest @commitlint/cz-commitlint@latest commitizen@latest inquirer@^9.3.7 -D
+# commitizen
+ni commitizen@latest cz-git@latest -D
 ```
 
 ### 快速配置
@@ -227,10 +227,7 @@ shell
 ```shell
 npm pkg set 'scripts.prepare=simple-git-hooks'
 npm pkg set 'simple-git-hooks.pre-commit=npx lint-staged'
-npm pkg set 'simple-git-hooks.commit-msg=npx commitlint --edit $1'
 npm pkg set 'lint-staged.*=eslint --fix'
-
-we paste commitlint/commitlint.config.js -f
 ```
 
 ### 手动配置
@@ -249,8 +246,7 @@ package.json（配置 simple-git-hooks）
   // ...
 
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged",
-    "commit-msg": "npx commitlint --edit $1"
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
@@ -259,10 +255,6 @@ package.json（配置 simple-git-hooks）
   // ...
 }
 ```
-
-commitlint.config.js
-
-See [here](/assets/preferences/setup-project/common/commitlint.config.js).
 
 ## 💪🏼 使用 Dart Sass 提供 Sass 支持，移除 Node Sass
 
