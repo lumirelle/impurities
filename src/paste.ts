@@ -9,6 +9,65 @@ import { copyFile, ensureDir, isDirectory } from './fs'
 import { highlight } from './highlight'
 
 /**
+ * Copy & paste a preference to a target path.
+ * If the target path is not specified, it will be copied to the current working directory.
+ * If the target path is a directory, the preference will be copied to the directory with the same name as the preference.
+ * If the target path is a file, it behaves like copy and rename.
+ * If the target directory is not exists, it will be created.
+ * @param root - The root path of this package
+ * @param options - The paste options
+ */
+export async function paste(
+  root: string,
+  options: PasteOptions,
+) {
+  const { force } = options
+  let { source: sourceName, target } = options
+
+  if (!sourceName) {
+    const { result } = await prompts({
+      type: 'text',
+      name: 'result',
+      message: 'Please enter the source file (e.g. ".editorconfig" or "nodejs/.editorconfig"):',
+      validate: value => value ? true : 'Source file is required',
+    })
+    sourceName = result as string
+  }
+
+  const source = await find(root, sourceName)
+  if (!source) {
+    consola.warn(`Source file not found in any preference collection: ${source}`)
+    return
+  }
+  // true means user cancels the selection
+  if (source === true) {
+    return
+  }
+
+  const absoluteSource = join(root, source)
+
+  if (!target) {
+    target = cwd()
+  }
+  // If user does not specify the target file name, use the source file name as default
+  if (isDirectory(target)) {
+    consola.debug('target is a directory', target, isDirectory(target))
+    target = join(target, basename(absoluteSource))
+  }
+
+  ensureDir(target)
+
+  try {
+    if (copyFile(absoluteSource, target, force)) {
+      consola.success(`${highlight.green('COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`)
+    }
+  }
+  catch (error) {
+    consola.error(error)
+  }
+}
+
+/**
  * Find the preference in all preference collections.
  * @param root - The root path of this package
  * @param sourceName - The name of the preference to find
@@ -85,67 +144,4 @@ async function find(
   }
 
   return Promise.resolve(null)
-}
-
-/**
- * Copy & paste a preference to a target path.
- *
- * If the target path is not specified, it will be copied to the current working directory.
- *
- * If the target path is a directory, the preference will be copied to the directory with the same name as the preference.
- *
- * If the target path is a file, it behaves like copy and rename.
- *
- * If the target directory is not exists, it will be created.
- *
- * @param root - The root path of this package
- * @param options - The paste options
- */
-export async function paste(
-  root: string,
-  options: PasteOptions,
-) {
-  if (!options.source) {
-    const { source } = await prompts({
-      type: 'text',
-      name: 'source',
-      message: 'Please enter the source file (e.g. ".editorconfig" or "nodejs/.editorconfig"):',
-    })
-    options.source = source
-  }
-  if (!options.source) {
-    return
-  }
-
-  const source = await find(root, options.source)
-  if (!source) {
-    consola.warn(`Source file not found in any preference collection: ${options.source}`)
-    return
-  }
-  // true means user cancels the selection
-  if (source === true) {
-    return
-  }
-
-  const absoluteSource = join(root, source)
-
-  if (!options.target) {
-    options.target = cwd()
-  }
-  // If user does not specify the target file name, use the source file name as default
-  if (isDirectory(options.target)) {
-    consola.debug('options.target is a directory', options.target, isDirectory(options.target))
-    options.target = join(options.target, basename(absoluteSource))
-  }
-
-  ensureDir(options.target)
-
-  try {
-    if (copyFile(absoluteSource, options.target, options.force)) {
-      consola.success(`${highlight.green('COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${options.target}`)
-    }
-  }
-  catch (error) {
-    consola.error(error)
-  }
 }

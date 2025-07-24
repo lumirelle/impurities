@@ -12,9 +12,24 @@ export interface UninstallOptions {
 }
 
 export interface PasteOptions {
+  /**
+   * The source file name or path
+   */
   source?: string
+
+  /**
+   * The target file name or path
+   */
   target?: string
+
+  /**
+   * Whether to force the operation
+   */
   force?: boolean
+
+  /**
+   * Whether to show verbose output
+   */
   verbose?: boolean
 }
 

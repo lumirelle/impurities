@@ -17,25 +17,25 @@ export function uninstall() {
       continue
     }
 
-    const installOptions = gallery.installOptions
-    const matchOptions = gallery.matchOptions
+    const { condition, mode, folders } = gallery.installOptions
+    const { pattern, cwd, ignore } = gallery.matchOptions
 
-    if (installOptions.condition && !installOptions.condition()) {
+    if (condition && !condition()) {
       continue
     }
 
     // Get the preference paths relative to the provided cwd path
-    const paths = globSync(matchOptions.pattern, {
-      cwd: matchOptions.cwd,
+    const paths = globSync(pattern, {
+      cwd,
       ignore: [
         ...GLOBAL_PREFERENCES_IGNORE,
-        ...(matchOptions.ignore || []),
+        ...(ignore || []),
       ],
       dot: true,
     }).map(path => normalize(path))
 
     for (const path of paths) {
-      for (const folder of Array.isArray(installOptions.folders) ? installOptions.folders : [installOptions.folders]) {
+      for (const folder of Array.isArray(folders) ? folders : [folders]) {
         const uninstallPath = join(folder, path)
 
         // Skip if the uninstall path does not exist
@@ -44,11 +44,11 @@ export function uninstall() {
         }
 
         try {
-          // Copy if mode = 'copy'
-          if (installOptions.mode === 'copy' && removeFile(uninstallPath)) {
+          // Remove file if mode = 'copy'
+          if (mode === 'copy' && removeFile(uninstallPath)) {
             consola.success(`${highlight.red('REMOVE:')} ${uninstallPath}`)
           }
-          // Create symlink if mode = 'symlink' or else
+          // Remove symlink if mode = 'symlink' or else
           else if (removeSymlink(uninstallPath)) {
             consola.success(`${highlight.green('UNSIML:')} ${uninstallPath}`)
           }

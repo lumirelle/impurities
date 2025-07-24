@@ -3,6 +3,10 @@
   "files.associations": {
     "*.json": "jsonc"
   },
+  // -- search --
+  "search.exclude": {
+    "**/assets": false
+  },
   // -- format & lint --
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {

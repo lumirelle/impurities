@@ -23,35 +23,35 @@ export async function install(
       continue
     }
 
-    const installOptions = gallery.installOptions
-    const matchOptions = gallery.matchOptions
+    const { condition, mode, folders } = gallery.installOptions
+    const { pattern, cwd, ignore } = gallery.matchOptions
 
-    if (installOptions.condition && !installOptions.condition()) {
+    if (condition && !condition()) {
       continue
     }
 
     // Get the preference paths relative to the provided cwd path
-    const paths = globSync(matchOptions.pattern, {
-      cwd: matchOptions.cwd,
+    const paths = globSync(pattern, {
+      cwd,
       ignore: [
         ...GLOBAL_PREFERENCES_IGNORE,
-        ...(matchOptions.ignore || []),
+        ...(ignore || []),
       ],
       dot: true,
     }).map(path => normalize(path))
 
     for (const path of paths) {
-      const absolutePath = join(root, matchOptions.cwd, path)
+      const absolutePath = join(root, cwd, path)
 
-      for (const folder of Array.isArray(installOptions.folders) ? installOptions.folders : [installOptions.folders]) {
+      for (const folder of Array.isArray(folders) ? folders : [folders]) {
         const installPath = join(folder, path)
 
         // Ensure the parent directory of install path exists
         ensureDir(installPath)
 
-        // Copy if mode = 'copy'
         try {
-          if (installOptions.mode === 'copy' && copyFile(absolutePath, installPath, force)) {
+          // Copy if mode = 'copy'
+          if (mode === 'copy' && copyFile(absolutePath, installPath, force)) {
             // Only show the absolute path when verbose mode is enabled
             consola.success(`${highlight.red('COPY:')} ${verbose ? absolutePath : path} ${highlight.important('>>')} ${installPath}`)
           }
