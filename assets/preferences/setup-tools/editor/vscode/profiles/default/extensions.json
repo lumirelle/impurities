@@ -12,6 +12,7 @@
     "alefragnani.project-manager",
     "eamodio.gitlens",
     "github.vscode-pull-request-github",
+    "vivaxy.vscode-conventional-commits",
 
     // ↓↓ container
     "ms-azuretools.vscode-containers",
@@ -73,6 +74,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // ↓↓ extension count
-  // vscode: {PROFILE_DEFAULT: 47 - 0 = 47}
-  // cursor: {PROFILE_DEFAULT: 47 - 2 = 45}
+  // vscode: {PROFILE_DEFAULT: 48 - 0 = 48}
+  // cursor: {PROFILE_DEFAULT: 48 - 2 = 46}
 }

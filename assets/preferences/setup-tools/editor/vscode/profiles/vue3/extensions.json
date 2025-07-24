@@ -16,7 +16,7 @@
     "antfu.unocss"
 
     // ↓↓ extension count
-    // vscode: {PROFILE_VUE3: 5 + {PROFILE_JS: 57} = 62}
-    // cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 55} = 60}
+    // vscode: {PROFILE_VUE3: 5 + {PROFILE_JS: 58} = 63}
+    // cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 56} = 61}
   ]
 }
