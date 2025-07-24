@@ -80,14 +80,6 @@ add-all-undo = reset HEAD -- . # Move all staged changes back to the working dir
 commit-with-message = commit --message
 commit-undo = reset --soft HEAD^ # Move commit back to the staging area
 # add & commit
-add-then-commit = "!f() { \
-  git add \"$1\"; \
-  git commit; \
-}; f"
-add-then-commit-with-message = "!f() { \
-  git add \"$1\"; \
-  git commit-with-message \"$2\"; \
-}; f"
 add-all-then-commit = "!f() { \
   git add-all; \
   git commit; \
@@ -95,6 +87,11 @@ add-all-then-commit = "!f() { \
 add-all-then-commit-with-message = "!f() { \
   git add-all; \
   git commit-with-message \"$1\"; \
+}; f"
+# only for a node package, which requires `cz-commitlint` to be installed
+add-all-then-commit-with-cz-commitlint = "!f() { \
+  git add-all; \
+  git cz;\
 }; f"
 # amend commit
 amend-commit = commit --amend --no-edit
@@ -237,6 +234,8 @@ cu = commit-undo
 # add & commit: a*c*
 ac = add-all-then-commit # `ac` instead of `aac` because `aac` is too long to type
 acm = add-all-then-commit-with-message # `acm` instead of `aacm` because `aacm` is too long to type
+# add & commit (cz-commitlint): acz
+acz = add-all-then-commit-with-cz-commitlint
 # amend commit: mc
 mc = amend-commit
 mce = amend-commit-with-edit
