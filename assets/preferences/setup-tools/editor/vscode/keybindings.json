@@ -1,15 +1,38 @@
 [
-  {
-    "key": "ctrl+oem_1",
-    "command": "workbench.view.extension.gitlensPanel"
-  },
-  {
-    "key": "ctrl+i",
-    "command": "composerMode.agent"
-  },
+  // Terminal
   {
     "key": "ctrl+alt+oem_3",
     "command": "workbench.action.terminal.relaunch",
     "when": "terminalProcessSupported"
+  },
+  {
+    "key": "alt+`",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "ctrl+shift+5",
+    "command": "-workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "alt+`",
+    "command": "workbench.action.terminal.splitActiveTab",
+    "when": "terminalProcessSupported && terminalTabsFocus"
+  },
+  {
+    "key": "ctrl+shift+5",
+    "command": "-workbench.action.terminal.splitActiveTab",
+    "when": "terminalProcessSupported && terminalTabsFocus"
+  },
+  // GitLens
+  {
+    "key": "ctrl+oem_1",
+    "command": "workbench.view.extension.gitlensPanel"
+  },
+  // Cursor
+  {
+    "key": "ctrl+i",
+    "command": "composerMode.agent"
   }
 ]
