@@ -56,6 +56,30 @@ log-last = log -1 HEAD --stat
 # config
 config-list = config --list
 config-global = config --global
+# remote
+remote-add-default-origin = "!f() { \
+  if [ -z \"$2\" ]; then \
+    git remote add origin \"$1\"; \
+  else \
+    git remote add  \"$1\" \"$2\"; \
+  fi; \
+}; f"
+remote-list = remote --verbose
+remote-remove = remote remove
+# pull
+pull-set-upstream-current-branch = "!f() { \
+  current_branch=$(git branch --show-current); \
+  git pull --set-upstream origin \"$current_branch\"; \
+}; f"
+# push
+push-set-upstream-current-branch = "!f() { \
+  current_branch=$(git branch --show-current); \
+  git push --set-upstream origin \"$current_branch\"; \
+}; f"
+push-force = push --force
+push-delete = push --delete
+# pull & push
+pull-then-push = pull && push
 # discard
 #   If the file is tracked, then restore the file to the working directory.
 #   If the file is untracked, then delete the file.
@@ -105,8 +129,8 @@ add-all-then-amend-commit-with-edit = "!f() { \
   git amend-commit-with-edit \"$1\"; \
 }; f"
 # wip
-wip = "!git add-all && git commit-with-message 'chore: wip'"
-wip-undo = "!git log -n 1 | grep -q -c 'chore: wip' && git reset HEAD~1"
+work-in-progress = "!git add-all && git commit-with-message 'chore: wip'"
+work-in-progress-undo = "!git log -n 1 | grep -q -c 'chore: wip' && git reset HEAD~1"
 # stash
 stash-push = stash push
 stash-list = stash list
@@ -118,17 +142,33 @@ branch-list-remote = branch --remote
 branch-list-all = branch --all
 branch-delete-local = branch --delete
 branch-force-delete-local = branch --delete --force
-branch-delete-remote = push --delete
-branch-delete-origin = push --delete origin
-branch-delete-both-local-and-origin = "!f() { \
-  git branch-delete-local \"$1\"; \
-  git branch-delete-origin \"$1\"; \
+branch-delete-remote-default-origin = "!f() {\
+  if [ -z \"$2\" ]; then \
+    git push --delete origin \"$1\"; \
+  else \
+    git push --delete \"$1\" \"$2\"; \
+  fi; \
+}; f"
+branch-delete-local-and-remote-default-origin = "!f() { \
+  if [ -z \"$2\" ]; then \
+    git branch-delete-local \"$1\"; \
+    git branch-delete-remote-default-origin \"$1\"; \
+  else \
+    git branch-delete-local \"$2\"; \
+    git branch-delete-remote-default-origin \"$1\" \"$2\"; \
+  fi; \
 }; f"
 branch-rename = branch --move
-branch-rename-origin = "!f() { \
-  git branch-delete-origin \"$1\"; \
-  git branch --move \"$1\" \"$2\"; \
-  git push-origin-upstream-current-branch \"$2\"; \
+branch-rename-remote-default-origin = "!f() { \
+  if [ -z \"$3\" ]; then \
+    git branch-delete-remote-default-origin \"$1\" \"$2\"; \
+    git branch --move \"$2\" \"$3\"; \
+    git push-set-upstream-current-branch; \
+  else \
+    git branch-delete-remote-default-origin \"$1\"; \
+    git branch --move \"$1\" \"$2\"; \
+    git push-set-upstream-current-branch; \
+  fi; \
 }; f"
 # branch & switch
 branch-then-switch = switch --create
@@ -146,66 +186,50 @@ rebase-continue = rebase --continue
 cherry-pick-abort = cherry-pick --abort
 cherry-pick-continue = cherry-pick --continue
 # tag
+tag-new = "!f() { \
+  if ! (git branch-list-local \"$1\" >/dev/null 2>&1); then \
+    echo \"Error: Branch with the same name as the tag '$1' already exists! It is not recommended to use the same name as the branch name, you may get some trouble when pushing them to remote.\"; \
+    exit 1; \
+  fi; \
+  git tag \"$@\"; \
+}; f"
 tag-list = tag --list
 tag-list-remote = ls-remote --tags
-tag-delete = tag --delete
-tag-delete-multiple = "!f() { \
-  git tag --list \"$1\" | xargs git tag --delete; \
+tag-push-remote-default-origin = "!f() { \
+  if [ -z \"$2\" ]; then \
+    git push origin \"$1\"; \
+  else \
+    git push \"$1\" \"$2\"; \
+  fi; \
 }; f"
-tag-sync-remote = "!f() { \
-  git push \"$1\":refs/tags/$2; \
-  git fetch-prune-tags; \
+tag-push-remote-default-origin-all = "!f() { \
+  if [ -z \"$1\" ]; then \
+    git push origin --tags; \
+  else \
+    git push \"$1\" --tags; \
+  fi; \
 }; f"
-tag-sync-origin = "!f() { \
-  git push-origin :refs/tags/$1; \
-  git fetch-prune-tags; \
+tag-delete-local = tag --delete
+tag-delete-remote-default-origin = "!f() { \
+  if [ -z \"$2\" ]; then \
+    git push-delete origin \"$1\"; \
+  else \
+    git push-delete \"$1\" \"$2\"; \
+  fi; \
 }; f"
-tag-sync-origin-multiple = "!f() { \
-  git tag-list \"$1\" | xargs -I {} git push-origin :refs/tags/{}; \
-  git fetch-prune-tags; \
-}; f"
-tag-sync-remote-multiple = "!f() { \
-  git tag-list \"$2\" | xargs -I {} git push \"$1\":refs/tags/{}; \
-  git fetch-prune-tags; \
-}; f"
-# remote
-remote-add = remote add
-remote-add-origin = remote add origin
-remote-add-upstream = remote add upstream
-remote-list = remote --verbose
-remote-remove = remote remove
-# fetch
-fetch-prune-tags = fetch --prune-tags # We will clean up unused tags when specify command `*-prune-tags`
-# pull
-pull-prune-tags = "!git fetch --prune-tags && git pull"
-pull-origin-upstream-current-branch = "!f() { \
-  current_branch=$(git branch --show-current); \
-  git pull --set-upstream origin \"$current_branch\"; \
-}; f"
-# push
-push-force = push --force
-push-origin = push origin
-push-origin-delete = push --delete origin
-push-origin-upstream-current-branch = "!f() { \
-  current_branch=$(git branch --show-current); \
-  git push --set-upstream origin \"$current_branch\"; \
-}; f"
-# pull & push
-pull-then-push = "!git pull-prune-tags && git push"
+tag-prune = fetch --prune-tags
 
 # SHORTCUTS ALIASES
 # SUFFIX INTRODUCTION
 #   <TO SPECIFY ADDITIONAL BEHAVIOR>
-#   `l`: `list`
+#   `s`: `list | show`
 #   `u`: `undo`, which means recover the status **after an operation is completed**
 #   `x`: `discard | delete | drop`, which means **drop things** we don't need any more
 #   `n`: `rename`
-#   `s`: `sync`, which means **sync the changes** with the remote repository after we complete an operation locally
 #   <TO SPECIFY TARGET>
 #   `g`: `global`
 #   `a`: `all`
 #   `e`: `remote`
-#   `o`: `origin`, the specific remote name "origin"
 #   `m`: `multiple`
 #   <TO SPECIFY PARAMETERS>
 #   `m`: with `--message` parameter
@@ -216,11 +240,27 @@ pull-then-push = "!git pull-prune-tags && git push"
 # config: cf
 cf = config
 cfg = config-global
-cfl = config-list
+cfs = config-list
 # init: i
 i = init
 # clone: cl
 cl = clone
+# remote: e
+e = remote-add-default-origin
+es = remote-list
+ex = remote-remove
+# fetch: f
+f = fetch
+# pull: l
+l = pull
+lu = pull-set-upstream-current-branch
+# push: p
+p = push
+pu = push-set-upstream-current-branch
+pf = push-force
+px = push-delete
+# pull & push: l*p*
+lp = pull-then-push
 # discard: x
 x = discard
 xa = discard-all
@@ -234,32 +274,32 @@ cu = commit-undo
 # add & commit: a*c*
 ac = add-all-then-commit # `ac` instead of `aac` because `aac` is too long to type
 acm = add-all-then-commit-with-message # `acm` instead of `aacm` because `aacm` is too long to type
-# add & commit (commitizen): acz
+# add & commit (commitizen): a*cz*
 acz = add-all-then-commit-with-commitizen
 # amend commit: mc
 mc = amend-commit
 mce = amend-commit-with-edit
 amc = add-all-then-amend-commit
 amce = add-all-then-amend-commit-with-edit
-# wip: wip
-wipu = wip-undo
+# work-in-progress: wip
+wip = work-in-progress
+wipu = work-in-progress-undo
 # stash: s
 s = stash-push
-sl = stash-list
+ss = stash-list
 su = stash-undo
 sx = stash-drop
 # branch: b
 b = branch
-bl = branch-list-local
-ble = branch-list-remote
-bla = branch-list-all
+bs = branch-list-local
+bse = branch-list-remote
+bsa = branch-list-all
 bx = branch-delete-local
 bxf = branch-delete-local-force
-bxe = branch-delete-remote
-bxo = branch-delete-origin # Remote branch has no force delete operation
-bxa = branch-delete-both-local-and-origin
+bxe = branch-delete-remote-default-origin
+bxa = branch-delete-local-and-remote-default-origin
 bn = branch-rename
-bno = branch-rename-origin
+bne = branch-rename-remote-default-origin
 # switch: w
 w = switch
 # branch & switch: b*w*
@@ -281,31 +321,11 @@ cp = cherry-pick
 cpz = cherry-pick-abort
 cpc = cherry-pick-continue
 # tag: t
-t = tag
-tl = tag-list
-tle = tag-list-remote
-tx = tag-delete
-txm = tag-delete-multiple
-tse = tag-sync-remote
-tso = tag-sync-origin
-tsem = tag-sync-remote-multiple
-tsom = tag-sync-origin-multiple
-# remote: e
-e = remote-add
-eo = remote-add-origin
-eu = remote-add-upstream
-el = remote-list
-ex = remote-remove
-# fetch: f
-f = fetch-prune-tags
-# pull: l
-l = pull-prune-tags
-lou = pull-origin-upstream-current-branch
-# push: p
-p = push
-pf = push-force
-po = push-origin
-pox = push-origin-delete
-pou = push-origin-upstream-current-branch
-# pull & push: l*p*
-lp = pull-then-push
+t = tag-new
+ts = tag-list
+tse = tag-list-remote
+tl = tag-prune
+tp = tag-push-remote-default-origin
+tpa = tag-push-remote-default-origin-all
+tx = tag-delete-local
+txe = tag-delete-remote-default-origin
