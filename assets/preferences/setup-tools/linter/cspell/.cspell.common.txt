@@ -1,8 +1,8 @@
--- me --
+>> ME
 Lumirelle
 shabbyacc
 
--- other people --
+>> OTHERS
 antfu
 JanDeDobbeleer
 Schniz
@@ -10,39 +10,39 @@ Meiryo
 sxzz
 posva
 
--- animals --
+>> ANIMALS
 Loong
 Merlion
 
--- objects --
+>> OBJECTS
 Qrcode
 
--- fonts --
+>> WINDOWS
+LOCALAPPDATA
+
+>> FONTS
 monaspace
 wisper
 
--- env vars --
-LOCALAPPDATA
-
--- terminals --
+>> SHELLS & TERMINALS
 pwsh
 
--- editors --
-nvim
-
--- other softwares --
+>> OS TOOLS
 winget
 Ventoy
 DISM++
-OhMyPosh
 gsudo
+
+>> DEV TOOLS
+nvim
+OhMyPosh
 fnm
 Navicat
 
--- dev --
-nologo
+>> DEV: COMMON
+breakline
 
--- java dev --
+>> DEV: JAVA
 graalvm
 javax
 projectlombok
@@ -55,7 +55,7 @@ pagehelper
 fastjson
 webapps
 
--- js dev --
+>> DEV: JS
 jquery
 vueuse
 nuxt
@@ -82,15 +82,12 @@ exif
 excalidraw
 keystyle
 czrc
+cnpm
 
--- third party platform --
+>> THIRD PARTY PLATFORMS
 iconfont
 aliyun
 opencollective
 ITELLYOU
 taobao
-cnpm
 Gitee
-
--- others --
-breakline
