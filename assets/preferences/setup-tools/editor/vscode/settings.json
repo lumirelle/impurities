@@ -490,5 +490,6 @@
   "i18n-ally.displayLanguage": "en",
   "i18n-ally.ignoredLocales": [],
   "gitlens.graph.onlyFollowFirstParent": true,
-  "gitlens.graph.dimMergeCommits": true
+  "gitlens.graph.dimMergeCommits": true,
+  "terminal.integrated.defaultProfile.windows": "Nushell"
 }

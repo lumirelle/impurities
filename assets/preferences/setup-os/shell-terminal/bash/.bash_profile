@@ -1,19 +1,19 @@
-# ENCODING
-# Setting the encoding to UTF-8
+# LANGUAGE & ENCODING
+# Setting the language to English and the encoding to UTF-8
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-# VARIABLES
-# $PATH:
-# Add current node_modules/.bin to PATH if it exists, so we can run npm scripts without `npx`
-if [ -d node_modules ]; then
+# ENV
+# $PATH
+# >> Setting up fnm
+eval "$(fnm env --use-on-cd --corepack-enabled --shell bash)"
+# >> Add current node_modules/.bin to PATH if this is a npm project, so we can run npm scripts without `npx`
+if [ -f package.json ] && [ -d node_modules ]; then
   export PATH="$PWD/node_modules/.bin:$PATH"
 fi
 
-# ENVIRONMENT SETUP
-# fnm
-eval "$(fnm env --use-on-cd --corepack-enabled --shell bash)"
-
 # UI
+# oh-my-posh
 eval "$(oh-my-posh init bash --config ~/the-unnamed.omp.json)"
 
 # COMMAND SHORTCUTS

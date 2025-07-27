@@ -202,14 +202,16 @@
             "autorun.reg": "",
             "fixme": ""
           },
+          "nushell": {
+            "config.nu": "",
+            "env.nu": ""
+          },
           "powershell": {
+            "deprecated": "",
             "Microsoft.PowerShell_profile.ps1": ""
           },
           "windows-terminal": {
             "settings.json": ""
-          },
-          "zsh": {
-            ".zshrc": ""
           }
         },
         "vcs": {

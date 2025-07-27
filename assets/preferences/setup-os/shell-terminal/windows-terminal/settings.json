@@ -32,9 +32,9 @@
   "centerOnLaunch": true,
   "copyFormatting": "none",
   "copyOnSelect": false,
-  "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-  "initialCols": 100,
-  "initialRows": 25,
+  "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+  "initialCols": 120,
+  "initialRows": 30,
   "keybindings":
     [
       {
@@ -51,6 +51,7 @@
       }
     ],
   "language": "zh-Hans",
+  "launchMode": "default",
   "newTabMenu":
     [
       {
@@ -131,6 +132,14 @@
             "hidden": false,
             "name": "Ubuntu",
             "source": "Microsoft.WSL"
+          },
+          {
+            "commandline": "nu.exe",
+            "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+            "hidden": false,
+            "icon": "C:\\Program Files\\nu\\nu.ico",
+            "name": "Nu Shell",
+            "startingDirectory": "%USERPROFILE%"
           }
         ]
     },

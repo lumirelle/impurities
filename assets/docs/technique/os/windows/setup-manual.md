@@ -130,15 +130,18 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
 
   - Nushell
 
-  ```powershell
+  ```nu
   # 临时启动 FNM 环境（No official support for Nushell now）
-  $env.PATH = $env.PATH | prepend ($env.FNM_MULTISHELL_PATH | path join (if $nu.os-info.name == 'windows' {''} else {'bin'}))
-  $env.config.hooks.env_change.PWD = (
-    $env.config.hooks.env_change.PWD? | append {
-      condition: {|| ['.nvmrc' '.node-version', 'package.json'] | any {|el| $el | path exists}}
-      code: {|| ^fnm use}
-    }
-  )
+  if not (which fnm | is-empty) {
+    ^fnm env --json | from json | load-env
+    $env.PATH = $env.PATH | prepend ($env.FNM_MULTISHELL_PATH | path join (if $nu.os-info.name == 'windows' {''} else {'bin'}))
+    $env.config.hooks.env_change.PWD = (
+      $env.config.hooks.env_change.PWD? | append {
+        condition: {|| ['.nvmrc' '.node-version', 'package.json'] | any {|el| $el | path exists}}
+        code: {|| ^fnm use --install-if-missing --corepack-enabled}
+      }
+    )
+  }
 
   # 安装 Node.js 22
   fnm i 22

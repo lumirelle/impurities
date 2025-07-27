@@ -71,6 +71,16 @@ export const GALLERIES: Gallery[] = [
   {
     type: 'preference',
     matchOptions: {
+      cwd: join(PREFERENCES_PATH, 'setup-os', 'shell-terminal', 'nushell'),
+      pattern: '*.nu',
+    },
+    installOptions: {
+      folders: [join(env.APPDATA || '', 'nushell')],
+    },
+  },
+  {
+    type: 'preference',
+    matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'shell-terminal', 'powershell'),
       pattern: 'Microsoft.PowerShell_profile.ps1',
     },

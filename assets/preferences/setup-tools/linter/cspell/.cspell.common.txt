@@ -86,6 +86,7 @@ keystyle
 czrc
 cnpm
 bumpp
+nvmrc
 
 >> THIRD PARTY PLATFORMS
 iconfont
