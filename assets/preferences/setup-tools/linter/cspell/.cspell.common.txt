@@ -9,6 +9,7 @@ Schniz
 Meiryo
 sxzz
 posva
+gerardog
 
 >> ANIMALS
 Loong
@@ -32,6 +33,7 @@ winget
 Ventoy
 DISM++
 gsudo
+NanaZip
 
 >> DEV TOOLS
 nvim
@@ -92,3 +94,4 @@ opencollective
 ITELLYOU
 taobao
 Gitee
+Bilibili
