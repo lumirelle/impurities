@@ -3,7 +3,7 @@
 $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = [Text.Encoding]::UTF8
 
 # VARIABLES
-# $env:PATH:
+# $PATH:
 # Add current node_modules/.bin to PATH if it exists, so we can run npm scripts without `npx`
 if (Test-Path -Path "node_modules") {
   $env:PATH = "{0}{1}node_modules{1}.bin;{2}" -f (Get-Location), [System.IO.Path]::DirectorySeparatorChar, $env:PATH

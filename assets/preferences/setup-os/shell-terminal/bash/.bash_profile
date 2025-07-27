@@ -1,3 +1,14 @@
+# ENCODING
+# Setting the encoding to UTF-8
+export LANG=en_US.UTF-8
+
+# VARIABLES
+# $PATH:
+# Add current node_modules/.bin to PATH if it exists, so we can run npm scripts without `npx`
+if [ -d node_modules ]; then
+  export PATH="$PWD/node_modules/.bin:$PATH"
+fi
+
 # ENVIRONMENT SETUP
 # fnm
 eval "$(fnm env --use-on-cd --corepack-enabled --shell bash)"
