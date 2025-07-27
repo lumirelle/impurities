@@ -24,7 +24,7 @@
     "bungcip.better-toml", // TODO: IN TRAIL
     "somewhatstationery.some-sass", // TODO: IN TRAIL
     "glenn2223.live-sass",
-    "ms-vscode.powershell", // also the formatter & linter & snippets for powershell
+    "thenuprojectcontributors.vscode-nushell-lang", // also the formatter & linter & snippets for nushell
     "pomdtr.excalidraw-editor",
     "ms-vscode.hexeditor",
     // -- formatter
