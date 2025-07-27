@@ -237,8 +237,6 @@
   // -- editor
   "scm.diffDecorationsGutterWidth": 2,
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
-  // TODO: I'd like to show all errors, let's have a try
-  // "errorLens.excludeBySource": ["cSpell", "Grammarly", "eslint"],
   // -- font
   "custom-ui-style.font.sansSerif": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
   "custom-ui-style.font.monospace": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
