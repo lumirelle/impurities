@@ -126,6 +126,7 @@
   },
   // -- terminal
   "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.defaultProfile.windows": "Nushell",
   // -- theme
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Vitesse Dark",
@@ -491,6 +492,5 @@
   "i18n-ally.displayLanguage": "en",
   "i18n-ally.ignoredLocales": [],
   "gitlens.graph.onlyFollowFirstParent": true,
-  "gitlens.graph.dimMergeCommits": true,
-  "terminal.integrated.defaultProfile.windows": "Nushell"
+  "gitlens.graph.dimMergeCommits": true
 }
