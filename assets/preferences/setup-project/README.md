@@ -41,7 +41,6 @@ Preferences for Vue.js project with Stylelint.
 
 Preferences for Vue.js version 2 project.
 
-- `.vscode/`: VSCode Settings & Extensions For Vue.js Version 2 Project
 - `eslint.config.js`: ESLint Config For Vue.js Version 2 Project
 - `eslint.config.ts`: ESLint Config For TypeScript Project
 - `jsconfig.json`: JavaScript Config For Vue.js Version 2 Project
@@ -52,7 +51,6 @@ Preferences for Vue.js version 2 project.
 
 Preferences for Vue.js version 3 project.
 
-- `.vscode/`: VSCode Settings & Extensions For Vue.js Version 3 Project
 - `eslint.config.js`: ESLint Config For Vue.js Version 3 Project
 - `eslint.config.ts`: ESLint Config For TypeScript Project
 - `jsconfig.json`: JavaScript Config For Vue.js Version 3 Project

@@ -10,7 +10,7 @@ export default antfu({
     },
   })
   .append({
-    name: 'lumirelle/jsonc/rules',
+    name: 'lumirelle/tsconfig/rules',
     files: [
       '**/{t,j}sconfig.json',
     ],

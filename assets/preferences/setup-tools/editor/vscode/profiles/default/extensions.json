@@ -21,20 +21,18 @@
     // -- lsp
     "remcohaszing.schemastore",
     "redhat.vscode-yaml",
-    "bungcip.better-toml", // TODO: IN TRAIL
-    "somewhatstationery.some-sass", // TODO: IN TRAIL
-    "glenn2223.live-sass",
+    "bungcip.better-toml",
+    "somewhatstationery.some-sass",
     "thenuprojectcontributors.vscode-nushell-lang", // also the formatter & linter & snippets for nushell
     "pomdtr.excalidraw-editor",
     "ms-vscode.hexeditor",
     // -- formatter
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig", // For node package
+    "esbenp.prettier-vscode", // For portable usage
     "foxundermoon.shell-format",
     // -- linter
     "streetsidesoftware.code-spell-checker",
     "znck.grammarly",
-    "davidanson.vscode-markdownlint",
     // -- snippets
     "bierner.emojisense",
 
@@ -74,6 +72,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // ↓↓ extension count
-  // vscode: {PROFILE_DEFAULT: 48 - 0 = 48}
-  // cursor: {PROFILE_DEFAULT: 48 - 2 = 46}
+  // vscode: {PROFILE_DEFAULT: 46 - 0 = 46}
+  // cursor: {PROFILE_DEFAULT: 46 - 2 = 44}
 }

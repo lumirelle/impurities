@@ -235,7 +235,6 @@
               "release.yaml": ""
             }
           },
-          ".markdownlint.yaml": "",
           ".prettierrc.yaml": "",
           "commitlint.config.js": "",
           "commitlint.config.ts": "",

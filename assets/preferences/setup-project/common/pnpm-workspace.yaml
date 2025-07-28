@@ -1,6 +1,3 @@
-# Use shamefully hoist for better compatibility
-shamefullyHoist: true
-
 # Ignore the check of the workspace root directory
 ignoreWorkspaceRootCheck: true
 
@@ -8,5 +5,5 @@ ignoreWorkspaceRootCheck: true
 verifyDepsBeforeRun: install
 
 # Use a shell emulator to provide cross-platform operation support for npm scripts
-# Is equivalent to what the `cross-env` package does
+# FXIME: Maybe it is equivalent to what the `cross-env` package does
 # shellEmulator: true

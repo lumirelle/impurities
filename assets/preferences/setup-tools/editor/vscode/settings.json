@@ -225,7 +225,6 @@
   "editor.detectIndentation": false,
   "editor.formatOnSave": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[powershell]": { "editor.defaultFormatter": "ms-vscode.powershell" },
   "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
   "[dotenv]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
@@ -300,10 +299,6 @@
   // ↓↓ extensions: lsp(syntax, formatter, linter, snippets)
   // -- lsp
   "json.schemaDownload.enable": true,
-  "liveSassCompile.settings.showOutputWindowOn": "Debug",
-  "liveSassCompile.settings.useNewCompiler": true,
-  "powershell.integratedConsole.showOnStartup": false,
-  "powershell.promptToUpdatePowerShell": false,
   "redhat.telemetry.enabled": false,
   "excalidraw.theme": "auto",
   // -- formatter
@@ -339,19 +334,11 @@
     "bun.lockb",
     "bun.lock"
   ],
-  "eslint.codeAction.showDocumentation": { "enable": true },
-  "eslint.rules.customizations": [
-    { "rule": "style/*", "severity": "off" },
-    { "rule": "format/*", "severity": "off" },
-    { "rule": "*-indent", "severity": "off" },
-    { "rule": "*-spacing", "severity": "off" },
-    { "rule": "*-spaces", "severity": "off" },
-    { "rule": "*-order", "severity": "off" },
-    { "rule": "*-dangle", "severity": "off" },
-    { "rule": "*-newline", "severity": "off" },
-    { "rule": "*quotes", "severity": "off" },
-    { "rule": "*semi", "severity": "off" }
+  "grammarly.files.include": [
+    "**/*.txt",
+    "**/*.md"
   ],
+  "eslint.codeAction.showDocumentation": { "enable": true },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -364,11 +351,24 @@
     "jsonc",
     "yaml",
     "toml",
+    "xml",
     "css",
     "postcss",
     "scss",
     "sass",
     "less"
+  ],
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off" },
+    { "rule": "format/*", "severity": "off" },
+    { "rule": "*-indent", "severity": "off" },
+    { "rule": "*-spacing", "severity": "off" },
+    { "rule": "*-spaces", "severity": "off" },
+    { "rule": "*-order", "severity": "off" },
+    { "rule": "*-dangle", "severity": "off" },
+    { "rule": "*-newline", "severity": "off" },
+    { "rule": "*quotes", "severity": "off" },
+    { "rule": "*semi", "severity": "off" }
   ],
 
   // ↓↓ extensions: life savers
@@ -457,7 +457,12 @@
     "**/*.vue",
     "**/*.md{,x}",
     "**/*.json{,c}",
-    "**/*.{y,ya,to}ml"
+    "**/*.{y,ya,to}ml",
+    "**/*.nu", // nushell
+    "**/*.java",
+    "**/*.{c,cpp,h}",
+    "**/*.go",
+    "**/*.rs"
   ],
   // -- editor view
   "arrayIndexInlay.minLength": 5,
@@ -482,9 +487,6 @@
   "css.enabledLanguages": ["html", "vue"],
   "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],
   "dotenv.enableAutocloaking": false,
-  "turboConsoleLog.quote": "'",
-  "turboConsoleLog.logMessagePrefix": "😎",
-  "turboConsoleLog.includeFilename": true,
   "console-ninja.featureSet": "Community",
 
   // ↓↓ extensions: framework support
@@ -493,4 +495,5 @@
   "i18n-ally.ignoredLocales": [],
   "gitlens.graph.onlyFollowFirstParent": true,
   "gitlens.graph.dimMergeCommits": true
+
 }

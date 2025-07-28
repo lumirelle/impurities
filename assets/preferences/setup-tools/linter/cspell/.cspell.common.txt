@@ -88,6 +88,7 @@ czrc
 cnpm
 bumpp
 nvmrc
+sconfig
 
 >> THIRD PARTY PLATFORMS
 iconfont

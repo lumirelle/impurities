@@ -13,14 +13,12 @@
     "wallabyjs.console-ninja",
     "antfu.iconify", // <NOT OPENVSIX>
     "antfu.pnpm-catalog-lens", // <NOT OPENVSIX>
-    "johnsoncodehk.vscode-tsconfig-helper", // <NOT OPENVSIX>
     // -- editor behavior
     "ecmel.vscode-html-css",
     "antfu.goto-alias", // <NOT OPENVSIX>, F12
-    "chakrounanas.turbo-console-log", // CTRL+ALT+L
-    "ritwickdey.liveserver" // ALT+L ALT+O, ALT+L CTRL+C
+    "ritwickdey.liveserver" // NEED TRAIL, ALT+L ALT+O, ALT+L CTRL+C
   ]
   // ↓↓ extension count
-  // vscode: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 48} = 58}
-  // cursor: {PROFILE_JS: 10 + {PROFILE_DEFAULT: 46} = 56}
+  // vscode: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 46} = 54}
+  // cursor: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 44} = 52}
 }

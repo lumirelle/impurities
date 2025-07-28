@@ -36,8 +36,6 @@ export default antfu(
       // Nuxt html templates
       '**/app/view',
       '**/app.html',
-      // Editor config
-      '**/{t,j}sconfig.json',
       // Add your custom ignored files here
     ],
   },
@@ -103,7 +101,7 @@ export default antfu(
     },
   })
   .append({
-    name: 'lumirelle/jsonc/rules',
+    name: 'lumirelle/tsconfig/rules',
     files: [
       '**/{t,j}sconfig.json',
     ],

@@ -1,6 +1,7 @@
 {
   // -- format & lint --
   "editor.formatOnSave": false,
+  "prettier.enable": false, // Disable prettier extension, run it throught `eslint-plugin-format`
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
