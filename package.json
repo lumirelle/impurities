@@ -51,6 +51,7 @@
     "ansis": "catalog:prod",
     "cac": "catalog:prod",
     "consola": "catalog:prod",
+    "tinyexec": "catalog:prod",
     "tinyglobby": "catalog:prod"
   },
   "devDependencies": {

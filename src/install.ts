@@ -26,7 +26,7 @@ export async function install(
       continue
     }
 
-    const { condition, mode, folders } = gallery.installOptions
+    const { mode, folders, condition, afterInstall } = gallery.installOptions
     const { pattern, cwd, ignore } = gallery.matchOptions
 
     if (condition && !condition()) {
@@ -61,12 +61,18 @@ export async function install(
               // Only show the absolute path when verbose mode is enabled
               consola.success(`${highlight.red(dryRun ? 'WILL COPY:' : 'COPY:')} ${verbose ? absolutePath : path} ${highlight.important('>>')} ${installPath}`)
             }
+            if (afterInstall) {
+              await afterInstall(options)
+            }
           }
           // Create symlink if mode = 'symlink' or else
           else if (mode === 'symlink' || !mode) {
             if (dryRun || await createSymlink(absolutePath, installPath, force)) {
               // Only show the absolute path when verbose mode is enabled
               consola.success(`${highlight.green(dryRun ? 'WILL SYML:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important('<-')} ${installPath}`)
+            }
+            if (afterInstall) {
+              await afterInstall(options)
             }
           }
         }

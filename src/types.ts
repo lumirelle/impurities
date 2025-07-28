@@ -100,14 +100,21 @@ interface PreferenceGallery {
     folders: string | string[]
 
     /**
+     * The mode of preferences installation, if not specified, it will behave as `symlink`
+     */
+    mode?: 'symlink' | 'copy'
+
+    /**
      * The condition for installing the preferences, if not specified, it will be treated as `true`
      */
     condition?: (() => boolean)
 
+    // Hooks
+
     /**
-     * The mode of preferences installation, if not specified, it will behave as `symlink`
+     * The function to run after installing the preferences
      */
-    mode?: 'symlink' | 'copy'
+    afterInstall?: ((options: InstallOptions) => void) | ((options: InstallOptions) => Promise<void>)
   }
 
 }

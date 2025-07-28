@@ -1,7 +1,12 @@
+import type { Output } from 'tinyexec'
 import type { Gallery } from './types'
+import { appendFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
-import { env } from 'node:process'
+import { env, platform } from 'node:process'
+import consola from 'consola'
+import { x } from 'tinyexec'
+import { isAdmin } from './permission'
 
 // -------------------------------------------------------------------------------------------------
 // Paths
@@ -22,6 +27,7 @@ export const GLOBAL_TEMPLATES_IGNORE = [
 
 // -------------------------------------------------------------------------------------------------
 // Galleries
+// TODO: POSIX supports
 // -------------------------------------------------------------------------------------------------
 
 export const GALLERIES: Gallery[] = [
@@ -198,7 +204,51 @@ export const GALLERIES: Gallery[] = [
       pattern: '.simple-git-hooks.rc',
     },
     installOptions: {
+      // TODO: Improving the code robustness
       folders: [homedir()],
+      afterInstall: async ({ dryRun }) => {
+        if (!await isAdmin()) {
+          throw new Error('Required admin permission')
+        }
+
+        const rcPath = join(homedir(), '.simple-git-hooks.rc')
+        consola.log('😎 ~ config.ts ~ rcPath:', rcPath)
+
+        if (dryRun) {
+          return
+        }
+
+        let result: Output | null = null
+        // Windows
+        if (platform === 'win32') {
+          result = await x('setx', ['SIMPLE_GIT_HOOKS_RC', rcPath, '/M'])
+          consola.debug('[Windows] Ensure SIMPLE_GIT_HOOKS_RC environment variable is setting.')
+        }
+        // POSIX
+        else {
+          const isExist = await x('cat', ['/etc/environment']).pipe('grep', ['SIMPLE_GIT_HOOKS_RC'])
+          // Is exist
+          if (isExist.stdout.length > 0) {
+            result = await x('sed', ['-i', `s/^SIMPLE_GIT_HOOKS_RC=.*/SIMPLE_GIT_HOOKS_RC=${rcPath}/`, '/etc/environment'])
+            consola.debug('[POSIX] Replace SIMPLE_GIT_HOOKS_RC environment variable.')
+          }
+          // Is not exist
+          else {
+            try {
+              appendFileSync('/etc/environment', `SIMPLE_GIT_HOOKS_RC=${rcPath}\n`, 'utf-8')
+              result = { exitCode: 0, stdout: 'Success', stderr: '' }
+              consola.debug('[POSIX] Add SIMPLE_GIT_HOOKS_RC environment variable.')
+            }
+            catch (error) {
+              consola.error(error)
+              result = { exitCode: 1, stdout: '', stderr: error instanceof Error ? error.message : 'Unknown error' }
+            }
+          }
+        }
+        if (!result || result.exitCode !== 0) {
+          consola.error('Failed to set SIMPLE_GIT_HOOKS_RC environment variable')
+        }
+      },
     },
   },
   {

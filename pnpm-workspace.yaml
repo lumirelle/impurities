@@ -5,7 +5,7 @@ catalogs:
   dev:
     '@antfu/eslint-config': ^4.18.0
     '@prettier/plugin-xml': ^3.4.2
-    '@types/node': 22.14.0
+    '@types/node': ^22.16.5
     bumpp: ^10.2.0
     eslint: ^9.31.0
     eslint-plugin-format: ^1.0.1
@@ -24,12 +24,19 @@ catalogs:
     ansis: ^4.1.0
     cac: ^6.7.14
     consola: ^3.4.2
+    tinyexec: ^1.0.1
     tinyglobby: ^0.2.14
   prod-inlined:
     '@posva/prompts': ^2.4.4
 
 ignoreWorkspaceRootCheck: true
-
-shamefullyHoist: true
-
 verifyDepsBeforeRun: install
+
+# Support more architectures for the future
+supportedArchitectures:
+  cpu:
+    - x64
+  os:
+    - win32
+    - linux
+    - darwin

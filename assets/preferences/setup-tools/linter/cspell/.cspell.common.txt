@@ -20,6 +20,7 @@ Qrcode
 
 >> WINDOWS
 LOCALAPPDATA
+setx
 
 >> FONTS
 monaspace

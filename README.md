@@ -16,7 +16,13 @@
 
 ---
 
-> I swear, this is the last time I have an obsessive-compulsive disorder attack.
+> [!Caution]
+>
+> This project is still under heavy development, and the usage & assets may change frequently.
+>
+> This project only supports Windows now.
+>
+> I swear, this is the last time I have an obsessive-compulsive disorder attack. 🥰
 
 <p align="center"> It includes all kinds of impurities, demos, docs, preferences, resources, templates, etc.
     <br>
