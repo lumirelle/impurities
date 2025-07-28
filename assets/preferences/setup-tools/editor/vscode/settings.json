@@ -246,6 +246,7 @@
   // ↓↓ extensions: project
   // -- general
   "projectManager.git.baseFolders": ["D:/Projects"],
+  "projectManager.supportSymlinksOnBaseFolders": true,
   // -- git
   "git.autofetch": true,
   "git.confirmSync": true,
