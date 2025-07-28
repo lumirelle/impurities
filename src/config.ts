@@ -212,7 +212,6 @@ export const GALLERIES: Gallery[] = [
         }
 
         const rcPath = join(homedir(), '.simple-git-hooks.rc')
-        consola.log('😎 ~ config.ts ~ rcPath:', rcPath)
 
         if (dryRun) {
           return
