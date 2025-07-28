@@ -127,6 +127,87 @@
   // -- terminal
   "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.defaultProfile.windows": "Nushell",
+  "terminal.integrated.profiles.linux": {
+    "nushell": {
+      "path": "nu"
+    },
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "nushell": {
+      "path": "nu"
+    },
+    "bash": {
+      "path": "bash",
+      "args": [
+        "-l"
+      ],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": [
+        "-l"
+      ]
+    },
+    "fish": {
+      "path": "fish",
+      "args": [
+        "-l"
+      ]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "Nushell": {
+      "path": "C:\\Program Files\\nu\\bin\\nu.exe",
+      "name": "Nushell"
+    },
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
+  "terminal.integrated.suggest.providers": {
+    "terminal-suggest": true,
+    "pwsh-shell-integration": false,
+    "lsp": true
+  },
   // -- theme
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Vitesse Dark",
@@ -495,5 +576,4 @@
   "i18n-ally.ignoredLocales": [],
   "gitlens.graph.onlyFollowFirstParent": true,
   "gitlens.graph.dimMergeCommits": true
-
 }
