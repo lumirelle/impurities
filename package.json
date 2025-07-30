@@ -28,7 +28,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "we": "dist/index.mjs"
+    "we": "bin/we.mjs"
   },
   "files": [
     "CATALOGS.json",
@@ -38,7 +38,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "prepublishOnly": "pnpm build && pnpm catalogs",
-    "preuninstall": "node ./dist/index.mjs uninstall",
+    "preuninstall": "node ./bin/we.mjs uninstall",
     "catalogs": "tsx scripts/catalogs.ts",
     "dev": "pnpm stub && tsx src/cli.ts",
     "typecheck": "tsc",
