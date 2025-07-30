@@ -33,6 +33,7 @@
   "files": [
     "CATALOGS.json",
     "assets",
+    "bin",
     "dist"
   ],
   "scripts": {
