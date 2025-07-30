@@ -2,45 +2,51 @@
  * Based on https://www.totaltypescript.com/tsconfig-cheat-sheet
  */
 {
-  // ↓↓ Compiler Options
+  // Compiler options
   "compilerOptions": {
-    // ↓↓ Base Options
-    // -- Target & Library
+    // Base options
     "target": "ESNext",
-    "module": "preserve",
     "lib": [
       "ESNext"
     ],
-    // -- Compatibility
-    "allowJs": true,
-    "esModuleInterop": true,
-    // -- Performance
-    "skipLibCheck": true,
-    // -- Modules
     "moduleDetection": "force",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
+    "module": "preserve",
 
-    // ↓↓ Strictness
-    // -- General
-    "noUncheckedSideEffectImports": true,
-    "noImplicitOverride": true,
-    "forceConsistentCasingInFileNames": true,
-
-    // ↓↓ Paths
+    // Path resolution
     "paths": {
       "@/*": ["./*"],
       "~/*": ["./*"]
-      /* Add your custom paths here */
-    }
+    },
+
+    // JSON support
+    "resolveJsonModule": true,
+
+    // Type declaration files
+    "types": [
+      /* Add your custom types here */
+    ],
+
+    // Strictness & compatibility
+    "allowJs": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "noUncheckedSideEffectImports": true
   },
 
-  // ↓↓ Excluded files
+  // Excluded files
   "exclude": [
-    "**/dist/**",
     "**/build/**",
-    "**/node_modules/**"
+    "**/dist/**",
+    "**/docs/**",
+    "**/node_modules/**",
+    "**/playground/**"
     /* Add your custom excluded files here */
   ]
 }

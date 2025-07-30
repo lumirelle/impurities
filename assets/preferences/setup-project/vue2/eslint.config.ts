@@ -100,12 +100,3 @@ export default antfu(
       },
     },
   })
-  .append({
-    name: 'lumirelle/tsconfig/rules',
-    files: [
-      '**/{t,j}sconfig.json',
-    ],
-    rules: {
-      'jsonc/sort-keys': 'off',
-    },
-  })

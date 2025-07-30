@@ -6,12 +6,3 @@ export default antfu({
   // Using prettier to format styles, html and markdown
   formatters: true,
 })
-  .append({
-    name: 'lumirelle/tsconfig/rules',
-    files: [
-      '**/{t,j}sconfig.json',
-    ],
-    rules: {
-      'jsonc/sort-keys': 'off',
-    },
-  })

@@ -9,12 +9,3 @@ export default antfu({
       'pnpm/yaml-no-duplicate-catalog-item': 'off',
     },
   })
-  .append({
-    name: 'lumirelle/tsconfig/rules',
-    files: [
-      '**/{t,j}sconfig.json',
-    ],
-    rules: {
-      'jsonc/sort-keys': 'off',
-    },
-  })
