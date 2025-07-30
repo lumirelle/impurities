@@ -27,6 +27,12 @@ export async function paste(
   const { force = false, dryRun = false } = options
   let { source: sourceName, target } = options
 
+  consola.debug(`Root: ${highlight.info(root)}`)
+  consola.debug('Galleries:')
+  for (const gallery of GALLERIES) {
+    consola.debug(`- ${highlight.info(gallery.name)}`)
+  }
+
   if (!sourceName) {
     const { result } = await prompts({
       type: 'text',
@@ -92,7 +98,7 @@ async function find(
 ): Promise<string | true | null> {
   const paths = []
 
-  consola.debug('sourceName', sourceName)
+  consola.debug('Source name:', sourceName)
 
   for (const gallery of GALLERIES) {
     // Limit the number of paths to avoid infinite loop
@@ -134,11 +140,11 @@ async function find(
     }
   }
 
-  consola.debug('paths', paths)
+  consola.debug('Matched paths:', paths)
 
   if (paths.length > 1) {
     const { preference } = await prompts({
-      type: 'select',
+      type: 'autocomplete',
       name: 'preference',
       message: `Select a certain preference named ${sourceName}:`,
       choices: paths.map(preference => ({

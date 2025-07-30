@@ -16,9 +16,15 @@ export async function uninstall(options: UninstallOptions): Promise<boolean> {
 
   const { dryRun = false } = options
 
+  consola.debug('Galleries:')
+  for (const gallery of GALLERIES) {
+    consola.debug(`- ${highlight.info(gallery.name)}`)
+  }
+
   for (const gallery of GALLERIES) {
     // Check if the gallery is a preference gallery and has install options
     if (gallery.type !== 'preference' || !gallery.installOptions) {
+      consola.debug(`Ignore gallery: ${highlight.info(gallery.name)}, reason: ${highlight.important(gallery.type !== 'preference' ? 'not preference' : 'no install options')}`)
       continue
     }
 
@@ -26,6 +32,7 @@ export async function uninstall(options: UninstallOptions): Promise<boolean> {
     const { pattern, cwd, ignore } = gallery.matchOptions
 
     if (condition && !condition()) {
+      consola.debug(`Ignore gallery: ${highlight.info(gallery.name)}, reason: ${highlight.important('condition not met')}`)
       continue
     }
 
@@ -45,6 +52,7 @@ export async function uninstall(options: UninstallOptions): Promise<boolean> {
 
         // Skip if the uninstall path does not exist
         if (!existsSync(uninstallPath)) {
+          consola.debug(`Ignore path: ${highlight.info(uninstallPath)}, reason: not exists`)
           continue
         }
 

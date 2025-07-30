@@ -64,10 +64,17 @@ export interface PasteOptions {
 
 export type Gallery = PreferenceGallery | TemplateGallery
 
+interface BaseGallery {
+  /**
+   * The name of the gallery
+   */
+  name: string
+}
+
 /**
  * The preference gallery, which collecting the preferences by glob patterns
  */
-interface PreferenceGallery {
+interface PreferenceGallery extends BaseGallery {
   /**
    * The type of the gallery, which could be `preference` or `template`
    */
@@ -124,7 +131,7 @@ interface PreferenceGallery {
  */
 type TemplateGallery = TemplateSeparateGallery | TemplateComposeGallery
 
-interface TemplateSeparateGallery {
+interface TemplateSeparateGallery extends BaseGallery {
   /**
    * The type of the gallery, which could be `preference` or `template`
    */
@@ -149,7 +156,7 @@ interface TemplateSeparateGallery {
 
 }
 
-interface TemplateComposeGallery {
+interface TemplateComposeGallery extends BaseGallery {
 
   /**
    * The type of the gallery, which could be `preference` or `template`

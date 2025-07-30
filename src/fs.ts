@@ -1,6 +1,7 @@
 import { constants, copyFileSync, promises as fsPromises, lstatSync, mkdirSync, unlinkSync } from 'node:fs'
 import { dirname } from 'node:path'
 import consola from 'consola'
+import { highlight } from './highlight'
 
 /**
  * Check if a file or directory exists. Does not dereference symlinks.
@@ -55,7 +56,7 @@ export async function createSymlink(sourcePath: string, targetPath: string, forc
       unlinkSync(targetPath)
     }
     else {
-      consola.warn(`File already exists: ${targetPath}, skip`)
+      consola.warn(`LINK: File already exists: ${highlight.info(targetPath)}, skip`)
       return false
     }
   }
@@ -66,13 +67,13 @@ export async function createSymlink(sourcePath: string, targetPath: string, forc
 
 export function removeSymlink(targetPath: string): boolean {
   if (!existsSync(targetPath)) {
-    consola.warn(`Target file not found: ${targetPath}, skip`)
+    consola.warn(`UNLINK: Target file not found: ${highlight.info(targetPath)}, skip`)
     return false
   }
 
   const stats = lstatSync(targetPath)
   if (!stats.isSymbolicLink()) {
-    consola.warn(`Target file is not a symlink: ${targetPath}, skip`)
+    consola.warn(`UNLINK: Target file is not a symlink: ${highlight.info(targetPath)}, skip`)
     return false
   }
 
@@ -82,7 +83,7 @@ export function removeSymlink(targetPath: string): boolean {
 
 export function copyFile(sourcePath: string, targetPath: string, force: boolean = false): boolean {
   if (existsSync(targetPath) && !force) {
-    consola.warn(`File already exists: ${targetPath}, skip`)
+    consola.warn(`COPY: File already exists: ${highlight.info(targetPath)}, skip`)
     return false
   }
 
@@ -92,7 +93,7 @@ export function copyFile(sourcePath: string, targetPath: string, force: boolean 
 
 export function removeFile(targetPath: string): boolean {
   if (!existsSync(targetPath)) {
-    consola.warn(`Target file not found: ${targetPath}, skip`)
+    consola.warn(`REMOVE: Target file not found: ${highlight.info(targetPath)}, skip`)
     return false
   }
 
