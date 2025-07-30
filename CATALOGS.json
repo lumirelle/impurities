@@ -204,6 +204,7 @@
           },
           "nushell": {
             "config.nu": "",
+            "defs.nu": "",
             "env.nu": ""
           },
           "powershell": {
