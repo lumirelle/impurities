@@ -276,11 +276,11 @@ ac = add-all-then-commit # `ac` instead of `aac` because `aac` is too long to ty
 acm = add-all-then-commit-with-message # `acm` instead of `aacm` because `aacm` is too long to type
 # add & commit (commitizen): a*cz*
 acz = add-all-then-commit-with-commitizen
-# amend commit: mc
-mc = amend-commit
-mce = amend-commit-with-edit
-amc = add-all-then-amend-commit
-amce = add-all-then-amend-commit-with-edit
+# amend commit: md
+md = amend-commit
+mde = amend-commit-with-edit
+amd = add-all-then-amend-commit
+amde = add-all-then-amend-commit-with-edit
 # work-in-progress: wip
 wip = work-in-progress
 wipu = work-in-progress-undo
