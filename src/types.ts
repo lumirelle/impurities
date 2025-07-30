@@ -64,11 +64,46 @@ export interface PasteOptions {
 
 export type Gallery = PreferenceGallery | TemplateGallery
 
+interface BaseMatchOptions {
+  /**
+   * CWD, relative to `root`
+   *
+   * NOTE: If you want to use absolute path, you should join `root` and `cwd` by `join(root, cwd)`
+   */
+  cwd: string
+}
+
+interface PatternMatchOptions extends BaseMatchOptions {
+  /**
+   * The glob pattern to collect the preferences, relative to `PREFERENCES_PATH`
+   */
+  pattern: string
+
+  /**
+   * The glob pattern to ignore the preferences, relative to `PREFERENCES_PATH`
+   */
+  ignore?: string | string[]
+}
+
+interface PathMatchOptions extends BaseMatchOptions {
+  /**
+   * The path to the preference, the file or folder specified by this path will be treated as a whole preference
+   */
+  path: string
+
+  /**
+   * The name of the preference, determined how user could select the preference
+   */
+  name: string
+}
+
 interface BaseGallery {
   /**
    * The name of the gallery
    */
   name: string
+
+  matchOptions: BaseMatchOptions
 }
 
 /**
@@ -80,22 +115,7 @@ interface PreferenceGallery extends BaseGallery {
    */
   type: 'preference'
 
-  matchOptions: {
-    /**
-     * CWD
-     */
-    cwd: string
-
-    /**
-     * The glob pattern to collect the preferences, relative to `PREFERENCES_PATH`
-     */
-    pattern: string
-
-    /**
-     * The glob pattern to ignore the preferences, relative to `PREFERENCES_PATH`
-     */
-    ignore?: string | string[]
-  }
+  matchOptions: PatternMatchOptions
 
   /**
    * The options for installing the preferences. If not specified, these gallery will not be installed.
@@ -123,7 +143,6 @@ interface PreferenceGallery extends BaseGallery {
      */
     afterInstall?: ((options: InstallOptions) => void) | ((options: InstallOptions) => Promise<void>)
   }
-
 }
 
 /**
@@ -137,23 +156,7 @@ interface TemplateSeparateGallery extends BaseGallery {
    */
   type: 'template-separate'
 
-  matchOptions: {
-    /**
-     * CWD
-     */
-    cwd: string
-
-    /**
-     * The glob pattern to collect the templates, relative to `TEMPLATES_PATH`
-     */
-    pattern: string
-
-    /**
-     * The glob pattern to ignore the templates, relative to `TEMPLATES_PATH`
-     */
-    ignore?: string | string[]
-  }
-
+  matchOptions: PatternMatchOptions
 }
 
 interface TemplateComposeGallery extends BaseGallery {
@@ -163,20 +166,5 @@ interface TemplateComposeGallery extends BaseGallery {
    */
   type: 'template-compose'
 
-  matchOptions: {
-    /**
-     * CWD
-     */
-    cwd: string
-
-    /**
-     * The path to the template, the file or folder specified by this path will be treated as a whole template
-     */
-    path: string
-
-    /**
-     * The name of the template, determined how user could select the template
-     */
-    name: string
-  }
+  matchOptions: PathMatchOptions
 }

@@ -28,9 +28,10 @@ export async function paste(
   let { source: sourceName, target } = options
 
   consola.debug(`Root: ${highlight.info(root)}`)
+
   consola.debug('Galleries:')
-  for (const gallery of GALLERIES) {
-    consola.debug(`- ${highlight.info(gallery.name)}`)
+  for (let i = 0; i < GALLERIES.length; i++) {
+    consola.debug(`- ${highlight.info(GALLERIES[i]?.name || 'unknown')}${i < GALLERIES.length - 1 ? '' : '\n'}`)
   }
 
   if (!sourceName) {
@@ -98,7 +99,7 @@ async function find(
 ): Promise<string | true | null> {
   const paths = []
 
-  consola.debug('Source name:', sourceName)
+  consola.debug(`Source name: ${highlight.info(sourceName)}`)
 
   for (const gallery of GALLERIES) {
     // Limit the number of paths to avoid infinite loop
@@ -106,10 +107,12 @@ async function find(
       break
     }
 
+    const absoluteCwd = join(root, gallery.matchOptions.cwd)
+
     // preference
     if (gallery.type === 'preference' && gallery.matchOptions.pattern) {
       paths.push(...globSync(gallery.matchOptions.pattern, {
-        cwd: gallery.matchOptions.cwd,
+        cwd: absoluteCwd,
         dot: true,
         ignore: [
           ...GLOBAL_PREFERENCES_IGNORE,
@@ -123,7 +126,7 @@ async function find(
     // template separate
     else if (gallery.type === 'template-separate' && gallery.matchOptions.pattern) {
       paths.push(...globSync(gallery.matchOptions.pattern, {
-        cwd: gallery.matchOptions.cwd,
+        cwd: absoluteCwd,
         dot: true,
         ignore: [
           ...GLOBAL_TEMPLATES_IGNORE,
@@ -148,7 +151,7 @@ async function find(
       name: 'preference',
       message: `Select a certain preference named ${sourceName}:`,
       choices: paths.map(preference => ({
-        title: relative(join(root, ASSETS_PATH), preference),
+        title: relative(ASSETS_PATH, preference),
         value: preference,
       })),
     })

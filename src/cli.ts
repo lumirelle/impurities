@@ -35,7 +35,7 @@ cli.command('uninstall', 'Uninstall preferences from your system')
     if (options.verbose) {
       consola.level = LogLevels.debug
     }
-    if (!uninstall(options)) {
+    if (!uninstall(root, options)) {
       consola.warn('Some preferences are not uninstalled successfully!')
     }
   })

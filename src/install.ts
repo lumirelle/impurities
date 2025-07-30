@@ -20,16 +20,19 @@ export async function install(
 
   const { force = false, verbose = false, dryRun = false } = options
 
-  consola.debug(`Root: ${highlight.info(root)}`)
+  consola.debug(`Root: ${highlight.info(root)}\n`)
+
   consola.debug('Galleries:')
-  for (const gallery of GALLERIES) {
-    consola.debug(`- ${highlight.info(gallery.name)}`)
+  for (let i = 0; i < GALLERIES.length; i++) {
+    consola.debug(`- ${highlight.info(GALLERIES[i]?.name || 'unknown')}${i < GALLERIES.length - 1 ? '' : '\n'}`)
   }
 
   for (const gallery of GALLERIES) {
+    consola.debug(`Processing gallery: ${JSON.stringify(gallery, null, 2)}\n`)
+
     // Check if the gallery is a preference gallery and has install options
     if (gallery.type !== 'preference' || !gallery.installOptions) {
-      consola.debug(`Ignore gallery: ${highlight.info(gallery.name)}, reason: ${highlight.important(gallery.type !== 'preference' ? 'not preference' : 'no install options')}`)
+      consola.debug(`Ignore gallery: ${highlight.info(gallery.name)}, reason: ${highlight.important(gallery.type !== 'preference' ? 'not preference' : 'no install options')}\n`)
       continue
     }
 
@@ -37,13 +40,13 @@ export async function install(
     const { pattern, cwd, ignore } = gallery.matchOptions
 
     if (condition && !condition()) {
-      consola.debug(`Ignore gallery: ${highlight.info(gallery.name)}, reason: ${highlight.important('condition not met')}`)
+      consola.debug(`Ignore gallery: ${highlight.info(gallery.name)}, reason: ${highlight.important('condition not met')}\n`)
       continue
     }
 
     // Get the preference paths relative to the provided cwd path
     const paths = globSync(pattern, {
-      cwd,
+      cwd: join(root, cwd),
       ignore: [
         ...GLOBAL_PREFERENCES_IGNORE,
         ...(ignore || []),
