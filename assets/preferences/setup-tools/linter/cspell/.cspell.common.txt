@@ -90,6 +90,9 @@ bumpp
 nvmrc
 sconfig
 
+>> DEV: Python
+mconda
+
 >> THIRD PARTY PLATFORMS
 iconfont
 aliyun
