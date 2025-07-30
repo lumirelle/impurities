@@ -6,7 +6,7 @@ $env.config.buffer_editor = 'cursor'
 
 # COMMAND SHORTCUTS
 # dev, build, stub, start, release, lint, typecheck:
-def nr-agent [...rest] {
+def --wrapped nr-agent [...rest] {
   if (['package.json'] | any {|el| $el | path exists}) {
     if (which nr | is-empty) {
       echo $'(ansi y)Warning: @antfu/ni is not installed as a global node package.(ansi reset)'
