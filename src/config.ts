@@ -35,6 +35,7 @@ export const GALLERIES: Gallery[] = [
   // Setup OS
 
   {
+    name: 'p/os/vpn/cfw/setting',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'vpn', 'clash-for-windows'),
@@ -45,6 +46,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/os/vcs/git/config',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'vcs', 'git'),
@@ -55,6 +57,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/os/sh&tm/bash/profile',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'shell-terminal', 'bash'),
@@ -65,6 +68,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/os/sh&tm/cmd/autorun',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'shell-terminal', 'cmd'),
@@ -75,6 +79,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/os/sh&tm/nu/nu',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'shell-terminal', 'nushell'),
@@ -85,6 +90,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/os/sh&tm/pwsh/profile',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'shell-terminal', 'powershell'),
@@ -95,6 +101,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/os/sh&tm/wt/setting',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-os', 'shell-terminal', 'windows-terminal'),
@@ -108,6 +115,7 @@ export const GALLERIES: Gallery[] = [
   // Setup Env
 
   {
+    name: 'p/env/pm/mvn/setting',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-env', 'package-manager', 'maven'),
@@ -118,6 +126,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/env/pm/mconda/lnk',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-env', 'package-manager', 'miniconda'),
@@ -129,6 +138,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/env/pc/node/config',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-env', 'project-creator', 'nodejs'),
@@ -142,6 +152,7 @@ export const GALLERIES: Gallery[] = [
   // Setup Tools
 
   {
+    name: 'p/tool/editor/editorconfig',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'editor'),
@@ -152,6 +163,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/tool/editor/nvim/*',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'editor', 'neovim'),
@@ -162,6 +174,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/tool/editor/vsc/json',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'editor', 'vscode'),
@@ -175,6 +188,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/tool/editor/vsc/snippets',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'editor', 'vscode', 'snippets'),
@@ -188,6 +202,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/tool/git/cz/rc',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-tools', 'commitizen'),
@@ -198,6 +213,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/tool/git/sgh/rc',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-tools', 'simple-git-hooks'),
@@ -251,6 +267,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/tool/linter/cspell/txt',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'linter', 'cspell'),
@@ -264,6 +281,7 @@ export const GALLERIES: Gallery[] = [
   // Setup Project
 
   {
+    name: 'p/prj/common/*',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-project', 'common'),
@@ -271,6 +289,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/prj/js/*',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-project', 'js'),
@@ -278,6 +297,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/prj/vue/*',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-project', 'vue'),
@@ -285,6 +305,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/prj/vue2/*',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-project', 'vue2'),
@@ -292,6 +313,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 'p/prj/vue3/*',
     type: 'preference',
     matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-project', 'vue3'),
@@ -302,6 +324,7 @@ export const GALLERIES: Gallery[] = [
   // Templates
 
   {
+    name: 't-s/license',
     type: 'template-separate',
     matchOptions: {
       cwd: join(TEMPLATE_PATH, 'license'),
@@ -309,6 +332,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 't-s/log',
     type: 'template-separate',
     matchOptions: {
       cwd: join(TEMPLATE_PATH, 'log'),
@@ -316,6 +340,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 't-s/readme',
     type: 'template-separate',
     matchOptions: {
       cwd: join(TEMPLATE_PATH, 'readme'),
@@ -323,6 +348,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 't-c/scss',
     type: 'template-compose',
     matchOptions: {
       cwd: join(TEMPLATE_PATH, 'scss'),
@@ -331,6 +357,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 't-c/vue-gradient-border',
     type: 'template-compose',
     matchOptions: {
       cwd: join(TEMPLATE_PATH, 'vue', 'common', 'components', 'gradient-border'),
@@ -339,6 +366,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 't-c/vue-image-viewer',
     type: 'template-compose',
     matchOptions: {
       cwd: join(TEMPLATE_PATH, 'vue', 'common', 'components', 'image-viewer'),
@@ -347,6 +375,7 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 't-s/vue/common/composable',
     type: 'template-separate',
     matchOptions: {
       cwd: join(TEMPLATE_PATH, 'vue', 'common', 'composable'),
@@ -354,9 +383,10 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
+    name: 't-s/vue/v2/composables',
     type: 'template-separate',
     matchOptions: {
-      cwd: join(TEMPLATE_PATH, 'vue', 'v2', 'composables'),
+      cwd: join(TEMPLATE_PATH, 'vue', 'v2', 'composable'),
       pattern: '**/*',
     },
   },
