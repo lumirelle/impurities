@@ -44,6 +44,7 @@ Navicat
 
 >> DEV: COMMON
 breakline
+amde
 
 >> DEV: JAVA
 graalvm
