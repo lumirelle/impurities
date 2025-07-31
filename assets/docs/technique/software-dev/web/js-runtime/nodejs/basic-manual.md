@@ -10,28 +10,59 @@
 
 fnm 是一个跨平台的 Node.js 版本管理器，支持读取项目级 `.node-version` 或 `.nvmrc` 配置，支持自动切换终端中使用的 node 版本。
 
-安装 fnm，并[设置 Shell 环境](https://github.com/Schniz/fnm?tab=readme-ov-file#shell-setup)。
+安装 fnm：
 
-```powershell
+```shell
 winget install Schniz.fnm
-
-# 允许执行本地脚本
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-# 启用 fnm 环境
-# NOTE: 不是所有版本的 node 都支持 corepack
-fnm env --use-on-cd --corepack-enabled --shell powershell | Out-String | Invoke-Expression
-
-# 安装 node 18 （将被设为默认版本）
-fnm install 18
 ```
+
+设置 Shell 环境（临时方案）：
+
+- Nushell
+
+  ```ps1
+  # 启用 fnm 环境
+  # NOTE: 不是所有版本的 node 都支持 corepack
+  # 临时启动 FNM 环境（No official support for Nushell now）
+  if not (which fnm | is-empty) {
+    ^fnm env --json | from json | load-env
+    $env.PATH = $env.PATH | prepend ($env.FNM_MULTISHELL_PATH | path join (if $nu.os-info.name == 'windows' {''} else {'bin'}))
+    $env.config.hooks.env_change.PWD = (
+      $env.config.hooks.env_change.PWD? | append {
+        condition: {|| ['.nvmrc' '.node-version', 'package.json'] | any {|el| $el | path exists}}
+        code: {|| ^fnm use --install-if-missing --corepack-enabled}
+      }
+    )
+  }
+
+  # 安装 node lts （将被设为默认版本）
+  fnm install lts
+  ```
+
+- PowerShell
+
+  ```ps1
+  # 允许执行本地脚本
+  Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+  fnm env --use-on-cd --corepack-enabled --shell powershell | Out-String | Invoke-Expression
+
+  # 安装 node lts （将被设为默认版本）
+  fnm install lts
+  ```
+
+推荐方案：
+
+- 使用 [impurities](https://github.com/lumirelle/impurities) 完成 Shell Profile 配置，支持自动启用 fnm 环境。
+
+官方 [FNM Shell Setup](https://github.com/Schniz/fnm?tab=readme-ov-file#shell-setup) 指南。
 
 ### 2. 安装必备全局依赖
 
 ```shell
-npm i nrm @antfu/ni @antfu/nip -g
+npm i nrm @antfu/ni @antfu/nip @sxzz/create commitizen cz-git -g
 
-# 如果你使用 node 18，推荐升级 npm 至 >= 10.9.2
+# 如果你使用 node 18，推荐升级 npm 至 >= 10.9.2，修复了许多要命的功能性问题
 npm i npm@^10.9.2 -g
 ```
 

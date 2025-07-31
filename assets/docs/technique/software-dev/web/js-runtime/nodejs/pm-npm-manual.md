@@ -11,7 +11,7 @@ Node.js 包管理器（Node.js Package Manager），和 Node.js 天天在一起~
 ### 1. 登录
 
 ```shell
-npm adduser
+npm login
 ```
 
 ### 2. 配置 & 切换镜像源
@@ -42,7 +42,7 @@ nrm use taobao
 ```shell
 # 确保使用了 NPM 源并且已经登录
 nrm use npm
-npm adduser
+npm login
 
 # 确保在 NPM 项目中使用命令
 cd my-npm-project

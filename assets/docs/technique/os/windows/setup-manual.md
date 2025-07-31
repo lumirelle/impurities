@@ -130,7 +130,7 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
 
   - Nushell
 
-  ```nu
+  ```ps1
   # 临时启动 FNM 环境（No official support for Nushell now）
   if not (which fnm | is-empty) {
     ^fnm env --json | from json | load-env
@@ -158,7 +158,7 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
 
   - PowerShell (Deprecated)
 
-  ```powershell
+  ```ps1
   # 允许执行本地脚本
   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
