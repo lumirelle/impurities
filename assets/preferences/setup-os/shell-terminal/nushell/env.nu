@@ -7,7 +7,7 @@ $env.LC_ALL = 'en_US.UTF-8'
 
 # $PATH
 # >> Setting up fnm
-# NOTE: fnm does not support nushell officially, so we need to use a workaround
+# NOTE: fnm does not support nushell officially, so we need to use a workaround.
 # See: https://github.com/Schniz/fnm/issues/463
 if not (which fnm | is-empty) {
   ^fnm env --json | from json | load-env
@@ -19,7 +19,7 @@ if not (which fnm | is-empty) {
     }
   )
 }
-# >> Add current node_modules/.bin to PATH if this is a npm project, so we can run npm scripts without `npx`
+# >> Add current node_modules/.bin to PATH if this is a npm project, so we can run npm scripts without `npx`.
 if (['package.json'] | any-path-exists-parent) {
   $env.PATH = ($env.PATH | prepend (pwd | path join 'node_modules' | path join '.bin'))
 }
@@ -29,7 +29,7 @@ if (['package.json'] | any-path-exists-parent) {
 
 # COMMAND SHORTCUTS
 # dev, build, stub, start, release, lint, typecheck:
-# Run npm scripts quickly while we are in a directory that has a `package.json`
+# Run npm scripts quickly while we are in a directory that has a `package.json`.
 alias dev = nr-agent dev
 alias build = nr-agent build
 alias stub = nr-agent stub

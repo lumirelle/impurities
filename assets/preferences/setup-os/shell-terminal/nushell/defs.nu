@@ -1,9 +1,9 @@
-# Check if any path exists in the current directory
+# Check if any path exists in the current directory.
 export def any-path-exists [] {
   $in | any {|el| $el | path exists}
 }
 
-# Check if any path exists in the current directory or any of its parent directories
+# Check if any path exists in the current directory or any of its parent directories.
 export def any-path-exists-parent [] {
   for $path in $in {
     let $abs = $path | path expand
