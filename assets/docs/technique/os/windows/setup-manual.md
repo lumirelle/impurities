@@ -293,16 +293,19 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
 
 ## 🙌 维护
 
-- 程序只允许安装在如下路径：
-  - `C:/ProgramData/`：无空格路径
-  - `C:/Program Files/`：标准应用程序安装路径
-  - `C:/Program Files (x86)/`：x86 程序安装路径
-  - `C:/Program Files Portable/`：便携程序安装路径
-  - `C:/Users/Lumirelle/AppData/Local/Programs/`：用户级程序安装路径
-
-- 项目文件只允许放置在如下路径：
-  - `D:/Projects/`
-
+- 程序应安装在如下路径：
+  - 无空格路径
+    - `<DRIVER>:/ProgramData/`
+  - 标准应用程序安装路径
+    - `<DRIVER>:/Program Files/`
+    - `<DRIVER>:/Program Files (x86)/`
+  - 便携程序安装路径
+    - `<DRIVER>:/Program Files Portable/`
+  - 用户级程序安装路径
+    - `$LOCALAPPDATA/Programs/`
+- 项目文件应放置在如下路径：
+  - `<DRIVER>:/Projects/`
+  - `<DRIVER>:/i/` (i means `I`, inspired by [antfu](https://github.com/antfu))
 - 定期使用 Revo Uninstaller 卸载无用软件
 - 定期使用 DISM++ 清理系统
 - 定期断电关机重启
