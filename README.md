@@ -44,7 +44,10 @@ It includes all kinds of impurities, preferences, docs, resources, templates, et
 
 ## 📑 Catalogs <a name="catalogs"></a>
 
-- `/assets`: **&lt;assets&gt;** Collection of assets, such as preferences, resources, templates, etc.
+- `/assets`: **&lt;assets&gt;** Collection of assets, such as docs, preferences, resources, templates, etc.
+  - `/docs`: **&lt;docs&gt;** Collection of documents, such as manuals and every day logs
+    - `/life`: **&lt;type&gt;** Documents about life
+    - `/technique`: **&lt;type&gt;** Documents about technique
   - `/preferences`: **&lt;preferences&gt;** Collection of preferences, such as `.gitconfig`
     - `/setup-env`: **&lt;type&gt;** Preferences used by setting up environment
     - `/setup-os`: **&lt;type&gt;** Preferences used by setting up OS
@@ -59,9 +62,6 @@ It includes all kinds of impurities, preferences, docs, resources, templates, et
     - `/readme`: **&lt;type&gt;** Readme templates
     - `/scss`: **&lt;type&gt;** SCSS templates
     - `/vue`: **&lt;type&gt;** Vue templates
-- `/docs`: **&lt;docs&gt;** Collection of documents, such as manuals and logs
-  - `/life`: **&lt;type&gt;** Documents about life
-  - `/technique`: **&lt;type&gt;** Documents about technique
 - `/playground`: **&lt;playground&gt;** Collection of playgrounds, such as `vue2-scss-bem`
 
 See total catalogs [here](CATALOGS.json).
