@@ -92,7 +92,8 @@
           ".vscode": {
             "settings.json": "",
             "stylelint.config.js": ""
-          }
+          },
+          "deprecated": ""
         },
         "vue2": {
           "eslint.config.js": "",
