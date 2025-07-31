@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:dev",
+    "@commitlint/types": "catalog:dev",
     "@posva/prompts": "catalog:prod-inlined",
     "@prettier/plugin-xml": "catalog:dev",
     "@types/node": "catalog:dev",
