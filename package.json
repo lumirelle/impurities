@@ -47,7 +47,8 @@
     "build": "unbuild",
     "stub": "unbuild --stub",
     "release": "bumpp && pnpm publish --tag latest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest"
   },
   "dependencies": {
     "ansis": "catalog:prod",

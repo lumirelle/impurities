@@ -1,6 +1,5 @@
 packages:
-  - playground/*
-  - tests/*
+  - playground/**/*
 
 catalogs:
   dev:
