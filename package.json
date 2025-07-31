@@ -32,7 +32,8 @@
   },
   "files": [
     "CATALOGS.json",
-    "assets",
+    "assets/preferences",
+    "assets/templates",
     "bin",
     "dist"
   ],
