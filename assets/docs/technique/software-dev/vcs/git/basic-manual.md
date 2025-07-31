@@ -33,8 +33,12 @@ cursor .editorconfig
 cursor .prettierrc.yml
 ...
 
-# 初始化提交
-git aacm "init: init project"
+# 初始化提交，add then commit
+git acm "feat: init project"
+
+# 或者使用 commitizen & cz-git 来提交，add then commitizen
+git acz
+# 然后跟随指引完成提交操作
 ```
 
 ### 2. 添加远程并推送
@@ -43,15 +47,15 @@ git aacm "init: init project"
 
 ```shell
 # 添加远程
-# 格式：`git o <远程名> <远程库 URL>`
-git o origin https://github.com/Lumirelle/impurities.git
+# 格式：`git e [<远程名>] <远程库 URL>`
+git e https://github.com/Lumirelle/impurities.git
 
-# 首次推送分支，需要设置上游
-# pou alias 会自动将当前分支推送为 origin 远程的同名分支，并设置上游
-git pou
+# 首次推送分支，需要设置上游分支
+# pu alias 会自动将当前分支推送为 origin 远程的同名分支，并设置上游分支
+git pu
 
 # 后续推送分支，通常一个版本库只会设置一个默认的名为 origin 的远程，因此约定在这种情况下 `<远程名>` 可以省略
-# 设置过上游后，后续所有涉及远程分支操作时就可以自动推断分支和上游 `<本地分支名>:<远程分支名>`
+# 设置过上游分支后，后续所有涉及远程分支操作时就可以自动推断分支和上游分支 `<本地分支名>:<远程分支名>`
 # 格式：`git p`
 git p
 ```
@@ -97,16 +101,16 @@ git bw dev main
 git bw dev
 ```
 
-### 5. 创建并切换到功能分支（feature/xx）
+### 5. 创建并切换到功能分支（feat/xx）
 
-每当你想要开发一个新功能时，就要基于开发分支，分出具体的功能分支（feature/xx）。开发分支只应该用来合并/整合功能分支。
+每当你想要开发一个新功能时，就要基于开发分支，分出具体的功能分支（feat/xx）。开发分支只应该用来合并/整合功能分支。
 
 ```shell
-git bw feature/001 dev # 推荐的功能分支命名规则：`feature/<feature-code>`
+git bw feat/001 dev # 推荐的功能分支命名规则：`feat/<FEATURE-CODE-OR-NAME>`
 
 cursor git-manual.md
 
-git aacm "feat: complete feature/001"
+git acm "feat: complete feat/001"
 ```
 
 ### 6. 丢弃工作区的更改
@@ -142,9 +146,9 @@ git rs HEAD^
 
 ```shell
 # 如果你不需要修改提交信息
-git amc
+git amd
 # 如果你想修改提交信息
-git amce
+git amde
 ```
 
 ### 9. Revert 提交内容
@@ -164,7 +168,8 @@ git rv HEAD
 git w dev
 
 # 不要使用 fast-forward 模式，会丢失分支记录
-git m features "merge: merge branch 'features' into 'dev'"
+git m feat/001 "merge: merge branch 'feat/001' into 'dev'"
+git p
 
 # 你也可以将 .gitconfig 中的 merge.ff 配置项设置为 false
 git cfg merge.ff false
@@ -189,12 +194,12 @@ git r branch2
 # 切换到其他分支
 git w dev
 # 务必保证分支可以安全删除（例如已经过时，并完全合并到了主分支）
-git bx features
+git bx feat/001
 # 对于从未合并到主分支的分支，需要使用强制删除
-git bxf features
+git bxf feat/001
 
 # 远程删除
-git pox features
+git bxe feat/001
 # 远程删除后，需要使用 `--prune` 参数同步远程分支缓存
 git f --prune
 
@@ -213,9 +218,9 @@ git s
 # 完成另一个分支上的工作...
 git w dev
 ...
-git aacm 'feat: just do sth'
+git acm 'feat: just do sth'
 
-git w feature/001
+git w feat/001
 git su
 ```
 
@@ -227,9 +232,9 @@ git su
 git cp xxxxxxxxxxxxxxxxxxxxxxxxxxxx # commit hash
 ```
 
-### 15. 创建并切换到预发布分支（release）
+### 15. 创建并切换到预发布分支（release）或测试分支（test）
 
-当一个阶段的功能完成开发后，对应的功能分支均已合并到开发分支，即准备发布下一个版本时，应该基于开发分支，分出一个预发布分支，用于 QA 测试和问题修复。
+当一个阶段或一个版本的功能完成开发后，对应的功能分支均已合并到开发分支，此时准备发布下一个版本。我们应该基于开发分支，分出一个预发布分支，用于 QA 测试和问题修复。
 
 ```shell
 # 准备 1.0.0 发布
@@ -238,42 +243,68 @@ git bw release-1.0.0 dev
 # 测试和修复问题...
 ```
 
+或者你也可以维护一个常驻的测试分支来测试新功能。这个测试分支最初是基于开发分支创建的，此后每次需要测试新功能时，需要将开发分支合并到测试分支上。
+
+```shell
+# 最初基于开发分支创建
+git bw test dev
+
+# 每次测试新功能时，将开发分支合并到测试分支，并推送到远程
+git w test
+git m feat/001 "merge: feat/001"
+git p
+```
+
 ### 16. 发布新版本
 
-当测试和修复完成后，发布新版本，应该将预发布分支合并到主分支，随后给这个最新提交打上版本标签。预发布分支上的修改同样要合并如开发分支，否则会导致主分支和开发分支出现冲突。
+当测试和修复完成后，发布新版本，应该将预发布分支合并到主分支，随后给这个最新提交打上版本标签。预发布分支上的修改同样要合并如开发分支。
 
 ```shell
 # 确认无误后，合并入主分支并打上版本标签
 git w main
+
+# 如果使用 release 分支
 git m release-1.0.0 "merge: v1.0.0 release"
-git t v1.0.0
+# 如果使用 test 分支
+git m test "merge: v1.0.0 release"
+git p
+
+git t -a v1.0.0 -m "v1.0.0 release"
+git tp
 
 # 修改同样要合并入开发分支
 git w dev
+
+# 如果使用 release 分支
 git m release-1.0.0 "merge: v1.0.0 release"
+# 如果使用 test 分支
+git m test "merge: v1.0.0 release"
+git p
 ```
 
-### 17. 紧急修复（hotfix）
+### 17. 紧急修复（fix）
 
 当主分支上存在致命缺陷时，应当从主分支分出一个紧急修复分支。修复完成后，应当将紧急修复分支合并到主分支和开发分支上。
 
 ```shell
-git bw hotfix/route-missing main # 分支命名规则：hotfix/<plaacme-problem>
+git bw fix/route-missing main # 分支命名规则：fix/<ISSUE-CODE-OR-NAME>
 
 cursor src/router/index.js
 
-git aacm "hotfix: fix route missing problem"
+git acm "fix: route missing"
 
 git w main
-git m hotfix/route-missing "merge: merge hotfix"
+git m fix/route-missing "merge: fix route missing"
+git p
 
 git w dev
-git m hotfix/route-missing "merge: merge hotfix"
+git m fix/route-missing "merge: fix route missing"
+git p
 ```
 
 ### 18. .gitconfig
 
-你可以使用 `.gitconfig` 来配置 Git 的默认选项，见 [Git Configuration](../../preferences/git/.gitconfig)。
+你可以使用 `.gitconfig` 来配置 Git 的默认选项，见 [Git Configuration](/assets/preferences/setup-os/vcs/git/.gitconfig)。
 
 ### 19. .gitattributes
 
@@ -287,9 +318,9 @@ git m hotfix/route-missing "merge: merge hotfix"
 
 分支时效性：
 
-常驻分支：main、dev
+常驻分支：main、dev、test
 
-临时分支：feature、release、hotfix
+临时分支：feat、release、fix
 
 Git 工作流程：
 
@@ -299,11 +330,11 @@ Git 工作流程：
 
    -< dev
 
-   -< feature/001, feature/002, ... \<coding\>
+   -< feat/001, feat/002, ... \<coding\>
 
    -> dev
 
-   -< release-x.x.x \<coding\>
+   -< release-x.x.x \<coding\> | test \<coding\>
 
    -> dev, main
 
@@ -311,6 +342,6 @@ Git 工作流程：
 
    main
 
-   -< hotfix \<coding\>
+   -< fix \<coding\>
 
    -> main, dev
