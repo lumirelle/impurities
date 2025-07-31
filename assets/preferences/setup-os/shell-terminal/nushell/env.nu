@@ -28,9 +28,10 @@ if (['package.json'] | any-path-exists-parent) {
 ^oh-my-posh init nu --config $'($env.POSH_THEMES_PATH)/the-unnamed.omp.json'
 
 # COMMAND SHORTCUTS
-# dev, build, stub, start, release, lint, typecheck:
+# dev, test, build, stub, start, release, lint, typecheck:
 # Run npm scripts quickly while we are in a directory that has a `package.json`.
 alias dev = nr-agent dev
+alias test = nr-agent test
 alias build = nr-agent build
 alias stub = nr-agent stub
 alias start = nr-agent start
