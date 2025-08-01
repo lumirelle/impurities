@@ -1,52 +1,72 @@
 # Nuxt 2 规范手册 / Nuxt 2 Standard Manual
 
-Project Running requires (for docker image): node@'^14.21.3 || ^16.10.0 || >=18.0.0', npm@>=6.
+Running requires for dev ops: node@'^14.21.3 || ^16.10.0 || >=18.0.0', npm@>=6.
 
-Project Developing requires (for us): node@'^18.20.0 || ^20.10.0 || >=22.0.0', npm@>=9, pnpm@>=7, yarn@>=1.
+Developing requires for developers: node@'^18.20.0 || ^20.10.0 || >=22.0.0', npm@>=9, pnpm@>=7, yarn@>=1.
 
-This article is based on node@18.20.8, npm@10.9.2, corepack@0.33.0, pnpm@10.13.1.
+NOTE: This article is based on node@22.17.1, npm@10.9.2, corepack@0.33.0, pnpm@10.14.0.
 
-Main dependencies:
+Dependencies:
 
-- nuxt@2.17.3 (vue@^2, webpack@^4, babel@^7, core-js@^3)
-- eslint@latest
+- nuxt@2.17.3, @nuxtjs/axios@latest
+- vue@^2, vue-router@legacy, vuex@^3
+- element-ui@^2
+- core-js@^3
+
+Dev dependencies:
+
+- eslint@latest, @antfu/eslint-config@~4.14.1
 - simple-git-hooks@latest, lint-staged@latest
+- typescript@~5.8.3
 
-## 🔧 更新 vscode 配置和 git 配置
+Deep dependencies, you don't need to concern about, but must to know:
+
+- axios@^0.21
+- webpack@^4
+- postcss@^8
+- babel@^7
+
+## 🔧 更新 VSCode 配置和 Git 配置
 
 ### 快速配置
 
 shell（For command `we paste`, please see [README.md#paste-anything](/README.md#paste-anything)）
 
 ```shell
-# vscode 配置
-# -- 推荐扩展
+# VSCode 配置
+# >> 推荐扩展
 we paste vue/.vscode/extensions.json .vscode/ -f
-# -- 工作区设置
+
+# >> 工作区设置
 we paste vue/.vscode/settings.json .vscode/ -f
-# -- js 编译器设置
+# 或者你喜欢 stylelint
+we paste vue-stylelint/.vscode/settings.json .vscode/ -f
+
+# >> TS 编译器设置
 we paste vue2/jsconfig.json -f
-# -- editor config
+
+# >> EditorConfig
 we paste .editorconfig -f
 
-# git 配置
-# -- 文件属性
+# Git 配置
+# >> 文件属性
 we paste .gitattributes -f
-# -- 忽略文件
+
+# >> 忽略文件
 we paste nodejs.gitignore .gitignore -f
 ```
 
 ### 手动配置
 
-.vscode/extensions.json
+vue/.vscode/extensions.json
 
 See [here](/assets/preferences/setup-project/vue/.vscode/extensions.json).
 
-.vscode/settings.json
+vue/.vscode/settings.json
 
 See [here](/assets/preferences/setup-project/vue/.vscode/settings.json).
 
-jsconfig.json
+vue2/jsconfig.json
 
 See [here](/assets/preferences/setup-project/vue2/jsconfig.json).
 
@@ -62,7 +82,7 @@ See [here](/assets/preferences/setup-project/common/.gitattributes).
 
 See [here](/assets/preferences/setup-project/js/nodejs.gitignore).
 
-## 📦 配置包管理器和 .npmrc
+## 📦 使用 PNPM 并配置
 
 ### 前置任务
 
@@ -78,15 +98,22 @@ npm i @antfu/ni@latest -g
 shell（This syntax of command `npm pkg set` requires npm@>=10.9.2）
 
 ```shell
-we paste pnpm.npmrc -f
+# 推荐的新配置方式
+we paste pnpm-workspace.yaml -f
+# 或者使用兼容的旧配置方式
+we paste pnpm.npmrc .npmrc -f
 
 corepack use pnpm@latest-10
 
-# Project running requires
+# Running requires for dev ops
 npm pkg set 'engines.node=^14.21.3 || ^16.10.0 || >=18.0.0' 'engines.npm=>=6'
 ```
 
 ### 手动配置
+
+pnpm-workspace.yaml
+
+See [here](/assets/preferences/setup-project/common/pnpm-workspace.yaml).
 
 .npmrc
 
@@ -99,9 +126,9 @@ package.json
   // ...
 
   // Used by corepack
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "engines": {
-    "node": "^12.22.0 || ^14.17.0 || ^16.10.0 || >=18.0.0",
+    "node": "^14.21.3 || ^16.10.0 || >=18.0.0",
     "npm": ">=6"
   }
 
@@ -109,27 +136,28 @@ package.json
 }
 ```
 
-## 🥡 基础依赖
+## 🥡 生产依赖版本
 
 shell
 
 ```shell
-# Webpack & It's plugins are bundled by nuxt
-
 # Nuxt 2
-ni nuxt@2.17.3
-ni @nuxt/types@2.17.3 -D
-# Build modules for vueuse auto importing
-ni @vueuse/nuxt@latest
+ni nuxt@2.17.3 -E
+# TODO: Type support
+# ni @nuxt/types@2.17.3 -D
+# TODO: Build modules for vueuse auto importing
+# ni @vueuse/nuxt@latest
 
 # Vue 2
-# vue, vue-router, vuex, vueuse
-ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2 @vueuse/core@^11.3.0
-# vue-template-compiler, vue-server-renderer
-ni vue-template-compiler@latest vue-server-renderer@latest
+# vue, vue-router, vuex
+ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2
+# TODO: VueUse
+# ni @vueuse/core@^11.3.0
 
-# Others
-# core-js
+# UI library
+ni element-ui@^2.15.14
+
+# CoreJS
 ni core-js@latest
 ```
 
@@ -142,14 +170,14 @@ ni core-js@latest
 shell
 
 ```shell
-# eslint
+# ESLint
 ni eslint@latest -D
 
-# eslint config
-# Since the version of 4.15.0, `@antfu/eslint-config` requires node@>=20
+# ESLint config
+# Since the version of 4.15.0, `@antfu/eslint-config` requires node@>=20 caused by `eslint-plugin-jsdoc`
 ni @antfu/eslint-config@~4.14.1 -D
 
-# eslint & prettier plugin
+# ESLint & Prettier plugins
 ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
 ```
 
@@ -159,6 +187,8 @@ shell
 
 ```shell
 we paste vue2/eslint.config.js -f
+
+npm pkg set 'scripts.lint=eslint .'
 ```
 
 ### 手动配置
@@ -166,27 +196,6 @@ we paste vue2/eslint.config.js -f
 eslint.config.js
 
 See [here](/assets/preferences/setup-project/vue2/eslint.config.js).
-
-## 📜 配置 npm 快速检查与格式化脚本
-
-### 前置任务
-
-shell
-
-```shell
-# Since the version of 8.0.0, `npm-run-all2` requires node@>=20
-ni npm-run-all2@^7.0.2 -D
-```
-
-### 快速配置
-
-shell
-
-```shell
-npm pkg set 'scripts.lint=eslint .'
-```
-
-### 手动配置
 
 package.json
 
@@ -202,6 +211,14 @@ package.json
   }
 }
 ```
+
+### StyleLint
+
+如果你需要 StyleLint，请参考此流程，安装 StyleLint 本体和配置文件中列出的插件。
+
+See [here](/assets/preferences/setup-project/vue-stylelint/stylelint.config.js).
+
+### 手动配置
 
 ## 🤖 配置提交检查与格式化
 
@@ -304,18 +321,24 @@ export default {
 
 ## 🧹 项目兼容性 & 可维护性
 
+### [taze](https://www.npmjs.com/package/taze)
+
+```shell
+# minor: 升级 minor 版本
+# -r: 递归升级依赖，提供对 Monorepo 项目的支持
+# -I: 交互模式
+# -w: 直接将结果写入 package.json 或 pnpm-workspace.yaml
+nlx taze minor -rIw
+```
+
 ### [cross-env](https://www.npmjs.com/package/cross-env)
 
-#### 前置任务
-
-shell
+NOTE: 仅非 PNPM 项目需要使用。PNPM 原生支持 shellEmulator 选项，支持跨平台设置环境变量。
 
 ```shell
 # cross-env：为运行 NPM 脚本时设置环境变量提供跨平台兼容性，目前仅在基于 webpack 4 的项目见到过使用案例（不包括封装了 webpack 4 的 vue-cli）
 ni cross-env@latest -D
 ```
-
-#### 手动配置
 
 NOTE: 需要使用 cross-env 代理的 npm 脚本应手动配置。设置了环境变量，才需要改为通过 cross-env 来执行。
 
@@ -345,13 +368,4 @@ package.json
 
   // ...
 }
-```
-
-### [taze](https://www.npmjs.com/package/taze)
-
-#### 使用
-
-```shell
-# taze：帮你轻松完成依赖升级
-nlx taze minor -rIw
 ```

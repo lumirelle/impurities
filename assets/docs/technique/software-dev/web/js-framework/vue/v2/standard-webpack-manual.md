@@ -1,10 +1,10 @@
 # Vue 2 规范手册（Webpack） / Vue 2 Standard Manual (Webpack)
 
-Project Running requires (for docker image): node@'^12.22.0 || ^14.17.0 || ^16.10.0 || >=18.0.0', npm@>=6.
+Running requires for dev ops: node@'^12.22.0 || ^14.17.0 || ^16.10.0 || >=18.0.0', npm@>=6.
 
-Project Developing requires (for us): node@'^18.20.0 || ^20.10.0 || >=22.0.0', npm@>=9, pnpm@>=7, yarn@>=1.
+Developing requires for developers: node@'^18.20.0 || ^20.10.0 || >=22.0.0', npm@>=9, pnpm@>=7, yarn@>=1.
 
-This article is based on node@18.20.8, npm@10.9.2, corepack@0.33.0, pnpm@10.13.1.
+NOTE: This article is based on node@22.17.1, npm@10.9.2, corepack@0.33.0, pnpm@10.14.0.
 
 Main dependencies:
 
@@ -14,7 +14,7 @@ Main dependencies:
 - eslint@latest
 - simple-git-hooks@latest, lint-staged@latest
 
-## 🔧 更新 vscode 配置和 git 配置
+## 🔧 更新 VSCode 配置和 Git 配置
 
 ### 快速配置
 

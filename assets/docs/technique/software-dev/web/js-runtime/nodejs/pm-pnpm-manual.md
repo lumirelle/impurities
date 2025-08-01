@@ -1,6 +1,6 @@
 # Node.js 包管理器 - PNPM 手册 / Node.js Package Manager - PNPM Manual
 
-This article is based on pnpm@10.7.1。
+NOTE: This article is based on pnpm@10.7.1。
 
 ## 📚 什么是 PNPM？ / What is PNPM?
 
