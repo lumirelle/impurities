@@ -63,6 +63,7 @@ webapps
 jquery
 vueuse
 nuxt
+nuxtjs
 nuxi
 taze
 commitlint
