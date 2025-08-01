@@ -55,15 +55,13 @@ export async function paste(
     return Promise.resolve(true)
   }
 
-  const absoluteSource = join(root, source)
-
   if (!target) {
     target = cwd()
   }
   // If user does not specify the target file name, use the source file name as default
   if (isDirectory(target)) {
     consola.debug('target is a directory', target, isDirectory(target))
-    target = join(target, basename(absoluteSource))
+    target = join(target, basename(source))
   }
 
   if (!dryRun) {
@@ -71,15 +69,15 @@ export async function paste(
   }
 
   try {
-    if (dryRun || copyFile(absoluteSource, target, force)) {
-      consola.success(`${highlight.green(dryRun ? 'WILL COPY:' : 'COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`)
+    if (dryRun || copyFile(source, target, force)) {
+      consola.success(`${highlight.green(dryRun ? 'WILL COPY:' : 'COPY:')} ${relative(join(root, ASSETS_PATH), source)} ${highlight.important('>>')} ${target}`)
     }
   }
   catch (error) {
     hasError = true
     if (error instanceof Error && error.message.includes('EPERM')) {
       consola.error(
-        `${highlight.red('Requires administrator permission! Please rerun the command with \'sudo\'')}\n\n${highlight.red('COPY:')} ${relative(join(root, ASSETS_PATH), absoluteSource)} ${highlight.important('>>')} ${target}`,
+        `${highlight.red('Requires administrator permission! Please rerun the command with \'sudo\'')}\n\n${highlight.red('COPY:')} ${relative(join(root, ASSETS_PATH), source)} ${highlight.important('>>')} ${target}`,
       )
     }
   }
@@ -114,12 +112,12 @@ async function find(
       paths.push(...globSync(gallery.matchOptions.pattern, {
         cwd: absoluteCwd,
         dot: true,
+        absolute: true,
         ignore: [
           ...GLOBAL_PREFERENCES_IGNORE,
           ...(gallery.matchOptions.ignore || []),
         ],
       })
-        .map(preference => join(gallery.matchOptions.cwd, preference))
         .filter(preference => preference.includes(sourceName)),
       )
     }
@@ -128,38 +126,38 @@ async function find(
       paths.push(...globSync(gallery.matchOptions.pattern, {
         cwd: absoluteCwd,
         dot: true,
+        absolute: true,
         ignore: [
           ...GLOBAL_TEMPLATES_IGNORE,
           ...(gallery.matchOptions.ignore || []),
         ],
       })
-        .map(preference => join(gallery.matchOptions.cwd, preference))
         .filter(preference => preference.includes(sourceName)),
       )
     }
     // template compose
     else if (gallery.type === 'template-compose' && gallery.matchOptions.path && gallery.matchOptions.name.includes(sourceName)) {
-      paths.push(join(gallery.matchOptions.cwd, gallery.matchOptions.path))
+      paths.push(join(absoluteCwd, gallery.matchOptions.path))
     }
   }
 
   consola.debug('Matched paths:', paths)
 
   if (paths.length > 1) {
-    const { preference } = await prompts({
+    const { file } = await prompts({
       type: 'autocomplete',
-      name: 'preference',
-      message: `Select a certain preference named ${sourceName}:`,
-      choices: paths.map(preference => ({
-        title: relative(ASSETS_PATH, preference),
-        value: preference,
+      name: 'file',
+      message: `Select a certain file named ${sourceName}:`,
+      choices: paths.map(file => ({
+        title: relative(join(root, ASSETS_PATH), file),
+        value: file,
       })),
     })
-    if (!preference) {
+    if (!file) {
       // true means user cancels the selection
       return Promise.resolve(true)
     }
-    return Promise.resolve(preference)
+    return Promise.resolve(file)
   }
   else if (paths.length === 1 && paths[0]) {
     return Promise.resolve(paths[0])
