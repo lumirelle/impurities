@@ -174,10 +174,10 @@
         },
         "vue-stylelint": {
           ".vscode": {
-            "settings.json": "",
-            "stylelint.config.js": ""
+            "settings.json": ""
           },
-          "deprecated": ""
+          "deprecated": "",
+          "stylelint.config.js": ""
         },
         "vue2": {
           "eslint.config.js": "",
