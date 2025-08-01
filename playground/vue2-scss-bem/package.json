@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "vue": "catalog:example/vue2"
+    "vue": "catalog:playground-vue2"
   },
   "devDependencies": {
     "typescript": "catalog:dev"
