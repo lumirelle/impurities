@@ -91,6 +91,7 @@ cnpm
 bumpp
 nvmrc
 sconfig
+ofetch
 
 >> DEV: Python
 mconda
