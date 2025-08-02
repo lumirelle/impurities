@@ -18,6 +18,7 @@ Dev dependencies:
 - eslint@latest, @antfu/eslint-config@~4.14.1
 - simple-git-hooks@latest, lint-staged@latest
 - typescript@~5.8.3
+- @nuxt/types@2.17.3
 
 Deep dependencies, you don't need to concern about, but must to know:
 
@@ -136,15 +137,15 @@ package.json
 }
 ```
 
-## 🥡 生产依赖版本
+## 🥡 主要依赖版本
 
 shell
 
 ```shell
 # Nuxt 2
 ni nuxt@2.17.3 -E
-# TODO: Type support
-# ni @nuxt/types@2.17.3 -D
+# Type support
+ni @nuxt/types@2.17.3 -D
 # TODO: Build modules for vueuse auto importing
 # ni @vueuse/nuxt@latest
 
@@ -159,6 +160,9 @@ ni element-ui@^2.15.14
 
 # CoreJS
 ni core-js@latest
+
+# TypeScript
+ni typescript@~5.8.3 -D
 ```
 
 ## 🌟 设置代码检查与格式化
