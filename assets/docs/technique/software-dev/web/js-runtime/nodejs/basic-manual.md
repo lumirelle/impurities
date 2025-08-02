@@ -60,7 +60,10 @@ winget install Schniz.fnm
 ### 2. 安装必备全局依赖
 
 ```shell
+# For latest LTS
 npm i nrm @antfu/ni @antfu/nip @sxzz/create commitizen cz-git -g
+# For 14 (LTS)
+npm i @antfu/ni -g
 
 # 如果你使用 node 18，推荐升级 npm 至 >= 10.9.2，修复了许多要命的功能性问题
 npm i npm@^10.9.2 -g
