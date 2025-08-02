@@ -36,9 +36,9 @@ Dev dependencies:
 - Git tools
   - simple-git-hooks@latest
   - lint-staged@latest
-- Sass support
+- Sass support (If you are using Sass)
   - sass@latest
-  - sass-loader@version-10 (If you are using Sass)
+  - sass-loader@version-10
 - CrossEnv
   - cross-env@latest (If you are using NPM scripts with environment variables without PNPM)
 
@@ -67,6 +67,8 @@ we paste vue-stylelint/.vscode/settings.json .vscode/ -f
 
 # >> TS 编译器设置
 we paste vue2/jsconfig.json -f
+# 或者你使用 TypeScript
+we paste vue2/tsconfig.json -f
 
 # >> EditorConfig
 we paste .editorconfig -f
@@ -92,6 +94,10 @@ See [here](/assets/preferences/setup-project/vue/.vscode/settings.json).
 vue2/jsconfig.json
 
 See [here](/assets/preferences/setup-project/vue2/jsconfig.json).
+
+vue2/tsconfig.json
+
+See [here](/assets/preferences/setup-project/vue2/tsconfig.json).
 
 .editorconfig
 
