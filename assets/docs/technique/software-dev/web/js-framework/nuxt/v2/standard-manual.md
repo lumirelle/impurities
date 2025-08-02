@@ -146,11 +146,14 @@ shell
 ```shell
 # Nuxt 2
 ni nuxt@2.17.3 -E
-# TODO: Build modules for vueuse auto importing
+# Nuxt build modules
+# Optional: TypeScript build, if you are writing TypeScript
+ni @nuxt/typescript-build@^2 -D
+# TODO: VueUse auto importing
 # ni @vueuse/nuxt@latest
 
 # Vue 2
-# vue, vue-router, vuex
+# Vue, VueRouter, Vuex
 ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2
 # TODO: VueUse
 # ni @vueuse/core@^11.3.0
@@ -161,12 +164,11 @@ ni element-ui@^2.15.14
 # CoreJS
 ni core-js@latest
 
-# Type support, for better dev experience
+# Optional: Type support, for better dev experience
 ni typescript@~5.8.3 -D
 ni @nuxt/types@2.17.3 -D
 
-# Running TypeScript, if you are writing TypeScript
-ni @nuxt/typescript-build@^2 -D
+# Optional: Jiti, if you are using TypeScript config of ESLint
 ni jiti@latest -D
 ```
 
