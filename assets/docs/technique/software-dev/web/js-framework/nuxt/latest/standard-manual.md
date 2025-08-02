@@ -1,4 +1,4 @@
-# Nuxt 3+ 规范手册（Vite） / Nuxt 3+ Standard Manual (Vite)
+# Nuxt Latest 规范手册（Vite） / Nuxt Latest Standard Manual (Vite)
 
 Running requires for dev ops: node@'^20.19.0 || >=22.12.0', npm@>=10.
 
@@ -10,6 +10,8 @@ Dependencies:
 
 - Nuxt
   - nuxt@latest
+- Nuxt modules
+  - @pinia/nuxt@latest
 - Vue
   - vue@latest
 - Vue Addons
@@ -20,10 +22,8 @@ Dependencies:
 
 Dev dependencies:
 
-- Nuxt build modules?
-- TypeScript & Types
+- TypeScript
   - typescript@~5.8.3
-  - @nuxt/types@latest
 - ESLint
   - eslint@latest
   - @antfu/eslint-config@latest
@@ -31,13 +31,16 @@ Dev dependencies:
 - Git tools
   - simple-git-hooks@latest
   - lint-staged@latest
-- Sass support
-  - sass@latest
-  - sass-loader@version-10 (If you are using Sass)
+- Sass support (If you are using Sass)
+  - sass-embedded@latest
 
 Deep dependencies, you don't need to concern about, but must to know the version they are:
 
-- vite@latest
+- ofetch@^1
+- nitropack@^2
+- h3@^1
+- vite@^7 (Not rolldown-vite now)
+- postcss@^8
 
 ## 🔧 更新 VSCode 配置和 Git 配置
 
@@ -56,7 +59,7 @@ we paste vue/.vscode/settings.json .vscode/ -f
 we paste vue-stylelint/.vscode/settings.json .vscode/ -f
 
 # >> TS 编译器设置
-# NOTE: Nuxt 3+ is fully typed & has integrated `tsconfig.json`
+# NOTE: Nuxt Latest is fully typed & has auto-generated `tsconfig.json`
 
 # >> EditorConfig
 we paste .editorconfig -f
@@ -153,7 +156,11 @@ shell
 # Nuxt
 ni nuxt@latest
 
-# Nuxt build modules
+# NOTE: The latest version of Nuxt merge build modules into modules
+
+# Nuxt modules
+# >> Pinia support
+ni @pinia/nuxt@latest
 # >> TODO: VueUse auto importing
 # ni @vueuse/nuxt@latest
 
@@ -169,9 +176,8 @@ ni vue-router@latest pinia@latest
 
 # TODO: CoreJS
 
-# TypeScript & Types, for better dev experience
+# TypeScript, for better dev experience
 ni typescript@~5.8.3 -D
-ni @nuxt/types@latest -D
 ```
 
 ## 🌟 设置代码检查与格式化
@@ -290,11 +296,11 @@ package.json（配置 simple-git-hooks）
 shell
 
 ```shell
-# 强耦合 node 版本，万恶之源，请勿使用！
-nun node-sass
+# `sass-embedded` has much better performance than `sass`
+# They are made by the same team and provide the same features
+ni sass-embedded@latest -D
 
-# sass 和 sass-loader
-ni sass@latest sass-loader@version-10 -D
+# NOTE: Vite has built-in support for sass, so there isn't an plugin for Vite, like `sass-loader` for Webpack
 ```
 
 ### 捂嘴
@@ -307,10 +313,10 @@ nuxt.config.js / nuxt.config.ts
 export default defineNuxtConfig({
   // ...
 
-  webpack: {
+  vite: {
     // ...
 
-    loaders: {
+    preprocessorOptions: {
       scss: {
         sassOptions: {
           // scss 支持本身不需要任何配置
