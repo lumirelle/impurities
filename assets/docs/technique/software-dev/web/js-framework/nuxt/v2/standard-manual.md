@@ -19,6 +19,8 @@ Dev dependencies:
 - simple-git-hooks@latest, lint-staged@latest
 - typescript@~5.8.3
 - @nuxt/types@2.17.3
+- @nuxt/typescript-build@^2 (Only for writing TS)
+- jiti@latest (If you are using TypeScript config of ESLint)
 
 Deep dependencies, you don't need to concern about, but must to know:
 
@@ -144,8 +146,6 @@ shell
 ```shell
 # Nuxt 2
 ni nuxt@2.17.3 -E
-# Type support
-ni @nuxt/types@2.17.3 -D
 # TODO: Build modules for vueuse auto importing
 # ni @vueuse/nuxt@latest
 
@@ -161,8 +161,13 @@ ni element-ui@^2.15.14
 # CoreJS
 ni core-js@latest
 
-# TypeScript
+# Type support, for better dev experience
 ni typescript@~5.8.3 -D
+ni @nuxt/types@2.17.3 -D
+
+# Running TypeScript, if you are writing TypeScript
+ni @nuxt/typescript-build@^2 -D
+ni jiti@latest -D
 ```
 
 ## 🌟 设置代码检查与格式化
