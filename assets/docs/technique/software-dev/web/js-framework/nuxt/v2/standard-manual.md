@@ -8,19 +8,41 @@ NOTE: This article is based on node@22.17.1, npm@10.9.2, corepack@0.33.0, pnpm@1
 
 Dependencies:
 
-- nuxt@2.17.3, @nuxtjs/axios@latest
-- vue@^2, vue-router@legacy, vuex@^3
-- element-ui@^2
-- core-js@^3
+- Nuxt
+  - nuxt@2.17.3
+- Nuxt modules
+  - @nuxtjs/axios@latest
+- Vue
+  - vue@^2
+- Vue Addons
+  - vue-router@legacy
+  - vuex@^3
+- UI libraries
+  - element-ui@^2
+- CoreJS
+  - core-js@^3
 
 Dev dependencies:
 
-- @nuxt/typescript-build@^2 (Only for writing TS)
-- typescript@~5.8.3, @nuxt/types@2.17.3
-- eslint@latest, @antfu/eslint-config@~4.14.1, jiti@latest (If you are using TypeScript config of ESLint)
-- simple-git-hooks@latest, lint-staged@latest
+- Nuxt build modules
+  - @nuxt/typescript-build@^2 (If you are writing TS)
+- TypeScript & Types
+  - typescript@~5.8.3
+  - @nuxt/types@2.17.3
+- ESLint
+  - eslint@latest
+  - @antfu/eslint-config@~4.14.1
+  - jiti@latest (If you are using TypeScript config of ESLint)
+- Git tools
+  - simple-git-hooks@latest
+  - lint-staged@latest
+- Sass support
+  - sass@latest
+  - sass-loader@version-10 (If you are using Sass)
+- CrossEnv
+  - cross-env@latest (If you are using NPM scripts with environment variables without PNPM)
 
-Deep dependencies, you don't need to concern about, but must to know:
+Deep dependencies, you don't need to concern about, but must to know the version they are:
 
 - axios@^0.21
 - webpack@^4
@@ -142,30 +164,34 @@ package.json
 shell
 
 ```shell
-# Nuxt 2
+# Nuxt
 ni nuxt@2.17.3 -E
+
 # Nuxt build modules
 # >> Optional: TypeScript build, if you are writing TypeScript
 ni @nuxt/typescript-build@^2 -D
 # >> TODO: VueUse auto importing
 # ni @vueuse/nuxt@latest
+
 # Nuxt modules
 # >> Axios support
 ni @nuxtjs/axios@latest
 
-# Vue 2
-# >> Vue, VueRouter, Vuex
-ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2
+# Vue
+ni vue@^2.7.16
+
+# Vue Addons
+ni vue-router@legacy vuex@^3.6.2
 # >> TODO: VueUse
 # ni @vueuse/core@^11.3.0
 
-# UI library
+# UI libraries
 ni element-ui@^2.15.14
 
 # CoreJS
 ni core-js@latest
 
-# TypeScript & Type support, for better dev experience
+# TypeScript & Types, for better dev experience
 ni typescript@~5.8.3 -D
 ni @nuxt/types@2.17.3 -D
 ```
@@ -282,21 +308,23 @@ package.json（配置 simple-git-hooks）
 }
 ```
 
-## 💪🏼 使用 Dart Sass 提供 Sass 支持，移除 Node Sass
+## 💪🏼 Sass 支持
 
 ### 前置任务
 
 shell
 
 ```shell
-# 限制 node 版本的罪魁祸首！
+# 强耦合 node 版本，万恶之源，请勿使用！
 nun node-sass
 
 # sass 和 sass-loader
 ni sass@latest sass-loader@version-10 -D
 ```
 
-### 手动配置
+### 捂嘴
+
+如果你想捂嘴，不让它天天喊我弃用了 XXX API，请参考如下配置：
 
 nuxt.config.js
 

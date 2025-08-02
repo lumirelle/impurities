@@ -15,8 +15,10 @@ Dev dependencies:
 
 - eslint@latest
 - simple-git-hooks@latest, lint-staged@latest
+- typescript@~5.8.3
+- @nuxt/types@2.17.3
 
-Deep dependencies, you don't need to concern about, but must to know:
+Deep dependencies, you don't need to concern about, but must to know the version they are:
 
 - vite@^latest
 
@@ -126,7 +128,7 @@ package.json
 }
 ```
 
-## 🥡 生产依赖版本
+## 🥡 主要依赖版本
 
 shell
 
@@ -251,14 +253,14 @@ package.json（配置 simple-git-hooks）
 }
 ```
 
-## 💪🏼 使用 Dart Sass 提供 Sass 支持，移除 Node Sass
+## 💪🏼 Sass 支持
 
 ### 前置任务
 
 shell
 
 ```shell
-# 限制 node 版本的罪魁祸首！
+# 强耦合 node 版本，万恶之源，请勿使用！
 nun node-sass
 
 # sass 和 sass-loader
