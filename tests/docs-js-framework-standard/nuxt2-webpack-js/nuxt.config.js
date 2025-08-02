@@ -1,3 +1,6 @@
+/**
+ * @type {import('@nuxt/types').NuxtConfig}
+ */
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -49,5 +52,13 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+
+    devtools: process.env.NODE_ENV === 'development',
+
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.devtool = 'source-map'
+      }
+    },
   },
 }

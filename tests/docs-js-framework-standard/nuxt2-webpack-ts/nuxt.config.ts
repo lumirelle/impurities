@@ -1,4 +1,6 @@
-export default {
+import type { NuxtConfig } from '@nuxt/types'
+
+const config: NuxtConfig =  {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt2-webpack-ts',
@@ -50,5 +52,15 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+
+    devtools: process.env.NODE_ENV === 'development',
+
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.devtool = 'source-map'
+      }
+    },
   },
 }
+
+export default config
