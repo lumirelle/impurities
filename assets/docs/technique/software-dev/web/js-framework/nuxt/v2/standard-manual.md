@@ -326,9 +326,9 @@ ni sass@latest sass-loader@version-10 -D
 
 如果你想捂嘴，不让它天天喊我弃用了 XXX API，请参考如下配置：
 
-nuxt.config.js
+nuxt.config.js / nuxt.config.ts
 
-```js
+```ts
 export default {
   // ...
 

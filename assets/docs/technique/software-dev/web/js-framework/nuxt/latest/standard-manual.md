@@ -8,19 +8,36 @@ NOTE: This article is based on node@22.17.1, npm@10.9.2, corepack@0.33.0, pnpm@1
 
 Dependencies:
 
-- nuxt@latest
-- vue@^latest, vue-router@latest, pinia@latest
+- Nuxt
+  - nuxt@latest
+- Vue
+  - vue@latest
+- Vue Addons
+  - vue-router@latest
+  - pinia@latest
+- UI libraries?
+- CoreJS?
 
 Dev dependencies:
 
-- eslint@latest
-- simple-git-hooks@latest, lint-staged@latest
-- typescript@~5.8.3
-- @nuxt/types@2.17.3
+- Nuxt build modules?
+- TypeScript & Types
+  - typescript@~5.8.3
+  - @nuxt/types@latest
+- ESLint
+  - eslint@latest
+  - @antfu/eslint-config@latest
+  - jiti@latest (If you are using TypeScript config of ESLint)
+- Git tools
+  - simple-git-hooks@latest
+  - lint-staged@latest
+- Sass support
+  - sass@latest
+  - sass-loader@version-10 (If you are using Sass)
 
 Deep dependencies, you don't need to concern about, but must to know the version they are:
 
-- vite@^latest
+- vite@latest
 
 ## 🔧 更新 VSCode 配置和 Git 配置
 
@@ -133,18 +150,28 @@ package.json
 shell
 
 ```shell
-# Nuxt 3
+# Nuxt
 ni nuxt@latest
-# TODO: Build modules for vueuse auto importing
+
+# Nuxt build modules
+# >> TODO: VueUse auto importing
 # ni @vueuse/nuxt@latest
 
-# Vue 3
-# vue, vue-router, pinia
-ni vue@latest vue-router@latest pinia@latest
-# TODO: VueUse
+# Vue
+ni vue@latest
+
+# Vue Addons
+ni vue-router@latest pinia@latest
+# >> TODO: VueUse
 # ni @vueuse/core@latest
 
-# TODO: UI library
+# TODO: UI libraries
+
+# TODO: CoreJS
+
+# TypeScript & Types, for better dev experience
+ni typescript@~5.8.3 -D
+ni @nuxt/types@latest -D
 ```
 
 ## 🌟 设置代码检查与格式化
@@ -164,6 +191,9 @@ ni @antfu/eslint-config@latest -D
 
 # ESLint & Prettier plugins
 ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
+
+# Optional: If you are using TypeScript config of ESLint, you need to install `jiti`
+ni jiti@latest -D
 ```
 
 ### 快速配置
@@ -267,11 +297,13 @@ nun node-sass
 ni sass@latest sass-loader@version-10 -D
 ```
 
-### 手动配置
+### 捂嘴
 
-nuxt.config.js
+如果你想捂嘴，不让它天天喊我弃用了 XXX API，请参考如下配置：
 
-```js
+nuxt.config.js / nuxt.config.ts
+
+```ts
 export default defineNuxtConfig({
   // ...
 

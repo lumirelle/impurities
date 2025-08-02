@@ -40,12 +40,12 @@
                 "common": {
                   "project-create-manual.md": ""
                 },
+                "latest": {
+                  "standard-manual.md": ""
+                },
                 "v2": {
                   "basic-manual.md": "",
                   "optimization-manual.md": "",
-                  "standard-manual.md": ""
-                },
-                "v3+": {
                   "standard-manual.md": ""
                 }
               },
