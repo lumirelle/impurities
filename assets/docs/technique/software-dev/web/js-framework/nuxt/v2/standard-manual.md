@@ -15,12 +15,10 @@ Dependencies:
 
 Dev dependencies:
 
-- eslint@latest, @antfu/eslint-config@~4.14.1
-- simple-git-hooks@latest, lint-staged@latest
-- typescript@~5.8.3
-- @nuxt/types@2.17.3
 - @nuxt/typescript-build@^2 (Only for writing TS)
-- jiti@latest (If you are using TypeScript config of ESLint)
+- typescript@~5.8.3, @nuxt/types@2.17.3
+- eslint@latest, @antfu/eslint-config@~4.14.1, jiti@latest (If you are using TypeScript config of ESLint)
+- simple-git-hooks@latest, lint-staged@latest
 
 Deep dependencies, you don't need to concern about, but must to know:
 
@@ -147,15 +145,18 @@ shell
 # Nuxt 2
 ni nuxt@2.17.3 -E
 # Nuxt build modules
-# Optional: TypeScript build, if you are writing TypeScript
+# >> Optional: TypeScript build, if you are writing TypeScript
 ni @nuxt/typescript-build@^2 -D
-# TODO: VueUse auto importing
+# >> TODO: VueUse auto importing
 # ni @vueuse/nuxt@latest
+# Nuxt modules
+# >> Axios support
+ni @nuxtjs/axios@latest
 
 # Vue 2
-# Vue, VueRouter, Vuex
+# >> Vue, VueRouter, Vuex
 ni vue@^2.7.16 vue-router@legacy vuex@^3.6.2
-# TODO: VueUse
+# >> TODO: VueUse
 # ni @vueuse/core@^11.3.0
 
 # UI library
@@ -164,12 +165,9 @@ ni element-ui@^2.15.14
 # CoreJS
 ni core-js@latest
 
-# Optional: Type support, for better dev experience
+# TypeScript & Type support, for better dev experience
 ni typescript@~5.8.3 -D
 ni @nuxt/types@2.17.3 -D
-
-# Optional: Jiti, if you are using TypeScript config of ESLint
-ni jiti@latest -D
 ```
 
 ## 🌟 设置代码检查与格式化
@@ -190,6 +188,9 @@ ni @antfu/eslint-config@~4.14.1 -D
 
 # ESLint & Prettier plugins
 ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
+
+# Optional: If you are using TypeScript config of ESLint, you need to install `jiti`
+ni jiti@latest -D
 ```
 
 ### 快速配置
