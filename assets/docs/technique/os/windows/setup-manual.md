@@ -147,7 +147,7 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
   fnm i 22
 
   # 安装必备全局依赖
-  npm i nrm @antfu/ni @antfu/nip @sxzz/create commitizen cz-git -g
+  npm i nrm @antfu/ni @antfu/nip taze @sxzz/create commitizen cz-git -g
   # 如果你使用 node 18，推荐升级 npm 至 >= 10.9.2
   npm i npm@^10.9.2 -g
 
@@ -169,7 +169,7 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
   fnm i 22
 
   # 安装必备全局依赖
-  npm i nrm @antfu/ni @antfu/nip @sxzz/create commitizen cz-git -g
+  npm i nrm @antfu/ni @antfu/nip taze @sxzz/create commitizen cz-git -g
   # 如果你使用 node 18，推荐升级 npm 至 >= 10.9.2
   npm i npm@^10.9.2 -g
 
