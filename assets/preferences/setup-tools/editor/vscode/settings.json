@@ -1,16 +1,16 @@
 {
   // cSpell:disable
 
-  // ↓↓ vscode: ui
-  // -- window
+  // VSCODE: UI
+  // >> Window
   "window.zoomLevel": 1.1,
   "window.title": "${rootPath}", // this make tabs more readable
   "window.titleBarStyle": "custom",
-  // -- workbench
+  // >> Workbench
   "workbench.activityBar.orientation": "vertical",
   "workbench.tree.indent": 10,
   "workbench.tree.renderIndentGuides": "always",
-  // -- explorer
+  // >> Explorer
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
@@ -110,7 +110,7 @@
     "*.wat": "$(capture).wasm",
     "*.xaml": "$(capture).xaml.cs"
   },
-  // -- editor
+  // >> Editor
   "editor.lineNumbers": "interval",
   "editor.rulers": [80, 120],
   "editor.fontFamily": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
@@ -120,11 +120,11 @@
   "editor.renderWhitespace": "boundary",
   "editor.guides.bracketPairs": "active",
   "editor.minimap.enabled": true,
-  // -- PROFILE_JS editor
+  // >> PROFILE_JS Editor
   "editor.tokenColorCustomizations": {
     "textMateRules": []
   },
-  // -- terminal
+  // >> Terminal
   "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.defaultProfile.windows": "Nushell",
   "terminal.integrated.profiles.linux": {
@@ -208,24 +208,24 @@
     "pwsh-shell-integration": false,
     "lsp": true
   },
-  // -- theme
+  // >> Theme
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Vitesse Dark",
   "workbench.preferredLightColorTheme": "Vitesse Light",
   "workbench.productIconTheme": "icons-carbon",
   "workbench.iconTheme": "catppuccin-mocha",
-  // -- cursor
+  // >> Cursor
   "editor.cursorStyle": "line",
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
-  // -- scrolling
+  // >> Scrolling
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "workbench.list.smoothScrolling": true,
 
-  // ↓↓ vscode: file associations
+  // VSCODE: FILE ASSOCIATIONS
   "files.associations": {
     "*.page-template": "vue",
     "*.layout-template": "vue",
@@ -237,28 +237,28 @@
     ".czrc": "json"
   },
 
-  // ↓↓ vscode: behavior
-  // -- workbench
+  // VSCODE: BEHAVIOR
+  // >> Workbench
   "workbench.startupEditor": "none",
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 5,
-  // -- explorer
+  // >> Explorer
   "explorer.autoOpenDroppedFile": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  // -- editor
+  // >> Editor
   "editor.mouseWheelZoom": true,
   "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
   "editor.suggest.showDeprecated": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
-  // -- files
+  // >> Files
   "files.simpleDialog.enable": true,
-  // -- terminal
+  // >> Terminal
   "terminal.integrated.persistentSessionReviveProcess": "never",
-  // -- search
+  // >> Search
   "search.exclude": {
     "**/*.snap": true,
     "**/*.svg": true,
@@ -284,9 +284,9 @@
     "**/LICENSE*": true
   },
   "search.showLineNumbers": true,
-  // -- diff
+  // >> Diff
   "diffEditor.ignoreTrimWhitespace": false,
-  // -- scrolling
+  // >> Scrolling
   "editor.mouseWheelScrollSensitivity": 2,
   "editor.fastScrollSensitivity": 3,
   "terminal.integrated.mouseWheelScrollSensitivity": 2,
@@ -294,12 +294,12 @@
   "terminal.integrated.fastScrollSensitivity": 3,
   "workbench.list.mouseWheelScrollSensitivity": 2,
   "workbench.list.fastScrollSensitivity": 3,
-  // -- security
+  // >> Security
   "security.workspace.trust.enabled": false,
-  // -- cpp
+  // >> C++
   "cursor.cpp.disabledLanguages": ["plaintext"],
 
-  // ↓↓ vscode: format & formatter
+  // VSCODE: FORMAT & FORMATTERS
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "editor.tabSize": 2,
@@ -312,29 +312,29 @@
   "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
 
-  // ↓↓ extensions: ui
-  // -- explorer
+  // EXTENSIONS: UI
+  // >> Explorer
   "fileNestingUpdater.promptOnAutoUpdate": false,
-  // -- editor
+  // >> Editor
   "scm.diffDecorationsGutterWidth": 2,
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
-  // -- font
+  // >> Font
   "custom-ui-style.font.sansSerif": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
   "custom-ui-style.font.monospace": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
   "markdown.preview.fontFamily": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
   "markdown.preview.fontSize": 16,
 
-  // ↓↓ extensions: project
-  // -- general
+  // EXTENSIONS: PROJECT
+  // >> General
   "projectManager.git.baseFolders": ["D:/Projects"],
   "projectManager.supportSymlinksOnBaseFolders": true,
-  // -- git
+  // >> Git
   "git.autofetch": true,
   "git.confirmSync": true,
   "git.openRepositoryInParentFolders": "always",
   "git.untrackedChanges": "separate",
   "git.enableSmartCommit": true,
-  // -- git lens
+  // >> Git Lens
   "gitlens.defaultGravatarsStyle": "monsterid",
   "gitlens.plusFeatures.enabled": false,
   "gitlens.menus": {
@@ -376,16 +376,18 @@
   "gitlens.views.commitDetails.files.layout": "tree",
   "gitlens.fileAnnotations.command": "blame",
   "gitlens.codeLens.scopes": ["document", "containers"],
+  "gitlens.graph.onlyFollowFirstParent": true,
+  "gitlens.graph.dimMergeCommits": true,
 
-  // ↓↓ extensions: lsp(syntax, formatter, linter, snippets)
-  // -- lsp
+  // EXTENSIONS: LSP (syntax, formatter, linter, snippets)
+  // >> LSP
   "json.schemaDownload.enable": true,
   "redhat.telemetry.enabled": false,
   "excalidraw.theme": "auto",
-  // -- formatter
+  // >> Formatters
   "editorconfig.showMenuEntry": false,
   "formattingToggle.affects": ["editor.formatOnSave"],
-  // -- linter
+  // >> Linters
   "cSpell.language": "en,en-US",
   "cSpell.allowCompoundWords": true,
   "cSpell.customDictionaries": {
@@ -414,10 +416,6 @@
     "pnpm-workspace.yaml",
     "bun.lockb",
     "bun.lock"
-  ],
-  "grammarly.files.include": [
-    "**/*.txt",
-    "**/*.md"
   ],
   "eslint.codeAction.showDocumentation": { "enable": true },
   "eslint.validate": [
@@ -452,15 +450,15 @@
     { "rule": "*semi", "severity": "off" }
   ],
 
-  // ↓↓ extensions: life savers
-  // -- emmet
+  // EXTENSIONS: LIFE SAVERS
+  // >> Emmet
   "emmet.preferences": {
     "bem.modifierSeparator": "--"
   },
   "emmet.syntaxProfiles": {
     "html": { "filters": "bem" }
   },
-  // -- highlight
+  // >> Highlights
   "highlight-matching-tag.styles": {
     "opening": { "name": { "highlight": "rgb(143 188 143 / 40%)" } }
   },
@@ -545,7 +543,7 @@
     "**/*.go",
     "**/*.rs"
   ],
-  // -- editor view
+  // >> Editor Views
   "arrayIndexInlay.minLength": 5,
   "javascript.inlayHints.parameterNames.enabled": "all",
   "javascript.inlayHints.variableTypes.enabled": true,
@@ -560,20 +558,20 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
-  // -- status bar view
+  // >> Status Bar Views
   "selectline.alignment": "right",
   "selectline.statusbarPriority": 101,
   "selectline.displayFormat": "%d Lines Selected",
-  // -- PROFILE_JS editor behavior
+  // >> Commands
+  "emoji-code.legacyMode": true,
+  // >> PROFILE_JS Editor Behavior
   "css.enabledLanguages": ["html", "vue"],
   "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],
   "dotenv.enableAutocloaking": false,
   "console-ninja.featureSet": "Community",
 
-  // ↓↓ extensions: framework support
+  // EXTENSIONS: FRAMEWORK SUPPORT
   "i18n-ally.autoDetection": false,
   "i18n-ally.displayLanguage": "en",
-  "i18n-ally.ignoredLocales": [],
-  "gitlens.graph.onlyFollowFirstParent": true,
-  "gitlens.graph.dimMergeCommits": true
+  "i18n-ally.ignoredLocales": []
 }

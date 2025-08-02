@@ -2,23 +2,23 @@
   // cspell:disable
   // VSCODE PROFILE_DEFAULT
   "recommendations": [
-    // ↓↓ ui
+    // UI
     "antfu.theme-vitesse", // <NOT OPENVSIX>
     "antfu.icons-carbon",
     "catppuccin.catppuccin-vsc-icons",
     "subframe7536.custom-ui-style",
 
-    // ↓↓ project mananger
+    // PROJECT MANAGER
     "alefragnani.project-manager",
     "eamodio.gitlens",
     "github.vscode-pull-request-github",
     "vivaxy.vscode-conventional-commits",
 
-    // ↓↓ container
+    // CONTAINER
     "ms-azuretools.vscode-containers",
 
-    // ↓↓ lsp (syntax, formatter, linter, snippets)
-    // -- lsp
+    // LSP (Syntax, Formatters, Linters, Snippets)
+    // >> LSP
     "remcohaszing.schemastore",
     "redhat.vscode-yaml",
     "bungcip.better-toml",
@@ -26,34 +26,32 @@
     "thenuprojectcontributors.vscode-nushell-lang", // also the formatter & linter & snippets for nushell
     "pomdtr.excalidraw-editor",
     "ms-vscode.hexeditor",
-    // -- formatter
+    // >> Formatters
     "editorconfig.editorconfig", // For node package
     "esbenp.prettier-vscode", // For portable usage
     "foxundermoon.shell-format",
-    // -- linter
+    // >> Linters
     "streetsidesoftware.code-spell-checker",
-    // -- snippets
-    "bierner.emojisense",
 
-    // ↓↓ life savers
-    // -- highlight
+    // LIFE SAVERS
+    // >> Highlights
     "vincaslt.highlight-matching-tag",
     "naumovs.color-highlight",
     "jgclark.vscode-todo-highlight",
     "ibm.output-colorizer",
-    // -- explorer views
+    // >> Explorer Views
     "antfu.file-nesting",
-    // -- editor views
+    // >> Editor Views
     "antfu.array-index-inlay", // <NOT OPENVSIX>
     "yoavbls.pretty-ts-errors",
     "usernamehw.errorlens",
-    // -- status bar views
+    // >> Status Bar Views
     "tomoki1207.selectline-statusbar", // <NOT OPENVSIX>
-    // -- explorer behavior
+    // >> Explorer Behavior
     "JannisX11.batch-rename-extension", // <NOT OPENVSIX>
     "rhalaly.scope-to-this",
     "sandcastle.vscode-open", // <NOT OPENVSIX>
-    // -- editor behavior
+    // >> Editor Behavior
     "antfu.smart-clicks", // <NOT OPENVSIX>
     "albert.tabout",
     "mpontus.tab-cycle", // <NOT OPENVSIX>. CTRL+PGUP, CTRL+PGDN, ALT+<NUMBER>
@@ -63,14 +61,15 @@
     "christian-kohler.path-intellisense",
     "github.copilot", // <VSCODE ONLY>
     "github.copilot-chat", // <VSCODE ONLY>
-    // -- main bar behavior
+    // >> Main Bar Behavior
     "zjffun.snippetsmanager",
-    // -- status bar behavior
+    // >> Status Bar Behavior
     "tombonnike.vscode-status-bar-format-toggle",
-    // -- commands
+    // >> Commands
+    "idleberg.emoji-code",
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
-  // ↓↓ extension count
-  // vscode: {PROFILE_DEFAULT: 45 - 0 = 45}
-  // cursor: {PROFILE_DEFAULT: 45 - 2 = 43}
+  // EXTENSION COUNT
+  // >> VSCode: {PROFILE_DEFAULT: 45 - 0 = 45}
+  // >> Cursor: {PROFILE_DEFAULT: 45 - 2 = 43}
 }

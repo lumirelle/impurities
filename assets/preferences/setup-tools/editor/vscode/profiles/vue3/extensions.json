@@ -2,21 +2,21 @@
   // cspell:disable
   // VSCODE PROFILE_VUE3 <= PROFILE_VUE
   "recommendations": [
-    // ↓↓ lsp (syntax, formatter, linter, snippets)
-    // -- lsp
+    // LSP (Syntax, Formatters, Linters, Snippets)
+    // >> LSP
     "vue.volar",
     "lokalise.i18n-ally",
-    // -- snippets
+    // >> Snippets
     "nicholashsiang.vscode-vue3-snippets",
 
-    // ↓↓ framework support
-    // -- slidev
+    // FRAMEWORK SUPPORT
+    // >> Slidev
     "antfu.slidev",
-    // -- unocss
+    // >> UnoCSS
     "antfu.unocss"
 
-    // ↓↓ extension count
-    // vscode: {PROFILE_VUE3: 5 + {PROFILE_JS: 53} = 58}
-    // cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 51} = 56}
+    // EXTENSION COUNT
+    // >> VSCode: {PROFILE_VUE3: 5 + {PROFILE_JS: 53} = 58}
+    // >> Cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 51} = 56}
   ]
 }

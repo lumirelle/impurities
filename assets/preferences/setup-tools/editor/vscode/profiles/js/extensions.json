@@ -2,23 +2,23 @@
   // cspell:disable
   // VSCODE PROFILE_JS <= PROFILE_DEFAULT
   "recommendations": [
-    // ↓↓ lsp (syntax, formatter, linter, snippets)
-    // -- lsp
+    // LSP (Syntax, Formatters, Linters, Snippets)
+    // >> LSP
     "dotenv.dotenv-vscode", // <NOT OPENVSIX>
-    // -- linter
+    // >> Linters
     "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx, css, scss, postcss, sass, less, etc.
 
-    // ↓↓ life savers
-    // -- editor views
+    // LIFE SAVERS
+    // >> Editor Views
     "wallabyjs.console-ninja",
     "antfu.iconify", // <NOT OPENVSIX>
     "antfu.pnpm-catalog-lens", // <NOT OPENVSIX>
-    // -- editor behavior
+    // >> Editor Behavior
     "ecmel.vscode-html-css",
     "antfu.goto-alias", // <NOT OPENVSIX>, F12
     "ritwickdey.liveserver" // NEED TRAIL, ALT+L ALT+O, ALT+L CTRL+C
   ]
-  // ↓↓ extension count
-  // vscode: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 45} = 53}
-  // cursor: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 43} = 51}
+  // EXTENSION COUNT
+  // >> VSCode: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 45} = 53}
+  // >> Cursor: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 43} = 51}
 }
