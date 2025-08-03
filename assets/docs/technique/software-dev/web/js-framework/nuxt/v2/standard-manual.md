@@ -167,17 +167,11 @@ package.json
 
 ## 🥡 主要依赖版本
 
-shell
+Dependencies:
 
 ```shell
 # Nuxt
 ni nuxt@2.17.3 -E
-
-# Nuxt build modules
-# >> Optional: TypeScript build, if you are writing TypeScript
-ni @nuxt/typescript-build@^2 -D
-# >> TODO: VueUse auto importing
-# ni @vueuse/nuxt@latest
 
 # Nuxt modules
 # >> Axios support
@@ -196,34 +190,98 @@ ni element-ui@^2.15.14
 
 # CoreJS
 ni core-js@latest
+```
 
-# TypeScript & Types, for better dev experience
+Dev dependencies, as-it, for better dev experience:
+
+```shell
+# Nuxt build modules
+# >> TypeScript builder
+# >> OPTIONAL: If you are writing TypeScript
+ni @nuxt/typescript-build@^2 -D
+# >> TODO: VueUse auto importing
+# ni @vueuse/nuxt@latest
+
+# TypeScript & Types
 ni typescript@~5.8.3 -D
-ni @nuxt/types@2.17.3 -D
+ni @nuxt/types@2.17.3
+
+# ESLint
+ni eslint@latest -D
+# >> ESLint config & related plugins
+# >> NOTE: Since the version of 4.15.0, `@antfu/eslint-config` requires node@>=20 caused by `eslint-plugin-jsdoc`
+ni @antfu/eslint-config@~4.14.1 eslint-plugin-format@latest @prettier/plugin-xml@latest -D
+# >> Jiti
+# >> OPTIONAL: If you are using TypeScript config of ESLint
+ni jiti@latest -D
+
+# Git tools
+# >> Simple Git Hooks
+# >> The performance of `simple-git-hooks` is much better than `husky`
+ni simple-git-hooks@latest -D
+# >> Lint Staged
+ni lint-staged@latest -D
+
+# Sass support
+# OPTIONAL: If you are using Sass
+# >> NOTE: Strongly coupled with node version, the root of all evil, please do not use!
+nun node-sass
+# >> Sass and loader for Webpack 4
+ni sass@latest sass-loader@version-10 -D
+
+# Cross Env
+# OPTIONAL: Only non-PNPM projects need to use. PNPM natively supports the shellEmulator option, which supports cross-platform setting of environment variables.
+# Provide cross-platform compatibility for setting environment variables when running NPM scripts, currently only seen in projects based on webpack 4 (not including vue-cli that wraps webpack 4)
+ni cross-env@latest -D
+```
+
+## 🧾 配置 Nuxt
+
+### 启用 modern 模式
+
+启用 modern 模式，可以使现代浏览器访问项目时，得到的是没有额外 Polyfill 的代码，从而获得更好的性能。
+
+nuxt.config.js / nuxt.config.ts
+
+```ts
+export default {
+  // ...
+
+  modern: 'server',
+
+  // ...
+}
+```
+
+### 开发环境启用 Webpack Eval Source Map Devtool
+
+启用 Eval Source Map Devtool，可以获得更好的开发 & Debug 体验。
+
+nuxt.config.js / nuxt.config.ts
+
+```ts
+export default {
+  // ...
+
+  build: {
+    // ...
+
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.devtool = 'eval-source-map'
+      }
+    },
+
+    // ...
+  },
+
+  // ...
+}
 ```
 
 ## 🌟 设置代码检查与格式化
 
 > 真心期待前端有一个大统一的、完整的生态工具链！！！
-
-### 前置任务
-
-shell
-
-```shell
-# ESLint
-ni eslint@latest -D
-
-# ESLint config
-# Since the version of 4.15.0, `@antfu/eslint-config` requires node@>=20 caused by `eslint-plugin-jsdoc`
-ni @antfu/eslint-config@~4.14.1 -D
-
-# ESLint & Prettier plugins
-ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
-
-# Optional: If you are using TypeScript config of ESLint, you need to install `jiti`
-ni jiti@latest -D
-```
 
 ### 快速配置
 
@@ -266,18 +324,6 @@ See [here](/assets/preferences/setup-project/vue-stylelint/stylelint.config.js).
 
 ## 🤖 配置提交检查与格式化
 
-### 前置任务
-
-shell
-
-```shell
-# The performance of `simple-git-hooks` is much better than `husky`
-ni simple-git-hooks@latest -D
-
-# lint-staged
-ni lint-staged@latest -D
-```
-
 ### 快速配置
 
 shell
@@ -315,18 +361,6 @@ package.json（配置 simple-git-hooks）
 ```
 
 ## 💪🏼 Sass 支持
-
-### 前置任务
-
-shell
-
-```shell
-# 强耦合 node 版本，万恶之源，请勿使用！
-nun node-sass
-
-# sass 和 sass-loader
-ni sass@latest sass-loader@version-10 -D
-```
 
 ### 捂嘴
 
@@ -379,14 +413,9 @@ nlx taze minor -rIw
 
 ### [cross-env](https://www.npmjs.com/package/cross-env)
 
-NOTE: 仅非 PNPM 项目需要使用。PNPM 原生支持 shellEmulator 选项，支持跨平台设置环境变量。
+Cross Env 用来在 Windows 上支持 Bash 环境变量的设置语法，即 `ENV=value command`。
 
-```shell
-# cross-env：为运行 NPM 脚本时设置环境变量提供跨平台兼容性，目前仅在基于 webpack 4 的项目见到过使用案例（不包括封装了 webpack 4 的 vue-cli）
-ni cross-env@latest -D
-```
-
-NOTE: 需要使用 cross-env 代理的 npm 脚本应手动配置。设置了环境变量，才需要改为通过 cross-env 来执行。
+需要使用 cross-env 代理的 npm 脚本应手动配置。设置了环境变量，才需要改为通过 cross-env 来执行。
 
 package.json
 
