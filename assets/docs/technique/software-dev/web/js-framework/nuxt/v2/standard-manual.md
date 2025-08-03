@@ -227,6 +227,7 @@ ni lint-staged@latest -D
 # >> NOTE: Strongly coupled with node version, the root of all evil, please do not use!
 nun node-sass
 # >> Sass and loader for Webpack 4
+# >> NOTE: Webpack 4 is not compatible with `sass-embedded`
 ni sass@latest sass-loader@version-10 -D
 
 # Cross Env
