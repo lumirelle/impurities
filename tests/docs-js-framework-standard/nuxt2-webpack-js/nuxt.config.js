@@ -49,6 +49,8 @@ export default {
     baseURL: '/',
   },
 
+  modern: 'server',
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
@@ -57,7 +59,7 @@ export default {
 
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
-        config.devtool = 'source-map'
+        config.devtool = 'eval-source-map'
       }
     },
   },
