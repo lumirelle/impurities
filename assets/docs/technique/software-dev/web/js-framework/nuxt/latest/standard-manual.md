@@ -150,7 +150,7 @@ package.json
 
 ## 🥡 主要依赖版本
 
-shell
+Dependencies:
 
 ```shell
 # Nuxt
@@ -175,32 +175,44 @@ ni vue-router@latest pinia@latest
 # TODO: UI libraries
 
 # TODO: CoreJS
-
-# TypeScript, for better dev experience
-ni typescript@~5.8.3 -D
 ```
+
+Dev dependencies, as-it, for better dev experience:
+
+```shell
+# TypeScript
+ni typescript@~5.8.3 -D
+
+# ESLint
+ni eslint@latest -D
+# >> ESLint config & related plugins
+ni @antfu/eslint-config@latest eslint-plugin-format@latest @prettier/plugin-xml@latest -D
+# >> Jiti
+# >> OPTIONAL: If you are using TypeScript config of ESLint
+ni jiti@latest -D
+
+# Git tools
+# >> Simple Git Hooks
+# >> The performance of `simple-git-hooks` is much better than `husky`
+ni simple-git-hooks@latest -D
+# >> Lint Staged
+ni lint-staged@latest -D
+
+# Sass support
+# OPTIONAL: If you are using Sass
+# `sass-embedded` has much better performance than `sass`
+# They are made by the same team and provide the same features
+# NOTE: Vite has built-in support for sass, so there isn't an plugin for Vite, like `sass-loader` for Webpack
+ni sass-embedded@latest -D
+```
+
+## 🧾 配置 Nuxt
+
+TODO: WIP...
 
 ## 🌟 设置代码检查与格式化
 
 > 真心期待前端有一个大统一的、完整的生态工具链！！！
-
-### 前置任务
-
-shell
-
-```shell
-# ESLint
-ni eslint@latest -D
-
-# ESLint config
-ni @antfu/eslint-config@latest -D
-
-# ESLint & Prettier plugins
-ni eslint-plugin-format@latest @prettier/plugin-xml@latest -D
-
-# Optional: If you are using TypeScript config of ESLint, you need to install `jiti`
-ni jiti@latest -D
-```
 
 ### 快速配置
 
@@ -241,18 +253,6 @@ See [here](/assets/preferences/setup-project/vue-stylelint/stylelint.config.js).
 
 ## 🤖 配置提交检查与格式化
 
-### 前置任务
-
-shell
-
-```shell
-# The performance of `simple-git-hooks` is much better than `husky`
-ni simple-git-hooks@latest -D
-
-# lint-staged
-ni lint-staged@latest -D
-```
-
 ### 快速配置
 
 shell
@@ -290,18 +290,6 @@ package.json（配置 simple-git-hooks）
 ```
 
 ## 💪🏼 Sass 支持
-
-### 前置任务
-
-shell
-
-```shell
-# `sass-embedded` has much better performance than `sass`
-# They are made by the same team and provide the same features
-ni sass-embedded@latest -D
-
-# NOTE: Vite has built-in support for sass, so there isn't an plugin for Vite, like `sass-loader` for Webpack
-```
 
 ### 捂嘴
 
