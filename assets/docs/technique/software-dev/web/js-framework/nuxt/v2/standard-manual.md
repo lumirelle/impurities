@@ -12,11 +12,14 @@ Dependencies:
   - nuxt@2.17.3
 - Nuxt modules
   - @nuxtjs/axios@latest
+  - @nuxtjs/i18n@^7
 - Vue
   - vue@^2
 - Vue Addons
   - vue-router@legacy
   - vuex@^3
+  - vue-i18n@^8
+  - @vueuse/core@^11
 - UI libraries
   - element-ui@^2
 
@@ -202,12 +205,19 @@ ni nuxt@2.17.3 -E
 # Nuxt modules
 # >> Axios support
 ni @nuxtjs/axios@latest
+# >> i18n support
+ni @nuxtjs/i18n@^7.3.1
 
 # Vue 2
 ni vue@^2.7.16
 
 # Vue Addons
-ni vue-router@legacy vuex@^3.6.2
+# >> Vue Router
+ni vue-router@legacy
+# >> Vuex
+ni vuex@^3.6.2
+# >> Vue I18n
+ni vue-i18n@^8.28.2
 # >> VueUse
 ni @vueuse/core@^11.3.0
 
@@ -222,8 +232,6 @@ Dev dependencies, as-it, for better dev experience:
 # >> TypeScript builder
 # >> OPTIONAL: If you are writing TypeScript
 ni @nuxt/typescript-build@^2 -D
-# >> VueUse auto importing
-ni @vueuse/nuxt@latest
 
 # TypeScript & Types
 ni typescript@~5.8.3 -D
@@ -302,6 +310,34 @@ export default {
   },
 
   // ...
+}
+```
+
+### 处理 mjs 文件
+
+如果你遇到错误 `Can't import the named export 'xxx' from non EcmaScript module (only default export is available)`，表明 Webpack 无法识别 mjs 文件，需要手动配置：
+
+nuxt.config.js / nuxt.config.ts
+
+```ts
+export default {
+  // ...
+
+  build: {
+    // ...
+
+    extend(config, { isDev, isClient }) {
+      if (config.module) {
+        config.module.rules.push({
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
+        })
+      }
+    },
+
+    // ...
+  },
 }
 ```
 
