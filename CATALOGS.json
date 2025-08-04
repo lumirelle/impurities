@@ -35,6 +35,9 @@
             "js": {
               "basic-manual.md": ""
             },
+            "js-bundler": {
+              "webpack-manual.md": ""
+            },
             "js-framework": {
               "nuxt": {
                 "common": {
