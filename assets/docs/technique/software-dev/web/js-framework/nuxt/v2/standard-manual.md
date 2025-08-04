@@ -94,9 +94,9 @@ we paste vue/.vscode/settings.json .vscode/ -f
 we paste vue-stylelint/.vscode/settings.json .vscode/ -f
 
 # >> TS 编译器设置
-we paste vue2/jsconfig.json -f
+we paste nuxt2/jsconfig.json -f
 # 或者你使用 TypeScript
-we paste vue2/tsconfig.json -f
+we paste nuxt2/tsconfig.json -f
 
 # >> EditorConfig
 we paste .editorconfig -f
@@ -119,13 +119,13 @@ vue/.vscode/settings.json
 
 See [here](/assets/preferences/setup-project/vue/.vscode/settings.json).
 
-vue2/jsconfig.json
+nuxt2/jsconfig.json
 
-See [here](/assets/preferences/setup-project/vue2/jsconfig.json).
+See [here](/assets/preferences/setup-project/nuxt2/jsconfig.json).
 
-vue2/tsconfig.json
+nuxt2/tsconfig.json
 
-See [here](/assets/preferences/setup-project/vue2/tsconfig.json).
+See [here](/assets/preferences/setup-project/nuxt2/tsconfig.json).
 
 .editorconfig
 
