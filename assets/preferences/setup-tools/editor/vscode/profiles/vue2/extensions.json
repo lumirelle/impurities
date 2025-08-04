@@ -5,12 +5,10 @@
     // LSP (Syntax, Formatters, Linters, Snippets)
     // >> LSP
     "vue.volar",
-    "lokalise.i18n-ally",
-    // >> Snippets
-    "nicholashsiang.vscode-vue2-snippets"
+    "lokalise.i18n-ally"
 
     // EXTENSION COUNT
-    // >> VSCode: {PROFILE_VUE2: 3 + {PROFILE_JS: 54} = 57}
-    // >> Cursor: {PROFILE_VUE2: 3 + {PROFILE_JS: 52} = 55}
+    // >> VSCode: {PROFILE_VUE2: 2 + {PROFILE_JS: 54} = 56}
+    // >> Cursor: {PROFILE_VUE2: 2 + {PROFILE_JS: 52} = 54}
   ]
 }

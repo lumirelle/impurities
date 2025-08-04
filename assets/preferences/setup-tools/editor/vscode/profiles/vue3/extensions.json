@@ -6,8 +6,6 @@
     // >> LSP
     "vue.volar",
     "lokalise.i18n-ally",
-    // >> Snippets
-    "nicholashsiang.vscode-vue3-snippets",
 
     // FRAMEWORK SUPPORT
     // >> Slidev
@@ -16,7 +14,7 @@
     "antfu.unocss"
 
     // EXTENSION COUNT
-    // >> VSCode: {PROFILE_VUE3: 5 + {PROFILE_JS: 54} = 59}
-    // >> Cursor: {PROFILE_VUE3: 5 + {PROFILE_JS: 52} = 57}
+    // >> VSCode: {PROFILE_VUE3: 4 + {PROFILE_JS: 54} = 58}
+    // >> Cursor: {PROFILE_VUE3: 4 + {PROFILE_JS: 52} = 56}
   ]
 }
