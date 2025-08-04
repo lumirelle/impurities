@@ -1,8 +1,28 @@
 <!-- Please remove this file from your project -->
-<script>
-export default {
+<i18n lang="yaml">
+en:
+  i18n block hello: Hello I18n Block!
+zh-CN:
+  i18n block hello: 你好，I18n 块！
+</i18n>
+
+<script setup>
+import { useMouse } from '@vueuse/core'
+import { computed, defineComponent, getCurrentInstance } from 'vue'
+
+const app = getCurrentInstance()
+
+const i18n = app.proxy.$i18n
+
+defineComponent({
   name: 'NuxtTutorial',
-}
+})
+
+const { x, y } = useMouse()
+
+const availableLocales = computed(() => {
+  return i18n.locales.filter(i => i.code !== i18n.locale)
+})
 </script>
 
 <template>
@@ -57,6 +77,18 @@ export default {
         Test Block 2
       </div>
     </div>
+    <div class="test-mouse">
+      pos: {{ x }}, {{ y }}
+    </div>
+    <div class="test-i18n">
+      <nuxt-link v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
+        {{ locale.name }}
+      </nuxt-link>
+      <span>
+        {{ $t('hello') }}
+        {{ $t('i18n block hello') }}
+      </span>
+    </div>
   </div>
 </template>
 
@@ -75,5 +107,17 @@ export default {
     font-weight: 500px;
     font-size: 20px;
   }
+}
+
+.test-mouse {
+  color: pink;
+  font-weight: 700px;
+  font-size: 40px;
+}
+
+.test-i18n {
+  color: purple;
+  font-weight: 700px;
+  font-size: 40px;
 }
 </style>

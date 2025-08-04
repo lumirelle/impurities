@@ -41,12 +41,39 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/i18n',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+      },
+      {
+        code: 'zh-CN',
+        name: '简体中文',
+      },
+    ],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        'en': {
+          hello: 'Hello',
+        },
+        'zh-CN': {
+          hello: '你好',
+        },
+      },
+    },
+    vueI18nLoader: true,
   },
 
   modern: 'server',
@@ -60,6 +87,13 @@ export default {
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.devtool = 'eval-source-map'
+      }
+      if (config.module) {
+        config.module.rules.push({
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
+        })
       }
     },
   },
