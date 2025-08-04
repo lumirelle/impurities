@@ -18,7 +18,6 @@ Dependencies:
   - vue-router@latest
   - pinia@latest
 - UI libraries?
-- CoreJS?
 
 Dev dependencies:
 
@@ -36,11 +35,46 @@ Dev dependencies:
 
 Deep dependencies, you don't need to concern about, but must to know the version they are:
 
-- ofetch@^1
-- nitropack@^2
-- h3@^1
-- vite@^7 (Not rolldown-vite now)
-- postcss@^8
+Builders:
+
+- JS Like Compiler (Compile JS/TS/JSX/TSX/Vue to JS):
+  - vite@latest
+    - rollup@latest
+    - esbuild@latest
+  - @vitejs/plugin-vue@latest
+  - @vitejs/plugin-vue-jsx@latest
+    - @babel/core@latest
+    - @babel/transform-typescript@latest
+    - @vue/babel-plugin-jsx@latest
+- JS Transpiler (ES downleveling & polyfill the compiled JS):
+  - vite@latest # For modern browsers
+    - rollup@latest
+    - esbuild@latest
+  - @vitejs/plugin-legacy@latest # For legacy browsers, lower than ES6
+    - @babel/core@latest
+    - @babel/preset-env@latest
+    - browserslist@latest
+    - core-js@latest
+    - systemjs@latest
+- CSS Like Compiler (Compile Sass/SCSS to CSS):
+  - vite@latest
+    - sass-embedded@latest
+- CSS Transpiler (Autoprefixer & minify the compiled CSS):
+  - postcss@latest
+    - autoprefixer@latest
+    - cssnano@latest
+- Bundler:
+  - vite@latest
+    - rollup@latest
+    - esbuild@latest
+
+HTTP Client & Server:
+
+- Client:
+  - ofetch@latest
+- Server:
+  - nitropack@latest
+    - h3@latest
 
 ## 🔧 更新 VSCode 配置和 Git 配置
 
@@ -59,7 +93,8 @@ we paste vue/.vscode/settings.json .vscode/ -f
 we paste vue-stylelint/.vscode/settings.json .vscode/ -f
 
 # >> TS 编译器设置
-# NOTE: Nuxt Latest is fully typed & has auto-generated `tsconfig.json`
+# Nuxt Latest is fully typed & has auto-generated `tsconfig.json`
+# We don't need to configure the TS compiler ourselves
 
 # >> EditorConfig
 we paste .editorconfig -f
@@ -153,28 +188,26 @@ package.json
 Dependencies:
 
 ```shell
-# Nuxt
+# Nuxt Latest
 ni nuxt@latest
 
-# NOTE: The latest version of Nuxt merge build modules into modules
+# NOTE: The latest version of Nuxt combines build modules with modules
 
 # Nuxt modules
 # >> Pinia support
 ni @pinia/nuxt@latest
-# >> TODO: VueUse auto importing
-# ni @vueuse/nuxt@latest
+# >> VueUse auto importing
+ni @vueuse/nuxt@latest
 
-# Vue
+# Vue Latest
 ni vue@latest
 
 # Vue Addons
 ni vue-router@latest pinia@latest
-# >> TODO: VueUse
-# ni @vueuse/core@latest
+# >> VueUse
+ni @vueuse/core@latest
 
 # TODO: UI libraries
-
-# TODO: CoreJS
 ```
 
 Dev dependencies, as-it, for better dev experience:

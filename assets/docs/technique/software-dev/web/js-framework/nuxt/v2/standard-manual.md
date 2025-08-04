@@ -19,8 +19,6 @@ Dependencies:
   - vuex@^3
 - UI libraries
   - element-ui@^2
-- CoreJS
-  - core-js@^3
 
 Dev dependencies:
 
@@ -40,14 +38,41 @@ Dev dependencies:
   - sass@latest
   - sass-loader@version-10
 - CrossEnv
-  - cross-env@latest (If you are using NPM scripts with environment variables without PNPM)
+  - cross-env@^7 (If you are using NPM scripts with environment variables without PNPM)
 
 Deep dependencies, you don't need to concern about, but must to know the version they are:
 
-- axios@^0.21
-- webpack@^4
-- postcss@^8
-- babel@^7
+Builders:
+
+- JS Like Compiler (Compile JS/TS/JSX/TSX/Vue to JS):
+  - webpack@^4
+  - babel-loader@^8
+    - @babel/core@latest
+  - vue-loader@latest
+    - vue-template-compiler@latest
+- JS Transpiler (ES Downleveling & Polyfill & Other transpile):
+  - @babel/core@latest
+  - @nuxt/babel-preset-app@latest
+  - caniuse-lite@latest
+  - core-js@latest
+- CSS Like Compiler (Compile Sass/SCSS to CSS):
+  - webpack@^4
+  - sass-loader@^10
+    - sass@latest
+- CSS Transpiler (Autoprefixer & minify the compiled CSS):
+  - postcss@latest
+    - autoprefixer@latest
+    - cssnano@^6
+- Bundler:
+  - webpack@^4
+
+HTTP Client & Server:
+
+- Client:
+  - axios@^0.21
+- Server:
+  - @nuxt/server@latest
+    - connect@^3.7.0
 
 ## 🔧 更新 VSCode 配置和 Git 配置
 
@@ -170,26 +195,24 @@ package.json
 Dependencies:
 
 ```shell
-# Nuxt
+# Nuxt 2
+# `nuxt@>2.17.3` is not compatible with `node@^14.21.3`, so we should specify the exact version 2.17.3
 ni nuxt@2.17.3 -E
 
 # Nuxt modules
 # >> Axios support
 ni @nuxtjs/axios@latest
 
-# Vue
+# Vue 2
 ni vue@^2.7.16
 
 # Vue Addons
 ni vue-router@legacy vuex@^3.6.2
-# >> TODO: VueUse
-# ni @vueuse/core@^11.3.0
+# >> VueUse
+ni @vueuse/core@^11.3.0
 
 # UI libraries
 ni element-ui@^2.15.14
-
-# CoreJS
-ni core-js@latest
 ```
 
 Dev dependencies, as-it, for better dev experience:
@@ -199,8 +222,8 @@ Dev dependencies, as-it, for better dev experience:
 # >> TypeScript builder
 # >> OPTIONAL: If you are writing TypeScript
 ni @nuxt/typescript-build@^2 -D
-# >> TODO: VueUse auto importing
-# ni @vueuse/nuxt@latest
+# >> VueUse auto importing
+ni @vueuse/nuxt@latest
 
 # TypeScript & Types
 ni typescript@~5.8.3 -D
@@ -209,7 +232,8 @@ ni @nuxt/types@2.17.3
 # ESLint
 ni eslint@latest -D
 # >> ESLint config & related plugins
-# >> NOTE: Since the version of 4.15.0, `@antfu/eslint-config` requires node@>=20 caused by `eslint-plugin-jsdoc`
+# >> `@antfu/eslint-config@^4.15.0` requires `node@>=20` caused by `eslint-plugin-jsdoc`
+# >> So we should use the version 4.14.x
 ni @antfu/eslint-config@~4.14.1 eslint-plugin-format@latest @prettier/plugin-xml@latest -D
 # >> Jiti
 # >> OPTIONAL: If you are using TypeScript config of ESLint
@@ -224,16 +248,17 @@ ni lint-staged@latest -D
 
 # Sass support
 # OPTIONAL: If you are using Sass
-# >> NOTE: Strongly coupled with node version, the root of all evil, please do not use!
+# >> Strongly coupled with node version, the root of all evil, please do not use!
 nun node-sass
 # >> Sass and loader for Webpack 4
-# >> NOTE: Webpack 4 is not compatible with `sass-embedded`
-ni sass@latest sass-loader@version-10 -D
+# >> `sass-loader@^10` is not compatible with `sass-embedded`
+ni sass@latest sass-loader@^10 -D
 
 # Cross Env
 # OPTIONAL: Only non-PNPM projects need to use. PNPM natively supports the shellEmulator option, which supports cross-platform setting of environment variables.
 # Provide cross-platform compatibility for setting environment variables when running NPM scripts, currently only seen in projects based on webpack 4 (not including vue-cli that wraps webpack 4)
-ni cross-env@latest -D
+# `cross-env@^10` requires `node@>=20`, the previous major version is `cross-env@^7`
+ni cross-env@^7 -D
 ```
 
 ## 🧾 配置 Nuxt
