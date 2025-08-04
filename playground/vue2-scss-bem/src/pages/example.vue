@@ -1,12 +1,15 @@
-<script lang="ts" setup>
-import { defineComponent } from 'vue'
-import { useNamespace } from '@/hooks/use-namespace'
+<script>
+import { useNamespace } from '~/hooks/use-namespace.js'
 
-defineComponent({
+export default {
   name: 'ExamplePage',
-})
 
-const ns = useNamespace('example-page')
+  data() {
+    return {
+      ns: useNamespace('example-page'),
+    }
+  },
+}
 </script>
 
 <template>
@@ -16,7 +19,7 @@ const ns = useNamespace('example-page')
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/mixins' as *;
+@use '~/assets/styles/mixins' as *;
 
 @include b(example-page) {
   display: flex;
