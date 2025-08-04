@@ -12,11 +12,15 @@ Dependencies:
   - nuxt@latest
 - Nuxt modules
   - @pinia/nuxt@latest
+  - @nuxtjs/i18n@latest
+  - @vueuse/nuxt@latest
 - Vue
   - vue@latest
 - Vue Addons
   - vue-router@latest
   - pinia@latest
+  - vue-i18n@latest
+  - @vueuse/core@latest
 - UI libraries?
 
 Dev dependencies:
@@ -196,6 +200,8 @@ ni nuxt@latest
 # Nuxt modules
 # >> Pinia support
 ni @pinia/nuxt@latest
+# >> i18n support
+ni @nuxtjs/i18n@latest
 # >> VueUse auto importing
 ni @vueuse/nuxt@latest
 
@@ -203,7 +209,12 @@ ni @vueuse/nuxt@latest
 ni vue@latest
 
 # Vue Addons
-ni vue-router@latest pinia@latest
+# >> Vue Router
+ni vue-router@latest
+# >> Pinia
+ni pinia@latest
+# >> Vue I18n
+ni vue-i18n@latest
 # >> VueUse
 ni @vueuse/core@latest
 

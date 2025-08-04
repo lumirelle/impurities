@@ -287,9 +287,11 @@ export default {
 }
 ```
 
-### 开发环境启用 Webpack Eval Source Map Devtool
+### 开发环境启用 Webpack Devtool
 
-启用 Eval Source Map Devtool，可以获得更好的开发 & Debug 体验。
+启用 Devtool，可以获得更好的开发 & Debug 体验。
+
+`cheap-module-eval-source-map` 适用于开发环境，有更快的打包速度。
 
 nuxt.config.js / nuxt.config.ts
 
@@ -302,7 +304,7 @@ export default {
 
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
-        config.devtool = 'eval-source-map'
+        config.devtool = 'cheap-module-eval-source-map'
       }
     },
 
