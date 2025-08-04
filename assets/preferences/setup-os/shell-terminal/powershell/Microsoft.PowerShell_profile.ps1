@@ -74,6 +74,9 @@ function Nr-Stub {
 function Nr-Start {
   Nr-Agent start @args
 }
+function Nr-Preview {
+  Nr-Agent preview @args
+}
 function Nr-Release {
   Nr-Agent release @args
 }
@@ -89,6 +92,7 @@ New-Alias -Name build -Value Nr-Build
 New-Alias -Name stub -Value Nr-Stub
 Remove-Item Alias:start -Force -ErrorAction Ignore
 New-Alias -Name start -Value Nr-Start
+New-Alias -Name preview -Value Nr-Preview
 New-Alias -Name release -Value Nr-Release
 New-Alias -Name lint -Value Nr-Lint
 New-Alias -Name typecheck -Value Nr-Typecheck

@@ -35,6 +35,7 @@ alias test = nr-agent test
 alias build = nr-agent build
 alias stub = nr-agent stub
 alias start = nr-agent start
+alias preview = nr-agent preview
 alias release = nr-agent release
 alias lint = nr-agent lint
 alias typecheck = nr-agent typecheck
