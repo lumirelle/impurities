@@ -1,35 +1,28 @@
 /**
- * Based on https://www.totaltypescript.com/tsconfig-cheat-sheet
+ * JSConfig for other files, based on https://www.totaltypescript.com/tsconfig-cheat-sheet
+ * Only for IDE type support. I prefer to use `unbuild` & `vite` as bundler to build the project.
  */
 {
   // Compiler options
   "compilerOptions": {
     // Base options
-    "target": "es2022", // Align with Vite
-    "jsx": "preserve",
-    "jsxImportSource": "vue",
+    "target": "ESNext", // Allow to use the latest ECMAScript features, bundler will handle the ES downleveling & polyfill for us.
     "lib": [
-      "es2022",
-      "webworker",
-      "dom",
-      "dom.iterable"
+      "ESNext"
     ],
     "moduleDetection": "force",
     "module": "preserve",
 
     // Path resolution
     "paths": {
-      "@/*": ["./*"],
-      "~/*": ["./*"]
+      /* Add your custom paths resolution here, should align with your bundler config */
     },
 
     // JSON support
     "resolveJsonModule": true,
 
-    // Type declaration files
-    "types": [
-      /* Add your custom types here */
-    ],
+    // Do not load any global types
+    "types": [],
 
     // Strictness & compatibility
     "allowImportingTsExtensions": true,
@@ -46,14 +39,17 @@
     "noUncheckedSideEffectImports": true
   },
 
+  // Include files
+  "include": [
+    /* Custom your include files below */
+    "**/*"
+  ],
+
   // Excluded files
   "exclude": [
-    "**/.nuxt/**",
-    "**/build/**",
-    "**/dist/**",
-    "**/docs/**",
-    "**/node_modules/**",
-    "**/playground/**"
-    /* Add your custom excluded files here */
+    /* Custom your excluded files below */
+    "node_modules/**/*",
+    "dist/**/*",
+    "src/**/*"
   ]
 }

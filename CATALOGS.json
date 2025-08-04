@@ -165,6 +165,10 @@
           "nodejs.gitignore": "",
           "tsconfig.json": ""
         },
+        "nuxt2": {
+          "jsconfig.json": "",
+          "tsconfig.json": ""
+        },
         "README.md": "",
         "vue": {
           ".vscode": {
@@ -183,13 +187,18 @@
           "eslint.config.js": "",
           "eslint.config.ts": "",
           "jsconfig.json": "",
-          "tsconfig.json": ""
+          "jsconfig.others.json": "",
+          "jsconfig.src.json": "",
+          "tsconfig.json": "",
+          "tsconfig.others.json": "",
+          "tsconfig.src.json": ""
         },
         "vue3": {
           "eslint.config.js": "",
           "eslint.config.ts": "",
           "jsconfig.json": "",
-          "tsconfig.json": ""
+          "jsconfig.others.json": "",
+          "jsconfig.src.json": ""
         }
       },
       "setup-tools": {

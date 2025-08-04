@@ -1,58 +1,14 @@
 /**
- * Based on https://www.totaltypescript.com/tsconfig-cheat-sheet
+ * Root TSConfig for Vue 2 Project, using `references` to combine other TSConfig.
  */
 {
-  // Compiler options
-  "compilerOptions": {
-    // Base options
-    "target": "es2022", // TODO: Align with Webpack
-    "jsx": "preserve",
-    "lib": [
-      "es2022",
-      "webworker",
-      "dom",
-      "dom.iterable",
-      "ScriptHost"
-    ],
-    "moduleDetection": "force",
-    "module": "preserve",
-
-    // Path resolution
-    "paths": {
-      "@/*": ["./*"],
-      "~/*": ["./*"]
+  "references": [
+    {
+      "path": "./tsconfig.src.json"
     },
-
-    // JSON support
-    "resolveJsonModule": true,
-
-    // Type declaration files
-    "types": [
-      /* Add your custom types here */
-    ],
-
-    // Strictness & compatibility
-    "allowJs": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noUncheckedIndexedAccess": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "skipLibCheck": true,
-    "noUncheckedSideEffectImports": true
-  },
-
-  // Excluded files
-  "exclude": [
-    "**/.nuxt/**",
-    "**/build/**",
-    "**/dist/**",
-    "**/docs/**",
-    "**/node_modules/**",
-    "**/playground/**"
-    /* Add your custom excluded files here */
-  ]
+    {
+      "path": "./tsconfig.others.json"
+    }
+  ],
+  "files": []
 }

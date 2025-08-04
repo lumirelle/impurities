@@ -17,8 +17,8 @@ Preferences for JavaScript project.
 - `.vscode/`: VSCode Settings & Extensions For JavaScript Project
 - `eslint.config.js`: ESLint Config For JavaScript Project
 - `eslint.config.ts`: ESLint Config For TypeScript Project
-- `jsconfig.json`: JavaScript Config For JavaScript Project
-- `tsconfig.json`: TypeScript Config For JavaScript Project
+- `jsconfig.json`: JSConfig For JavaScript Project
+- `tsconfig.json`: TSConfig For JavaScript Project
 - `nodejs.gitignore`: Node.js Git Ignore
 - ...
 
@@ -43,8 +43,8 @@ Preferences for Vue.js version 2 project.
 
 - `eslint.config.js`: ESLint Config For Vue.js Version 2 Project
 - `eslint.config.ts`: ESLint Config For TypeScript Project
-- `jsconfig.json`: JavaScript Config For Vue.js Version 2 Project
-- `tsconfig.json`: TypeScript Config For Vue.js Version 2 Project
+- `jsconfig.json`: Root JSConfig For Vue.js Version 2 Project
+- `tsconfig.json`: Root TSConfig For Vue.js Version 2 Project
 - ...
 
 ## Vue 3
@@ -53,6 +53,6 @@ Preferences for Vue.js version 3 project.
 
 - `eslint.config.js`: ESLint Config For Vue.js Version 3 Project
 - `eslint.config.ts`: ESLint Config For TypeScript Project
-- `jsconfig.json`: JavaScript Config For Vue.js Version 3 Project
-- `tsconfig.json`: TypeScript Config For Vue.js Version 3 Project
+- `jsconfig.json`: Root JSConfig For Vue.js Version 3 Project
+- `tsconfig.json`: Root TSConfig For Vue.js Version 3 Project
 - ...

@@ -1,5 +1,5 @@
 /**
- * TSConfig for JavaScript Project, based on https://www.totaltypescript.com/tsconfig-cheat-sheet
+ * TSConfig for other files, based on https://www.totaltypescript.com/tsconfig-cheat-sheet
  * Only for IDE type support. I prefer to use `unbuild` & `vite` as bundler to build the project.
  */
 {
@@ -49,9 +49,7 @@
   "exclude": [
     /* Custom your excluded files below */
     "node_modules/**/*",
-    "assets/**/*",
     "dist/**/*",
-    "playground/**/*",
-    "test/**/*"
+    "src/**/*"
   ]
 }

@@ -1,5 +1,5 @@
 /**
- * TSConfig for JavaScript Project, based on https://www.totaltypescript.com/tsconfig-cheat-sheet
+ * JSConfig for src, based on https://www.totaltypescript.com/tsconfig-cheat-sheet
  * Only for IDE type support. I prefer to use `unbuild` & `vite` as bundler to build the project.
  */
 {
@@ -7,14 +7,27 @@
   "compilerOptions": {
     // Base options
     "target": "ESNext", // Allow to use the latest ECMAScript features, bundler will handle the ES downleveling & polyfill for us.
+    "jsx": "preserve",
     "lib": [
-      "ESNext"
+      "ESNext",
+      "webworker",
+      "dom",
+      "dom.iterable"
+      // "ScriptHost" // OPTIONAL: If you are preparing to support IE, you can uncomment this.
     ],
     "moduleDetection": "force",
     "module": "preserve",
 
     // Path resolution
     "paths": {
+      "~": ["./src"],
+      "~/*": ["./src/*"],
+      "@": ["./src"],
+      "@/*": ["./src/*"],
+      "~~": ["./"],
+      "~~/*": ["./*"],
+      "@@": ["./"],
+      "@@/*": ["./*"]
       /* Add your custom paths resolution here, should align with your bundler config */
     },
 
@@ -42,16 +55,13 @@
   // Include files
   "include": [
     /* Custom your include files below */
-    "**/*"
+    "src/**/*"
   ],
 
   // Excluded files
   "exclude": [
     /* Custom your excluded files below */
     "node_modules/**/*",
-    "assets/**/*",
-    "dist/**/*",
-    "playground/**/*",
-    "test/**/*"
+    "dist/**/*"
   ]
 }
