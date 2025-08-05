@@ -14,7 +14,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 8/4/2025, 5:34:53 PM",
+    "//": "Last update at 8/5/2025, 10:12:51 PM",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .lfsconfig, .mailmap, .git-blame*",
@@ -568,7 +568,6 @@
   "css.enabledLanguages": ["html", "vue"],
   "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],
   "dotenv.enableAutocloaking": false,
-  "console-ninja.featureSet": "Community",
 
   // EXTENSIONS: FRAMEWORK SUPPORT
   "i18n-ally.autoDetection": false,

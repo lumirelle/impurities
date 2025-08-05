@@ -11,15 +11,12 @@
     // PROJECT MANAGER
     "alefragnani.project-manager",
     "eamodio.gitlens",
-    "github.vscode-pull-request-github",
-    "vivaxy.vscode-conventional-commits",
 
     // CONTAINER
     "ms-azuretools.vscode-containers",
 
     // LSP (Syntax, Formatters, Linters, Snippets)
     // >> LSP
-    "remcohaszing.schemastore",
     "redhat.vscode-yaml",
     "bungcip.better-toml",
     "somewhatstationery.some-sass",
@@ -53,7 +50,6 @@
     "sandcastle.vscode-open", // <NOT OPENVSIX>
     // >> Editor Behavior
     "antfu.smart-clicks", // <NOT OPENVSIX>
-    "albert.tabout",
     "mpontus.tab-cycle", // <NOT OPENVSIX>. CTRL+PGUP, CTRL+PGDN, ALT+<NUMBER>
     "yatki.vscode-surround", // CTRL+SHIFT+T
     "britesnow.vscode-toggle-quotes", // CTRL+'
@@ -70,6 +66,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_DEFAULT: 45 - 0 = 45}
-  // >> Cursor: {PROFILE_DEFAULT: 45 - 2 = 43}
+  // >> VSCode: {PROFILE_DEFAULT: 41 - 0 = 41}
+  // >> Cursor: {PROFILE_DEFAULT: 41 - 2 = 39}
 }

@@ -1,6 +1,6 @@
 {
   // cspell:disable
-  // VSCODE PROFILE_VUE3 <= PROFILE_VUE
+  // VSCODE PROFILE_VUE <= PROFILE_VUE
   "recommendations": [
     // LSP (Syntax, Formatters, Linters, Snippets)
     // >> LSP
@@ -14,7 +14,7 @@
     "antfu.unocss"
 
     // EXTENSION COUNT
-    // >> VSCode: {PROFILE_VUE3: 4 + {PROFILE_JS: 54} = 58}
-    // >> Cursor: {PROFILE_VUE3: 4 + {PROFILE_JS: 52} = 56}
+    // >> VSCode: {PROFILE_VUE: 4 + {PROFILE_JS: 49} = 53}
+    // >> Cursor: {PROFILE_VUE: 4 + {PROFILE_JS: 47} = 51}
   ]
 }
