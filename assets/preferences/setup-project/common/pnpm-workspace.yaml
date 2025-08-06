@@ -11,3 +11,17 @@ verifyDepsBeforeRun: install
 # Hoist the dependencies to the root package.json
 # It is equivalent to what the npm does by default
 # shamefullyHoist: true
+
+# Only the dependencies below are allowed to run `install` & `postinstall` and other build-related scripts
+# Or you can run `pnpm approve-builds` to get the same effect but zero-config & interactive
+# onlyBuiltDependencies:
+#   - esbuild
+
+# Support architectures tell pnpm to install the dependencies for which architectures
+# supportedArchitectures:
+#   cpu:
+#     - x64
+#   os:
+#     - win32
+#     - linux
+#     - darwin

@@ -33,6 +33,10 @@ catalogs:
 ignoreWorkspaceRootCheck: true
 verifyDepsBeforeRun: install
 
+onlyBuiltDependencies:
+  - esbuild
+  - simple-git-hooks
+
 # Support more architectures for the future
 supportedArchitectures:
   cpu:
