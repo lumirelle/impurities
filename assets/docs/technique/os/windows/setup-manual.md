@@ -274,6 +274,7 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
   | ~~SEO META in 1 CLICK~~ | ~~Need Trial~~ |
   | Refined Github | |
   | File Icons for GitHub and GitLab | |
+  | CSS Peeper ||
 
 <!-- prettier-ignore-end -->
 
