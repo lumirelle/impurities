@@ -5,6 +5,8 @@
     // LSP (Syntax, Formatters, Linters, Snippets)
     // >> LSP
     "dotenv.dotenv-vscode", // <NOT OPENVSIX>
+    "vue.volar",
+    "lokalise.i18n-ally",
     // >> Linters
     "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx, css, scss, postcss, sass, less, etc.
 
@@ -16,9 +18,15 @@
     // >> Editor Behavior
     "ecmel.vscode-html-css",
     "antfu.goto-alias", // <NOT OPENVSIX>, F12
-    "ritwickdey.liveserver" // NEED TRAIL, ALT+L ALT+O, ALT+L CTRL+C
+    "ritwickdey.liveserver", // NEED TRAIL, ALT+L ALT+O, ALT+L CTRL+C
+
+    // FRAMEWORK SUPPORT
+    // >> Slidev
+    "antfu.slidev",
+    // >> UnoCSS
+    "antfu.unocss"
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 41} = 49}
-  // >> Cursor: {PROFILE_JS: 8 + {PROFILE_DEFAULT: 39} = 47}
+  // >> VSCode: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 41} = 53}
+  // >> Cursor: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 39} = 51}
 }
