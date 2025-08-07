@@ -13,8 +13,7 @@
 
 - [框架 / Framework](#framework)
   - [CSS 框架](#css-framework)
-  - [JS 框架](#js-framework)
-  - [UI 构建框架（及其衍生的应用框架 & 组件库）](#ui-framework)
+  - [JS 框架（UI 构建框架，及其衍生的应用框架 & 组件库）](#js-framework)
     - Vue.js
       - Vue 响应式系统
       - Vue SFC
@@ -111,6 +110,10 @@ NOTE: 现代前端技术的核心可以说是 JS & JS Runtime（浏览器 | node
 
 每天看一遍 MDN 之 [Grid](https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid)。
 
+### HTML 元素嵌套规则
+
+HTML 元素其实有严格的嵌套规则，详见[本文](html/basic-manual.md)。
+
 ### 必学滴 JS 知识 <a name="js-basic"></a>
 
 见 [js-basic.md](js/js-basic-manual.md)
@@ -126,17 +129,21 @@ NOTE: 现代前端技术的核心可以说是 JS & JS Runtime（浏览器 | node
 
 以及基于 JS 实现**按需生成样式**，增强了性能的新生代 CSS 框架：
 
-- UnoCSS
+- UnoCSS (Very recommended)
 
-### JS 框架 <a name="js-framework"></a>
+### JS 框架（UI 构建框架，及其衍生的应用框架 & 组件库） <a name="js-framework"></a>
 
 JS 框架主要有如下：
 
 - JQuery
+- Vue
+- React
+- Angular
+- ...
 
-### UI 构建框架（及其衍生的应用框架 & 组件库） <a name="ui-framework"></a>
+它们的特点是基于封装好的 JS Api，直接提供或代理了 DOM 操作。
 
-基于浏览器环境中 JS 访问 DOM 的能力，诞生了用户界面构建框架；基于 node.js 环境中 JS 操作文件系统、网络系统的能力，诞生了应用框架：
+也正是基于这种能力，它们也被称作用户界面构建框架，衍生出各式各样的组件库。后又基于基于 node.js 环境中 JS 操作文件系统、网络系统的能力，衍生出来对应的应用框架：
 
 - AngularJS/Angular
 
@@ -177,13 +184,21 @@ TypeScript 相较于 JavaScript 增加了类型检查，在项目工程化中起
 
 ### 工具生态 <a name="tool-ecosystem"></a>
 
-- Parser: babel / acorn / esbuild / espree / flow / TS / swc / uglify-js
-- Transformer: babel / esbuild / swc / sucrase / TS
-- Test runner: mocha / jasmine / tape / ava / jest
-- Linter: jshint / eslint / biome / hint
-- Formatter: prettier / eslint
-- Bundler: webpack / rollup / esbuild / parcel
-- Monorepo tools: nx / tuborepo / rush / lerna / lage / wireit
+- Parser: Babel / Acorn / ESBuild / Espree / Flow / TS / SWC / UglifyJs
+- Transformer: Babel / ESBuild / SWC / Sucrase / TS
+- Test runner: Mocha / Jasmine / Tape / Ava / Jest / Vitest
+- Linter: JSHint / ESLint / Biome / Hint
+- Formatter: Prettier / ESLint
+- Bundler: Webpack / Rollup / ESBuild / Parcel / Vite
+- Monorepo tools: Nx / Tuborepo / Rush / Lerna / Lage / Wireit / PNPM
+
+现代化项目推荐使用的工具链：
+
+- Bundler: Vite
+- Transformer & Parser: ESBuild (Integrated in Vite)
+- Test runner: Vitest (Based on vite)
+- Linter & Formatter: ESLint
+- Monorepo tools: pnpm
 
 #### Bundler <a name="bundler"></a>
 
@@ -204,9 +219,9 @@ CommonJS 模块打包能力（即将多个 CommonJS 模块打包转换成一个�
 等底层使用高性能语言编写的构建工具随之诞生。需要注意的是，Esbuild 至今（2025/01/23）还未发布稳定版。
 
 随着 ESM 的浏览器支持越来越好，如 Vite 等主打不打包（budless）概念的构建工具诞生。在开发模式下，Vite
-使用 Esbuild 对项目的依赖进行预构建，将其中的 CommonJS 模块转换为 ESM 模块，并将如 lodash-es
+使用 ESBuild 对项目的依赖进行预构建，将其中的 CommonJS 模块转换为 ESM 模块，并将如 lodash-es
 这样的依赖项打包为一个文件，避免瀑布请求，此后直接输出 ESM 至浏览器，极大地加快了构建速度；在生产模式下的
-Vite，考虑到 Esbuild 稳定性、浏览器兼容性和 RTT 时间，转为使用 Rollup 对整个项目均进行构建。
+Vite，考虑到 ESBuild 稳定性、浏览器兼容性和 RTT 时间，转为使用 Rollup 对整个项目均进行构建。
 
 ### CSS 预处理 <a name="pre-css"></a>
 
