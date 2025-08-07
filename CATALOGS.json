@@ -32,6 +32,9 @@
           },
           "web": {
             "frontend-manual.md": "",
+            "html": {
+              "basic-manual.md": ""
+            },
             "js": {
               "basic-manual.md": ""
             },
