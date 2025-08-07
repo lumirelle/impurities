@@ -18,6 +18,7 @@ export default {
   ignoreFiles: [
     // Build output
     '{,src/,app/}.nuxt/**/*',
+    '{,src/,app/}.output/**/*',
     '{,src/,app/}dist/**/*',
     // Assets and static files
     '{,src/app/}assets/font{,s}/**/*',
