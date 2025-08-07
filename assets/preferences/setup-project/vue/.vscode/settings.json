@@ -1,7 +1,7 @@
 {
-  // -- format & lint --
+  // Format & Lint
   "editor.formatOnSave": false,
-  "prettier.enable": false, // Disable prettier extension, run it throught `eslint-plugin-format`
+  "prettier.enable": false, // Disable prettier extension, run it through `eslint-plugin-format`
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
@@ -38,10 +38,12 @@
     { "rule": "*semi", "severity": "off" }
   ],
 
-  // -- i18n --
+  // i18n
   "i18n-ally.autoDetection": false,
-  "i18n-ally.localesPaths": ["locales"],
+  "i18n-ally.localesPaths": ["locales", "pages", "components", "app/i18n/locales", "app/pages", "app/components"],
+  "i18n-ally.enabledFrameworks": ["vue", "vue-sfc"],
   "i18n-ally.namespace": true,
-  "i18n-ally.pathMatcher": "modules/{namespaces}/{locale}.json",
+  // If your i18n modules are under `modules` folder, or you don't need to use custom path matcher
+  // "i18n-ally.pathMatcher": "modules/{namespaces}/{locale}.json",
   "i18n-ally.keystyle": "nested"
 }

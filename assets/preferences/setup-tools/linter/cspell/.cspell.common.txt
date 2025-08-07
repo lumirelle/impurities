@@ -92,6 +92,7 @@ bumpp
 nvmrc
 sconfig
 ofetch
+pinia
 
 >> DEV: Python
 mconda
