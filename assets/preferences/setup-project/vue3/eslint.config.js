@@ -11,14 +11,14 @@ export default antfu(
     // Build output, node_modules and other common ignored files are already included
     ignores: [
       // Assets and static files
-      '**/assets/font{,s}',
-      '**/assets/icon{,s}',
-      '**/assets/image{,s}',
-      '**/assets/lang{,s}',
-      '**/assets/json{,s}',
-      '**/static',
-      '**/public',
-      '**/theme',
+      '{,src/,app/}assets/font{,s}',
+      '{,src/,app/}assets/icon{,s}',
+      '{,src/,app/}assets/image{,s}',
+      '{,src/,app/}assets/lang{,s}',
+      '{,src/,app/}assets/json{,s}',
+      '{,src/,app/}static',
+      '{,src/,app/}public',
+      '{,src/,app/}theme',
       // Nuxt html templates
       '**/app/view',
       '**/app.html',
