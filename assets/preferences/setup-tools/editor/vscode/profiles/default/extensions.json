@@ -18,7 +18,7 @@
     // LSP (Syntax, Formatters, Linters, Snippets)
     // >> LSP
     "redhat.vscode-yaml",
-    "bungcip.better-toml",
+    "tamasfe.even-better-toml",
     "somewhatstationery.some-sass",
     "thenuprojectcontributors.vscode-nushell-lang", // also the formatter & linter & snippets for nushell
     "pomdtr.excalidraw-editor",
