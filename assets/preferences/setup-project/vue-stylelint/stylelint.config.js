@@ -17,22 +17,22 @@ export default {
 
   ignoreFiles: [
     // Build output
-    '**/.nuxt/**/*',
-    '**/dist/**/*',
+    '{,src/,app/}.nuxt/**/*',
+    '{,src/,app/}dist/**/*',
     // Assets and static files
-    '**/assets/font{,s}/**/*',
-    '**/assets/icon{,s}/**/*',
-    '**/assets/image{,s}/**/*',
-    '**/assets/lang{,s}/**/*',
-    '**/assets/json{,s}/**/*',
-    '**/static/**/*',
-    '**/public/**/*',
-    '**/theme/**/*',
+    '{,src/app/}assets/font{,s}/**/*',
+    '{,src/app/}assets/icon{,s}/**/*',
+    '{,src/app/}assets/image{,s}/**/*',
+    '{,src/app/}assets/lang{,s}/**/*',
+    '{,src/app/}assets/json{,s}/**/*',
+    '{,src/app/}static/**/*',
+    '{,src/app/}public/**/*',
+    '{,src/app/}theme/**/*',
     // Node modules
     '**/node_modules/**/*',
     // Nuxt app
-    '**/app/view/**/*',
-    '**/app.html',
+    'app/view/**/*',
+    'app.html',
     // Add your custom ignore files here
   ],
 

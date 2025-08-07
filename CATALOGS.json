@@ -239,7 +239,6 @@
           },
           "vscode": {
             "keybindings.json": "",
-            "mcp.json": "",
             "profiles": {
               "default": {
                 "extensions.json": ""

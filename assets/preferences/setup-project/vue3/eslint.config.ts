@@ -20,8 +20,8 @@ export default antfu(
       '{,src/,app/}public',
       '{,src/,app/}theme',
       // Nuxt html templates
-      '**/app/view',
-      '**/app.html',
+      'app/view',
+      'app.html',
       // Add your custom ignored files here
     ],
   },

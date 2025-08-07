@@ -47,7 +47,7 @@
   "Vue Component (Script Setup)": {
     "prefix": "vc",
     "description": "Vue Component (Script Setup)",
-    "scope": "",
+    "scope": "vue",
     "body": [
 		"<script lang=\"${4|ts,js|}\" setup>",
 		"$0",
@@ -79,7 +79,7 @@
 "Vue Page (Script Setup)": {
 	"prefix": "vp",
 	"description": "Vue Page (Script Setup)",
-	"scope": "",
+	"scope": "vue",
 	"body": [
 		"<script lang=\"${4|ts,js|}\" setup>",
 		"$0",
@@ -102,7 +102,7 @@
   "Vue Component With Namespace (Script Setup, BEM)": {
     "prefix": "vcns",
     "description": "Vue Component With Namespace (Script Setup, BEM)",
-    "scope": "",
+    "scope": "vue",
     "body": [
 		"<script lang=\"${4|ts,js|}\" setup>",
 		"import { useNamespace } from '@/hooks/use-namespace'",
@@ -138,7 +138,7 @@
   "Vue Page With Namespace (Script Setup, BEM)1": {
     "prefix": "vpns",
     "description": "Vue Page With Namespace (Script Setup, BEM)",
-    "scope": "",
+    "scope": "vue",
     "body": [
 		"<script lang=\"${4|ts,js|}\" setup>",
 		"import { useNamespace } from '@/hooks/use-namespace'",

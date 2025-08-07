@@ -94,6 +94,7 @@ nvmrc
 sconfig
 ofetch
 pinia
+pxtorem
 
 >> DEV: Python
 mconda
