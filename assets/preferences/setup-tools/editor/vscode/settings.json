@@ -3,7 +3,7 @@
 
   // VSCODE: UI
   // >> Window
-  "window.zoomLevel": 1.1,
+  "window.zoomLevel": 1.2,
   "window.title": "${rootPath}", // this make tabs more readable
   "window.titleBarStyle": "custom",
   // >> Workbench
