@@ -126,18 +126,6 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
-    name: 'p/env/pm/mconda/lnk',
-    type: 'preference',
-    matchOptions: {
-      cwd: join(PREFERENCES_PATH, 'setup-env', 'package-manager', 'miniconda'),
-      pattern: '*.lnk',
-    },
-    installOptions: {
-      folders: [join(env.ProgramData || '', 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Anaconda (miniconda3)')],
-      mode: 'copy',
-    },
-  },
-  {
     name: 'p/env/pc/node/config',
     type: 'preference',
     matchOptions: {

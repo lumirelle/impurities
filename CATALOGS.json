@@ -95,11 +95,6 @@
         "package-manager": {
           "maven": {
             "settings.xml": ""
-          },
-          "miniconda": {
-            "Conda CMD.lnk": "",
-            "Conda PowerShell 7.lnk": "",
-            "Conda PowerShell.lnk": ""
           }
         },
         "project-creator": {

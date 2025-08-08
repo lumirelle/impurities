@@ -96,6 +96,7 @@ pinia
 
 >> DEV: Python
 mconda
+venv
 
 >> THIRD PARTY PLATFORMS
 iconfont

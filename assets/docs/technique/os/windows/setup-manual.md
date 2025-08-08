@@ -229,7 +229,7 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
   | Neovim | `winget install Neovim.Neovim` |
   | LazyVim | [LazyVim](https://www.lazyvim.org/installation) |
   | JDK | [Oracle](https://www.oracle.com/cn/java/technologies/downloads/#graalvmjava21) |
-  | ~~Miniconda (Waiting Trial)~~ | ~~[Anaconda](https://www.anaconda.com/download/success#miniconda)~~ |
+  | VEnv | `python -m venv /path/to/new/virtual/environment` |
   | JetBrains Toolbox | [JetBrains](https://www.jetbrains.com/zh-cn/lp/toolbox/) |
   | JetBrains IDEA | 使用 JetBrains Toolbox 安装 |
   | Visual Studio | [Visual Studio](https://visualstudio.microsoft.com/zh-hans/downloads/) |
