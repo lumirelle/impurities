@@ -11,6 +11,7 @@
     // PROJECT MANAGER
     "alefragnani.project-manager",
     "eamodio.gitlens",
+    "codezombiech.gitignore",
 
     // CONTAINER
     "ms-azuretools.vscode-containers",
@@ -66,6 +67,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_DEFAULT: 41 - 0 = 41}
-  // >> Cursor: {PROFILE_DEFAULT: 41 - 2 = 39}
+  // >> VSCode: {PROFILE_DEFAULT: 42 - 0 = 42}
+  // >> Cursor: {PROFILE_DEFAULT: 42 - 2 = 40}
 }

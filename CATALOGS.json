@@ -163,7 +163,6 @@
           "eslint.config.js": "",
           "eslint.config.ts": "",
           "jsconfig.json": "",
-          "nodejs.gitignore": "",
           "tsconfig.json": ""
         },
         "nuxt2": {

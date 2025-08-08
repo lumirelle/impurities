@@ -19,7 +19,6 @@ Preferences for JavaScript project.
 - `eslint.config.ts`: ESLint Config For TypeScript Project
 - `jsconfig.json`: JSConfig For JavaScript Project
 - `tsconfig.json`: TSConfig For JavaScript Project
-- `nodejs.gitignore`: Node.js Git Ignore
 - ...
 
 ## Vue

@@ -106,7 +106,7 @@ we paste .editorconfig -f
 we paste .gitattributes -f
 
 # >> 忽略文件
-we paste nodejs.gitignore .gitignore -f
+# Get the Node.ignore from VSCode extension `codezombiech.gitignore`
 ```
 
 ### 手动配置
@@ -137,7 +137,7 @@ See [here](/assets/preferences/setup-project/common/.gitattributes).
 
 .gitignore
 
-See [here](/assets/preferences/setup-project/js/nodejs.gitignore).
+See [here](https://github.com/github/gitignore/blob/main/Node.gitignore).
 
 ## 📦 使用 PNPM 并配置
 
