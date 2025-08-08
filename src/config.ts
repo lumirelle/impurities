@@ -165,6 +165,14 @@ export const GALLERIES: Gallery[] = [
     name: 'p/tool/editor/vsc/json',
     type: 'preference',
     matchOptions: {
+      cwd: join(PREFERENCES_PATH, 'setup-tools', 'editor', 'vscode', 'profiles'),
+      pattern: '**/*.json',
+    },
+  },
+  {
+    name: 'p/tool/editor/vsc/json',
+    type: 'preference',
+    matchOptions: {
       cwd: join(PREFERENCES_PATH, 'setup-tools', 'editor', 'vscode'),
       pattern: '*.json',
     },
