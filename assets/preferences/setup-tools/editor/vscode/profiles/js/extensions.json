@@ -27,6 +27,6 @@
     "antfu.unocss"
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 42} = 54}
-  // >> Cursor: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 40} = 52}
+  // >> VSCode: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 43} = 55}
+  // >> Cursor: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 41} = 53}
 }
