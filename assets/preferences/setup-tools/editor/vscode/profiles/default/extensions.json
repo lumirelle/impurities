@@ -28,6 +28,7 @@
     "editorconfig.editorconfig", // For node package
     "esbenp.prettier-vscode", // For portable usage
     "foxundermoon.shell-format",
+    "tyriar.sort-lines",
     // >> Linters
     "streetsidesoftware.code-spell-checker",
 
