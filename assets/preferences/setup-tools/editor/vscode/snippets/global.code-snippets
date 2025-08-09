@@ -1,19 +1,100 @@
 {
+	"Vue Style Scoped (CSS)": {
+		"prefix": "st-css",
+		"description": "Vue SFC Style Scoped (CSS)",
+		"scope": "vue",
+		"body": [
+			"<style lang=\"css\" scoped>",
+			"$0",
+			"</style>"
+		]
+	},
+	"Vue Style Scoped (SCSS)": {
+		"prefix": [
+			"st",
+			"st-scss"
+		],
+		"description": "Vue SFC Style Scoped (SCSS)",
+		"scope": "vue",
+		"body": [
+			"<style lang=\"scss\" scoped>",
+			"$0",
+			"</style>"
+		]
+	},
+	"Vue I18n Block (JSON)": {
+		"prefix": "i18n-json",
+		"description": "Vue SFC I18n Block (JSON)",
+		"scope": "vue-html",
+		"body": [
+			"<i18n lang=\"json\">",
+			"$0",
+			"<i18n>"
+		]
+	},
+	"Vue I18n Block (YAML)": {
+		"prefix": [
+			"i18n",
+			"i18n-yaml"
+		],
+		"description": "Vue SFC I18n Block (YAML)",
+		"scope": "vue-html",
+		"body": [
+			"<i18n lang=\"yaml\">",
+			"$0",
+			"<i18n>"
+		]
+	},
+	"Vue Script Export": {
+		"prefix": "se",
+		"description": "Vue SFC Script Export",
+		"scope": "vue",
+		"body": [
+			"<script>",
+			"export default {",
+			"  $0",
+			"}",
+			"</script>"
+		]
+	},
+	"Vue Script Setup (JS)": {
+		"prefix": "sc-js",
+		"description": "Vue SFC Script Setup (JS)",
+		"scope": "vue",
+		"body": [
+			"<script lang=\"js\" setup>",
+			"$0",
+			"</script>"
+		]
+	},
+	"Vue Script Setup (TS)": {
+		"prefix": [
+			"sc",
+			"sc-ts"
+		],
+		"description": "Vue SFC Script Setup (TS)",
+		"scope": "vue",
+		"body": [
+			"<script lang=\"ts\" setup>",
+			"$0",
+			"</script>"
+		]
+	},
   // JavaScript & TypeScript
   "import": {
     "scope": "javascript,typescript",
     "prefix": "im",
     "body": [
-      "import { $1 } from '$2';"
-    ],
+		"import { $1 } from '$2'"
+	],
     "description": "Import a module"
   },
   "export-all": {
     "scope": "javascript,typescript",
     "prefix": "ex",
     "body": [
-      "export * from '$2';"
-    ],
+		"export * from '$2'"
+	],
     "description": "Export a module"
   },
 
@@ -22,144 +103,21 @@
     "scope": "markdown",
     "prefix": "api-table",
     "body": [
-      "<table>",
-      "<tr>",
-      "<td width=\"400px\" valign=\"top\">",
-      "",
-      "### API",
-      "",
-      "Description",
-      "",
-      "</td>",
-      "<td width=\"600px\"><br>",
-      "",
-      "```ts",
-      "// code block",
-      "```",
-      "",
-      "</td>",
-      "</tr>",
-      "</table>",
-    ],
-  },
-
-  // Vue
-  "Vue Component (Script Setup)": {
-    "prefix": "vc",
-    "description": "Vue Component (Script Setup)",
-    "scope": "vue",
-    "body": [
-		"<script lang=\"${4|ts,js|}\" setup>",
-		"$0",
-		"</script>",
+		"<table>",
+		"<tr><td width=\"400px\" valign=\"top\">",
 		"",
-		"<template>",
-		"  <div class=\"${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}\">",
-		"    <div class=\"${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}__content\">",
-		"      <!-- -->",
-		"    </div>",
-		"  </div>",
-		"</template>",
+		"### API",
 		"",
-		"<style lang=\"scss\" scoped>",
-		".${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g} {",
-		"  background: #fff;",
+		"Description",
 		"",
-		"  &__content {",
-		"    width: calc(100% - 32px);",
-		"    max-width: 1200px;",
-		"    padding: 100px 0;",
-		"    margin: 0 auto;",
-		"  }",
-		"}",
-		"</style>",
-		""
-	]
-},
-"Vue Page (Script Setup)": {
-	"prefix": "vp",
-	"description": "Vue Page (Script Setup)",
-	"scope": "vue",
-	"body": [
-		"<script lang=\"${4|ts,js|}\" setup>",
-		"$0",
-		"</script>",
+		"</td><td width=\"600px\"><br>",
 		"",
-		"<template>",
-		"  <div class=\"${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}-page\">",
-		"    <!--  -->",
-		"  </div>",
-		"</template>",
+		"```ts",
+		"// code block",
+		"```",
 		"",
-		"<style lang=\"scss\" scoped>",
-		".${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}-page {",
-		"  background: #fff;",
-		"}",
-		"</style>",
-		""
-	]
-},
-  "Vue Component With Namespace (Script Setup, BEM)": {
-    "prefix": "vcns",
-    "description": "Vue Component With Namespace (Script Setup, BEM)",
-    "scope": "vue",
-    "body": [
-		"<script lang=\"${4|ts,js|}\" setup>",
-		"import { useNamespace } from '@/hooks/use-namespace'",
-		"",
-		"const ns = useNamespace('${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}')",
-		"",
-		"$0",
-		"</script>",
-		"",
-		"<template>",
-		"  <div :class=\"ns.b()\">",
-		"    <div :class=\"ns.e('content')\">",
-		"      <!-- -->",
-		"    </div>",
-		"  </div>",
-		"</template>",
-		"",
-		"<style lang=\"scss\" scoped>",
-		"@include b(${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}) {",
-		"  background: #fff;",
-		"",
-		"  @include e(content) {",
-		"    width: calc(100% - 32px);",
-		"    max-width: 1200px;",
-		"    padding: 100px 0;",
-		"    margin: 0 auto;",
-		"  }",
-		"}",
-		"</style>",
-		""
-	]
-  },
-  "Vue Page With Namespace (Script Setup, BEM)1": {
-    "prefix": "vpns",
-    "description": "Vue Page With Namespace (Script Setup, BEM)",
-    "scope": "vue",
-    "body": [
-		"<script lang=\"${4|ts,js|}\" setup>",
-		"import { useNamespace } from '@/hooks/use-namespace'",
-		"",
-		"const ns = useNamespace('${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}-page')",
-		"",
-		"$0",
-		"</script>",
-		"",
-		"<template>",
-		"  <div :class=\"ns.b()\">",
-		"    <!--  -->",
-		"  </div>",
-		"</template>",
-		"",
-		"<style lang=\"scss\" scoped>",
-		"@include b(${TM_FILENAME_BASE/(_)|(?:^([A-Z])|(?<!^)([A-Z]))/${1:+-}${2:/downcase}${3:+-}${3:/downcase}/g}-page) {",
-		"  background: #fff;",
-		"}",
-		"</style>",
-		""
-	]
-  }
+		"</td></tr>",
+		"</table>"
+	],
+}
 }
