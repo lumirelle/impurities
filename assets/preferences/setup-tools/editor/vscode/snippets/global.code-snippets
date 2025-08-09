@@ -1,18 +1,53 @@
 {
+	"Vue Script Default": {
+		"prefix": "script",
+		"description": "Vue SFC Script Default",
+		"scope": "vue",
+		"body": [
+			"<script>",
+			"export default {",
+			"  $0",
+			"}",
+			"</script>"
+		]
+	},
+	"Vue Script Setup (JS)": {
+		"prefix": "setupscript-js",
+		"description": "Vue SFC Script Setup (JS)",
+		"scope": "vue",
+		"body": [
+			"<script setup>",
+			"$0",
+			"</script>"
+		]
+	},
+	"Vue Script Setup (TS)": {
+		"prefix": [
+			"setupscript",
+			"setupscript-ts"
+		],
+		"description": "Vue SFC Script Setup (TS)",
+		"scope": "vue",
+		"body": [
+			"<script lang=\"ts\" setup>",
+			"$0",
+			"</script>"
+		]
+	},
 	"Vue Style Scoped (CSS)": {
-		"prefix": "st-css",
+		"prefix": "scopedstyle-css",
 		"description": "Vue SFC Style Scoped (CSS)",
 		"scope": "vue",
 		"body": [
-			"<style lang=\"css\" scoped>",
+			"<style scoped>",
 			"$0",
 			"</style>"
 		]
 	},
 	"Vue Style Scoped (SCSS)": {
 		"prefix": [
-			"st",
-			"st-scss"
+			"scopedstyle",
+			"scopedstyle-scss"
 		],
 		"description": "Vue SFC Style Scoped (SCSS)",
 		"scope": "vue",
@@ -25,11 +60,11 @@
 	"Vue I18n Block (JSON)": {
 		"prefix": "i18n-json",
 		"description": "Vue SFC I18n Block (JSON)",
-		"scope": "vue-html",
+		"scope": "vue",
 		"body": [
 			"<i18n lang=\"json\">",
 			"$0",
-			"<i18n>"
+			"</i18n>"
 		]
 	},
 	"Vue I18n Block (YAML)": {
@@ -38,46 +73,11 @@
 			"i18n-yaml"
 		],
 		"description": "Vue SFC I18n Block (YAML)",
-		"scope": "vue-html",
+		"scope": "vue",
 		"body": [
 			"<i18n lang=\"yaml\">",
 			"$0",
-			"<i18n>"
-		]
-	},
-	"Vue Script Export": {
-		"prefix": "se",
-		"description": "Vue SFC Script Export",
-		"scope": "vue",
-		"body": [
-			"<script>",
-			"export default {",
-			"  $0",
-			"}",
-			"</script>"
-		]
-	},
-	"Vue Script Setup (JS)": {
-		"prefix": "sc-js",
-		"description": "Vue SFC Script Setup (JS)",
-		"scope": "vue",
-		"body": [
-			"<script lang=\"js\" setup>",
-			"$0",
-			"</script>"
-		]
-	},
-	"Vue Script Setup (TS)": {
-		"prefix": [
-			"sc",
-			"sc-ts"
-		],
-		"description": "Vue SFC Script Setup (TS)",
-		"scope": "vue",
-		"body": [
-			"<script lang=\"ts\" setup>",
-			"$0",
-			"</script>"
+			"</i18n>"
 		]
 	},
   // JavaScript & TypeScript
@@ -88,7 +88,15 @@
 		"import { $1 } from '$2'"
 	],
     "description": "Import a module"
-  },
+},
+"import default": {
+	"prefix": "im-default",
+	"description": "Import a module as default",
+	"scope": "javascript,typescript",
+	"body": [
+		"import $1 from '$2'"
+	]
+},
   "export-all": {
     "scope": "javascript,typescript",
     "prefix": "ex",
