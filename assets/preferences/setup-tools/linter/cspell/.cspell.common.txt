@@ -95,6 +95,7 @@ sconfig
 ofetch
 pinia
 pxtorem
+highlightjs
 
 >> DEV: Python
 mconda
