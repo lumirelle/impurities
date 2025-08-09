@@ -21,12 +21,14 @@
     "ritwickdey.liveserver", // NEED TRAIL, ALT+L ALT+O, ALT+L CTRL+C
 
     // FRAMEWORK SUPPORT
+    // >> Nuxt
+    "nuxtr.nuxtr-vscode",
     // >> Slidev
     "antfu.slidev",
     // >> UnoCSS
     "antfu.unocss"
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 43} = 55}
-  // >> Cursor: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 41} = 53}
+  // >> VSCode: {PROFILE_JS: 13 + {PROFILE_DEFAULT: 43} = 56}
+  // >> Cursor: {PROFILE_JS: 13 + {PROFILE_DEFAULT: 41} = 54}
 }
