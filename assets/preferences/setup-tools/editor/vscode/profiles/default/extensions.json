@@ -57,6 +57,7 @@
     "britesnow.vscode-toggle-quotes", // CTRL+'
     "cardinal90.multi-cursor-case-preserve",
     "christian-kohler.path-intellisense",
+    "northisup.comment-divider-updated", // ALT+X, SHIFT+ALT+X, ALT+Y
     "github.copilot", // <VSCODE ONLY>
     "github.copilot-chat", // <VSCODE ONLY>
     // >> Main Bar Behavior
@@ -68,6 +69,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_DEFAULT: 43 - 0 = 43}
-  // >> Cursor: {PROFILE_DEFAULT: 43 - 2 = 41}
+  // >> VSCode: {PROFILE_DEFAULT: 44 - 0 = 44}
+  // >> Cursor: {PROFILE_DEFAULT: 44 - 2 = 42}
 }
