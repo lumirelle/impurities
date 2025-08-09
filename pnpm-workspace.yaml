@@ -3,18 +3,18 @@ packages:
 
 catalogs:
   dev:
-    '@antfu/eslint-config': ^5.0.0
+    '@antfu/eslint-config': ^5.2.0
     '@commitlint/types': ^19.8.1
     '@prettier/plugin-xml': ^3.4.2
-    '@types/node': ^24.1.0
+    '@types/node': ^24.2.1
     bumpp: ^10.2.2
-    eslint: ^9.32.0
+    eslint: ^9.33.0
     eslint-plugin-format: ^1.0.1
-    lint-staged: ^16.1.2
+    lint-staged: ^16.1.5
     simple-git-hooks: ^2.13.1
     taze: ^19.1.0
     tsx: ^4.20.3
-    typescript: ~5.8.3
+    typescript: ~5.9.2
     unbuild: ^3.6.0
     vitest: ^3.2.4
   playground-vue2:
