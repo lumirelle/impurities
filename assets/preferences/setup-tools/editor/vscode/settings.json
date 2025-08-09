@@ -493,6 +493,11 @@
       "overviewRulerColor": "rgb(171 55 47 / 80%)"
     },
     {
+      "text": "CAUTION:",
+      "backgroundColor": "#ab372f",
+      "overviewRulerColor": "rgb(171 55 47 / 80%)"
+    },
+    {
       "text": "FIXME:",
       "backgroundColor": "#ee7959",
       "overviewRulerColor": "rgb(238 121 89 / 80%)"
@@ -531,6 +536,11 @@
       "text": "NOTE:",
       "backgroundColor": "#e18a3b",
       "overviewRulerColor": "rgb(225 138 59 / 80%)"
+    },
+    {
+      "text": "OPTINAL:",
+      "backgroundColor": "#9aa7b1",
+      "overviewRulerColor": "rgb(154 167 177 / 80%)"
     },
     {
       "text": "<VSCODE ONLY>",
