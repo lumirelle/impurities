@@ -7,6 +7,7 @@
     "dotenv.dotenv-vscode", // <NOT OPENVSIX>
     "vue.volar",
     "lokalise.i18n-ally",
+    "humao.rest-client",
     // >> Linters
     "dbaeumer.vscode-eslint", // also the formatter for js, ts, jsx, tsx, css, scss, postcss, sass, less, etc.
 
@@ -27,6 +28,6 @@
     "antfu.unocss"
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 44} = 56}
-  // >> Cursor: {PROFILE_JS: 12 + {PROFILE_DEFAULT: 42} = 54}
+  // >> VSCode: {PROFILE_JS: 13 + {PROFILE_DEFAULT: 44} = 57}
+  // >> Cursor: {PROFILE_JS: 13 + {PROFILE_DEFAULT: 42} = 55}
 }
