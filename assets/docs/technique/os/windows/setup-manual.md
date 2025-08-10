@@ -271,10 +271,9 @@ winget install xxx.xxx --location "C:\Program Files\xxx"
   | Vue.js devtools | Chrome 扩展商店 |
   | Vue.js devtools （Legacy） | |
   | Cookie Editor | Key：ookdjilphngeeeghgngjabigmpepanpl |
-  | ~~SEO META in 1 CLICK~~ | ~~Need Trial~~ |
+  | SEO META in 1 CLICK | |
   | Refined Github | |
   | File Icons for GitHub and GitLab | |
-  | CSS Peeper ||
 
 <!-- prettier-ignore-end -->
 
