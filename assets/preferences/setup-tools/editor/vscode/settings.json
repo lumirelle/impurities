@@ -14,7 +14,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 8/7/2025, 11:03:20 PM",
+    "//": "Last update at 8/10/2025, 1:41:22 PM",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .lfsconfig, .mailmap, .git-blame*",
@@ -113,7 +113,7 @@
   // >> Editor
   "editor.lineNumbers": "interval",
   "editor.rulers": [80, 120],
-  "editor.fontFamily": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
+  "editor.fontFamily": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
   "editor.fontSize": 16,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
@@ -339,9 +339,9 @@
   "scm.diffDecorationsGutterWidth": 2,
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
   // >> Font
-  "custom-ui-style.font.sansSerif": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
-  "custom-ui-style.font.monospace": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
-  "markdown.preview.fontFamily": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
+  "custom-ui-style.font.sansSerif": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
+  "custom-ui-style.font.monospace": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
+  "markdown.preview.fontFamily": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
   "markdown.preview.fontSize": 16,
 
   // EXTENSIONS: PROJECT
@@ -593,5 +593,11 @@
   // EXTENSIONS: FRAMEWORK SUPPORT
   "i18n-ally.autoDetection": false,
   "i18n-ally.displayLanguage": "en",
-  "i18n-ally.ignoredLocales": []
+  "i18n-ally.ignoredLocales": [],
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  }
 }

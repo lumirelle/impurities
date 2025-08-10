@@ -7,19 +7,17 @@
 
 ## 👫 Your Best Coding Friends <a name='coding'></a>
 
-It's a pity that I haven't found a Chinese font that can adapt well to `Rec Mono Casual` yet.
+It's a pity that I haven't found a Chinese font that can adapt well to `Google Sans Code` yet.
 
 Now, let's using `Source Han Sans TC` instead first.
 
 ```json
-"'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font', monospace"
+"'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace"
 ```
 
 ## 📦 Other Nice Ones <a name="other"></a>
 
-Waiting for trial!
-
-- For Reading: `Caslon`
+- For Coding: `Rec Mono Casual`
 
 ## 📑 Preview
 
