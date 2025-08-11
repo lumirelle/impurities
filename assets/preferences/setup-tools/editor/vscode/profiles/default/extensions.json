@@ -48,7 +48,6 @@
     "tomoki1207.selectline-statusbar", // <NOT OPENVSIX>
     // >> Explorer Behavior
     "JannisX11.batch-rename-extension", // <NOT OPENVSIX>
-    "rhalaly.scope-to-this",
     "sandcastle.vscode-open", // <NOT OPENVSIX>
     // >> Editor Behavior
     "antfu.smart-clicks", // <NOT OPENVSIX>
@@ -69,6 +68,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_DEFAULT: 44 - 0 = 44}
-  // >> Cursor: {PROFILE_DEFAULT: 44 - 2 = 42}
+  // >> VSCode: {PROFILE_DEFAULT: 43 - 0 = 43}
+  // >> Cursor: {PROFILE_DEFAULT: 43 - 2 = 41}
 }
