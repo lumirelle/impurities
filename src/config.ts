@@ -198,10 +198,10 @@ export const GALLERIES: Gallery[] = [
     },
   },
   {
-    name: 'p/tool/git/cz/rc',
+    name: 'p/tool/git/czg/rc',
     type: 'preference',
     matchOptions: {
-      cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-tools', 'commitizen'),
+      cwd: join(PREFERENCES_PATH, 'setup-tools', 'git-tools', 'czg'),
       pattern: '.czrc',
     },
     installOptions: {

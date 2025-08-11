@@ -36,8 +36,8 @@ cursor .prettierrc.yml
 # 初始化提交，add then commit
 git acm "feat: init project"
 
-# 或者使用 commitizen & cz-git 来提交，add then commitizen
-git acz
+# 或者使用 czg 来提交，add then czg
+git acg
 # 然后跟随指引完成提交操作
 ```
 

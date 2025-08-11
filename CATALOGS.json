@@ -255,7 +255,7 @@
           }
         },
         "git-tools": {
-          "commitizen": {
+          "czg": {
             ".czrc": ""
           },
           "simple-git-hooks": {

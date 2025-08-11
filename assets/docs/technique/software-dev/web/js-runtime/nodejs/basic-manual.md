@@ -61,7 +61,7 @@ winget install Schniz.fnm
 
 ```shell
 # For latest LTS
-npm i nrm @antfu/ni @antfu/nip taze @sxzz/create commitizen cz-git -g
+npm i nrm @antfu/ni @antfu/nip taze @sxzz/create czg -g
 # For 14 (LTS)
 npm i @antfu/ni -g
 

@@ -20,7 +20,7 @@ Preferences for setting up a new tool.
 
 Preferences for Git Tools.
 
-- `commitizen`: Commitizen
+- `czg`: [czg](https://cz-git.qbb.sh/zh/cli/)
 - `simple-git-hooks`: Simple Git Hooks
 - ...
 

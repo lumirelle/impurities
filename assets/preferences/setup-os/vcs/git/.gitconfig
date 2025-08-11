@@ -112,10 +112,10 @@ add-all-then-commit-with-message = "!f() { \
   git add-all; \
   git commit-with-message \"$1\"; \
 }; f"
-# only for a node package, which requires `commitizen` to be installed
-add-all-then-commit-with-commitizen = "!f() { \
+# only for a node package, which requires `czg` to be installed
+add-all-then-commit-with-czg = "!f() { \
   git add-all; \
-  git cz;\
+  git czg;\
 }; f"
 # amend commit
 amend-commit = commit --amend --no-edit
@@ -274,8 +274,8 @@ cu = commit-undo
 # add & commit: a*c*
 ac = add-all-then-commit # `ac` instead of `aac` because `aac` is too long to type
 acm = add-all-then-commit-with-message # `acm` instead of `aacm` because `aacm` is too long to type
-# add & commit (commitizen): a*cz*
-acz = add-all-then-commit-with-commitizen
+# add & commit (czg): a*cz*
+acg = add-all-then-commit-with-czg
 # amend commit: md
 md = amend-commit
 mde = amend-commit-with-edit
