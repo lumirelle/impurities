@@ -115,7 +115,7 @@ add-all-then-commit-with-message = "!f() { \
 # only for a node package, which requires `czg` to be installed
 add-all-then-commit-with-czg = "!f() { \
   git add-all; \
-  git czg;\
+  git czg \"$@\";\
 }; f"
 # amend commit
 amend-commit = commit --amend --no-edit

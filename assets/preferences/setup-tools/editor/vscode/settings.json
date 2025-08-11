@@ -395,8 +395,10 @@
   "gitlens.views.branches.showRemoteBranches": true,
   "gitlens.views.commitDetails.files.layout": "tree",
   "gitlens.fileAnnotations.command": "blame",
-  "gitlens.codeLens.scopes": ["document", "containers"],
-  "gitlens.graph.onlyFollowFirstParent": true,
+  "gitlens.codeLens.scopes": [
+    "document",
+    "containers"
+  ],
   "gitlens.graph.dimMergeCommits": true,
 
   // EXTENSIONS: LSP (syntax, formatter, linter, snippets)
@@ -599,5 +601,6 @@
     "plaintext": false,
     "markdown": true,
     "scminput": false
-  }
+  },
+  "gitlens.graph.onlyFollowFirstParent": true
 }
