@@ -7,13 +7,18 @@ it('powershell', async () => {
       cwd: import.meta.dirname,
     },
   })
-  const result: number[] = []
+  const result: string[] = []
   for await (const line of proc) {
-    result.push(+line)
+    result.push(line)
   }
+  if (result.some(i => i.includes('PSSecurityException'))) {
+    throw new Error('PSSecurityException detected. Please run "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser" in PowerShell.')
+  }
+  const numericResult = result.map(i => +i)
+
   // Result[0] = total tests
   // Result[1] = passed tests
   // Result[2] = failed tests
-  assert.equal(result[0], result[1])
-  assert.equal(result[2], 0)
+  assert.equal(numericResult[0], numericResult[1])
+  assert.equal(numericResult[2], 0)
 })
