@@ -15,6 +15,12 @@ Now, let's using `Source Han Sans TC` instead first.
 "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace"
 ```
 
+> [!Caution]
+>
+> If you are using Windows 10, please download the font files from Google Fonts, instead of Github.
+>
+> See this [issue](https://github.com/googlefonts/googlesans-code/issues/23) for more information.
+
 ## 📦 Other Nice Ones <a name="other"></a>
 
 - For Coding: `Rec Mono Casual`
