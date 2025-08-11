@@ -14,7 +14,11 @@ export default antfu(
       vueVersion: 2,
     },
 
-    // Disable typescript support, if your project is not using typescript but including `typescript` packages because of the ghost dependency
+    // Disable typescript support, only enable it when this project uses typescript itself.
+    // this option is auto-enabled if there is `typescript` package under your node_modules.
+    // That means if you install dependencies by NPM or PNPM with `shamfully-hoist: true`, TypeScript plugin will be enabled.
+    // If this project is a pure JavaScript project (lack of type support), when you use undefined variables, you won't get any error.
+    // That's very dangerous.
     typescript: false,
 
     // Enable formatters for css, markdown and etc. (requires `eslint-plugin-format`)
