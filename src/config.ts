@@ -6,6 +6,7 @@ import { join } from 'node:path'
 import { env, platform } from 'node:process'
 import consola from 'consola'
 import { x } from 'tinyexec'
+import { HooksError } from './error'
 import { isAdmin } from './permission'
 
 // -------------------------------------------------------------------------------------------------
@@ -220,7 +221,7 @@ export const GALLERIES: Gallery[] = [
       folders: [homedir()],
       afterInstall: async ({ dryRun }) => {
         if (!await isAdmin()) {
-          throw new Error('Required admin permission')
+          throw new HooksError('Required admin permission to set environment variable SIMPLE_GIT_HOOKS_RC')
         }
 
         const rcPath = join(homedir(), '.simple-git-hooks.rc')

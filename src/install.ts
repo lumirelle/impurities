@@ -3,6 +3,7 @@ import { join, normalize } from 'node:path'
 import consola from 'consola'
 import { globSync } from 'tinyglobby'
 import { GALLERIES, GLOBAL_PREFERENCES_IGNORE } from '.'
+import { handleErrors } from './error'
 import { copyFile, createSymlink, ensureDir } from './fs'
 import { highlight } from './highlight'
 
@@ -89,11 +90,7 @@ export async function install(
         }
         catch (error) {
           hasError = true
-          if (error instanceof Error && error.message.includes('EPERM')) {
-            consola.error(
-              `${highlight.red('Requires administrator permission! Please rerun the command with \'sudo\'')}\n\n${highlight.red(mode === 'copy' ? 'COPY:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important(mode === 'copy' ? '>>' : '<-')} ${installPath}`,
-            )
-          }
+          handleErrors(error, `${highlight.red(mode === 'copy' ? 'COPY:' : 'SYML:')} ${verbose ? absolutePath : path} ${highlight.important(mode === 'copy' ? '>>' : '<-')} ${installPath}`)
         }
       }
     }

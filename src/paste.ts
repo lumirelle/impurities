@@ -5,6 +5,7 @@ import prompts from '@posva/prompts'
 import consola from 'consola'
 import { globSync } from 'tinyglobby'
 import { ASSETS_PATH, GALLERIES, GLOBAL_PREFERENCES_IGNORE, GLOBAL_TEMPLATES_IGNORE } from '.'
+import { handleErrors } from './error'
 import { copyFile, ensureDir, isDirectory } from './fs'
 import { highlight } from './highlight'
 
@@ -75,11 +76,7 @@ export async function paste(
   }
   catch (error) {
     hasError = true
-    if (error instanceof Error && error.message.includes('EPERM')) {
-      consola.error(
-        `${highlight.red('Requires administrator permission! Please rerun the command with \'sudo\'')}\n\n${highlight.red('COPY:')} ${relative(join(root, ASSETS_PATH), source)} ${highlight.important('>>')} ${target}`,
-      )
-    }
+    handleErrors(error, `${highlight.red('COPY:')} ${relative(join(root, ASSETS_PATH), source)} ${highlight.important('>>')} ${target}`)
   }
 
   return Promise.resolve(!hasError)
