@@ -5,16 +5,5 @@
   "alias": {
     "typo": "docs: fix typos",
     "readme": "docs: update README.md"
-  },
-  "scopeOverrides": {
-    "test": [
-      "unit-test",
-      "e2e-test"
-    ],
-    "chore": [
-      "assets",
-      "deps",
-      "tools"
-    ]
   }
 }
