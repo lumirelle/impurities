@@ -69,7 +69,7 @@
           "font":
             {
               "builtinGlyphs": false,
-              "face": "'Rec Mono Casual', 'Source Han Sans TC', 'Symbols Nerd Font'",
+              "face": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
               "size": 16
             },
           "opacity": 80,
