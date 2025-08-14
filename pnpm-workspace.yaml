@@ -8,6 +8,7 @@ catalogs:
     '@prettier/plugin-xml': ^3.4.2
     '@types/node': ^24.2.1
     bumpp: ^10.2.2
+    czg: ^1.12.0
     eslint: ^9.33.0
     eslint-plugin-format: ^1.0.1
     lint-staged: ^16.1.5

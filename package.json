@@ -74,6 +74,7 @@
     "@prettier/plugin-xml": "catalog:dev",
     "@types/node": "catalog:dev",
     "bumpp": "catalog:dev",
+    "czg": "catalog:dev",
     "eslint": "catalog:dev",
     "eslint-plugin-format": "catalog:dev",
     "lint-staged": "catalog:dev",

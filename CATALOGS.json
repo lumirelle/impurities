@@ -160,6 +160,7 @@
             "extensions.json": "",
             "settings.json": ""
           },
+          "cz.config.js": "",
           "eslint.config.js": "",
           "eslint.config.ts": "",
           "jsconfig.json": "",
