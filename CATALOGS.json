@@ -288,7 +288,7 @@
     },
     "templates": {
       "license": {
-        "LICENSE": ""
+        "LICENSE.md": ""
       },
       "log": {
         "LOG.md": ""
