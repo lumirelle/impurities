@@ -6,7 +6,7 @@ templates:
     git:
       init: false
   - name: Monorepo
-    url: antfu/starter-monorepo
+    url: lumirelle/starter-monorepo
     git:
       init: false
   - name: VS Code
