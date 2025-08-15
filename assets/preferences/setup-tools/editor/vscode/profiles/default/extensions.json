@@ -44,6 +44,7 @@
     "antfu.array-index-inlay", // <NOT OPENVSIX>
     "yoavbls.pretty-ts-errors",
     "usernamehw.errorlens",
+    "nrevia05hp.plaintext-comment",
     // >> Status Bar Views
     "tomoki1207.selectline-statusbar", // <NOT OPENVSIX>
     // >> Explorer Behavior
@@ -68,6 +69,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_DEFAULT: 43 - 0 = 43}
-  // >> Cursor: {PROFILE_DEFAULT: 43 - 2 = 41}
+  // >> VSCode: {PROFILE_DEFAULT: 44 - 0 = 44}
+  // >> Cursor: {PROFILE_DEFAULT: 44 - 2 = 42}
 }
