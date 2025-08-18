@@ -44,7 +44,6 @@
     "antfu.array-index-inlay", // <NOT OPENVSIX>
     "yoavbls.pretty-ts-errors",
     "usernamehw.errorlens",
-    "nrevia05hp.plaintext-comment",
     // >> Status Bar Views
     "tomoki1207.selectline-statusbar", // <NOT OPENVSIX>
     // >> Explorer Behavior
@@ -58,6 +57,7 @@
     "cardinal90.multi-cursor-case-preserve",
     "christian-kohler.path-intellisense",
     "northisup.comment-divider-updated", // ALT+X, SHIFT+ALT+X, ALT+Y
+    "nrevia05hp.plaintext-comment", // CTRL+/
     "github.copilot", // <VSCODE ONLY>
     "github.copilot-chat", // <VSCODE ONLY>
     // >> Main Bar Behavior

@@ -25,9 +25,11 @@
     // >> Slidev
     "antfu.slidev",
     // >> UnoCSS
-    "antfu.unocss"
+    "antfu.unocss",
+    // >> Nuxt
+    "alimozdemir.vscode-nuxt-dx-tools"
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_JS: 13 + {PROFILE_DEFAULT: 44} = 57}
-  // >> Cursor: {PROFILE_JS: 13 + {PROFILE_DEFAULT: 42} = 55}
+  // >> VSCode: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 44} = 58}
+  // >> Cursor: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 42} = 56}
 }
