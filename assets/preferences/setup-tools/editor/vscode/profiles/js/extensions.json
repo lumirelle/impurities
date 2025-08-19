@@ -30,6 +30,6 @@
     "alimozdemir.vscode-nuxt-dx-tools"
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 44} = 58}
-  // >> Cursor: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 42} = 56}
+  // >> VSCode: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 45} = 59}
+  // >> Cursor: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 43} = 57}
 }

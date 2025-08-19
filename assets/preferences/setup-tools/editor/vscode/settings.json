@@ -589,16 +589,18 @@
   "selectline.displayFormat": "%d Lines Selected",
   // >> Commands
   "emoji-code.legacyMode": true,
-  // >> PROFILE_JS Editor Behavior
-  "css.enabledLanguages": ["html", "vue"],
-  "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],
-  "dotenv.enableAutocloaking": false,
+  // >> Editor Behavior
+  "rewrap.wrappingColumn": 120,
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
     "markdown": true,
     "scminput": false
   },
+  // >> PROFILE_JS Editor Behavior
+  "css.enabledLanguages": ["html", "vue"],
+  "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],
+  "dotenv.enableAutocloaking": false,
 
   // EXTENSIONS: FRAMEWORK SUPPORT
   "i18n-ally.autoDetection": false,

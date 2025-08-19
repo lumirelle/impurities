@@ -58,6 +58,7 @@
     "christian-kohler.path-intellisense",
     "northisup.comment-divider-updated", // ALT+X, SHIFT+ALT+X, ALT+Y
     "nrevia05hp.plaintext-comment", // CTRL+/
+    "dnut.rewrap-revived", // ALT+Q
     "github.copilot", // <VSCODE ONLY>
     "github.copilot-chat", // <VSCODE ONLY>
     // >> Main Bar Behavior
@@ -69,6 +70,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_DEFAULT: 44 - 0 = 44}
-  // >> Cursor: {PROFILE_DEFAULT: 44 - 2 = 42}
+  // >> VSCode: {PROFILE_DEFAULT: 45 - 0 = 45}
+  // >> Cursor: {PROFILE_DEFAULT: 45 - 2 = 43}
 }
