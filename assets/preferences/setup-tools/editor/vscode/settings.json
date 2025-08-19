@@ -114,8 +114,8 @@
   // >> Editor
   "editor.lineNumbers": "interval",
   "editor.rulers": [80, 120],
-  "editor.fontFamily": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
-  "editor.fontSize": 16,
+  "editor.fontFamily": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
+  "editor.fontSize": 18,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "editor.renderWhitespace": "boundary",
@@ -341,9 +341,9 @@
   "scm.diffDecorationsGutterWidth": 2,
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
   // >> Font
-  "custom-ui-style.font.sansSerif": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
-  "custom-ui-style.font.monospace": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
-  "markdown.preview.fontFamily": "'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
+  "custom-ui-style.font.sansSerif": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
+  "custom-ui-style.font.monospace": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
+  "markdown.preview.fontFamily": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
   "markdown.preview.fontSize": 16,
 
   // EXTENSIONS: PROJECT

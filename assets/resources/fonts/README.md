@@ -7,12 +7,14 @@
 
 ## 👫 Your Best Coding Friends <a name='coding'></a>
 
-It's a pity that I haven't found a Chinese font that can adapt well to `Google Sans Code` yet.
+It's a pity that I haven't found a Chinese font that can adapt well to `Fantasque Sans Mono` yet.
 
 Now, let's using `Source Han Sans TC` instead first.
 
+They have nearly width mapping: 2 letter ≈ 1 character.
+
 ```json
-"'Google Sans Code', 'Source Han Sans TC', 'Symbols Nerd Font', monospace"
+"'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', monospace"
 ```
 
 > [!Caution]
@@ -23,7 +25,7 @@ Now, let's using `Source Han Sans TC` instead first.
 
 ## 📦 Other Nice Ones <a name="other"></a>
 
-- For Coding: `Rec Mono Casual`
+- For Coding: `Rec Mono Casual`, `Google Sans Code`
 
 ## 📑 Preview
 

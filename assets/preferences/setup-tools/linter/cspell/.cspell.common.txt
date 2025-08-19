@@ -26,6 +26,7 @@ setx
 >> FONTS
 monaspace
 wisper
+Fantasque
 
 >> SHELLS & TERMINALS
 pwsh
