@@ -28,7 +28,6 @@
     "editorconfig.editorconfig", // For node package
     "esbenp.prettier-vscode", // For portable usage
     "foxundermoon.shell-format",
-    "tyriar.sort-lines",
     // >> Linters
     "streetsidesoftware.code-spell-checker",
 
@@ -51,14 +50,16 @@
     "sandcastle.vscode-open", // <NOT OPENVSIX>
     // >> Editor Behavior
     "antfu.smart-clicks", // <NOT OPENVSIX>
-    "mpontus.tab-cycle", // <NOT OPENVSIX>. CTRL+PGUP, CTRL+PGDN, ALT+<NUMBER>
-    "yatki.vscode-surround", // CTRL+SHIFT+T
-    "britesnow.vscode-toggle-quotes", // CTRL+'
     "cardinal90.multi-cursor-case-preserve",
     "christian-kohler.path-intellisense",
-    "northisup.comment-divider-updated", // ALT+X, SHIFT+ALT+X, ALT+Y
+    "mpontus.tab-cycle", // <NOT OPENVSIX>. CTRL+PGUP, CTRL+PGDN, ALT+<NUMBER>
+    "ow.vscode-subword-navigation", // ALT+LEFT_ARROW, ALT+RIGHT_ARROW
+    "britesnow.vscode-toggle-quotes", // CTRL+'
     "nrevia05hp.plaintext-comment", // CTRL+/
-    "dnut.rewrap-revived", // ALT+Q
+    "northisup.comment-divider-updated", // ALT+X, SHIFT+ALT+X, ALT+Y
+    "yatki.vscode-surround", // Less use, CTRL+SHIFT+T
+    "tyriar.sort-lines", // Less use, F9
+    "dnut.rewrap-revived", // Less use, ALT+Q
     "github.copilot", // <VSCODE ONLY>
     "github.copilot-chat", // <VSCODE ONLY>
     // >> Main Bar Behavior
@@ -70,6 +71,6 @@
     "helixquar.randomeverything" // <NOT OPENVSIX>
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_DEFAULT: 45 - 0 = 45}
-  // >> Cursor: {PROFILE_DEFAULT: 45 - 2 = 43}
+  // >> VSCode: {PROFILE_DEFAULT: 46 - 0 = 46}
+  // >> Cursor: {PROFILE_DEFAULT: 46 - 2 = 44}
 }

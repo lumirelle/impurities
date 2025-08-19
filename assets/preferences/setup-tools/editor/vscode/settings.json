@@ -14,7 +14,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 8/18/2025, 9:55:59 AM",
+    "//": "Last update at 8/19/2025, 10:57:01 PM",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .lfsconfig, .mailmap, .git-blame*",
@@ -276,6 +276,7 @@
   "editor.suggest.showDeprecated": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
   // >> Files
+  "files.autoSave": "afterDelay",
   "files.simpleDialog.enable": true,
   // >> Terminal
   "terminal.integrated.persistentSessionReviveProcess": "never",
