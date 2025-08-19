@@ -3,12 +3,12 @@
 
   // VSCODE: UI
   // >> Window
-  "window.zoomLevel": 1.2,
+  "window.zoomLevel": 1.4,
   "window.title": "${rootPath}", // this make tabs more readable
   "window.titleBarStyle": "custom",
   // >> Workbench
   "workbench.activityBar.orientation": "vertical",
-  "workbench.tree.indent": 10,
+  "workbench.tree.indent": 16,
   "workbench.tree.renderIndentGuides": "always",
   // >> Explorer
   "explorer.fileNesting.enabled": true,
@@ -114,8 +114,6 @@
   // >> Editor
   "editor.lineNumbers": "interval",
   "editor.rulers": [80, 120],
-  "editor.fontFamily": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
-  "editor.fontSize": 18,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "editor.renderWhitespace": "boundary",
@@ -124,111 +122,35 @@
   // >> PROFILE_JS Editor
   "editor.tokenColorCustomizations": {
     "[*Light*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#000"
-          }
-        }
-      ]
+      "textMateRules": []
     },
     "[*Dark*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#fff"
-          }
-        }
-      ]
+      "textMateRules": []
     },
     "textMateRules": []
   },
   // >> Terminal
   "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.defaultProfile.linux": "nushell",
+  "terminal.integrated.defaultProfile.osx": "nushell",
   "terminal.integrated.defaultProfile.windows": "Nushell",
   "terminal.integrated.profiles.linux": {
-    "nushell": {
-      "path": "nu"
-    },
-    "bash": {
-      "path": "bash",
-      "icon": "terminal-bash"
-    },
-    "zsh": {
-      "path": "zsh"
-    },
-    "fish": {
-      "path": "fish"
-    },
-    "tmux": {
-      "path": "tmux",
-      "icon": "terminal-tmux"
-    },
-    "pwsh": {
-      "path": "pwsh",
-      "icon": "terminal-powershell"
-    }
+    "nushell": { "path": "nu" }
   },
   "terminal.integrated.profiles.osx": {
-    "nushell": {
-      "path": "nu"
-    },
-    "bash": {
-      "path": "bash",
-      "args": [
-        "-l"
-      ],
-      "icon": "terminal-bash"
-    },
-    "zsh": {
-      "path": "zsh",
-      "args": [
-        "-l"
-      ]
-    },
-    "fish": {
-      "path": "fish",
-      "args": [
-        "-l"
-      ]
-    },
-    "tmux": {
-      "path": "tmux",
-      "icon": "terminal-tmux"
-    },
-    "pwsh": {
-      "path": "pwsh",
-      "icon": "terminal-powershell"
-    }
+    "nushell": { "path": "nu" }
   },
   "terminal.integrated.profiles.windows": {
-    "Nushell": {
-      "path": "C:\\Program Files\\nu\\bin\\nu.exe",
-      "name": "Nushell"
-    },
-    "PowerShell": {
-      "source": "PowerShell",
-      "icon": "terminal-powershell"
-    },
-    "Command Prompt": {
-      "path": [
-        "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe"
-      ],
-      "args": [],
-      "icon": "terminal-cmd"
-    },
-    "Git Bash": {
-      "source": "Git Bash"
-    }
+    "Nushell": { "path": "C:\\Program Files\\nu\\bin\\nu.exe" }
   },
-  "terminal.integrated.suggest.providers": {
-    "terminal-suggest": true,
-    "pwsh-shell-integration": false,
-    "lsp": true
-  },
+  // >> Font
+  "editor.fontFamily": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', monospace",
+  "editor.fontSize": 16,
+  "editor.lineHeight": 1.4,
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.4,
+  "terminal.integrated.fontLigatures.enabled": true,
   // >> Theme
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Vitesse Dark",
@@ -272,7 +194,7 @@
   "explorer.confirmDragAndDrop": false,
   // >> Editor
   "editor.mouseWheelZoom": true,
-  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?", // Remove `$` as it is usually used at the start of variable names
   "editor.suggest.showDeprecated": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
   // >> Files
@@ -312,14 +234,11 @@
   "editor.mouseWheelScrollSensitivity": 2,
   "editor.fastScrollSensitivity": 3,
   "terminal.integrated.mouseWheelScrollSensitivity": 2,
-  "terminal.integrated.env.windows": {},
   "terminal.integrated.fastScrollSensitivity": 3,
   "workbench.list.mouseWheelScrollSensitivity": 2,
   "workbench.list.fastScrollSensitivity": 3,
   // >> Security
   "security.workspace.trust.enabled": false,
-  // >> C++
-  "cursor.cpp.disabledLanguages": ["plaintext"],
 
   // VSCODE: FORMAT & FORMATTERS
   "files.eol": "\n",
@@ -340,6 +259,8 @@
   // >> Editor
   "scm.diffDecorationsGutterWidth": 2,
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
+  "errorLens.messageTemplate": "$severity$message",
+  "errorLens.severityText": ["■ ", "■ ", "■ ", "■ "],
   // >> Font
   "custom-ui-style.font.sansSerif": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', sans-serif",
   "custom-ui-style.font.monospace": "'Fantasque Sans Mono', 'Source Han Sans TC', 'Symbols Nerd Font', monaspace",
@@ -360,47 +281,24 @@
   "gitlens.defaultGravatarsStyle": "monsterid",
   "gitlens.plusFeatures.enabled": false,
   "gitlens.menus": {
-    "editor": {
-      "blame": true,
-      "clipboard": true,
-      "compare": true,
-      "history": true,
-      "remote": true
-    },
+    "editor": { "blame": true, "clipboard": true, "compare": true, "history": true, "remote": true },
     "editorGroup": false,
     "editorGutter": false,
     "editorTab": false,
-    "explorer": {
-      "clipboard": true,
-      "compare": true,
-      "history": true,
-      "remote": true
-    },
-    "ghpr": {
-      "worktree": true
-    },
+    "explorer": { "clipboard": true, "compare": true, "history": true, "remote": true },
+    "ghpr": { "worktree": true },
     "scm": false,
     "scmRepositoryInline": false,
     "scmRepository": false,
-    "scmGroupInline": {
-      "stash": true
-    },
-    "scmGroup": {
-      "compare": true,
-      "openClose": true,
-      "patch": false,
-      "stash": true
-    },
+    "scmGroupInline": { "stash": true },
+    "scmGroup": { "compare": true, "openClose": true, "patch": false, "stash": true },
     "scmItemInline": false,
     "scmItem": false
   },
   "gitlens.views.branches.showRemoteBranches": true,
   "gitlens.views.commitDetails.files.layout": "tree",
   "gitlens.fileAnnotations.command": "blame",
-  "gitlens.codeLens.scopes": [
-    "document",
-    "containers"
-  ],
+  "gitlens.codeLens.scopes": ["document", "containers"],
   "gitlens.graph.dimMergeCommits": true,
   "gitlens.graph.onlyFollowFirstParent": true,
 
@@ -416,18 +314,8 @@
   "cSpell.language": "en,en-US",
   "cSpell.allowCompoundWords": true,
   "cSpell.customDictionaries": {
-    "dev": {
-      "name": "common",
-      "path": "~/.cspell.common.txt",
-      "description": "Words used in common situation.",
-      "addWords": false
-    },
-    "wrk": {
-      "name": "work",
-      "path": "~/.cspell.work.txt",
-      "description": "Words used in wrok.",
-      "addWords": false
-    }
+    "dev": { "name": "common", "path": "~/.cspell.common.txt", "description": "Words used in common situation.", "addWords": false },
+    "wrk": { "name": "work", "path": "~/.cspell.work.txt", "description": "Words used in work.", "addWords": false }
   },
   "cSpell.ignorePaths": [
     // all of dotfiles & dotfolders
@@ -598,6 +486,8 @@
     "markdown": true,
     "scminput": false
   },
+  "cursor.cpp.disabledLanguages": ["plaintext"],
+
   // >> PROFILE_JS Editor Behavior
   "css.enabledLanguages": ["html", "vue"],
   "css.styleSheets": ["**/*.{c,sc,sa,le,postc}ss"],
