@@ -241,7 +241,6 @@
   "security.workspace.trust.enabled": false,
 
   // VSCODE: FORMAT & FORMATTERS
-  "files.eol": "\n",
   "files.insertFinalNewline": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
