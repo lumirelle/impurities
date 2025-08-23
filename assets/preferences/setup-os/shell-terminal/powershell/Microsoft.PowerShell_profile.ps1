@@ -57,7 +57,7 @@ New-Alias -Name touch -Value New-Item
 New-Alias -Name grep -Value Select-String
 
 # COMMAND SHORTCUTS
-# dev, test, build, stub, start, release, lint, typecheck:
+# dev, test, build, start, release, lint, typecheck:
 # Run npm scripts quickly while we are in a directory that has a `package.json`
 function Nr-Dev {
   Nr-Agent dev @args
@@ -68,14 +68,8 @@ function Nr-Test {
 function Nr-Build {
   Nr-Agent build @args
 }
-function Nr-Stub {
-  Nr-Agent stub @args
-}
 function Nr-Start {
   Nr-Agent start @args
-}
-function Nr-Preview {
-  Nr-Agent preview @args
 }
 function Nr-Release {
   Nr-Agent release @args
@@ -89,10 +83,8 @@ function Nr-Typecheck {
 New-Alias -Name dev -Value Nr-Dev
 New-Alias -Name test -Value Nr-Test
 New-Alias -Name build -Value Nr-Build
-New-Alias -Name stub -Value Nr-Stub
 Remove-Item Alias:start -Force -ErrorAction Ignore
 New-Alias -Name start -Value Nr-Start
-New-Alias -Name preview -Value Nr-Preview
 New-Alias -Name release -Value Nr-Release
 New-Alias -Name lint -Value Nr-Lint
 New-Alias -Name typecheck -Value Nr-Typecheck

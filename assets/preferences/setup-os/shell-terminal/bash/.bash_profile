@@ -53,14 +53,12 @@ fi
 eval "$(oh-my-posh init bash --config "${POSH_THEMES_PATH}the-unnamed.omp.json")"
 
 # COMMAND SHORTCUTS
-# dev, test, build, stub, start, release, lint, typecheck:
+# dev, test, build, start, release, lint, typecheck:
 # Run npm scripts quickly while we are in a directory that has a `package.json`.
 alias dev='nr-agent dev'
 alias test='nr-agent test'
 alias build='nr-agent build'
-alias stub='nr-agent stub'
 alias start='nr-agent start'
-alias preview='nr-agent preview'
 alias release='nr-agent release'
 alias lint='nr-agent lint'
 alias typecheck='nr-agent typecheck'
