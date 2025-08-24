@@ -117,8 +117,8 @@
           },
           "nushell": {
             "config.nu": "",
-            "defs.nu": "",
-            "env.nu": ""
+            "env.nu": "",
+            "utils.nu": ""
           },
           "powershell": {
             "deprecated": "",

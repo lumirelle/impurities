@@ -6,10 +6,10 @@ Preferences for setting up a new machine.
 
 Preferences for shell & terminal.
 
-- `bash`: Bash (Linux Basic, support full-config)
-- `cmd`: Command Prompt (Windows Basic, support oh-my-posh only)
+- `bash`: Bash (Linux Basic, support full-config, except hooks for PWD changing)
+- `cmd`: Command Prompt (Windows Basic, support `fnm` only)
 - `nushell`: Nu Shell (Cross-platform, support full-config, which I prefer)
-- `powershell`: PowerShell (Deprecated, support full-config now (2025-07-31), but will not receive any updates in the future)
+- `powershell`: PowerShell (Deprecated, support full-config, except hooks for PWD changing)
 - `windows-terminal`: Windows Terminal
 - ...
 

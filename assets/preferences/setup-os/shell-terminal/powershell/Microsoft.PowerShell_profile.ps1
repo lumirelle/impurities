@@ -1,5 +1,6 @@
-# FUNCTIONS
-function Any-Path-Exists {
+# --------------------------------- FUNCTIONS -------------------------------- #
+
+function Test-AnyPathExists {
   foreach ($p in $args) {
     if (Test-Path -Path $p) {
       return $true
@@ -8,12 +9,12 @@ function Any-Path-Exists {
   return $false
 }
 
-function Any-Path-Exists-Parent {
+function Test-AnyPathExistsParent {
   foreach ($p in $args) {
-    $abs = Join-Path -Path $pwd -ChildPath $p
-    $level = $abs.Split([System.IO.Path]::DirectorySeparatorChar) | Measure-Object | Select-Object -ExpandProperty Count
+    $absDirname = Split-Path (Join-Path -Path $pwd -ChildPath $p) -Parent
+    $level = $absDirname.Split([System.IO.Path]::DirectorySeparatorChar) | Measure-Object | Select-Object -ExpandProperty Count
     for ($i = 1; $i -lt $level; $i++) {
-      $dir = ($abs.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast $i) -Join [System.IO.Path]::DirectorySeparatorChar | Join-Path -ChildPath $p
+      $dir = ($absDirname.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast $i) -Join [System.IO.Path]::DirectorySeparatorChar | Join-Path -ChildPath $p
       if (Test-Path -Path $dir) {
         return $true
       }
@@ -23,14 +24,16 @@ function Any-Path-Exists-Parent {
 }
 
 function Nr-Agent {
-  if (Any-Path-Exists-Parent "package.json") {
+  if (Test-AnyPathExistsParent "package.json") {
     if (Get-Command -Name nr -ErrorAction SilentlyContinue) {
       nr @args
     } else {
-      Write-Warning "Warning: @antfu/ni is not installed as a global node package."
+      Write-Warning "Warning: `@antfu/ni` is not installed as a global node package."
     }
   }
 }
+
+# ------------------------------------ ENV ----------------------------------- #
 
 # LANGUAGE & ENCODING
 # Setting the encoding to UTF-8
@@ -40,7 +43,7 @@ $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = [Text.E
 # >> Setting up fnm
 fnm env --use-on-cd --corepack-enabled --shell powershell | Out-String | Invoke-Expression
 # >> Add current node_modules/.bin to PATH if it exists, so we can run npm scripts without `npx`.
-if (Any-Path-Exists-Parent "package.json") {
+if (Test-AnyPathExistsParent "package.json") {
   $env:PATH = "{0}{1}node_modules{1}.bin;{2}" -f (Get-Location), [System.IO.Path]::DirectorySeparatorChar, $env:PATH
 }
 

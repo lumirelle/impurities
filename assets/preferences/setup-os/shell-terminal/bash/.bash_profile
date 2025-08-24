@@ -1,4 +1,5 @@
-# FUNCTIONS
+# --------------------------------- FUNCTIONS -------------------------------- #
+
 any-path-exists () {
   for path in "$@"; do
     if [ -e "$path" ]; then
@@ -31,10 +32,12 @@ nr-agent () {
     if [ -x "$(command -v nr)" ]; then
       nr -- "$@"
     else
-      echo "Warning: @antfu/ni is not installed as a global node package."
+      echo "Warning: \`@antfu/ni\` is not installed as a global node package."
     fi
   fi
 }
+
+# ------------------------------------ ENV ----------------------------------- #
 
 # LANGUAGE & ENCODING
 # Setting the language to English and the encoding to UTF-8.
