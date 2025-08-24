@@ -1,5 +1,5 @@
 #!/usr/bin/env nu
-use '../../../assets/preferences/setup-os/shell-terminal/nushell/defs.nu' *
+use '../../../assets/preferences/setup-os/shell-terminal/nushell/utils.nu' *
 
 def main [--silent] {
   mut total_tests = 0
