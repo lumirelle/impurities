@@ -381,22 +381,20 @@
   },
   "todohighlight.keywords": [
     {
-      "text": "BUG:",
+      "text": "BUG(string):",
+      "regex": { "pattern": "(?<=^|\"|\\s)(BUG|CAUTION)(\\(\\w+\\))?:" },
       "backgroundColor": "#ab372f",
       "overviewRulerColor": "rgb(171 55 47 / 80%)"
     },
     {
-      "text": "CAUTION:",
-      "backgroundColor": "#ab372f",
-      "overviewRulerColor": "rgb(171 55 47 / 80%)"
-    },
-    {
-      "text": "FIXME:",
+      "text": "FIXME(string):",
+      "regex": { "pattern": "(?<=^|\"|\\s)(FIXME)(\\(\\w+\\))?:" },
       "backgroundColor": "#ee7959",
       "overviewRulerColor": "rgb(238 121 89 / 80%)"
     },
     {
-      "text": "TODO:",
+      "text": "TODO(string):",
+      "regex": { "pattern": "(?<=^|\"|\\s)(TODO)(\\(\\w+\\))?:" },
       "backgroundColor": "#3271ae",
       "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
@@ -406,17 +404,19 @@
       "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
     {
-      "text": "ONPROGRESS:",
+      "text": "WIP(string):",
+      "regex": { "pattern": "(?<=^|\"|\\s)(WIP)(\\(\\w+\\))?:" },
       "backgroundColor": "#6ca8af",
       "overviewRulerColor": "rgb(108 168 175 / 80%)"
     },
     {
-      "text": "[-]",
+      "text": "[~]",
       "backgroundColor": "#6ca8af",
       "overviewRulerColor": "rgb(108 168 175 / 80%)"
     },
     {
-      "text": "DONE:",
+      "text": "DONE(string):",
+      "regex": { "pattern": "(?<=^|\"|\\s)(DONE)(\\(\\w+\\))?:" },
       "backgroundColor": "#68945c",
       "overviewRulerColor": "rgb(104 148 92 / 80%)"
     },
@@ -426,12 +426,14 @@
       "overviewRulerColor": "rgb(104 148 92 / 80%)"
     },
     {
-      "text": "NOTE:",
+      "text": "NOTE(string):",
+      "regex": { "pattern": "(?<=^|\"|\\s)(NOTE|NOTICE)(\\(\\w+\\))?:" },
       "backgroundColor": "#e18a3b",
       "overviewRulerColor": "rgb(225 138 59 / 80%)"
     },
     {
-      "text": "OPTINAL:",
+      "text": "OPTINAL(string):",
+      "regex": { "pattern": "(?<=^|\"|\\s)(OPTINAL)(\\(\\w+\\))?:" },
       "backgroundColor": "#9aa7b1",
       "overviewRulerColor": "rgb(154 167 177 / 80%)"
     },
@@ -441,30 +443,32 @@
       "overviewRulerColor": "rgb(50 113 174 / 80%)"
     },
     {
-      "text": "<NOT OPENVSIX>",
-      "backgroundColor": "#7e527f",
-      "overviewRulerColor": "rgb(126 82 127 / 80%)"
-    },
-    {
       "text": "<CURSOR ONLY>",
       "backgroundColor": "#ab372f",
       "overviewRulerColor": "rgb(171 55 47 / 80%)"
+    },
+    {
+      "text": "<NOT OPENVSIX>",
+      "backgroundColor": "#7e527f",
+      "overviewRulerColor": "rgb(126 82 127 / 80%)"
     }
   ],
   "todohighlight.include": [
-    "**/*.htm{,l}",
-    "**/*.{c,sc,sa,le,postc}ss",
-    "**/*.{,m}js{,x}",
-    "**/*.{,m}ts{,x}",
-    "**/*.vue",
-    "**/*.md{,x}",
-    "**/*.json{,c}",
-    "**/*.{y,ya,to}ml",
-    "**/*.nu", // nushell
-    "**/*.java",
-    "**/*.{c,cpp,h}",
-    "**/*.go",
-    "**/*.rs"
+    "**/*" // Include all files
+  ],
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "**/.vscode-test/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**",
+    "**/.output/**"
   ],
   // >> Editor Views
   "arrayIndexInlay.minLength": 5,
