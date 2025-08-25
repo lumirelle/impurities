@@ -112,8 +112,7 @@
           },
           "cmd": {
             "autorun.cmd": "",
-            "autorun.reg": "",
-            "fixme": ""
+            "autorun.reg": ""
           },
           "nushell": {
             "config.nu": "",
