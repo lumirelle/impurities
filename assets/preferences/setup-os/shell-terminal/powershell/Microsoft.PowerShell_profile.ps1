@@ -13,14 +13,29 @@ function Test-AnyPathExistsParent {
   foreach ($p in $args) {
     $absDirname = Split-Path (Join-Path -Path $pwd -ChildPath $p) -Parent
     $level = $absDirname.Split([System.IO.Path]::DirectorySeparatorChar) | Measure-Object | Select-Object -ExpandProperty Count
-    for ($i = 1; $i -lt $level; $i++) {
-      $dir = ($absDirname.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast $i) -Join [System.IO.Path]::DirectorySeparatorChar | Join-Path -ChildPath $p
-      if (Test-Path -Path $dir) {
+    for ($i = 0; $i -lt $level; $i++) {
+      $dir = ($absDirname.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast $i) -Join [System.IO.Path]::DirectorySeparatorChar
+      $newPath = Join-Path -Path $dir -ChildPath $p
+      if (Test-Path -Path $newPath) {
         return $true
       }
     }
   }
   return $false
+}
+
+function Get-DirnameParent {
+  $p = $args[0]
+  $absDirname = Split-Path (Join-Path -Path $pwd -ChildPath $p) -Parent
+  $level = $absDirname.Split([System.IO.Path]::DirectorySeparatorChar) | Measure-Object | Select-Object -ExpandProperty Count
+  for ($i = 0; $i -lt $level; $i++) {
+    $dir = ($absDirname.Split([System.IO.Path]::DirectorySeparatorChar) | Select-Object -SkipLast $i) -Join [System.IO.Path]::DirectorySeparatorChar
+    $newPath = Join-Path -Path $dir -ChildPath $p
+    if (Test-Path -Path $newPath) {
+      return $dir
+    }
+  }
+  return ''
 }
 
 function Nr-Agent {
@@ -43,8 +58,9 @@ $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = [Text.E
 # >> Setting up fnm
 fnm env --use-on-cd --corepack-enabled --shell powershell | Out-String | Invoke-Expression
 # >> Add current node_modules/.bin to PATH if it exists, so we can run npm scripts without `npx`.
+# NOTICE: Just effect on the first time you start a new shell
 if (Test-AnyPathExistsParent "package.json") {
-  $env:PATH = "{0}{1}node_modules{1}.bin;{2}" -f (Get-Location), [System.IO.Path]::DirectorySeparatorChar, $env:PATH
+  $env:PATH = "{0}{1}node_modules{1}.bin;{2}" -f (Get-DirnameParent "package.json"), [System.IO.Path]::DirectorySeparatorChar, $env:PATH
 }
 
 # UI
