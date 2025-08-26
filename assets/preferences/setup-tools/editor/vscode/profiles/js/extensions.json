@@ -27,9 +27,11 @@
     // >> UnoCSS
     "antfu.unocss",
     // >> Nuxt
-    "alimozdemir.vscode-nuxt-dx-tools"
+    "alimozdemir.vscode-nuxt-dx-tools",
+    // >> Tailwind CSS
+    "bradlc.vscode-tailwindcss"
   ]
   // EXTENSION COUNT
-  // >> VSCode: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 46} = 60}
-  // >> Cursor: {PROFILE_JS: 14 + {PROFILE_DEFAULT: 44} = 58}
+  // >> VSCode: {PROFILE_JS: 15 + {PROFILE_DEFAULT: 46} = 61}
+  // >> Cursor: {PROFILE_JS: 15 + {PROFILE_DEFAULT: 44} = 59}
 }
