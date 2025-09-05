@@ -1,6 +1,7 @@
 {
   "assets": {
     "docs": {
+      "deprecated": "",
       "life": {
         "eating": {
           "prefabricated-dish-manual.md": ""
@@ -91,6 +92,7 @@
       }
     },
     "preferences": {
+      "deprecated": "",
       "setup-env": {
         "package-manager": {
           "maven": {
@@ -270,6 +272,7 @@
       }
     },
     "resources": {
+      "deprecated": "",
       "fonts": {
         "Fantasque Sans Mono.url": "",
         "Google Sans Code.url": "",
@@ -287,6 +290,7 @@
       }
     },
     "templates": {
+      "deprecated": "",
       "license": {
         "LICENSE.md": ""
       },

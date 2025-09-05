@@ -22,7 +22,14 @@
 >
 > This project only supports Windows now.
 >
-> I swear, this is the last time I have an obsessive-compulsive disorder attack. 🥰
+> ~~I swear, this is the last time I have an obsessive-compulsive disorder attack. 🥰~~
+>
+> What a pity, I have an obsessive-compulsive disorder attack again. TuT. This time is because this package is getting too fat,
+> so I decide to refactor it by using monorepo architecture, and split it into several smaller packages.
+> The process of growing up is always painful, right? 😭
+> So, please use [starship-butler](https://github.com/lumirelle/starship-butler) instead.
+>
+> I swear, this is the last time I have an obsessive-compulsive disorder attack!!! 🤶🏼
 
 <p align="center"> It includes all kinds of impurities, demos, docs, preferences, resources, templates, etc.
     <br>

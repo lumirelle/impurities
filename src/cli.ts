@@ -19,6 +19,7 @@ cli
   .option('--verbose, -v', 'verbose output')
   .option('--dry-run, -d', 'dry run')
   .action(async (options: InstallOptions) => {
+    consola.warn('This package is deprecated again! See https://github.com/lumirelle/starship-butler.')
     if (options.verbose) {
       consola.level = LogLevels.debug
     }
@@ -32,6 +33,7 @@ cli.command('uninstall', 'Uninstall preferences from your system')
   .option('--verbose, -v', 'verbose output')
   .option('--dry-run, -d', 'dry run')
   .action((options: UninstallOptions) => {
+    consola.warn('This package is deprecated again! See https://github.com/lumirelle/starship-butler.')
     if (options.verbose) {
       consola.level = LogLevels.debug
     }
@@ -48,6 +50,7 @@ cli.command('paste [source] [target]', 'Paste everything to the target path')
   .option('--verbose, -v', 'verbose output')
   .option('--dry-run, -d', 'dry run')
   .action(async (source: string, target: string, options: PasteOptions) => {
+    consola.warn('This package is deprecated again! See https://github.com/lumirelle/starship-butler.')
     if (options.verbose) {
       consola.level = LogLevels.debug
     }
